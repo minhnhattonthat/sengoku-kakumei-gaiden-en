@@ -12,7 +12,7 @@ Skill: translate-retro-game (Claude Code: plugin, enabled in .claude/settings.js
 
 ## Paths
 - Original ROM: `rom/Sengoku Kakumei Gaiden (Japan).gba` (8 MiB; gitignored; SHA-1 in `rom.sha1`, checked by `tools/check_rom.py`). Emulator: this repo's own MesenCE in `tools/mesen/` (release 2.2.1, https://github.com/nesdev-org/MesenCE/releases/download/2.2.1/Mesen_2.2.1_Windows.zip; gitignored; GBA BIOS in `tools/mesen/Firmware/gba_bios.bin`, sha1 300c20df…, from retrobios `bios/Nintendo/Game Boy Advance/GBA_bios.rom`; settings in `tools/emu-config/`). Savestates: `work/states/`.
-- Text: `script/` (format decided in phase 4). Tables: `tbl/`. Glossary: `glossary.md`. RE notes index: `docs/re/README.md`. Fonts and their licences: `docs/fonts.md`.
+- Text: `script/<bank>.json`, one entry per pointed string (id = ROM address, jp, en, kind text/debug/code/dup); format, dump and update in `tools/script.py`'s docstring; `build.py` loads every non-empty `en`. Tables: `tbl/`. Glossary: `glossary.md`. RE notes index: `docs/re/README.md`. Fonts and their licences: `docs/fonts.md`.
 - Copied from the skill so a clone builds without it: `tools/tbl.py`, `tools/bps.py`, `tools/romdiff.py`, `tools/skill.py`.
 
 ## Rulings

@@ -1,0 +1,2411 @@
+[
+ {
+  "id": "04e008",
+  "sites": [
+   "009ff4"
+  ],
+  "room": 16,
+  "kind": "debug",
+  "jp": "銑垣渺筑粟琴",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾁｭｳﾀﾞﾝﾃﾞｰﾀｶﾗ"
+ },
+ {
+  "id": "04e018",
+  "sites": [
+   "00a008"
+  ],
+  "room": 4,
+  "kind": "debug",
+  "jp": "焚",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾊｲ"
+ },
+ {
+  "id": "04e01c",
+  "sites": [
+   "00a010"
+  ],
+  "room": 4,
+  "kind": "debug",
+  "jp": "臆[B4]",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｲｲｴ"
+ },
+ {
+  "id": "04e020",
+  "sites": [
+   "00a020"
+  ],
+  "room": 12,
+  "kind": "debug",
+  "jp": "菌悽骸麓[C0]",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｶﾝﾘｮｳｼﾏｼﾀ"
+ },
+ {
+  "id": "04e02c",
+  "sites": [
+   "00a030"
+  ],
+  "room": 12,
+  "kind": "debug",
+  "jp": "筑粟象生",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀｾﾝﾀｸ"
+ },
+ {
+  "id": "04e038",
+  "sites": [
+   "00a038"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "筑粟1L",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ1L"
+ },
+ {
+  "id": "04e040",
+  "sites": [
+   "00a040"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "筑粟2L",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ2L"
+ },
+ {
+  "id": "04e048",
+  "sites": [
+   "00a050"
+  ],
+  "room": 12,
+  "kind": "debug",
+  "jp": "筑粟3L琴禁",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ3Lｶﾗｶﾘ"
+ },
+ {
+  "id": "04e054",
+  "sites": [
+   "00a058"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "筑粟4L",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ4L"
+ },
+ {
+  "id": "04e05c",
+  "sites": [
+   "00a060"
+  ],
+  "room": 4,
+  "kind": "debug",
+  "jp": "焚L",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾊｲL"
+ },
+ {
+  "id": "04e060",
+  "sites": [
+   "00a068"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "臆[B4]L",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｲｲｴL"
+ },
+ {
+  "id": "04e068",
+  "sites": [
+   "00a078"
+  ],
+  "room": 12,
+  "kind": "debug",
+  "jp": "朧爪菌悽[B3]",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾛｰﾄﾞｶﾝﾘｮｳ"
+ },
+ {
+  "id": "04e074",
+  "sites": [
+   "00a088"
+  ],
+  "room": 12,
+  "kind": "debug",
+  "jp": "筑粟霧蒔",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀﾌｸｼｬ"
+ },
+ {
+  "id": "04e080",
+  "sites": [
+   "00a090"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "筑粟1C",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ1C"
+ },
+ {
+  "id": "04e088",
+  "sites": [
+   "00a098"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "筑粟2C",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ2C"
+ },
+ {
+  "id": "04e090",
+  "sites": [
+   "00a0a0"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "筑粟3C",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ3C"
+ },
+ {
+  "id": "04e098",
+  "sites": [
+   "00a0a8"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "筑粟4C",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ4C"
+ },
+ {
+  "id": "04e0a0",
+  "sites": [
+   "00a0b8"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "宰澎桟1",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｺﾋﾟｰｻｷ1"
+ },
+ {
+  "id": "04e0a8",
+  "sites": [
+   "00a0c8"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "宰澎桟2",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｺﾋﾟｰｻｷ2"
+ },
+ {
+  "id": "04e0b0",
+  "sites": [
+   "00a0d8"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "宰澎桟3",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｺﾋﾟｰｻｷ3"
+ },
+ {
+  "id": "04e0b8",
+  "sites": [
+   "00a0e8"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "宰澎桟4",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｺﾋﾟｰｻｷ4"
+ },
+ {
+  "id": "04e0c0",
+  "sites": [
+   "00a0f0"
+  ],
+  "room": 4,
+  "kind": "debug",
+  "jp": "焚C",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾊｲC"
+ },
+ {
+  "id": "04e0c4",
+  "sites": [
+   "00a0f8"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "臆[B4]C",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｲｲｴC"
+ },
+ {
+  "id": "04e0cc",
+  "sites": [
+   "00a108"
+  ],
+  "room": 12,
+  "kind": "debug",
+  "jp": "霧蒔菌悽[B3]",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾌｸｼｬｶﾝﾘｮｳ"
+ },
+ {
+  "id": "04e0d8",
+  "sites": [
+   "00a118"
+  ],
+  "room": 12,
+  "kind": "debug",
+  "jp": "筑粟燦灼[AE]",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀｻｸｼﾞｮ"
+ },
+ {
+  "id": "04e0e4",
+  "sites": [
+   "00a120"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "筑粟1D",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ1D"
+ },
+ {
+  "id": "04e0ec",
+  "sites": [
+   "00a128"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "筑粟2D",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ2D"
+ },
+ {
+  "id": "04e0f4",
+  "sites": [
+   "00a130"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "筑粟3D",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ3D"
+ },
+ {
+  "id": "04e0fc",
+  "sites": [
+   "00a138"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "筑粟4D",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ4D"
+ },
+ {
+  "id": "04e104",
+  "sites": [
+   "00a140"
+  ],
+  "room": 4,
+  "kind": "debug",
+  "jp": "焚D",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾊｲD"
+ },
+ {
+  "id": "04e108",
+  "sites": [
+   "00a148"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "臆[B4]D",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｲｲｴD"
+ },
+ {
+  "id": "04e110",
+  "sites": [
+   "00a158"
+  ],
+  "room": 12,
+  "kind": "debug",
+  "jp": "燦灼[AE]菌悽[B3]",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｻｸｼﾞｮｶﾝﾘｮｳ"
+ },
+ {
+  "id": "04e11c",
+  "sites": [
+   "00a168"
+  ],
+  "room": 12,
+  "kind": "debug",
+  "jp": "筑粟凌渺",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀﾎｿﾞﾝ"
+ },
+ {
+  "id": "04e128",
+  "sites": [
+   "00a170"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "筑粟1S",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ1S"
+ },
+ {
+  "id": "04e130",
+  "sites": [
+   "00a178"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "筑粟2S",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ2S"
+ },
+ {
+  "id": "04e138",
+  "sites": [
+   "00a180"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "筑粟3S",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ3S"
+ },
+ {
+  "id": "04e140",
+  "sites": [
+   "00a188"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "筑粟4S",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾞｰﾀ4S"
+ },
+ {
+  "id": "04e148",
+  "sites": [
+   "00a190"
+  ],
+  "room": 4,
+  "kind": "debug",
+  "jp": "焚S",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾊｲS"
+ },
+ {
+  "id": "04e14c",
+  "sites": [
+   "00a198"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "臆[B4]S",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｲｲｴS"
+ },
+ {
+  "id": "04e154",
+  "sites": [
+   "00a1a8"
+  ],
+  "room": 12,
+  "kind": "debug",
+  "jp": "凌渺菌悽[B3]",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾎｿﾞﾝｶﾝﾘｮｳ"
+ },
+ {
+  "id": "04e160",
+  "sites": [
+   "00a1c0"
+  ],
+  "room": 16,
+  "kind": "debug",
+  "jp": "銑垣渺筑粟凌渺",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾁｭｳﾀﾞﾝﾃﾞｰﾀﾎｿﾞﾝ"
+ },
+ {
+  "id": "04e170",
+  "sites": [
+   "00a1c8"
+  ],
+  "room": 4,
+  "kind": "debug",
+  "jp": "焚4",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾊｲ4"
+ },
+ {
+  "id": "04e174",
+  "sites": [
+   "00a1dc"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "臆[B4]4",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｲｲｴ4"
+ },
+ {
+  "id": "04e17c",
+  "sites": [
+   "00a1f0"
+  ],
+  "room": 16,
+  "kind": "debug",
+  "jp": "銑垣渺凌渺菌悽[B3]",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾁｭｳﾀﾞﾝﾎｿﾞﾝｶﾝﾘｮｳ"
+ },
+ {
+  "id": "04e18c",
+  "sites": [
+   "00a1f8"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "焚Name",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾊｲName"
+ },
+ {
+  "id": "04e194",
+  "sites": [
+   "00a208"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "臆[B4]Name",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｲｲｴName"
+ },
+ {
+  "id": "04e19c",
+  "sites": [
+   "00a210"
+  ],
+  "room": 4,
+  "kind": "debug",
+  "jp": "議[BA]",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｵﾄｺ"
+ },
+ {
+  "id": "04e1a0",
+  "sites": [
+   "00a21c"
+  ],
+  "room": 4,
+  "kind": "debug",
+  "jp": "弓[C5]",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｵﾝﾅ"
+ },
+ {
+  "id": "04e1a4",
+  "sites": [
+   "00a234"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "焚TYPE",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾊｲTYPE"
+ },
+ {
+  "id": "04e1ac",
+  "sites": [
+   "00a244"
+  ],
+  "room": 8,
+  "kind": "debug",
+  "jp": "臆[B4]TYPE",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｲｲｴTYPE"
+ },
+ {
+  "id": "04e1b4",
+  "sites": [
+   "00a254"
+  ],
+  "room": 12,
+  "kind": "debug",
+  "jp": "康嘆赦疾",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｹｯﾃｲｼﾏｼﾀ"
+ },
+ {
+  "id": "04e1c0",
+  "sites": [
+   "00a264"
+  ],
+  "room": 12,
+  "kind": "debug",
+  "jp": "竹鏡苛殕[DD]",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾃﾝｶﾀｲﾗﾝﾍﾝ"
+ },
+ {
+  "id": "04e1cc",
+  "sites": [
+   "00a27c"
+  ],
+  "room": 12,
+  "kind": "debug",
+  "jp": "呼椿強象慾",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｸﾆﾄﾘｶｯｾﾝﾍﾝ"
+ },
+ {
+  "id": "04e1d8",
+  "sites": [
+   "00a28c"
+  ],
+  "room": 12,
+  "kind": "debug",
+  "jp": "審凡象生",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｿｳﾋﾞｾﾝﾀｸ"
+ },
+ {
+  "id": "04e1e4",
+  "sites": [
+   "00a29c"
+  ],
+  "room": 12,
+  "kind": "debug",
+  "jp": "狂辞少嘆",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｶｸｼｭｾｯﾃｲ"
+ },
+ {
+  "id": "04e1f0",
+  "sites": [
+   "00a2b0"
+  ],
+  "room": 16,
+  "kind": "debug",
+  "jp": "焚START_SOLO",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ﾊｲSTART_SOLO"
+ },
+ {
+  "id": "04e200",
+  "sites": [
+   "00a2c4"
+  ],
+  "room": 16,
+  "kind": "debug",
+  "jp": "臆[B4]START_SOLO",
+  "en": "",
+  "notes": "",
+  "status": "",
+  "reading": "ｲｲｴSTART_SOLO"
+ },
+ {
+  "id": "04e210",
+  "sites": [
+   "00a314"
+  ],
+  "room": 8,
+  "kind": "code",
+  "jp": "error",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e218",
+  "sites": [
+   "7304e0"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "しょうぐんよろいくろ|n脚力をかなり高める|n防御力は低め",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e250",
+  "sites": [
+   "7304dc"
+  ],
+  "room": 40,
+  "kind": "text",
+  "jp": "しょうぐんよろいみどり|n防御力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e278",
+  "sites": [
+   "7304d8"
+  ],
+  "room": 36,
+  "kind": "text",
+  "jp": "しょうぐんよろいあお|n脚力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e29c",
+  "sites": [
+   "7304d4"
+  ],
+  "room": 40,
+  "kind": "text",
+  "jp": "しょうぐんよろいあか|n攻撃力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e2c4",
+  "sites": [
+   "7304d0"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "だいみょうよろいくろ|n脚力をかなり高める|n防御力は低め",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e2fc",
+  "sites": [
+   "7304cc"
+  ],
+  "room": 40,
+  "kind": "text",
+  "jp": "だいみょうよろいみどり|n防御力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e324",
+  "sites": [
+   "7304c8"
+  ],
+  "room": 36,
+  "kind": "text",
+  "jp": "だいみょうよろいあお|n脚力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e348",
+  "sites": [
+   "7304c4"
+  ],
+  "room": 40,
+  "kind": "text",
+  "jp": "だいみょうよろいあか|n攻撃力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e370",
+  "sites": [
+   "7304c0"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "ぶしょうよろいくろ|n脚力をかなり高める|n防御力は低め",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e3a8",
+  "sites": [
+   "7304bc"
+  ],
+  "room": 40,
+  "kind": "text",
+  "jp": "ぶしょうよろいみどり|n防御力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e3d0",
+  "sites": [
+   "7304b8"
+  ],
+  "room": 36,
+  "kind": "text",
+  "jp": "ぶしょうよろいあお|n脚力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e3f4",
+  "sites": [
+   "7304b4"
+  ],
+  "room": 36,
+  "kind": "text",
+  "jp": "ぶしょうよろいあか|n攻撃力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e418",
+  "sites": [
+   "7304b0"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "さむらいよろいくろ|n脚力をかなり高める|n防御力は低め",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e450",
+  "sites": [
+   "7304ac"
+  ],
+  "room": 40,
+  "kind": "text",
+  "jp": "さむらいよろいみどり|n防御力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e478",
+  "sites": [
+   "7304a8"
+  ],
+  "room": 36,
+  "kind": "text",
+  "jp": "さむらいよろいあお|n脚力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e49c",
+  "sites": [
+   "7304a4"
+  ],
+  "room": 36,
+  "kind": "text",
+  "jp": "さむらいよろいあか|n攻撃力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e4c0",
+  "sites": [
+   "7304a0"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "あしがるよろいくろ|n脚力をかなり高める|n防御力は低め",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e4f8",
+  "sites": [
+   "73049c"
+  ],
+  "room": 40,
+  "kind": "text",
+  "jp": "あしがるよろいみどり|n防御力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e520",
+  "sites": [
+   "730498"
+  ],
+  "room": 36,
+  "kind": "text",
+  "jp": "あしがるよろいあお|n脚力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e544",
+  "sites": [
+   "730494"
+  ],
+  "room": 36,
+  "kind": "text",
+  "jp": "あしがるよろいあか|n攻撃力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e568",
+  "sites": [
+   "730490"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "ぞうひょうよろいくろ|n脚力をかなり高める|n防御力は低め",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e5a0",
+  "sites": [
+   "73048c"
+  ],
+  "room": 40,
+  "kind": "text",
+  "jp": "ぞうひょうよろいみどり|n防御力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e5c8",
+  "sites": [
+   "730488"
+  ],
+  "room": 36,
+  "kind": "text",
+  "jp": "ぞうひょうよろいあお|n脚力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e5ec",
+  "sites": [
+   "730484"
+  ],
+  "room": 40,
+  "kind": "text",
+  "jp": "ぞうひょうよろいあか|n攻撃力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e614",
+  "sites": [
+   "730480"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "みならいよろいくろ|n脚力をかなり高める|n防御力は低め",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e64c",
+  "sites": [
+   "73047c"
+  ],
+  "room": 40,
+  "kind": "text",
+  "jp": "みならいよろいみどり|n防御力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e674",
+  "sites": [
+   "730478"
+  ],
+  "room": 36,
+  "kind": "text",
+  "jp": "みならいよろいあお|n脚力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e698",
+  "sites": [
+   "730474"
+  ],
+  "room": 36,
+  "kind": "text",
+  "jp": "みならいよろいあか|n攻撃力を高める",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e6bc",
+  "sites": [
+   "730554"
+  ],
+  "room": 68,
+  "kind": "text",
+  "jp": "ようとうむらまさくろ|n連撃時間が長いが気力消費|nため攻撃４が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e700",
+  "sites": [
+   "730550"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "ようとうむらまさみどり|n防御力を高める|nため攻撃４が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e73c",
+  "sites": [
+   "73054c"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "ようとうむらまさあお|n脚力を高める|nため攻撃４が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e774",
+  "sites": [
+   "730548"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "ようとうむらまさあか|n攻撃力が高い|nため攻撃４が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e7ac",
+  "sites": [
+   "730544"
+  ],
+  "room": 68,
+  "kind": "text",
+  "jp": "めいとうまさむねくろ|n連撃時間が長いが気力消費|nため攻撃３が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e7f0",
+  "sites": [
+   "730540"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "めいとうまさむねみどり|n防御力を高める|nため攻撃３が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e82c",
+  "sites": [
+   "73053c"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "めいとうまさむねあお|n脚力を高める|nため攻撃３が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e864",
+  "sites": [
+   "730538"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "めいとうまさむねあか|n攻撃力が高い|nため攻撃３が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e89c",
+  "sites": [
+   "730534"
+  ],
+  "room": 68,
+  "kind": "text",
+  "jp": "きくいちもんじくろ|n連撃時間が長いが気力消費|nため攻撃２が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e8e0",
+  "sites": [
+   "730530"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "きくいちもんじみどり|n防御力を高める|nため攻撃２が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e91c",
+  "sites": [
+   "73052c"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "きくいちもんじあお|n脚力を高める|nため攻撃２が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e954",
+  "sites": [
+   "730528"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "きくいちもんじあか|n攻撃力が高い|nため攻撃２が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e98c",
+  "sites": [
+   "730524"
+  ],
+  "room": 68,
+  "kind": "text",
+  "jp": "めいとうおさふねくろ|n連撃時間が長いが気力消費|nため攻撃２が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04e9d0",
+  "sites": [
+   "730520"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "めいとうおさふねみどり|n防御力を高める|nため攻撃２が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ea0c",
+  "sites": [
+   "73051c"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "めいとうおさふねあお|n脚力を高める|nため攻撃２が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ea44",
+  "sites": [
+   "730518"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "めいとうおさふねあか|n攻撃力が高い|nため攻撃２が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ea7c",
+  "sites": [
+   "730514"
+  ],
+  "room": 68,
+  "kind": "text",
+  "jp": "めいとうかねさだくろ|n連撃時間が長いが気力消費|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04eac0",
+  "sites": [
+   "730510"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "めいとうかねさだみどり|n防御力を高める|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04eafc",
+  "sites": [
+   "73050c"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "めいとうかねさだあお|n脚力を高める|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04eb34",
+  "sites": [
+   "730508"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "めいとうかねさだあか|n攻撃力が高い|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04eb6c",
+  "sites": [
+   "730504"
+  ],
+  "room": 64,
+  "kind": "text",
+  "jp": "むめいがたなくろ|n連撃時間が長いが気力消費|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ebac",
+  "sites": [
+   "730500"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "むめいがたなみどり|n防御力を高める|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ebe4",
+  "sites": [
+   "7304fc"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "むめいがたなあお|n脚力を高める|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ec18",
+  "sites": [
+   "7304f8"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "むめいがたなあか|n攻撃力が高い|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ec4c",
+  "sites": [
+   "7304f4"
+  ],
+  "room": 68,
+  "kind": "text",
+  "jp": "かずうちのかたなくろ|n連撃時間が長いが気力消費|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ec90",
+  "sites": [
+   "7304f0"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "かずうちのかたなみどり|n防御力を高める|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04eccc",
+  "sites": [
+   "7304ec"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "かずうちのかたなあお|n脚力を高める|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ed04",
+  "sites": [
+   "7304e8"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "かずうちのかたなあか|n攻撃力が高い|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ed3c",
+  "sites": [
+   "7305c8"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "しんそうくろ|n連撃時間が長いが気力消費|nため攻撃７が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ed78",
+  "sites": [
+   "7305c4"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "しんそうみどり|n防御力を高める|nため攻撃７が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04edac",
+  "sites": [
+   "7305c0"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "しんそうあお|n脚力を高める|nため攻撃７が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04eddc",
+  "sites": [
+   "7305bc"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "しんそうあか|n攻撃力が高い|nため攻撃７が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ee0c",
+  "sites": [
+   "7305b8"
+  ],
+  "room": 64,
+  "kind": "text",
+  "jp": "とんぼきりくろ|n連撃時間が長いが気力消費|nため攻撃６が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ee4c",
+  "sites": [
+   "7305b4"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "とんぼきりみどり|n防御力を高める|nため攻撃６が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ee84",
+  "sites": [
+   "7305b0"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "とんぼきりあお|n脚力を高める|nため攻撃６が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04eeb8",
+  "sites": [
+   "7305ac"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "とんぼきりあか|n攻撃力が高い|nため攻撃６が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04eeec",
+  "sites": [
+   "7305a8"
+  ],
+  "room": 68,
+  "kind": "text",
+  "jp": "じゅうもんじやりくろ|n連撃時間が長いが気力消費|nため攻撃５が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ef30",
+  "sites": [
+   "7305a4"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "じゅうもんじやりみどり|n防御力を高める|nため攻撃５が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04ef6c",
+  "sites": [
+   "7305a0"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "じゅうもんじやりあお|n脚力を高める|nため攻撃５が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04efa4",
+  "sites": [
+   "73059c"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "じゅうもんじやりあか|n攻撃力が高い|nため攻撃５が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04efdc",
+  "sites": [
+   "730598"
+  ],
+  "room": 64,
+  "kind": "text",
+  "jp": "かたかまやりくろ|n連撃時間が長いが気力消費|nため攻撃４が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f01c",
+  "sites": [
+   "730594"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "かたかまやりみどり|n防御力を高める|nため攻撃４が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f054",
+  "sites": [
+   "730590"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "かたかまやりあお|n脚力を高める|nため攻撃４が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f088",
+  "sites": [
+   "73058c"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "かたかまやりあか|n攻撃力が高い|nため攻撃４が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f0bc",
+  "sites": [
+   "730588"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "てつやりくろ|n連撃時間が長いが気力消費|nため攻撃３が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f0f8",
+  "sites": [
+   "730584"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "てつやりみどり|n防御力を高める|nため攻撃３が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f12c",
+  "sites": [
+   "730580"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "てつやりあお|n脚力を高める|nため攻撃３が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f15c",
+  "sites": [
+   "73057c"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "てつやりあか|n攻撃力が高い|nため攻撃３が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f18c",
+  "sites": [
+   "730578"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "ながやりくろ|n連撃時間が長いが気力消費|nため攻撃２が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f1c8",
+  "sites": [
+   "730574"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "ながやりみどり|n防御力を高める|nため攻撃２が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f1fc",
+  "sites": [
+   "730570"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "ながやりあお|n脚力を高める|nため攻撃２が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f22c",
+  "sites": [
+   "73056c"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "ながやりあか|n攻撃力が高い|nため攻撃２が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f25c",
+  "sites": [
+   "730568"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "たんやりくろ|n連撃時間が長いが気力消費|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f298",
+  "sites": [
+   "730564"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "たんやりみどり|n防御力を高める|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f2cc",
+  "sites": [
+   "730560"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "たんやりあお|n脚力を高める|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f2fc",
+  "sites": [
+   "73055c"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "たんやりあか|n攻撃力が高い|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f32c",
+  "sites": [
+   "73063c"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "はまゆみくろ|nしばらくとまる矢を発射|n気力消費　ため攻撃７",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f368",
+  "sites": [
+   "730638"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "はまゆみみどり|n反射する矢を撃てる|nため攻撃７が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f3a0",
+  "sites": [
+   "730634"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "はまゆみあお|n矢の速度が速い|nため攻撃７が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f3d4",
+  "sites": [
+   "730630"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "はまゆみあか|n貫通する矢を撃てる|nため攻撃７が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f40c",
+  "sites": [
+   "73062c"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "どきゅうくろ|nしばらくとまる矢を発射|n気力消費　ため攻撃６",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f448",
+  "sites": [
+   "730628"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "どきゅうみどり|n反射する矢を撃てる|nため攻撃６が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f480",
+  "sites": [
+   "730624"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "どきゅうあお|n矢の速度が速い|nため攻撃６が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f4b4",
+  "sites": [
+   "730620"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "どきゅうあか|n貫通する矢を撃てる|nため攻撃６が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f4ec",
+  "sites": [
+   "73061c"
+  ],
+  "room": 64,
+  "kind": "text",
+  "jp": "はがねゆみくろ|nしばらくとまる矢を発射|n気力消費　ため攻撃５",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f52c",
+  "sites": [
+   "730618"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "はがねゆみみどり|n反射する矢を撃てる|nため攻撃５が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f568",
+  "sites": [
+   "730614"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "はがねゆみあお|n矢の速度が速い|nため攻撃５が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f59c",
+  "sites": [
+   "730610"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "はがねゆみあか|n貫通する矢を撃てる|nため攻撃５が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f5d4",
+  "sites": [
+   "73060c"
+  ],
+  "room": 64,
+  "kind": "text",
+  "jp": "てつきゅうくろ|nしばらくとまる矢を発射|n気力消費　ため攻撃４",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f614",
+  "sites": [
+   "730608"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "てつきゅうみどり|n反射する矢を撃てる|nため攻撃４が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f650",
+  "sites": [
+   "730604"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "てつきゅうあお|n矢の速度が速い|nため攻撃４が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f684",
+  "sites": [
+   "730600"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "てつきゅうあか|n貫通する矢を撃てる|nため攻撃４が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f6bc",
+  "sites": [
+   "7305fc"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "おおゆみくろ|nしばらくとまる矢を発射|n気力消費　ため攻撃３",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f6f8",
+  "sites": [
+   "7305f8"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "おおゆみみどり|n反射する矢を撃てる|nため攻撃３が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f730",
+  "sites": [
+   "7305f4"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "おおゆみあお|n矢の速度が速い|nため攻撃３が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f764",
+  "sites": [
+   "7305f0"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "おおゆみあか|n貫通する矢を撃てる|nため攻撃３が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f79c",
+  "sites": [
+   "7305ec"
+  ],
+  "room": 64,
+  "kind": "text",
+  "jp": "もくきゅうくろ|nしばらくとまる矢を発射|n気力消費　ため攻撃２",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f7dc",
+  "sites": [
+   "7305e8"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "もくきゅうみどり|n反射する矢を撃てる|nため攻撃２が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f818",
+  "sites": [
+   "7305e4"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "もくきゅうあお|n矢の速度が速い|nため攻撃２が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f84c",
+  "sites": [
+   "7305e0"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "もくきゅうあか|n貫通する矢を撃てる|nため攻撃２が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f884",
+  "sites": [
+   "7305dc"
+  ],
+  "room": 64,
+  "kind": "text",
+  "jp": "はんきゅうくろ|nしばらくとまる矢を発射|n気力消費　ため攻撃１",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f8c4",
+  "sites": [
+   "7305d8"
+  ],
+  "room": 60,
+  "kind": "text",
+  "jp": "はんきゅうみどり|n反射する矢を撃てる|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f900",
+  "sites": [
+   "7305d4"
+  ],
+  "room": 52,
+  "kind": "text",
+  "jp": "はんきゅうあお|n矢の速度が速い|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f934",
+  "sites": [
+   "7305d0"
+  ],
+  "room": 56,
+  "kind": "text",
+  "jp": "はんきゅうあか|n貫通する矢を撃てる|nため攻撃１が使える",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f96c",
+  "sites": [
+   "7306a8"
+  ],
+  "room": 40,
+  "kind": "text",
+  "jp": "きかんのじゅつ|nこの国から脱出する|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f994",
+  "sites": [
+   "7306a4"
+  ],
+  "room": 40,
+  "kind": "text",
+  "jp": "にんじゃのじゅつ|n忍者を呼び出す術|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f9bc",
+  "sites": [
+   "7306a0"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "こんごうだまのじゅつ|n長持ちする究極の守り|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04f9ec",
+  "sites": [
+   "73069c"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "しろがねだまのじゅつ|n何回か攻撃から身を守る|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fa1c",
+  "sites": [
+   "730698"
+  ],
+  "room": 44,
+  "kind": "text",
+  "jp": "くろがねだまのじゅつ|n全方位から身を守る|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fa48",
+  "sites": [
+   "730694"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "がんきょうのじゅつ|nより強力な鋼の体になる|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fa78",
+  "sites": [
+   "730690"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "くっきょうのじゅつ|n屈強な力で倒れなくなる|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04faa8",
+  "sites": [
+   "73068c"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "けんきょうのじゅつ|nそう簡単には転ばなくなる|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fad8",
+  "sites": [
+   "730688"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "しんそくのじゅつ|nより時間がのびた究極の術|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fb08",
+  "sites": [
+   "730684"
+  ],
+  "room": 40,
+  "kind": "text",
+  "jp": "はやてのじゅつ|n時間がのびた強力な術|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fb30",
+  "sites": [
+   "730680"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "しゅんそくのじゅつ|nすばやい速さで敵を攻撃|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fb60",
+  "sites": [
+   "73067c"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "かんちのじゅつ|nほとんどの傷を治してしまう|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fb90",
+  "sites": [
+   "730678"
+  ],
+  "room": 36,
+  "kind": "text",
+  "jp": "ちゆのじゅつ|n体力を大幅に回復|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fbb4",
+  "sites": [
+   "730674"
+  ],
+  "room": 32,
+  "kind": "text",
+  "jp": "いやしのじゅつ|n体力を回復|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fbd4",
+  "sites": [
+   "730670"
+  ],
+  "room": 44,
+  "kind": "text",
+  "jp": "だいじしんのじゅつ|n天変地異で敵を倒す|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fc00",
+  "sites": [
+   "73066c"
+  ],
+  "room": 40,
+  "kind": "text",
+  "jp": "じしんのじゅつ|n大きな地震で敵を倒す|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fc28",
+  "sites": [
+   "730668"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "じひびきのじゅつ|n地震を起こして敵を転ばせる|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fc58",
+  "sites": [
+   "730664"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "じんらいのじゅつ|n雷神の力で敵を打ちはらう|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fc88",
+  "sites": [
+   "730660"
+  ],
+  "room": 44,
+  "kind": "text",
+  "jp": "いなずまのじゅつ|n強力な雷が敵をおそう|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fcb4",
+  "sites": [
+   "73065c"
+  ],
+  "room": 44,
+  "kind": "text",
+  "jp": "かみなりのじゅつ|nかみなりで敵をけちらす|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fce0",
+  "sites": [
+   "730658"
+  ],
+  "room": 44,
+  "kind": "text",
+  "jp": "こおりあらしのじゅつ|n氷の嵐で敵を全滅|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fd0c",
+  "sites": [
+   "730654"
+  ],
+  "room": 40,
+  "kind": "text",
+  "jp": "ふぶきのじゅつ|n吹雪で敵を凍らせる|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fd34",
+  "sites": [
+   "730650"
+  ],
+  "room": 44,
+  "kind": "text",
+  "jp": "こおりのじゅつ|n敵を凍らせて動けなくする|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fd60",
+  "sites": [
+   "73064c"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "かりゅうのじゅつ|n火の竜の力を借りる必殺技|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fd90",
+  "sites": [
+   "730648"
+  ],
+  "room": 36,
+  "kind": "text",
+  "jp": "かえんのじゅつ|n強力な火炎を出す|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "04fdb4",
+  "sites": [
+   "730644"
+  ],
+  "room": 36,
+  "kind": "text",
+  "jp": "かとんのじゅつ|n炎で敵を攻撃する|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ }
+]

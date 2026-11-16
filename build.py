@@ -1,6 +1,7 @@
 """build.py: the one entry point for building the ROM.
 
-    python -X utf8 build.py            build/sengoku_en.gba + build/writes.log, checked by romdiff
+    python -X utf8 build.py            build/sengoku_en.gba + build/writes.log from script/*.json (tools/script.py),
+                                       checked by romdiff
     python -X utf8 build.py identity   unpack every string and LZ77 block, repack with no edits, require the
                                        result to be byte-identical to the original (build/identity.gba)
 
@@ -16,6 +17,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import check_rom  # noqa: E402
 import lz77  # noqa: E402
 import romdiff  # noqa: E402
+import script  # noqa: E402
 import textbank  # noqa: E402
 from tbl import Table  # noqa: E402
 
@@ -103,8 +105,10 @@ def identity():
 def build():
     check_rom.check()
     orig = textbank.original_rom()
-    # Phase 4 adds the script/ loader here; until then the build is the identity build under its release name.
-    new, writes = repack(orig, unpack(orig))
+    # Every script/ entry with an en text (or a dup whose source has one); untranslated entries keep the Japanese.
+    edits = script.load_en()
+    new, writes = repack(orig, unpack(orig), text_edits={a: t + script.END for a, t in edits.items()})
+    print(f"{len(edits)} strings from script/")
     finish(orig, new, writes, BUILD / "sengoku_en.gba")
 
 

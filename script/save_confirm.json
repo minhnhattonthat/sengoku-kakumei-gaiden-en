@@ -1,0 +1,38 @@
+[
+ {
+  "id": "061c1c",
+  "sites": [
+   "731520"
+  ],
+  "room": 8,
+  "kind": "text",
+  "jp": "↑↓",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "061c24",
+  "sites": [
+   "731518"
+  ],
+  "room": 48,
+  "kind": "text",
+  "jp": "%b%n　%Bでいいですか？|n%rＡ…決定　Ｂ…戻る|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "061c54",
+  "sites": [
+   "011484"
+  ],
+  "room": 4,
+  "kind": "code",
+  "jp": "%n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ }
+]

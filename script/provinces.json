@@ -1,0 +1,614 @@
+[
+ {
+  "id": "05e2ac",
+  "sites": [
+   "731510"
+  ],
+  "room": 44,
+  "kind": "text",
+  "jp": "いそいで|n薩摩（さつま）の国に|nもどろう",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e2d8",
+  "sites": [
+   "73150c"
+  ],
+  "room": 36,
+  "kind": "text",
+  "jp": "まず|n肥後（ひご）の国を|nめざそう",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e2fc",
+  "sites": [
+   "731508"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "無限（むげん）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e314",
+  "sites": [
+   "731504"
+  ],
+  "room": 20,
+  "kind": "text",
+  "jp": "蝦夷（えぞ）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e328",
+  "sites": [
+   "731500"
+  ],
+  "room": 20,
+  "kind": "text",
+  "jp": "陸奥（むつ）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e33c",
+  "sites": [
+   "7314fc"
+  ],
+  "room": 20,
+  "kind": "text",
+  "jp": "羽後（うご）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e350",
+  "sites": [
+   "7314f8"
+  ],
+  "room": 28,
+  "kind": "text",
+  "jp": "陸中（りくちゅう）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e36c",
+  "sites": [
+   "7314f4"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "羽前（うぜん）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e384",
+  "sites": [
+   "7314f0"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "陸前（りくぜん）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e39c",
+  "sites": [
+   "7314ec"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "岩代（いわしろ）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e3b4",
+  "sites": [
+   "7314e8"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "下野（しもつけ）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e3cc",
+  "sites": [
+   "7314e4"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "上野（こうずけ）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e3e4",
+  "sites": [
+   "7314e0"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "常陸（ひたち）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e3fc",
+  "sites": [
+   "7314dc"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "武蔵（むさし）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e414",
+  "sites": [
+   "7314d8"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "下総（しもうさ）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e42c",
+  "sites": [
+   "7314d4"
+  ],
+  "room": 20,
+  "kind": "text",
+  "jp": "江戸（えど）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e440",
+  "sites": [
+   "7314d0"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "相模（さがみ）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e458",
+  "sites": [
+   "7314cc"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "駿河（するが）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e470",
+  "sites": [
+   "7314c8"
+  ],
+  "room": 20,
+  "kind": "text",
+  "jp": "美濃（みの）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e484",
+  "sites": [
+   "7314c4"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "尾張（おわり）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e49c",
+  "sites": [
+   "7314c0"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "近江（おうみ）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e4b4",
+  "sites": [
+   "7314bc"
+  ],
+  "room": 20,
+  "kind": "text",
+  "jp": "伊勢（いせ）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e4c8",
+  "sites": [
+   "7314b8"
+  ],
+  "room": 20,
+  "kind": "text",
+  "jp": "甲斐（かい）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e4dc",
+  "sites": [
+   "7314b4"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "越後（えちご）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e4f4",
+  "sites": [
+   "7314b0"
+  ],
+  "room": 28,
+  "kind": "text",
+  "jp": "越中（えっちゅう）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e510",
+  "sites": [
+   "7314ac"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "信濃（しなの）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e528",
+  "sites": [
+   "7314a8"
+  ],
+  "room": 20,
+  "kind": "text",
+  "jp": "能登（のと）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e53c",
+  "sites": [
+   "7314a4"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "越前（えちぜん）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e554",
+  "sites": [
+   "7314a0"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "山城（やましろ）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e56c",
+  "sites": [
+   "73149c"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "播磨（はりま）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e584",
+  "sites": [
+   "731498"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "摂津（せっつ）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e59c",
+  "sites": [
+   "731494"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "大和（やまと）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e5b4",
+  "sites": [
+   "731490"
+  ],
+  "room": 20,
+  "kind": "text",
+  "jp": "紀伊（きい）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e5c8",
+  "sites": [
+   "73148c"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "出雲（いずも）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e5e0",
+  "sites": [
+   "731488"
+  ],
+  "room": 28,
+  "kind": "text",
+  "jp": "備中（びっちゅう）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e5fc",
+  "sites": [
+   "731484"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "石見（いわみ）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e614",
+  "sites": [
+   "731480"
+  ],
+  "room": 20,
+  "kind": "text",
+  "jp": "安芸（あき）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e628",
+  "sites": [
+   "73147c"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "長門（ながと）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e640",
+  "sites": [
+   "731478"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "讃岐（さぬき）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e658",
+  "sites": [
+   "731474"
+  ],
+  "room": 20,
+  "kind": "text",
+  "jp": "阿波（あわ）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e66c",
+  "sites": [
+   "731470"
+  ],
+  "room": 20,
+  "kind": "text",
+  "jp": "伊予（いよ）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e680",
+  "sites": [
+   "73146c"
+  ],
+  "room": 20,
+  "kind": "text",
+  "jp": "土佐（とさ）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e694",
+  "sites": [
+   "731468"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "筑前（ちくぜん）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e6ac",
+  "sites": [
+   "731464"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "豊前（ぶぜん）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e6c4",
+  "sites": [
+   "731460"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "肥前（ひぜん）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e6dc",
+  "sites": [
+   "73145c"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "豊後（ぶんご）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e6f4",
+  "sites": [
+   "731458"
+  ],
+  "room": 20,
+  "kind": "text",
+  "jp": "肥後（ひご）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e708",
+  "sites": [
+   "731454"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "日向（ひゅうが）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e720",
+  "sites": [
+   "731450"
+  ],
+  "room": 24,
+  "kind": "text",
+  "jp": "薩摩（さつま）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e738",
+  "sites": [
+   "73144c"
+  ],
+  "room": 28,
+  "kind": "text",
+  "jp": "琉球（りゅうきゅう）国|n|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ },
+ {
+  "id": "05e754",
+  "sites": [
+   "731448"
+  ],
+  "room": 34,
+  "kind": "text",
+  "jp": "スタート…メニュー|nＡ…国選択|n",
+  "en": "",
+  "notes": "",
+  "status": ""
+ }
+]
