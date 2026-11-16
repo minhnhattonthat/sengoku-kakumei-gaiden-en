@@ -56,6 +56,8 @@ Standing non-bugs, `ok` (the controller adds the game's own below):
 - Dialogue lines hold 24 letters (12 cells of 2). A short last line from word-wrapping at that limit ("...gather
   the magatama|nshards!") is normal English, not an issue; report a line break only when the last word would
   have fitted on the line above, a word is split, or a page cuts a sentence where the original does not.
+- Scene `menu_help` page idx 28 (0x04D098) is the original's own `???` placeholder (bytes 3F 3F 3F, unchanged):
+  the game draws it as two kanji (帰帰) over the previous page's "Change the controls.": `ok`.
 - Debug menu text (scene `debug_menu`) is the project's own debug tool, not shipped: `ok`.
 - Item / art name labels drop the colour word (D11): the ink colour shows the grade.
 

@@ -2,7 +2,21 @@
 
 Updated at the end of every session. Keep it to what the next session needs; history is in git.
 
-- **Phase:** 8. QA in the emulator, in progress (phase 7 done 2026-11-16; left: Codex visual-QA verdicts on the re-tour of build ba18e9be, then `qa_gate.py check`, see session 11). Last build: `build/sengoku_en.gba` sha1 ba18e9be… (1036 strings, 757 letter pairs, sprite banks 20, 22-39, 44 (THE END), 47, 58, 59, 61 + small-font digits + LV UP! popup + 2 Latin name-entry pictures + 13 ending cards + 2 link cards, 2104 writes).
+- **Phase:** 8. QA in the emulator, in progress (phase 7 done 2026-11-16; left: Codex visual-QA verdicts on the 777 sheets of the final tour, then `qa_gate.py check`, see session 12). Last build: `build/sengoku_en.gba` sha1 4977f45e… = `build/tour.gba` (1036 strings, 757 letter pairs, sprite banks 20, 22-39, 44 (THE END), 47, 58, 59, 61 + small-font digits + LV UP! popup + 2 Latin name-entry pictures + 13 ending cards + 2 link cards, 2105 writes).
+- **Phase 8 session 12 (2026-11-17): final tour done on 4977f45e, Codex run stopped by low system memory.** The
+  re-tour (`work/qa2`, FINAL_EXIT=0, no FAIL) is now in `work/qa/{tour,pages,desc,prov,mhelp,enc,restitles*,go/dojo,
+  go/dojo0,go/lk,cover,swap}` (the 41741062 dirs, verdicts and chunks moved to `work/qa_old_41741/`).
+  `qa_gate.py init` (same 13 dirs, `--build build/tour.gba`): 777 sheets, all changed, so `work/qa/chunks/chunk_000..025.txt`
+  cover every sheet and `work/qa/verdicts/` is empty. **textcover on `work/qa/cover`: 971/1037 shown, 66 waived,
+  exit 0** (done for this build). Triage of the old build's 209 Codex issues: all either fixed in this build
+  (name splits, "no such / person" now `%n?|nI know no such person!`, Taking Entries gap, name-entry stray pixel:
+  checked in the new shots) or standing non-bugs in the brief; new non-bug added: `menu_help` idx 28 is the original's
+  `???` placeholder drawn as 帰帰. `vqa_codex.sh work/qa/chunks work/qa/verdicts 3` was reaped by Claude Code for
+  low memory (~3.7 GB free, another project's codex/Mesen running) before any chunk finished.
+  **Next:** when memory allows (`Get-Process Mesen,codex`; free > 6 GB), `sh tools/debug/vqa_codex.sh work/qa/chunks
+  work/qa/verdicts 2 > work/qa_vqa2.log` (detached, e.g. `Start-Process sh`, so a reap of the agent shell does not
+  kill it), eye-check each `issue`, write `verdicts/recheck_1.tsv` lines (`fixed`/`ok`) for false flags, then
+  `qa_gate.py check work/qa/manifest.tsv work/qa/verdicts` exit 0 = phase 8 done.
 - **Phase 8 session 11 (2026-11-17):** final tour on 41741062 **finished** (detached `Start-Process sh`, JOBS=2:
   tour 166/166, pages 124/124, every coverage run ok); textcover **971/1037 shown, 66 waived, exit 0**. Gate:
   `work/qa/manifest.tsv` (731 sheets, 25 chunks), `vqa_codex.sh work/qa/chunks work/qa/verdicts 2` running
