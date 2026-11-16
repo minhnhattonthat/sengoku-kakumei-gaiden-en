@@ -9,6 +9,7 @@ The dump is checked against rom.sha1 first. Text goes through tools/textbank.py 
 space with its pointers rewritten); LZ77 blocks that are not edited keep their original bytes.
 """
 import hashlib
+import struct
 import sys
 from pathlib import Path
 
@@ -20,6 +21,7 @@ import font_en  # noqa: E402
 import gfx_labels  # noqa: E402
 import sprites  # noqa: E402
 import lz77  # noqa: E402
+import link_card  # noqa: E402
 import name_grid  # noqa: E402
 import prose  # noqa: E402
 import romdiff  # noqa: E402
@@ -63,14 +65,33 @@ def repack(rom, unpacked, text_edits=None, lz_edits=None, raw_edits=None):
             raise ValueError(f"{addr:06x}: encoded text lacks {{end}}")
         new[addr] = enc[:-1]
     writes = textbank.repack(out, new)
+    ends = {o: e for o, e, _ in lz_blocks()}
+    dest = textbank.GFX_FREE[0]
     for off, data in (lz_edits or {}).items():
-        end = dict((o, e) for o, e, _ in lz_blocks())[off]
         blob = lz77.compress(data)
-        if len(blob) > ((end + 3) & ~3) - off:
-            raise ValueError(f"LZ block {off:06x} grew past its slot; relocation not written yet")
-        writes.append((off, bytes(out[off:off + len(blob)]), blob, f"lz {off:06x}"))
-        out[off:off + len(blob)] = blob
+        if len(blob) <= ((ends[off] + 3) & ~3) - off:
+            writes.append((off, bytes(out[off:off + len(blob)]), blob, f"lz {off:06x}"))
+            out[off:off + len(blob)] = blob
+            continue
+        sites = RELOCATABLE_LZ.get(off)
+        if not sites:
+            raise ValueError(f"LZ block {off:06x} grew past its slot and has no pointer sites in RELOCATABLE_LZ")
+        if dest + len(blob) > textbank.GFX_FREE[1]:
+            raise ValueError(f"LZ block {off:06x}: graphics free space full")
+        writes.append((dest, bytes(out[dest:dest + len(blob)]), blob, f"lz {off:06x} moved"))
+        out[dest:dest + len(blob)] = blob
+        for s in sites:
+            assert struct.unpack_from("<I", rom, s)[0] == 0x08000000 + off, f"{s:06x} does not point at {off:06x}"
+            ptr = struct.pack("<I", 0x08000000 + dest)
+            writes.append((s, bytes(out[s:s + 4]), ptr, f"ptr {s:06x} -> lz {off:06x} moved"))
+            out[s:s + 4] = ptr
+        dest = (dest + len(blob) + 3) & ~3
     return bytes(out), writes
+
+
+# LZ blocks the build may move to textbank.GFX_FREE when an edit outgrows the slot: offset -> pointer sites (every
+# u32 in the ROM that points at the block; checked by tests/test_build.py).
+RELOCATABLE_LZ = {0x589198: [0x74F3B0], 0x589588: [0x74F3B8], 0x5897EC: [0x74F3BC]}   # link-error card
 
 
 def allowed_write(off, n):
@@ -83,6 +104,10 @@ def allowed_write(off, n):
         return True
     end = off + n
     if textbank.FREE[0] <= off and end <= textbank.FREE[1]:
+        return True
+    if textbank.GFX_FREE[0] <= off and end <= textbank.GFX_FREE[1]:
+        return True
+    if n == 4 and any(off in s for s in RELOCATABLE_LZ.values()):
         return True
     if any(lo <= off and end <= hi for _, lo, hi in textbank.RANGES):
         return True
@@ -134,7 +159,8 @@ def make_english(orig, edits):
     enc = font_en.Encoder(edits.values())
     new, writes = repack(orig, unpack(orig), raw_edits={a: enc.encode(t) for a, t in edits.items()},
                          lz_edits={**name_grid.lz_edits(orig),   # Latin name-entry grid (tools/name_grid.py)
-                                   **prose.lz_edits(orig)})      # ending prose cards (tools/prose.py)
+                                   **prose.lz_edits(orig),       # ending prose cards (tools/prose.py)
+                                   **link_card.lz_edits(orig)})  # link-error card (tools/link_card.py)
     out = bytearray(new)
     writes += engine.patch(out, enc, name_grid.glyph_overrides(orig))
     for off, data in {**gfx_labels.labels_edits(orig),   # OBJ label graphics, gfx/bank*.tsv

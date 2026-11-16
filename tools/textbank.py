@@ -32,7 +32,8 @@ RANGES = [
 # halfwords), reading up to 0x087C0B40 into palette RAM: the last 1 KB (0xFF) is what makes that page white, and the
 # rest flashes through the palette during the copy. So that range stays untouched (docs/re/english.md).
 PALETTE_READ = (0x759178, 0x7C0B40)
-FREE = (0x7C1000, 0x7E0000)  # text relocation; 0x7E0000.. = tools/engine.py
+FREE = (0x7C1000, 0x7D8000)      # text relocation (uses about 25 KB of it)
+GFX_FREE = (0x7D8000, 0x7E0000)  # LZ blocks that outgrew their slot (build.py relocated_lz); 0x7E0000.. = engine
 
 
 @dataclass

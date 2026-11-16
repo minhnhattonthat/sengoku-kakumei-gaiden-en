@@ -46,3 +46,16 @@ Found 2026-11-16 (phase 8 session 6). Tool: `tools/prose.py`, test `tests/test_p
   32x32 at (138,96). `prose.end_edits()` redraws that 96x96 box as a big rotated THE / END. The (c) KONAMI line
   is OBJs 4-11 (Latin, kept). LZ 0x5BB8AC (+ idx 0x5BAEE8, defs 0x5BAF38) also holds a 完 + (c) picture whose
   tiles are shared with the sword picture; it is left unedited (rewriting it broke the sword).
+
+## Link-error card (mode 22, `link_failed`)
+
+- BG2 in **8bpp** (BG2CNT 0x1083: char 0, map 0x8000), same picture record shape as the ending cards with 1x1
+  metatiles. Record at 0x74F3B0: idx 0x589198 (30 x 20 u32; low 16 bits = id, bit 25 = h-flip, used on the
+  border), +4 = 0x58C828 (600 zero bytes), defs 0x589588 (header 1, 1, 265, 0 + 265 u16), tiles 0x5897EC (32 KB).
+  Its 256 colours are raw at 0x74F1F0. Text: 通信に失敗しました。電源を切って、初めからやり直して下さい。
+- `tools/link_card.py` lifts the white brush text and its edge/antialiasing (every pixel within 3 px of a white
+  one that is lighter than the red 110 or near-black) and writes "Link failed. Turn off the power and start again
+  from the beginning." at 2x in white 223 with a black 1 edge. The new picture needs 279 tiles, more than the 265
+  metatile entries, so the defs block grows (header count updated; the game reads it fine) and with the idx block
+  no longer fits its slot: **build.py moves such blocks** to `textbank.GFX_FREE` (0x7D8000-0x7E0000) and rewrites
+  their pointers (`build.RELOCATABLE_LZ` lists every pointer site, checked by tests/test_link_card.py).
