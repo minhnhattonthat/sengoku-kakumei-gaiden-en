@@ -1,0 +1,17 @@
+# Bank 47: the seven magatama (glossary: 信 Faith 智 Wisdom 天 Heaven 仁 Mercy 忠 Loyalty 孝 Piety 勇 Courage),
+# each as an orb frame and a bare-glyph frame (gfx_labels.ORBS); the kanji becomes the virtue's initial.
+# frame	jp	en
+5	信	F
+6	信	F
+7	智	W
+8	智	W
+9	天	H
+10	天	H
+11	仁	M
+12	仁	M
+13	忠	L
+14	忠	L
+15	孝	P
+16	孝	P
+17	勇	C
+18	勇	C

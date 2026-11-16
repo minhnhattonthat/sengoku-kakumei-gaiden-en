@@ -638,6 +638,60 @@ def horiz_edits(rom, bank):
     return {b["tiles"]: bytes(data)} if bytes(data) != rom[b["tiles"]:b["end"]] else {}
 
 
+# Bank 47's magatama (gfx/bank47.tsv `frame jp en`): each 32x32 frame (tiles 16*frame.., 1D) is either an orb
+# (white disc 2 with the kanji in blue 5) or the bare glyph (white 2 with blue 4/5 edges, on 0). The kanji
+# becomes the virtue's initial (F W H M L P C, all different), font_en caps at 2x, rotated clockwise.
+ORBS = {47: {"disc": 2, "ink": 5, "glyph": 2, "edge": 5}}
+
+
+def orb_edits(rom, bank):
+    b = sprites.banks(rom)[bank]
+    g = ORBS[bank]
+    data = bytearray(rom[b["tiles"]:b["end"]])
+
+    def at(f, y, x):
+        t = f * 16 + (y // 8) * 4 + x // 8
+        return t * 32 + (y % 8) * 4 + (x % 8) // 2, x & 1
+
+    def get(f, y, x):
+        i, hi = at(f, y, x)
+        return data[i] >> 4 if hi else data[i] & 15
+
+    def put(f, y, x, v):
+        i, hi = at(f, y, x)
+        data[i] = (data[i] & 0x0F) | (v << 4) if hi else (data[i] & 0xF0) | v
+
+    for line in (ROOT / "gfx" / f"bank{bank:02d}.tsv").read_text(encoding="utf-8").splitlines():
+        if not line or line.startswith("#"):
+            continue
+        f, jp, en = line.split("\t")[:3]
+        f = int(f)
+        pts, length = scaled_points(en, 0, 0, 2, 2, 0)
+        top = (32 - length) // 2
+        x_top = (32 + 14) // 2 - 1
+        ink = {(y + top, x + x_top) for y, x in pts}
+        orb = sum(get(f, y, x) == g["disc"] for y in range(32) for x in range(32)) > 200
+        if orb:  # the kanji's pixels inside the disc go back to the disc colour
+            for y in range(32):
+                for x in range(32):
+                    if get(f, y, x) not in (0, g["disc"]):
+                        put(f, y, x, g["disc"])
+            for y, x in ink:
+                put(f, y, x, g["ink"])
+        else:
+            for y in range(32):
+                for x in range(32):
+                    put(f, y, x, 0)
+            for y, x in ink:
+                for dy in (-1, 0, 1):
+                    for dx in (-1, 0, 1):
+                        if (y + dy, x + dx) not in ink:
+                            put(f, y + dy, x + dx, g["edge"])
+            for y, x in ink:
+                put(f, y, x, g["glyph"])
+    return {b["tiles"]: bytes(data)}
+
+
 def labels_edits(rom, banks=None):
     edits = {} if banks is not None else small_digit_edits(rom)
     for path in sorted((ROOT / "gfx").glob("bank*.tsv")):
@@ -658,6 +712,9 @@ def labels_edits(rom, banks=None):
             continue
         if bank in HORIZ:
             edits.update(horiz_edits(rom, bank))
+            continue
+        if bank in ORBS:
+            edits.update(orb_edits(rom, bank))
             continue
         b, rows, new = english_rows(rom, bank)
         if new != rows:
