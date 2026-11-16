@@ -20,6 +20,7 @@ import font_en  # noqa: E402
 import gfx_labels  # noqa: E402
 import sprites  # noqa: E402
 import lz77  # noqa: E402
+import name_grid  # noqa: E402
 import romdiff  # noqa: E402
 import script  # noqa: E402
 import textbank  # noqa: E402
@@ -130,9 +131,10 @@ def make_english(orig, edits):
         new, writes = repack(orig, unpack(orig))
         return new, writes, None
     enc = font_en.Encoder(edits.values())
-    new, writes = repack(orig, unpack(orig), raw_edits={a: enc.encode(t) for a, t in edits.items()})
+    new, writes = repack(orig, unpack(orig), raw_edits={a: enc.encode(t) for a, t in edits.items()},
+                         lz_edits=name_grid.lz_edits(orig))  # Latin name-entry grid (tools/name_grid.py)
     out = bytearray(new)
-    writes += engine.patch(out, enc)
+    writes += engine.patch(out, enc, name_grid.glyph_overrides(orig))
     for off, data in gfx_labels.labels_edits(orig).items():  # OBJ label graphics, gfx/bank*.tsv
         writes.append((off, bytes(out[off:off + len(data)]), data, f"gfx {off:06x}"))
         out[off:off + len(data)] = data

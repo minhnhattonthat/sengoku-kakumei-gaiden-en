@@ -99,8 +99,13 @@ def hook_bytes():
     return struct.pack("<HHI", 0x4B00, 0x4718, 0x08000000 | LOOKUP_AT | 1)
 
 
-def font_table(rom, encoder):
+def font_table(rom, encoder, overrides=None):
+    """overrides: {(code b0, b1): 26 glyph bytes} replacing original entries' glyphs (name_grid: the name kana)."""
     out = bytearray(rom[ORIG_FONT:ORIG_FONT + ORIG_COUNT * ENTRY])
+    for k in range(ORIG_COUNT):
+        g = (overrides or {}).get((out[k * ENTRY + 2], out[k * ENTRY + 3]))
+        if g is not None:
+            out[k * ENTRY + 6:k * ENTRY + 6 + len(g)] = g
     for k, pair in enumerate(encoder.pairs):
         b0, b1 = font_en.code(k)
         # entry: u16 index, u8 code b0, u8 code b1, u16 0, 13 rows u16 big-endian (bit 15 = x 0)
@@ -108,7 +113,7 @@ def font_table(rom, encoder):
     return bytes(out)
 
 
-def patch(out, encoder):
+def patch(out, encoder, overrides=None):
     """Apply the engine to bytearray out; return the write list."""
     writes = []
 
@@ -116,7 +121,7 @@ def patch(out, encoder):
         writes.append((off, bytes(out[off:off + len(data)]), data, who))
         out[off:off + len(data)] = data
 
-    table = font_table(out, encoder)
+    table = font_table(out, encoder, overrides)
     if FONT_AT + len(table) > ENGINE[1]:
         raise ValueError(f"font table {len(table):#x} bytes overruns {ENGINE[1]:#x}")
     put(LOOKUP_AT, LOOKUP_BIN, "engine lookup")
