@@ -401,7 +401,13 @@ def small_digit_edits(rom):
 # link versus start screen (0x080147BC: いざ at x 0x90, 対戦!! at x 0x40, 32 px apart).
 # Bank 34 = five 64x64 cells 男 女 (gender select) 空 (empty save slot) 終 (single-player game over; with 了
 # below it, the link 終了 card).
-CELLS = {33: {"size": 32, "ink": 2, "sx": 3, "sy": 2}, 34: {"size": 64, "ink": 2, "sx": 4, "sy": 2}}
+# Bank 58 cells 0-2 = the stage HUD's current-weapon glyph 刀 槍 弓 (64x64 OBJ at screen x -1, y 112, bottom left:
+# only rows 0-47 are on screen and the panel is x 1-24), white (1) outline glyphs. English sits in the panel:
+# letters 14 px across (sx 2), condensed (sy 1 + bold 1), from row `top`, letter tops at x `x_top`, with a dark
+# `edge` (4) ring so they read over the playfield too. Keys `top`/`x_top`/`bold`/`edge` are optional (default:
+# centred, bold 1, no edge).
+CELLS = {33: {"size": 32, "ink": 2, "sx": 3, "sy": 2}, 34: {"size": 64, "ink": 2, "sx": 4, "sy": 2},
+         58: {"size": 64, "ink": 1, "sx": 2, "sy": 1, "top": 4, "x_top": 18, "edge": 4, "max_rows": 44, "bold": 0}}
 
 
 def load_cells_tsv(bank):
@@ -446,20 +452,29 @@ def cells_edits(rom, bank):
     for cell, k, jp, en in load_cells_tsv(bank):
         if not en:
             continue
-        pts, length = scaled_points("" if en == "(clear)" else en, 0, 0, g["sx"], g["sy"])
-        if length > k * n:
-            raise ValueError(f"bank {bank} {en!r}: {length} rows, {k} cells of {n}")
+        pts, length = scaled_points("" if en == "(clear)" else en, 0, 0, g["sx"], g["sy"], g.get("bold", 1))
+        if length > g.get("max_rows", k * n):
+            raise ValueError(f"bank {bank} {en!r}: {length} rows, room {g.get('max_rows', k * n)}")
         height = 7 * g["sx"]
-        top = (k * n - length) // 2
-        x_top = (n + height) // 2 - 1
+        top = g.get("top", (k * n - length) // 2)
+        x_top = g.get("x_top", (n + height) // 2 - 1)
+
+        def put(y, x, v):
+            i, hi = at(cell + y // n, y % n, x)
+            data[i] = (data[i] & 0x0F) | (v << 4) if hi else (data[i] & 0xF0) | v
+
         for y in range(k * n):  # clear
             for x in range(n):
-                i, hi = at(cell + y // n, y % n, x)
-                data[i] &= 0x0F if hi else 0xF0
-        for yy, xx in pts:
-            y, x = yy + top, xx + x_top
-            i, hi = at(cell + y // n, y % n, x)
-            data[i] |= g["ink"] << 4 if hi else g["ink"]
+                put(y, x, 0)
+        ink = {(yy + top, xx + x_top) for yy, xx in pts}
+        if g.get("edge"):
+            for y, x in ink:
+                for dy in (-1, 0, 1):
+                    for dx in (-1, 0, 1):
+                        if (y + dy, x + dx) not in ink and 0 <= y + dy < k * n and 0 <= x + dx < n:
+                            put(y + dy, x + dx, g["edge"])
+        for y, x in ink:
+            put(y, x, g["ink"])
     return {b["tiles"]: bytes(data)} if bytes(data) != rom[b["tiles"]:b["end"]] else {}
 
 
@@ -511,6 +526,116 @@ def frames_edits(rom, bank):
     return {b["tiles"]: bytes(data)} if bytes(data) != rom[b["tiles"]:b["end"]] else {}
 
 
+# Bank 20 = the province name plates beside the hero on the national map (frames 0-46, one 16x32 OBJ each, tile
+# 8*frame; frames 47+ are flags, art). A plate is a black border (index 15) around a white field (14), the two
+# kanji in rows 3-28, x 3-12. English: a tiny 5-row caps font (TINY, letters 1-5 px wide, 1 px gap) rotated
+# clockwise, one line (letter tops at x 10) or two ("SATSU/MA" in the tsv: first line tops at x 13, second at 6),
+# each centred in rows 4-27 (24 rows: a 1 px margin inside the border), ink 15. gfx/bank20.tsv rows `frame jp en`.
+TINY = {
+    "A": ".#.|#.#|###|#.#|#.#", "B": "##.|#.#|##.|#.#|##.", "C": ".##|#..|#..|#..|.##", "D": "##.|#.#|#.#|#.#|##.",
+    "E": "###|#..|##.|#..|###", "G": ".##|#..|#.#|#.#|.##", "H": "#.#|#.#|###|#.#|#.#", "I": "#|#|#|#|#",
+    "K": "#.#|#.#|##.|#.#|#.#", "M": "#...#|##.##|#.#.#|#...#|#...#", "N": "#..#|##.#|#.##|#..#|#..#",
+    "O": ".#.|#.#|#.#|#.#|.#.", "R": "##.|#.#|##.|#.#|#.#", "S": ".##|#..|.#.|..#|##.", "T": "###|.#.|.#.|.#.|.#.",
+    "U": "#.#|#.#|#.#|#.#|###", "W": "#...#|#...#|#.#.#|##.##|#...#", "Y": "#.#|#.#|.#.|.#.|.#.",
+    "Z": "###|..#|.#.|#..|###",
+}
+PLATES = {20: {"ink": 15, "bg": 14, "rows": (3, 28), "text_rows": (4, 27), "clear_x": (1, 14), "x_one": 10,
+               "x_two": (13, 6)}}
+
+
+def tiny_line(text, top, x_top):
+    """{(row, x)} of a TINY caps line rotated clockwise (glyph column c -> row top + c, glyph row r -> x_top - r)."""
+    pts, y = set(), top
+    for ch in text.upper():
+        g = TINY[ch].split("|")
+        for r, line in enumerate(g):
+            for c, px in enumerate(line):
+                if px == "#":
+                    pts.add((y + c, x_top - r))
+        y += len(g[0]) + 1
+    return pts, y - top - 1
+
+
+def plates_edits(rom, bank):
+    b = sprites.banks(rom)[bank]
+    g = PLATES[bank]
+    data = bytearray(rom[b["tiles"]:b["end"]])
+    fr = sprites.frames(rom, b)
+    r0, r1 = g["rows"]
+    for line in (ROOT / "gfx" / f"bank{bank:02d}.tsv").read_text(encoding="utf-8").splitlines():
+        if not line or line.startswith("#"):
+            continue
+        f, jp, en = (line.split("\t") + [""])[:3]
+        if not en:
+            continue
+        (p,) = fr[int(f)]
+
+        def put(y, x, v):
+            t = p["tile"] + (y // 8) * (p["w"] // 8) + x // 8
+            i = t * 32 + (y % 8) * 4 + (x % 8) // 2
+            data[i] = (data[i] & 0x0F) | (v << 4) if x & 1 else (data[i] & 0xF0) | v
+
+        for y in range(r0, r1 + 1):
+            for x in range(g["clear_x"][0], g["clear_x"][1] + 1):
+                put(y, x, g["bg"])
+        parts = en.split("/")
+        tops = [g["x_one"]] if len(parts) == 1 else list(g["x_two"])
+        if len(parts) > 2:
+            raise ValueError(f"bank {bank} {en!r}: at most two lines")
+        t0, t1 = g["text_rows"]
+        for part, x_top in zip(parts, tops):
+            _, length = tiny_line(part, 0, 0)
+            if length > t1 - t0 + 1:
+                raise ValueError(f"bank {bank} {part!r}: {length} rows, plate has {t1 - t0 + 1}")
+            pts, _ = tiny_line(part, t0 + (t1 - t0 + 1 - length) // 2, x_top)
+            for y, x in pts:
+                put(y, x, g["ink"])
+    return {b["tiles"]: bytes(data)} if bytes(data) != rom[b["tiles"]:b["end"]] else {}
+
+
+# Bank 59 = the horizontal "スタートボタンを押してね" banner (16 cells of 112x16, 4 pieces each, identical pixels,
+# each cell its own palette: the colour cycle). Drawn upright, not rotated (the original is horizontal): font_en
+# letters centred in rows 3-11 (caps rows 3-9), x 2-109, ink `ink` with a `shade` shadow down-right, on `bg`.
+HORIZ = {59: {"bg": 1, "ink": 11, "shade": 4, "rows": (2, 12), "cols": (2, 109), "top": 3}}
+
+
+def horiz_edits(rom, bank):
+    b = sprites.banks(rom)[bank]
+    g = HORIZ[bank]
+    data = bytearray(rom[b["tiles"]:b["end"]])
+    fr = sprites.frames(rom, b)
+    en = next(line.split("\t")[1] for line in (ROOT / "gfx" / f"bank{bank:02d}.tsv").read_text(
+        encoding="utf-8").splitlines() if line and not line.startswith("#"))
+    width = text_width(en)
+    c0, c1 = g["cols"]
+    if width > c1 - c0 + 1:
+        raise ValueError(f"bank {bank} {en!r}: {width} px, banner has {c1 - c0 + 1}")
+    left = c0 + (c1 - c0 + 1 - width) // 2
+    # letter_points gives (run position, -glyph row) for a clockwise layout; upright = (top + glyph row, left + run)
+    pts = {(g["top"] - xx, left + yy) for yy, xx in letter_points(en, 0, 0)}
+    for cell in fr:
+        pix = {}
+        for p in cell:
+            for y in range(p["h"]):
+                for x in range(p["w"]):
+                    t = p["tile"] + (y // 8) * (p["w"] // 8) + x // 8
+                    pix[(p["y"] + y, p["x"] + x)] = (t * 32 + (y % 8) * 4 + (x % 8) // 2, x & 1)
+
+        def put(y, x, v):
+            i, hi = pix[(y, x)]
+            data[i] = (data[i] & 0x0F) | (v << 4) if hi else (data[i] & 0xF0) | v
+
+        for y in range(g["rows"][0], g["rows"][1] + 1):
+            for x in range(c0, c1 + 1):
+                put(y, x, g["bg"])
+        for y, x in pts:
+            if (y + 1, x + 1) not in pts:
+                put(y + 1, x + 1, g["shade"])
+        for y, x in pts:
+            put(y, x, g["ink"])
+    return {b["tiles"]: bytes(data)} if bytes(data) != rom[b["tiles"]:b["end"]] else {}
+
+
 def labels_edits(rom, banks=None):
     edits = {} if banks is not None else small_digit_edits(rom)
     for path in sorted((ROOT / "gfx").glob("bank*.tsv")):
@@ -525,6 +650,12 @@ def labels_edits(rom, banks=None):
             continue
         if bank in FRAMES:
             edits.update(frames_edits(rom, bank))
+            continue
+        if bank in PLATES:
+            edits.update(plates_edits(rom, bank))
+            continue
+        if bank in HORIZ:
+            edits.update(horiz_edits(rom, bank))
             continue
         b, rows, new = english_rows(rom, bank)
         if new != rows:
@@ -560,9 +691,11 @@ def preview(rom, bank, out):
     from PIL import Image
     if bank in GRID:
         return grid_preview(rom, bank, out)
-    if bank in CELLS or bank in FRAMES:  # every cell assembled, English build
+    if bank in CELLS or bank in FRAMES or bank in PLATES or bank in HORIZ:  # every cell assembled, English build
         new = bytearray(rom)
-        for off, data in (cells_edits if bank in CELLS else frames_edits)(rom, bank).items():
+        fn = (cells_edits if bank in CELLS else frames_edits if bank in FRAMES else
+              plates_edits if bank in PLATES else horiz_edits)
+        for off, data in fn(rom, bank).items():
             new[off:off + len(data)] = data
         return sprites.render_frames(bytes(new), bank, out)
     b, rows, new = english_rows(rom, bank)

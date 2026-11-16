@@ -1,0 +1,4 @@
+# Bank 59 (tiles 0x72B608-0x72EE08): the horizontal スタートボタンを押してね banner, 16 cells of 112x16 with
+# identical pixels and one palette each (a colour cycle). gfx_labels.HORIZ draws it upright in font_en.
+# jp	en
+スタートボタンを押してね	Please press START

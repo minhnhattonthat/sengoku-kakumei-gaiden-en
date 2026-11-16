@@ -78,6 +78,18 @@ u16 first piece, 0). Each bank has a getter `bank_ptr(i) = rec + 8 + 48 i` in 0x
 - **61** combo counter (10 digit cells + 連撃 16x32), style `big` (2x digits, cyan gradient, black edge):
   0-9, HITS. Not yet seen in game (a stage route that lands hits is still needed).
 
+## Banks 20, 58, 59 - done (session 5)
+- **20** province plates beside the hero on the national map: frames 0-46 = 47 provinces (琉球 .. 蝦夷, the
+  reverse of `script/provinces.json`'s order, no 無限), 16x32 each; 47-86 flags/art. `gfx_labels.PLATES`: tiny
+  5-row caps (`TINY`), one or two rotated lines ("SATSU/MA"). Seen on `map` (`work/gfx/shots/bank20_map.png`).
+- **58** cells 0-2 = the stage HUD's weapon glyph 刀槍弓 (64x64 OBJ 0 at x -1 y 112, found by OAM dump +
+  `vramfind.py`); 3-28 art icons; 29 a framed 術 icon (not yet handled or seen). `CELLS[58]`: SWORD SPEAR BOW,
+  condensed outlined caps in the panel. Seen on `stage_r1_hyuga` (`work/gfx/shots/bank58_hud.png`).
+- **59** is not the name-entry grid: it is the title's horizontal スタートボタンを押してね banner, 16 identical
+  112x16 cells, one palette each (colour cycle). Flags bit 3 = piece tile offsets already in tiles
+  (`sprites.frames`). `gfx_labels.HORIZ`: "Please press START", upright. Seen at boot frame 1200
+  (`work/gfx/shots/bank59_title.png`). The name-entry kana grid is somewhere else (BG?).
+
 ## Map of all 62 banks (2026-11-16, overview sheets `work/gfx/sheet[A-D].png`, strips wrapped at 320 rows)
 Rendered with `MONO`/palette 0, so multi-palette banks look odd; only the classification matters.
 - **Text, to redraw:** 20 province name plates (2 kanji, ~50, plus greyed variants), 23-26 menu choice boxes

@@ -54,7 +54,9 @@ def frames(rom, b):
         for k in range(n):
             a0, a1, a2, y, x = struct.unpack_from("<HHHhh", rom, b["end"] + 12 * (p + k))
             w, h = OBJ_SIZE[a0 >> 14][a1 >> 14]
-            ps.append({"w": w, "h": h, "x": x, "y": y, "tile": base + (a2 & 0x3FF) // 2, "pal": a2 >> 12})
+            # flags bit 3 (banks 59, 60): the offset is already in tiles (bank 59's 32x16 pieces sit 8 apart)
+            step = 1 if b["flags"] & 8 else 2
+            ps.append({"w": w, "h": h, "x": x, "y": y, "tile": base + (a2 & 0x3FF) // step, "pal": a2 >> 12})
         out.append(ps)
         p += n
     return out

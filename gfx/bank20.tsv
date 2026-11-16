@@ -1,0 +1,52 @@
+# Bank 20 (tiles 0x6CA9D8-0x6D00D8): the province name plates shown beside the hero on the national map (map,
+# deploy_confirm), one 16x32 OBJ per frame. Frames 47-86 are flags and hero art (no text). gfx_labels.PLATES:
+# tiny 5-row caps rotated clockwise; "/" splits a name over two lines (only where one line passes the 24 rows).
+# Names as script/provinces.json ("<Name> Province").
+# frame	jp	en
+0	琉球	RYUKYU
+1	薩摩	SATSU/MA
+2	日向	HYUGA
+3	肥後	HIGO
+4	豊後	BUNGO
+5	肥前	HIZEN
+6	豊前	BUZEN
+7	筑前	CHIKU/ZEN
+8	土佐	TOSA
+9	伊予	IYO
+10	阿波	AWA
+11	讃岐	SANUKI
+12	長門	NAGATO
+13	安芸	AKI
+14	石見	IWAMI
+15	備中	BITCHU
+16	出雲	IZUMO
+17	紀伊	KII
+18	大和	YAMA/TO
+19	摂津	SETTSU
+20	播磨	HARIMA
+21	山城	YAMA/SHIRO
+22	越前	ECHI/ZEN
+23	能登	NOTO
+24	信濃	SHINA/NO
+25	越中	ETCHU
+26	越後	ECHIGO
+27	甲斐	KAI
+28	伊勢	ISE
+29	近江	OMI
+30	尾張	OWARI
+31	美濃	MINO
+32	駿河	SURUGA
+33	相模	SAGAMI
+34	江戸	EDO
+35	下総	SHIMO/USA
+36	武蔵	MUSA/SHI
+37	常陸	HITACHI
+38	上野	KOZUKE
+39	下野	SHIMO/TSUKE
+40	岩代	IWA/SHIRO
+41	陸前	RIKU/ZEN
+42	羽前	UZEN
+43	陸中	RIKU/CHU
+44	羽後	UGO
+45	陸奥	MUTSU
+46	蝦夷	EZO

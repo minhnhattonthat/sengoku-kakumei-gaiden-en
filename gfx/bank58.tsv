@@ -1,0 +1,7 @@
+# Bank 58 (tiles 0x7261E8-0x72AFE8): cells 0-2 = the stage HUD's current-weapon glyph (64x64, bottom left of every
+# stage), cells 3-28 = art icons (pictures, no text), 29 = a framed 術 icon (32x32; not yet seen in game).
+# gfx_labels.CELLS: rotated clockwise like the rest of the English, outlined, in the HUD panel.
+# cell	ncells	jp	en
+0	1	刀	SWORD
+1	1	槍	SPEAR
+2	1	弓	BOW
