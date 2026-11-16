@@ -10,12 +10,14 @@ In place, a string may use its bytes, its NUL and the zero padding up to the nex
 next pointed string). A longer one moves to free space and every site that pointed at it is rewritten; its old
 slot is zero-filled. Bytes between strings that no site reaches (unpointed debug text, padding) are never touched.
 """
+import json
 import struct
 from dataclasses import dataclass, field
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SITES = ROOT / "data" / "text_sites.tsv"
+LAYOUT = ROOT / "data" / "text_layout.tsv"
 
 # (name, start, end exclusive): every range is listed in docs/re/text.md
 RANGES = [
@@ -90,13 +92,64 @@ def strings(rom):
     return out
 
 
-def repack(rom, new, free=FREE, strs=None, force_move=False):
+def load_layout(path=LAYOUT):
+    """The frozen layout of the QA-toured build: ({source addr: dest}, end of the used free space, [letter pairs
+    in code order] for font_en.Encoder), or None if there is none."""
+    if not path.exists():
+        return None
+    lay, end, pairs = {}, None, None
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if line.startswith("# end "):
+            end = int(line.split()[2], 16)
+        elif line.startswith("# pairs "):
+            pairs = json.loads(line[len("# pairs "):])
+        elif line and not line.startswith("#"):
+            s, d = line.split("\t")
+            lay[int(s, 16)] = int(d, 16)
+    return lay, end, pairs
+
+
+def save_layout(writes, pairs, path=LAYOUT):
+    """Freeze this build's relocation (from repack's write log) and letter pairs into data/text_layout.tsv."""
+    lay, end = {}, None
+    for off, _, data, who in writes:
+        if who.startswith("text ") and who.endswith(" ptr"):
+            lay[int(who.split()[1], 16)] = struct.unpack("<I", data)[0] - 0x08000000
+        if who.startswith("text ") and who.endswith(" moved"):
+            end = max(end or 0, (off + len(data) + 3) & ~3)
+    rows = "".join(f"{s:06x}\t{d:06x}\n" for s, d in sorted(lay.items()))
+    path.write_text("# text_layout.tsv: relocated string -> its address in free space, frozen from the QA-toured\n"
+                    "# build (textbank.repack keeps these slots so a text edit moves only the edited string; text\n"
+                    "# coverage logs and tour sheets stay valid). Regenerate: build.py freeze-layout.\n"
+                    f"# end {end:06x}\n# pairs {json.dumps(list(pairs))}\n" + rows, encoding="utf-8")
+
+
+def repack(rom, new, free=FREE, strs=None, force_move=False, layout=None):
     """Write new[addr] (bytes, no NUL) for each changed string. Returns the write log: (offset, orig, new, writer).
-    force_move relocates every string in `new`, changed or not (tests use it to prove the pointer writer)."""
+    force_move relocates every string in `new`, changed or not (tests use it to prove the pointer writer).
+    layout = load_layout(): a relocated string keeps its frozen slot while it fits; the rest go after layout's end."""
     strs = strs if strs is not None else strings(rom)
     writes = []
     cursor = (free[0] + 3) & ~3
     placed = {}  # bytes -> address already holding them in free space
+
+    def moves(addr, data):
+        return force_move or (data != strs[addr].raw and len(data) + 1 > strs[addr].room)
+
+    # Frozen slots first: a relocated string keeps its slot from the toured build while it still fits (one payload
+    # per slot), so editing one string never shifts the others. Newcomers go after the layout's end.
+    frozen = {}  # addr -> slot
+    if layout:
+        lay, lay_end = layout[:2]
+        dests = sorted(set(lay.values()))
+        size = {d: (dests[i + 1] if i + 1 < len(dests) else lay_end) - d for i, d in enumerate(dests)}
+        cursor = max(cursor, lay_end)
+        payload = {}
+        for addr in sorted(new):
+            data, d = bytes(new[addr]), lay.get(addr)
+            if d is not None and moves(addr, data) and len(data) + 1 <= size[d] \
+                    and payload.setdefault(d, data) == data:
+                frozen[addr] = d
 
     def put(off, data, who):
         writes.append((off, bytes(rom[off:off + len(data)]), bytes(data), who))
@@ -107,14 +160,17 @@ def repack(rom, new, free=FREE, strs=None, force_move=False):
         data = bytes(new[addr])
         if b"\0" in data:
             raise ValueError(f"{addr:06x}: text contains a NUL")
-        if data == s.raw and not force_move:
+        if not moves(addr, data):
+            if data != s.raw:
+                put(addr, data + bytes(s.room - len(data)), f"text {addr:06x}")
             continue
         who = f"text {addr:06x}"
-        if len(data) + 1 <= s.room and not force_move:
-            put(addr, data + bytes(s.room - len(data)), who)
-            continue
-        dest = placed.get(data)
-        if dest is None:
+        dest = frozen.get(addr)
+        if dest is not None:
+            if placed.get(data) != dest:
+                put(dest, data + b"\0", who + " moved")
+                placed.setdefault(data, dest)
+        elif (dest := placed.get(data)) is None:
             dest = cursor
             if dest + len(data) + 1 > free[1]:
                 raise ValueError(f"free space full placing {addr:06x}")

@@ -75,7 +75,7 @@ class EnglishBuild(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.edits = script.load_en()
-        cls.new, cls.writes, cls.enc = build.make_english(ORIG, cls.edits)
+        cls.new, cls.writes, cls.enc = build.make_english(ORIG, cls.edits, textbank.load_layout())  # as build.py
         build.verify(ORIG, cls.new, cls.writes)
         cls.strs = textbank.strings(ORIG)
 

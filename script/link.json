@@ -466,7 +466,7 @@
   "room": 32,
   "kind": "text",
   "jp": "向いてみるのも|n良いのじゃ！|n",
-  "en": "it is good to turn and|nface it!",
+  "en": "want to see!",
   "notes": "",
   "status": "done"
  },
@@ -478,7 +478,7 @@
   "room": 28,
   "kind": "text",
   "jp": "防御しながら見たい方向を|n",
-  "en": "guard, and press toward|nwhat you want to see:",
+  "en": "try guarding while you|nface the direction you",
   "notes": "",
   "status": "done"
  },

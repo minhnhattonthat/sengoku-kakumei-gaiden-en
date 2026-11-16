@@ -50,7 +50,7 @@ def unpack(rom):
     return {"text": text, "lz": lz, "table": jp}
 
 
-def repack(rom, unpacked, text_edits=None, lz_edits=None, raw_edits=None):
+def repack(rom, unpacked, text_edits=None, lz_edits=None, raw_edits=None, layout=None):
     """Return (new rom, writes). Unedited text is re-encoded from its decoded form; unedited LZ blocks are kept.
     text_edits are jp-table strings (with {end}); raw_edits are already-encoded bytes without the NUL (English)."""
     out = bytearray(rom)
@@ -64,7 +64,7 @@ def repack(rom, unpacked, text_edits=None, lz_edits=None, raw_edits=None):
         if not enc.endswith(b"\0"):
             raise ValueError(f"{addr:06x}: encoded text lacks {{end}}")
         new[addr] = enc[:-1]
-    writes = textbank.repack(out, new)
+    writes = textbank.repack(out, new, layout=layout)
     ends = {o: e for o, e, _ in lz_blocks()}
     dest = textbank.GFX_FREE[0]
     for off, data in (lz_edits or {}).items():
@@ -151,14 +151,15 @@ def identity():
     print("identity build is byte-identical to the original")
 
 
-def make_english(orig, edits):
+def make_english(orig, edits, layout=None):
     """(new rom, writes, encoder) for {addr: English text} through the English engine (tools/font_en.py,
-    tools/engine.py); encoder is None with no edits."""
+    tools/engine.py); encoder is None with no edits. layout: textbank.load_layout() keeps relocated strings in
+    the QA-toured build's slots."""
     if not edits:
         new, writes = repack(orig, unpack(orig))
         return new, writes, None
-    enc = font_en.Encoder(edits.values())
-    new, writes = repack(orig, unpack(orig), raw_edits={a: enc.encode(t) for a, t in edits.items()},
+    enc = font_en.Encoder(edits.values(), frozen=layout[2] if layout else None)
+    new, writes = repack(orig, unpack(orig), raw_edits={a: enc.encode(t) for a, t in edits.items()}, layout=layout,
                          lz_edits={**name_grid.lz_edits(orig),   # Latin name-entry grid (tools/name_grid.py)
                                    **prose.lz_edits(orig),       # ending prose cards (tools/prose.py)
                                    **link_card.lz_edits(orig)})  # link-error card (tools/link_card.py)
@@ -171,8 +172,8 @@ def make_english(orig, edits):
     return bytes(out), writes, enc
 
 
-def english(orig, edits, path):
-    new, writes, enc = make_english(orig, edits)
+def english(orig, edits, path, layout=None):
+    new, writes, enc = make_english(orig, edits, layout)
     if enc:
         print(f"{len(edits)} English strings, {len(enc.pairs)} letter pairs")
     finish(orig, new, writes, path)
@@ -195,7 +196,16 @@ def build():
     check_rom.check()
     orig = textbank.original_rom()
     # Every script/ entry with an en text (or a dup whose source has one); untranslated entries keep the Japanese.
-    english(orig, script.load_en(), BUILD / "sengoku_en.gba")
+    english(orig, script.load_en(), BUILD / "sengoku_en.gba", textbank.load_layout())
+
+
+def freeze_layout():
+    """data/text_layout.tsv from the current script with no layout: run on the build a QA tour ran on."""
+    check_rom.check()
+    orig = textbank.original_rom()
+    _, writes, enc = make_english(orig, script.load_en())
+    textbank.save_layout(writes, enc.pairs)
+    print(f"wrote {textbank.LAYOUT.relative_to(ROOT)}")
 
 
 def marker():
@@ -214,7 +224,7 @@ def marker_texts():
 
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "build"
-    {"build": build, "identity": identity, "marker": marker}[cmd]()
+    {"build": build, "identity": identity, "marker": marker, "freeze-layout": freeze_layout}[cmd]()
 
 
 if __name__ == "__main__":

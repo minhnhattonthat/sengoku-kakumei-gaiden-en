@@ -1330,7 +1330,7 @@
   "room": 76,
   "kind": "text",
   "jp": "独眼竜の名にふさわしく|n若く、血気あふれる武将。|n…といったところですな。",
-  "en": "A young hothead, worthy|nof the name One-Eyed|nDragon... so to speak.",
+  "en": "Young and hot-blooded,|nworthy of the One-Eyed|nDragon... so to speak.",
   "notes": "",
   "status": "done"
  },
@@ -1378,7 +1378,7 @@
   "room": 56,
   "kind": "text",
   "jp": "今こそ、おじい様の無念…|n晴らしてみせましょうぞ！|n",
-  "en": "Now I shall put|nGrandfather's grievance|nto rest at last!",
+  "en": "Now I shall avenge|nGrandfather and lay his|nspirit to rest!",
   "notes": "",
   "status": "done"
  },
@@ -1969,7 +1969,7 @@
   "room": 64,
   "kind": "text",
   "jp": "（お市は柴田勝家が|n豊臣秀吉に敗れた時|n運命を共にしたらしい）",
-  "en": "(Oichi shared Katsuie|nShibata's fate when|nHideyoshi beat him.)",
+  "en": "(Oichi shared Katsuie|nShibata's fate when|nHideyoshi defeated him.)",
   "notes": "",
   "status": "done"
  },
@@ -2005,7 +2005,7 @@
   "room": 36,
   "kind": "text",
   "jp": "私…|nこの近くの神社の|n巫女の…",
-  "en": "I... I am a shrine|nmaiden at the shrine|nnear here...",
+  "en": "I... I'm a shrine|nmaiden at the shrine|nnear here...",
   "notes": "",
   "status": "done"
  },
@@ -2017,7 +2017,7 @@
   "room": 52,
   "kind": "text",
   "jp": "また、|n会ってもらえませんか？|n待ってますから…",
-  "en": "Will you meet me again?|nI will be waiting...",
+  "en": "Will you meet me again?|nI'll be waiting...",
   "notes": "",
   "status": "done"
  },
@@ -2053,7 +2053,7 @@
   "room": 52,
   "kind": "text",
   "jp": "…ごめんなさい！|nこんな話してしまって。|nでも…",
-  "en": "...I am sorry! I should|nnot have told you all|nthis. But...",
+  "en": "...I'm sorry for telling|nyou all this! But...",
   "notes": "",
   "status": "done"
  },
@@ -2089,7 +2089,7 @@
   "room": 64,
   "kind": "text",
   "jp": "不思議…|nあなたとは初めて会うのに|n前から知っているみたい…",
-  "en": "How strange... We have|nonly just met, yet I|nfeel I know you.",
+  "en": "How strange... We've|nonly just met, yet I|nfeel I know you.",
   "notes": "",
   "status": "done"
  },
@@ -2125,7 +2125,7 @@
   "room": 44,
   "kind": "text",
   "jp": "%n様！|nうれしい！|n来てくれたんですね。",
-  "en": "%n-sama!|nI am so happy! You came!",
+  "en": "%n-sama!|nI'm so happy! You came!",
   "notes": "",
   "status": "done"
  },
@@ -2137,7 +2137,7 @@
   "room": 48,
   "kind": "text",
   "jp": "あなたを待ってます。|nこの城で…|nいつまでも…",
-  "en": "I will wait for you. In|nthis castle...|nforever...",
+  "en": "I'll wait for you. In|nthis castle...|nforever...",
   "notes": "",
   "status": "done"
  },
@@ -2149,7 +2149,7 @@
   "room": 52,
   "kind": "text",
   "jp": "あの…|n頑張って下さい！|n私…なにも出来ないけど…",
-  "en": "Um... Please do your|nbest! I... cannot do|nanything, but...",
+  "en": "Um... Please do your|nbest! I... can't do|nanything, but...",
   "notes": "",
   "status": "done"
  },
@@ -2173,7 +2173,7 @@
   "room": 60,
   "kind": "text",
   "jp": "私…なにも出来ないけど…|nあなたを待ってます。|nこの城で…",
-  "en": "I cannot do anything...|nbut I will wait for you.|nIn this castle...",
+  "en": "I can't do anything...|nbut I'll wait for you.|nIn this castle...",
   "notes": "",
   "status": "done"
  },
@@ -4613,7 +4613,7 @@
   "room": 52,
   "kind": "text",
   "jp": "その後の行方？|nわしが|n聞きたいくらいじゃわい！",
-  "en": "Where did they go after?|nThat is what I would|nlike to know myself!",
+  "en": "Where did they go? I|nwish I knew that|nmyself!",
   "notes": "",
   "status": "done"
  },
@@ -4637,7 +4637,7 @@
   "room": 48,
   "kind": "text",
   "jp": "あやつを|n真田十勇士に…と|n思ったのだがな…",
-  "en": "I had hoped to make that|none one of the Ten|nSanada Braves...",
+  "en": "I had hoped that one|nwould join the Ten|nSanada Braves...",
   "notes": "",
   "status": "done"
  },
@@ -4889,7 +4889,7 @@
   "room": 56,
   "kind": "text",
   "jp": "非常に細心で、|n思いやりのある|n人物だったようである。",
-  "en": "He seems to have|nbeen a very careful|nand caring man.",
+  "en": "he seems to have|nbeen a very careful|nand caring man.",
   "notes": "",
   "status": "done"
  },
@@ -4925,7 +4925,7 @@
   "room": 68,
   "kind": "text",
   "jp": "一地方の豪族であった|n毛利氏を、中国最大の|n勢力までにした名将。",
-  "en": "A great general who made|nthe local Mori the might|nof Chugoku.",
+  "en": "A great general who|nraised the Mori, a local|nclan, to rule Chugoku.",
   "notes": "",
   "status": "done"
  },
@@ -5093,7 +5093,7 @@
   "room": 68,
   "kind": "text",
   "jp": "その後も、豊臣秀吉の元に|n人質に送られるなど、|n不遇の半生を送る。",
-  "en": "Later sent to Hideyoshi|nas a hostage too, he|nlived a hard life.",
+  "en": "Later sent to Hideyoshi|nas a hostage too, he|nspent years in hardship.",
   "notes": "",
   "status": "done"
  },

@@ -18,3 +18,17 @@ Minor review findings, deferred to one polish pass (references/translation.md §
 - [x] 055958 - restored Yoshihime and Kojiro ("son Kojiro": her son = his brother, "brother" did not fit 3x24); fixed.
 
 ## Phase 9 story pass (work/qa/story/reports/)
+Important 051930 (03_mori, Terumoto's vow) fixed: "Now I shall avenge Grandfather and lay his spirit to rest!".
+The other Minors they raised (07e850, 05156c, 050f14, 05235c) were the phase-6 lines above, already fixed.
+- [x] 05220c - 敗れた: "Hideyoshi beat him" is casual for a death notice. Fixed ("defeated him").
+- [x] 054bd0 - "make that one one of the Ten Sanada Braves" stumbles. Fixed ("I had hoped that one would join the Ten Sanada Braves...").
+- [x] 055010 - continues the previous page's "..., but": starts lower case now ("he seems to have been...").
+
+Re-review of the 5 changed chapters (work/qa/story/reports/, round 1 kept in reports/round1/): 04_oda `issue`, the
+shrine maiden (730b98-730be8) spoke formally; the glossary gives her contractions. Fixed: 05235c, 0522ac, 05249c,
+052514 and her other lines (I'm, We've, can't). 051df8 flagged as "ma/ny" split: false, the English is whole.
+- [x] 07e608/07e5e8 - tutorial page break repeated the instruction. Fixed ("try guarding while you / face the direction you / want to see!").
+- [x] 051834 - "A young hothead" is dismissive for 血気あふれる. Fixed ("Young and hot-blooded").
+- [x] 054b70 - "Where did they go after?" unfinished. Fixed ("Where did they go? I wish I knew that myself!").
+- [x] 0550cc - "the local Mori the might of Chugoku" unnatural. Fixed ("raised the Mori, a local clan, to rule Chugoku").
+- [x] 055424 - "lived a hard life" flat. Fixed ("spent years in hardship").

@@ -189,9 +189,11 @@ def glyph_bytes(pair):
 
 
 class Encoder:
-    """Pair dictionary over a set of English strings, deterministic for the same set."""
+    """Pair dictionary over a set of English strings, deterministic for the same set. frozen: the pair list of the
+    QA-toured build (data/text_pairs.json); its pairs keep their codes (unused ones too) and new pairs follow, so a
+    text edit does not re-encode every other string."""
 
-    def __init__(self, texts):
+    def __init__(self, texts, frozen=None):
         seen = set()
         for t in texts:
             for ctl, run in tokens(fold(t)):
@@ -201,6 +203,8 @@ class Encoder:
                         raise ValueError(f"no glyph for {''.join(sorted(bad))!r} in {t!r}")
                     seen.update(pairs(run))
         self.pairs = sorted(seen)
+        if frozen:
+            self.pairs = list(frozen) + sorted(seen - set(frozen))
         if len(self.pairs) > MAX_PAIRS:
             raise ValueError(f"{len(self.pairs)} distinct letter pairs, room for {MAX_PAIRS}")
         self.index = {p: k for k, p in enumerate(self.pairs)}
