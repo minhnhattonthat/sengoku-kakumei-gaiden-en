@@ -12,4 +12,9 @@ Addresses are for the dump in `rom.sha1` unless a note says otherwise.
 
 | File | Covers | State |
 |---|---|---|
-| <text.md> | <encoding, control codes, pointer tables> | <verified / partly guessed> |
+| [text.md](text.md) | EUC-JP encoding, `|n`/`%n` codes, vertical draw path, 990-glyph font at 0x712128, pointer tables, text ranges, free space | encoding, font, draw path verified; table grouping guessed |
+| [compression.md](compression.md) | BIOS LZ77 wrapper 0x08048964, block list (`tools/re_lzsweep.py`) | verified |
+| [graphics.md](graphics.md) | graphics-text survey: tour screens + static sweep of raw and LZ77 graphics | first pass (phase 1); re-check on the marker tour |
+| [rom-map.md](rom-map.md) | coarse map of the 8 MiB ROM | guess per region, from renders |
+
+Recon helpers (rerun any time): `tools/re_eucscan.py ROM OUT.tsv` (EUC candidates), `tools/re_eucptrs.py ROM euc.tsv OUT.tsv` (pointer targets), `tools/re_eucblocks.py ROM pointed.tsv` (text blocks, pointer-site runs), `tools/re_lzsweep.py ROM DIR` (every LZ77 block), `tools/re_tilesheet.py` (survey sheets), `tools/lua/lzlog.lua` (LZ77 blocks loaded at run time).
