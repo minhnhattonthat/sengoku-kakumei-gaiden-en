@@ -7,6 +7,8 @@ The event tables hold dialogue groups: runs of string pointers ended by a 0 word
 しかも！敵は人間では… before 各地で我が軍は…), with its table address, so a reader sees the pages as the player does.
 The strings themselves sit in ROM in the reverse order, so script/*.json (ROM order) lists a group last page first.
 `--en` adds the English under each page.
+
+    python -X utf8 tools/story.py chapters [OUTDIR]   (default work/qa/story/chapters; story-pass input, CHAPTERS)
 """
 import json
 import struct
@@ -48,8 +50,46 @@ def groups(rom, ents):
     return found
 
 
+# Story-pass chapters (references/translation.md §Review): table ranges of groups, inclusive, by region/speaker as
+# the tables hold them (docs/synopsis.md §Story by chapter; its chapters 5 and 10 are return talk inside 04 and the
+# region files). Menus, item descriptions, link setup and results are not story and were reviewed per batch.
+CHAPTERS = [
+    ("01_kyushu", [(0x730830, 0x73091C)]),
+    ("02_ryukyu", [(0x7341DC, 0x7343C4)]),
+    ("03_mori", [(0x730930, 0x730A68)]),
+    ("04_oda", [(0x730A78, 0x730BE8)]),
+    ("06_sanada", [(0x730BF8, 0x730D1C)]),
+    ("07_toyotomi", [(0x730D34, 0x730DE4)]),
+    ("08_tokugawa", [(0x730DF8, 0x730E7C)]),
+    ("09_date", [(0x730EA0, 0x730F80)]),
+    ("11_ezo", [(0x730F90, 0x731008)]),
+    ("12_ending", [(0x731010, 0x73106C)]),
+    ("13_notices_profiles", [(0x731078, 0x7311F8)]),
+]
+
+
+def write_chapters(rom, ents, out):
+    """One file per chapter: `## group` headers, then `>> id | group | JP` / `EN` in display order."""
+    out.mkdir(parents=True, exist_ok=True)
+    allg = groups(rom, ents)
+    for name, ranges in CHAPTERS:
+        lines = [f"# chapter {name} (story pass; pages in display order, |n = line break)"]
+        for start, run in allg:
+            if not any(lo <= start <= hi for lo, hi in ranges):
+                continue
+            lines.append(f"## group {start:06x} ({len(run)} pages)")
+            for e in run:
+                lines.append(f">> {e['id']} | {start:06x} | {e['jp'].replace('|n', '')}")
+                lines.append(f"   {e.get('en', '').replace('|n', ' ')}")
+        (out / f"{name}.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+        print(name, len(lines))
+
+
 def main(argv):
     sys.stdout.reconfigure(encoding="utf-8")
+    if argv and argv[0] == "chapters":
+        write_chapters(ROM.read_bytes(), entries(), Path(argv[1]) if len(argv) > 1 else ROOT / "work/qa/story/chapters")
+        return 0
     if not argv or argv[0] != "groups":
         print(__doc__)
         return 1

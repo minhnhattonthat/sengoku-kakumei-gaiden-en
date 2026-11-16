@@ -814,7 +814,7 @@
   "room": 68,
   "kind": "text",
   "jp": "真田の情報収集能力は、|nたいしたものだ。|n敵にまわしたくないがな…",
-  "en": "The Sanada are masters|nat gathering news.|nFearsome foes...",
+  "en": "The Sanada are masters|nof intelligence. I would|nnot want them as foes...",
   "notes": "",
   "status": "done"
  },
@@ -1162,7 +1162,7 @@
   "room": 48,
   "kind": "text",
   "jp": "わしも歳じゃ…|nわしの分まで|n頑張るんじゃぞ。",
-  "en": "I am getting on in|nyears... Keep at it, for|nmy share too, eh?",
+  "en": "I am getting on in|nyears... Do your best|nfor me as well, eh?",
   "notes": "",
   "status": "done"
  },
@@ -1378,7 +1378,7 @@
   "room": 56,
   "kind": "text",
   "jp": "今こそ、おじい様の無念…|n晴らしてみせましょうぞ！|n",
-  "en": "Now I shall avenge|nGrandfather's bitter|nregret!",
+  "en": "Now I shall put|nGrandfather's grievance|nto rest at last!",
   "notes": "",
   "status": "done"
  },
@@ -2053,7 +2053,7 @@
   "room": 52,
   "kind": "text",
   "jp": "…ごめんなさい！|nこんな話してしまって。|nでも…",
-  "en": "...I am sorry! Telling|nyou all this. But...",
+  "en": "...I am sorry! I should|nnot have told you all|nthis. But...",
   "notes": "",
   "status": "done"
  },
@@ -4805,7 +4805,7 @@
   "room": 64,
   "kind": "text",
   "jp": "戦国最強と言われた|n薩摩武士を率い、|n九州統一を目指した猛将。",
-  "en": "He led Satsuma's|nsamurai, the best of the|nage, to unite Kyushu.",
+  "en": "He led Satsuma's|nsamurai, the age's best,|nin a bid for all Kyushu.",
   "notes": "",
   "status": "done"
  },
@@ -5393,7 +5393,7 @@
   "room": 64,
   "kind": "text",
   "jp": "幼少のころ右目を失明。|n「奥州の独眼竜」|nの異名で呼ばれる。",
-  "en": "Blinded in one eye as a|nboy, he was the One-Eyed|nDragon of Oshu.",
+  "en": "Blind in his right eye|nfrom boyhood, he was the|nOne-Eyed Dragon of Oshu.",
   "notes": "",
   "status": "done"
  },

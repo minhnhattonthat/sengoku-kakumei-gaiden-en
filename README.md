@@ -1,7 +1,7 @@
-# <Game title> English translation
+# Sengoku Kakumei Gaiden English translation
 
-Unofficial English fan translation of **<Game title>** (<platform>, <publisher>, <year>): the source text and tools
-that build the patch.
+Unofficial English fan translation of **Sengoku Kakumei Gaiden** (戦国革命外伝; Game Boy Advance, Konami, 2002): the
+source text and tools that build the patch.
 
 **Just want to play?** Download the patch from [Releases](../../releases) and follow its README. This repository holds
 no game data you can play; you need your own dump of the Japanese game.
@@ -13,21 +13,28 @@ helps most.
 
 | Part | Status |
 |---|---|
-| <Dialogue / story> | <Translated> |
-| <Menus, items, skills, system messages> | <Translated> |
-| <Title screen, logos, graphics with text> | <Translated / Left in Japanese> |
-| <Name entry> | <Translated / Japanese kana only> |
-| <Songs, voiced lines, credits roll> | <Left in Japanese> |
+| Dialogue, story events, biographies, tutorial | Translated |
+| Menus, item and art descriptions, shops, saving, link-cable setup, battle results and titles | Translated |
+| Menu labels, item names, stat block, HUD, map province plates, big letters, LV UP!, link cards | Translated (redrawn) |
+| Ending cards and staff credits | Translated (redrawn; staff names romanized) |
+| Name entry | Latin letters |
+| Title logo; family crests and banner mottos in the biography portraits | Left in Japanese (no official English logo; the crests are heraldry, not captions) |
 
-Known issues: <none known / see [Issues](../../issues)>.
+The game draws all its text in vertical columns. The English is drawn **rotated 90° clockwise** in those same
+columns, so tilt your head (or your screen) to the right to read it; columns run right to left, i.e. lines top to
+bottom.
+
+Known issues: none known; see [Issues](../../issues). Link-cable play was tested only in a single emulator, not with
+two consoles.
 
 ## What's here
 
 | Path | What it is |
 |---|---|
 | `script/` | Every text block: original Japanese and English. Translation fixes go here. |
+| `gfx/` | English labels for the redrawn sprite banks. |
 | `glossary.md` | Binding names, terms and style rules. |
-| `tools/` | Python build chain: extract, insert, lint, release. |
+| `tools/` | Python build chain: extract, insert, lint, graphics, release. |
 | `tests/` | pytest suite (ROM-dependent tests skip when the ROM is absent). |
 | `docs/re/` | Reverse-engineering notes. |
 | `docs/decisions.md`, `docs/status.md` | Rulings with their reasons; current progress and open bugs. |
@@ -37,15 +44,22 @@ Known issues: <none known / see [Issues](../../issues)>.
 
 ## Build your own patched ROM
 
-Needs Python 3.12+ and your own dump of the Japanese game.
+Needs Python 3.12+ and your own dump of the Japanese game, `Sengoku Kakumei Gaiden (Japan).gba` (No-Intro):
+
+| | |
+|---|---|
+| Size | 8,388,608 bytes |
+| CRC32 | 3DD25FD7 |
+| MD5 | c6420001b019120cf0606dcbed749137 |
+| SHA-1 | 6c2a464465855e7e8e9d8e02262ce44b61e34921 |
 
 ```sh
-git clone https://github.com/minhnhattonthat/<repo>
-cd <repo>
-# copy your dump to: rom/<file>
-#   (<size> bytes, SHA-1 <sha1>; the build refuses any other dump, see rom.sha1)
-python -X utf8 tools/build.py                          # -> build/<game>_en.<ext>
+git clone https://github.com/minhnhattonthat/sengoku-kakumei-gaiden-en
+cd sengoku-kakumei-gaiden-en
+# copy your dump to: rom/Sengoku Kakumei Gaiden (Japan).gba  (the build refuses any other dump, see rom.sha1)
+python -X utf8 build.py                                # -> build/sengoku_en.gba
 python -X utf8 tools/check.py                          # tests + text lint
+python -X utf8 tools/release.py                        # BPS patch + zip in release/ (runs every QA gate)
 ```
 
 ## Support
@@ -56,8 +70,9 @@ If you enjoy this translation, you can support my work on Ko-fi:
 
 ## Licence
 
-Tools and English translation: MIT. The original Japanese text in `script/` is <publisher>'s and is included only so
-the translation can be checked against it. <Game title> is (c) <publisher>; this project is not affiliated with them.
-Do not share patched ROMs.
+Tools and English translation: MIT. The original Japanese text in `script/` is Konami's and is included only so
+the translation can be checked against it. Sengoku Kakumei Gaiden is (c) Konami; this project is not affiliated with
+them. Do not share patched ROMs.
 
-The translation was made with extensive AI assistance (Claude by Anthropic). Corrections are very welcome.
+The translation was made with extensive AI assistance (Claude by Anthropic, with OpenAI Codex as an independent
+reviewer). Corrections are very welcome.
