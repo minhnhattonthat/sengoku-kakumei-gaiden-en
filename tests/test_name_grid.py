@@ -52,6 +52,26 @@ class TestNameGrid(unittest.TestCase):
             size = struct.unpack_from("<I", self.rom, blk)[0] >> 8
             self.assertEqual(size, len(data), hex(blk))
 
+    def test_header_rows_carry_no_brush_ink(self):
+        """Outside the letters (ink 1, shadow 8), no header row keeps a brush pixel: an antialiased edge pixel
+        alternated across a row drew dotted lines beside "Your Name" (visual QA, build 4977f45e)."""
+        import gfx_labels
+        edits = name_grid.lz_edits(self.rom)
+        for blk, path in name_grid.PICTURES.items():
+            m, data = name_grid.load_map(path), edits[blk]
+            ink = name_grid.HEADER_INK[name_grid.HEADER_FILL[blk]]
+            text, (x0, y0, w, h) = name_grid.HEADERS[0]
+            h = name_grid.HEADER_H.get(blk) or h
+            length = gfx_labels.text_width(text)
+            pts = gfx_labels.letter_points(text, y0 + (h - length) // 2, x0 + 12)
+            near = {(y + dy, x + dx) for y, x in pts for dy in (0, 1) for dx in (-1, 0)}
+            for y in range(y0, y0 + h):
+                for x in range(x0, x0 + w):
+                    i, hi, _ = name_grid.where(m, x, y)
+                    v = data[i] >> 4 if hi else data[i] & 15
+                    if (y, x) not in near:
+                        self.assertNotIn(v, ink, f"{hex(blk)} x {x} y {y}")
+
     def test_group7_record_points_at_its_block(self):
         # picture group 7 = getter 0x08049BBC -> records at 0x74FAC8 (36 bytes each), tiles ptr at +12
         self.assertEqual(struct.unpack_from("<I", self.rom, 0x74FAC8 + 12)[0] - 0x08000000, 0x5B14B4)

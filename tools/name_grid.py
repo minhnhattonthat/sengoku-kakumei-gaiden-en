@@ -34,6 +34,8 @@ PICTURES = {BLOCK: MAP_TSV, 0x5B14B4: ROOT / "data" / "name_grid_map7.tsv"}
 # Header refill per picture: "edges" alternates the row's two edge pixels (group 6's banded peach); "mode" takes
 # the row's commonest pixel outside the brush ink 1-9 (group 7's header has antialiased edges that stripe).
 HEADER_FILL = {BLOCK: "edges", 0x5B14B4: "mode"}
+# Brush ink per fill: 1-9, and in group 6 its light grey antialias 12 (never a band there: bands are 10, 11, 13-15)
+HEADER_INK = {"edges": set(range(1, 10)) | {12}, "mode": set(range(1, 10))}
 HEADER_H = {BLOCK: 58, 0x5B14B4: 58}  # both 名前入力 brushes run to row 61 (group 6's antialiased tail too)
 INK, EDGE = 15, 1
 
@@ -187,12 +189,32 @@ def redraw(tiles, rom, map_path=MAP_TSV, header_fill="edges", header_h=None):
     for text, (x0, y0, w, h) in HEADERS:
         import gfx_labels
         h = header_h or h
+        ink = HEADER_INK[header_fill]
+        prev = None
         for y in range(y0, y0 + h):
             left, right = get(x0, y), get(x0 + w - 1, y)
             if header_fill == "mode":
                 row = [get(x, y) for x in range(x0, x0 + w)]
-                bg = [v for v in row if not 1 <= v <= 9] or row
-                left = right = max(set(bg), key=bg.count)
+                bg = [v for v in row if v not in ink] or row
+                # a tie (row 9: two band pixels each) keeps the row above's fill, not a darker stripe
+                fill = max(set(bg), key=lambda v: (bg.count(v), prev is not None and v == prev[0]))
+                # an edge pixel that is ink, or a colour found nowhere else in the row's background (group 7's
+                # antialias 11 at rows 44-45 is also a band index), would stand alone beside the letters
+                inner = {v for v in row[1:-1] if v not in ink} or set(bg)
+                for x in (x0, x0 + w - 1):
+                    if get(x, y) in ink or get(x, y) not in inner:
+                        put(x, y, fill)
+                left = right = fill
+            else:
+                # the brush's antialias touches the edge columns on some rows: alternating it across the row
+                # left dotted lines beside the letters; take the other edge, or the row above's fill
+                if left in ink:
+                    left = right if right not in ink else prev[0]
+                    put(x0, y, left)
+                if right in ink:
+                    right = left if left not in ink else prev[1]
+                    put(x0 + w - 1, y, right)
+            prev = (left, right)
             for x in range(x0 + 1, x0 + w - 1):
                 put(x, y, left if (x - x0) % 2 else right)
         length = gfx_labels.text_width(text)
