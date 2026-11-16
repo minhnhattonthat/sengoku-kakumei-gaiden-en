@@ -1,0 +1,10 @@
+# Bank 26 (tiles 0x6E3D04-0x6E5D84): the link lobby's four player boxes, 32x104 frames (32x64 + 32x32 + 32x8
+# pieces), black brush header on white, the player's name drawn by the game in the left half. Frame 0 = 名前
+# (empty slot, seen on link_lobby_m), frames 1-4 = 参加者 "Entry" (a joined player, not seen: needs a second GBA).
+# gfx_labels.FRAMES.
+# frame	jp	en
+0	名前	Name
+1	参加者	Entry
+2	参加者	Entry
+3	参加者	Entry
+4	参加者	Entry

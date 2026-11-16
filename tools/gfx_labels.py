@@ -27,7 +27,8 @@ W = 16
 STYLE = {22: {"kind": "box"}, 36: {"kind": "plain", "pal": 4, "skip": (10, 11)},
          35: {"kind": "plain", "pal": 0, "skip": (), "centre": True},
          **{n: {"kind": "outline"} for n in (23, 24, 25, 28, 29, 30, 31, 37, 38, 39)},
-         27: {"kind": "outline", "black": {290}}}
+         27: {"kind": "outline", "black": {290}},
+         61: {"kind": "big"}}  # "big" = the combo counter's outlined gradient glyphs (draw_big())
 
 
 def strip(rom, bank):
@@ -244,6 +245,48 @@ def draw_outline(text, n, orig, black=False):
     return out
 
 
+BIG_FILL = {1: 4, 2: 4, 3: 3, 4: 3, 5: 2, 6: 2, 7: 1, 8: 1, 9: 2, 10: 2, 11: 3, 12: 3, 13: 4, 14: 4}
+
+
+def draw_big(text, n, orig, fill=BIG_FILL, edge=15):
+    """Big outlined glyphs (bank 61's combo counter): font_en caps scaled 2x in letter height (strip x 1..14,
+    letter top at x 14) and 2x in width when a single glyph fits (a digit cell), else 1x; the fill is the
+    original's x gradient `fill` (white centre, blue rim), with an 8-neighbour `edge` outline; centred in the
+    slot, everything else transparent."""
+    glyphs = [font_en.FONT.get(c, font_en.FONT[" "]) for c in font_en.fold(text)]
+    spans = [glyph_cols(gl) for gl in glyphs]
+
+    def width(sy):
+        return sum((s[1] - s[0] + 1) * sy if s else 2 for s in spans) + len(spans) - 1
+
+    sy = 2 if width(2) + 2 <= n else 1
+    length = width(sy)
+    if length + 2 > n:
+        raise ValueError(f"{text!r}: {length} rows + edge, slot {n}")
+    top = (n - length) // 2
+    pts, y = set(), top
+    for gl, s in zip(glyphs, spans):
+        if not s:
+            y += 3
+            continue
+        for r, line in enumerate(gl[:7]):
+            for c, px in enumerate(line):
+                if px == "#":
+                    for dy in range(sy):
+                        for dx in range(2):
+                            pts.add((y + (c - s[0]) * sy + dy, 14 - 2 * r - dx))
+        y += (s[1] - s[0] + 1) * sy + 1
+    out = [[0] * W for _ in range(n)]
+    for yy, xx in pts:
+        for dy in (-1, 0, 1):
+            for dx in (-1, 0, 1):
+                if (yy + dy, xx + dx) not in pts and 0 <= yy + dy < n and 0 <= xx + dx < W:
+                    out[yy + dy][xx + dx] = edge
+    for yy, xx in pts:
+        out[yy][xx] = fill[xx]
+    return out
+
+
 def english_rows(rom, bank):
     b, rows = strip(rom, bank)
     new = [list(r) for r in rows]
@@ -253,12 +296,16 @@ def english_rows(rom, bank):
         if not en:
             continue
         orig = rows[start:start + n]
+        if en == "(clear)":  # erase the slot, draw nothing (a trailing space would not survive the editor)
+            en = " "
         if style["kind"] == "plain":
             trio = ink_trio(orig, style, pal)
             shade = trio[1] if len(trio) > 1 and any(15 in r for r in orig) else None
             new[start:start + n] = draw_plain(en, n, orig, trio[0], shade, style.get("centre", False))
         elif style["kind"] == "outline":
             new[start:start + n] = draw_outline(en, n, orig, start in style.get("black", ()))
+        elif style["kind"] == "big":
+            new[start:start + n] = draw_big(en, n, orig)
         else:
             new[start:start + n] = draw(en, n, orig)
     return b, rows, new
@@ -347,6 +394,123 @@ def small_digit_edits(rom):
     return {SMALL_DIGITS: bytes(out)}
 
 
+# Banks of square glyph cells (one 32x32 OBJ each, 4x4 tiles row-major, cells consecutive): gfx/bankNN.tsv rows
+# `cell ncells jp en`. The cells are stacked into one 32 px column (cell k's rows, then cell k+1's), cleared, and
+# `en` drawn rotated clockwise in font_en caps scaled `sx` in letter height (along x) and `sy` in width (along
+# the column), bold by one px, centred, in index `ink`. Bank 33's big brush words sit in 2-3 cell columns on the
+# link versus start screen (0x080147BC: いざ at x 0x90, 対戦!! at x 0x40, 32 px apart).
+# Bank 34 = five 64x64 cells 男 女 (gender select) 空 (empty save slot) 終 (single-player game over; with 了
+# below it, the link 終了 card).
+CELLS = {33: {"size": 32, "ink": 2, "sx": 3, "sy": 2}, 34: {"size": 64, "ink": 2, "sx": 4, "sy": 2}}
+
+
+def load_cells_tsv(bank):
+    out = []
+    for line in (ROOT / "gfx" / f"bank{bank:02d}.tsv").read_text(encoding="utf-8").splitlines():
+        if line and not line.startswith("#"):
+            c, k, jp, en = (line.split("\t") + [""])[:4]
+            out.append((int(c), int(k), jp, en))
+    return out
+
+
+def scaled_points(text, top, x_top, sx, sy, bold=1):
+    """{(row, x)} of `text` rotated clockwise with each font pixel sx (x) by sy (+bold) rows; letter top at x_top."""
+    pts, y = set(), top
+    for ch in font_en.fold(text):
+        gl = font_en.FONT.get(ch, font_en.FONT[" "])
+        s = glyph_cols(gl)
+        if not s:
+            y += 3 * sy
+            continue
+        for r, line in enumerate(gl[:7]):
+            for c, px in enumerate(line):
+                if px == "#":
+                    for dy in range(sy + bold):
+                        for dx in range(sx):
+                            pts.add((y + (c - s[0]) * sy + dy, x_top - r * sx - dx))
+        y += (s[1] - s[0] + 1) * sy + sy  # the bold px eats into the sy-row gap
+    return pts, y - top - sy + bold
+
+
+def cells_edits(rom, bank):
+    b = sprites.banks(rom)[bank]
+    g = CELLS[bank]
+    n = g["size"]
+    tpr = n // 8  # tiles per row
+    data = bytearray(rom[b["tiles"]:b["end"]])
+
+    def at(cell, y, x):
+        t = cell * tpr * tpr + (y // 8) * tpr + x // 8
+        return t * 32 + (y % 8) * 4 + (x % 8) // 2, x & 1
+
+    for cell, k, jp, en in load_cells_tsv(bank):
+        if not en:
+            continue
+        pts, length = scaled_points("" if en == "(clear)" else en, 0, 0, g["sx"], g["sy"])
+        if length > k * n:
+            raise ValueError(f"bank {bank} {en!r}: {length} rows, {k} cells of {n}")
+        height = 7 * g["sx"]
+        top = (k * n - length) // 2
+        x_top = (n + height) // 2 - 1
+        for y in range(k * n):  # clear
+            for x in range(n):
+                i, hi = at(cell + y // n, y % n, x)
+                data[i] &= 0x0F if hi else 0xF0
+        for yy, xx in pts:
+            y, x = yy + top, xx + x_top
+            i, hi = at(cell + y // n, y % n, x)
+            data[i] |= g["ink"] << 4 if hi else g["ink"]
+    return {b["tiles"]: bytes(data)} if bytes(data) != rom[b["tiles"]:b["end"]] else {}
+
+
+# Banks drawn frame by frame (pieces from sprites.frames()): gfx/bankNN.tsv rows `frame jp en`. Each frame's
+# pixels from row `top_keep` down become `bg`, then `en` is drawn rotated clockwise from row `row`, letter top
+# at x `x_top`, in `ink` with a `shade` shadow. Bank 26 = the link lobby's player boxes (名前 / 参加者 headers;
+# the game draws the player's name in the box's left half, x < 17, so the label keeps to x 18-27).
+# Bank 26's frames show their own rows 32-63 again at 64-95 (the 32x32 piece reuses the tiles), so a label must
+# end above row `end` or it repeats.
+FRAMES = {26: {"bg": 13, "ink": 15, "shade": 9, "x_top": 27, "row": 3, "top_keep": 2, "end": 32}}
+
+
+def frames_edits(rom, bank):
+    b = sprites.banks(rom)[bank]
+    g = FRAMES[bank]
+    data = bytearray(rom[b["tiles"]:b["end"]])
+    fr = sprites.frames(rom, b)
+    for line in (ROOT / "gfx" / f"bank{bank:02d}.tsv").read_text(encoding="utf-8").splitlines():
+        if not line or line.startswith("#"):
+            continue
+        f, jp, en = (line.split("\t") + [""])[:3]
+        if not en:
+            continue
+        pix = {}  # (y, x) -> (byte index, high nibble) over the frame's pieces
+        for p in fr[int(f)]:
+            for y in range(p["h"]):
+                for x in range(p["w"]):
+                    t = p["tile"] + (y // 8) * (p["w"] // 8) + x // 8
+                    pix[(p["y"] + y, p["x"] + x)] = (t * 32 + (y % 8) * 4 + (x % 8) // 2, x & 1)
+        height = g.get("end") or max(y for y, _ in pix) + 1
+        length = text_width(en)
+        if g["row"] + length > height:
+            raise ValueError(f"bank {bank} {en!r}: {length} rows from {g['row']}, frame {height}")
+
+        def put(y, x, v):
+            i, hi = pix[(y, x)]
+            data[i] = (data[i] & 0x0F) | (v << 4) if hi else (data[i] & 0xF0) | v
+
+        for (y, x) in pix:
+            if y >= g["top_keep"]:
+                put(y, x, g["bg"])
+        pts = letter_points(en, g["row"], g["x_top"])
+        for y, x in pts:
+            for yy, xx in ((y + 1, x), (y, x - 1), (y + 1, x - 1)):
+                if (yy, xx) not in pts and (yy, xx) in pix and yy < height:
+                    put(yy, xx, g["shade"])
+        for y, x in pts:
+            put(y, x, g["ink"])
+    return {b["tiles"]: bytes(data)} if bytes(data) != rom[b["tiles"]:b["end"]] else {}
+
+
 def labels_edits(rom, banks=None):
     edits = {} if banks is not None else small_digit_edits(rom)
     for path in sorted((ROOT / "gfx").glob("bank*.tsv")):
@@ -355,6 +519,12 @@ def labels_edits(rom, banks=None):
             continue
         if bank in GRID:
             edits.update(grid_edits(rom, bank))
+            continue
+        if bank in CELLS:
+            edits.update(cells_edits(rom, bank))
+            continue
+        if bank in FRAMES:
+            edits.update(frames_edits(rom, bank))
             continue
         b, rows, new = english_rows(rom, bank)
         if new != rows:
@@ -390,6 +560,11 @@ def preview(rom, bank, out):
     from PIL import Image
     if bank in GRID:
         return grid_preview(rom, bank, out)
+    if bank in CELLS or bank in FRAMES:  # every cell assembled, English build
+        new = bytearray(rom)
+        for off, data in (cells_edits if bank in CELLS else frames_edits)(rom, bank).items():
+            new[off:off + len(data)] = data
+        return sprites.render_frames(bytes(new), bank, out)
     b, rows, new = english_rows(rom, bank)
     rgb = [tuple(v * 255 // 31 for v in c) for c in palette(rom, b, STYLE.get(bank, {}).get("pal", 0))]
     rgb[0] = (255, 0, 255)

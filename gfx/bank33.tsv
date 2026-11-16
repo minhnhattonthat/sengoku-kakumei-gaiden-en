@@ -1,0 +1,11 @@
+# Bank 33 (tiles 0x6F0934-0x6F2334): 13 big white brush glyphs, one 32x32 OBJ each, for the link versus start
+# screen (0x080147BC places いざ in a column at x 0x90 and 対戦!! at x 0x40, cells 32 px apart). Not seen in game
+# (needs a second GBA). Each word is drawn across its cells as one rotated label (gfx_labels.CELLS).
+# cell	ncells	jp	en
+0	2	いざ	READY
+2	2	出陣	MARCH
+4	1	!!	!!
+5	2	無念	ALAS
+7	2	攻略	SIEGE
+9	2	失敗	LOST
+11	2	対戦	FIGHT

@@ -6,7 +6,7 @@ Skill: translate-retro-game (Claude Code: plugin, enabled in .claude/settings.js
 - Build:    `python -X utf8 build.py` -> build/sengoku_en.gba (checks the dump against `rom.sha1` first; written in phase 3)
 - Check:    `python -X utf8 tools/check.py` (tests + lint; the pre-commit hook runs this; hooks: `git config core.hooksPath tools/hooks`)
 - Smoke:    `python -X utf8 $SKILL/scripts/emu.py build/sengoku_en.gba --out work/qa/smoke --route tools/routes/boot.txt --smoke`
-- Warp:     `python -X utf8 $SKILL/scripts/emu.py build/sengoku_en.gba --out work/qa/warp --script tools/debug/warp.lua --var "SCENE='<name>'" --frames 900 --sheet` (scenes: `tools/debug/scenes.txt`; never ask the user to play to a scene)
+- Warp:     `python -X utf8 tools/debug/warp.py <scene>.. --rom <abs>/build/sengoku_en.gba --out <abs>/work/qa/<dir> [--proof] [--shot-every N] [--scenes-file F]` (scenes: `tools/debug/scenes.txt`; never ask the user to play to a scene)
 - Release:  `python -X utf8 tools/release.py` (patch + verify; never publish without the user)
 - Clean:    `python -X utf8 tools/clean.py` (published projects: lists rebuildable/downloadable files; `--yes` deletes)
 

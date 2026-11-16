@@ -1,0 +1,15 @@
+# Bank 61 (tiles 0x72F928-0x72FF28, 48 tiles): the in-stage combo counter. Ten 16-row digit cells 〇-九 (16x16
+# OBJs) and one 32-row 連撃 cell (a 16x32 OBJ), cyan gradient glyphs with a black outline. style "big"
+# (gfx_labels.draw_big). tools/gfx_labels.py
+# start	rows	jp	en
+0	16	〇	0
+16	16	一	1
+32	16	二	2
+48	16	三	3
+64	16	四	4
+80	16	五	5
+96	16	六	6
+112	16	七	7
+128	16	八	8
+144	16	九	9
+160	32	連撃	HITS

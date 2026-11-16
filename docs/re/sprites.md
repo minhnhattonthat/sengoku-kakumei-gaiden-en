@@ -59,6 +59,25 @@ pixels are 13). Checked on title, newgame_setup, map_menu, save, controls, encyc
 (`work/gfx/shots/menus_outline.png`, rotate 270). Not yet seen in game: bank 23 (resume / start over), 24,
 25 (handicap), 30 yes/no, 31 (in use / done), 37, 38 Type 3, 39 (Go In / Shut).
 
+## Cell tables (decoded 2026-11-16 session 4, `sprites.frames()`, `sprites.py frames N`)
+Pieces at `end`, 12 bytes: u16 attr0 (shape bits 14-15), u16 attr1 (size bits 14-15), u16 (tile*2 in bits 0-9,
+relative to the cell's first tile; palette in 12-15), s16 y, s16 x. rest[0] = pieces per cell (bytes, 0-padded),
+rest[1] = each cell's first tile (u16), rest[2] = `count` animation frames of 8 bytes (u16 cell, u16 duration?,
+u16 first piece, 0). Each bank has a getter `bank_ptr(i) = rec + 8 + 48 i` in 0x0804A2F4.. (bank 33: 0x0804A3BC);
+`disasm.py xref` on the getter finds the screens that use a bank.
+
+## Banks 26, 33, 34, 35 (rest), 61 - done (session 4)
+- **26** link lobby player boxes, 32x104 frames, `gfx_labels.FRAMES` (名前 -> Name, 参加者 -> Entry). Rows 32-63
+  repeat at 64-95 (the 32x32 piece reuses tiles), so labels end by row 32. Name seen on `link_lobby_m`.
+- **33** 13 32x32 white brush cells (いざ 出陣 !! 無念 攻略 失敗 対戦), `gfx_labels.CELLS` (words drawn across 2
+  cells: READY MARCH !! ALAS SIEGE LOST FIGHT). Only user 0x080147BC (link versus start, columns at x 0x90 and
+  0x40); not seen in game (needs a second GBA).
+- **34** (was listed as art) five 64x64 white brush cells 男 女 空 終 了 -> MAN WOMAN EMPTY END (了 cleared).
+  Seen on newgame_setup/save (EMPTY), gender select, link_end_card (END). The single-player game over uses 終 too.
+- **35** rest: 禄高 -> Koku, 万石 -> 0,000, あなた -> You're, が/は -> No., 番 cleared, 連撃 -> HITS. Not seen (link?).
+- **61** combo counter (10 digit cells + 連撃 16x32), style `big` (2x digits, cyan gradient, black edge):
+  0-9, HITS. Not yet seen in game (a stage route that lands hits is still needed).
+
 ## Map of all 62 banks (2026-11-16, overview sheets `work/gfx/sheet[A-D].png`, strips wrapped at 320 rows)
 Rendered with `MONO`/palette 0, so multi-palette banks look odd; only the classification matters.
 - **Text, to redraw:** 20 province name plates (2 kanji, ~50, plus greyed variants), 23-26 menu choice boxes
@@ -68,4 +87,4 @@ Rendered with `MONO`/palette 0, so multi-palette banks look odd; only the classi
   鎧術, ▲▼, kanji digits 〇-九, 連撃, 禄高 万石, あなたが), 37 操作方法選択 types, 38 上級者向 / タイプ二, 39 入る/
   閉める, 59 hiragana in boxes (name-entry kana grid), 61 combo counter digits + 連撃.
 - **Already English:** 44 copyright (Konami Computer Entertainment Studios).
-- **Art, no text:** 0-19, 21, 34, 40-43, 45-58 (except 47 = blue kana-like fragments, check), 60.
+- **Art, no text:** 0-19, 21, 40-43, 45-58 (except 47 = blue kana-like fragments, check), 60.

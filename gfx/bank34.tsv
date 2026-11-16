@@ -1,0 +1,9 @@
+# Bank 34 (tiles 0x6F2564-0x6F4D64): five 64x64 white brush glyphs, ink 2 (gfx_labels.CELLS).
+# 終 shows alone on the single-player game over (game_over) and above 了 on the link end card (link_end_card), so
+# 終 carries the whole word and 了 is left blank.
+# cell	ncells	jp	en
+0	1	男	MAN
+1	1	女	WOMAN
+2	1	空	EMPTY
+3	1	終	END
+4	1	了	(clear)

@@ -1,6 +1,6 @@
 # Bank 35 (tiles 0x6F4EDC-0x6F615C): one-glyph 16-row cells: equipment slot icons (white boxes) and the kanji
-# digits used for every stat number (bare index-2 glyphs). Still Japanese: 禄高/万石 (192-256), あなたが/は/番/!!
-# (256-400): where they show is not known yet. tools/gfx_labels.py
+# digits used for every stat number (bare index-2 glyphs), plus 禄高/万石, あなたが/は/番/!! and 連撃 (below).
+# tools/gfx_labels.py
 # start	rows	jp	en
 48	16	刀	Sw
 64	16	槍	Sp
@@ -19,3 +19,14 @@
 512	16	七	7
 528	16	八	8
 544	16	九	9
+# Not seen in game (no single-player scene shows them; most likely the link mode's ranking/income readout, which
+# needs a second GBA). Each pair of 16-row cells is drawn as one 32-row label, assuming the game places the
+# cells end to end as it does the digits: 禄高 N 万石 -> "Koku N 0,000", あなたが/は N 番 !! -> "You're No. N !!"
+# (番 blank: no suffix glued onto a number). 354-400 (!!, dots) are kept.
+192	32	禄高	Koku
+224	32	万石	0,000
+256	48	あなた	You're
+304	16	が	No.
+320	16	は	No.
+336	16	番	(clear)
+560	32	連撃	HITS
