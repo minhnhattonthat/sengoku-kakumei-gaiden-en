@@ -44,6 +44,16 @@ Recorded as D8 in `docs/decisions.md` (pre-approved run; the owner may still ask
 - Runtime-inserted text (`%n` player name, `%d` numbers) is still drawn with the Japanese glyphs (upright kana,
   full-width digits); an odd-length English run before `%n`/`%d` gets a trailing space cell.
 
+## Width gate (phase 5 result, `data/windows.tsv`)
+- Every script bank except `results` is drawn in the pink scroll: 12 cells = 24 letters per line, 3 lines per page,
+  automatic wrap at the 13th cell (measured with the stress build). The name confirm (`save_confirm`) counts the
+  player name's cells against its line.
+- `results` uses a second renderer (white glyphs on the results BG, same font table, so English pairs work): `|n`
+  is not a control there (drawn as a glyph), labels 12 cells, `%d` values 6 cells incl. one cell per digit, the
+  title words 11 + 10 cells, each in its own column (no join problem for odd lengths).
+- Glyph torture line (all printable ASCII, double spaces) renders right in the scroll (`work/qa/tort1`, `tort2`,
+  `tort3`); `l` got a tail so it no longer reads as `1` rotated.
+
 ## Open (engine)
 - Player name entry is a kana grid (`newgame_name`): English names need a Latin grid (graphics + code, phase 8).
 - `%d` digits come out as upright full-width ０-９; rotated digit glyphs for that path are still to do.

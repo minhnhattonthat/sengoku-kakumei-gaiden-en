@@ -1,11 +1,16 @@
 # Width gate: budget per box variant. cells = 12 px glyph cells per line (2 English letters each); lines = columns per page.
-# status: measured (shot) | guess. Build the ruler build with `python -X utf8 build.py marker STRESS=1`.
+# status: measured (shot) | guess. Build the ruler build with `python -X utf8 build.py marker STRESS=1` (ID=text overrides one entry).
+# Text that is graphics, not script/ (menu strips and headers, item/technique names, map labels, stat labels, ending prose,
+# credits, link-error card, はい/いいえ, time labels): docs/re/graphics.md, phase 8.
 # variant	banks / ids	cells	letters	lines	status	evidence
 scroll_help	menu_help1 menu_help2	12	24	3	measured	work/qa/stress title (04d12c: 13th cell wraps to the next column); 3 columns = 40 px scroll art
 scroll_dialogue	story (events)	12	24	3	measured	work/qa/stress ev003 (0509d8: 13th cell wraps); same scroll as help
-menu_strip	system (labels in 12 px white strips)	?	?	1	guess	not measured: most strips on title/equip/shop are graphics or Shift-JIS records, not script/ text
-item_record	Shift-JIS records 0x7F78C-0x80D44 (not extracted yet)	?	16	1	guess	18-byte name field incl. NUL = 8 cells max by storage; strip height not measured
-province	provinces	?	?	?	guess	map labels not yet seen in a shot
-results	results	?	?	?	guess	results screen shot showed no ruler: check which strings it draws
-link	link	?	?	?	guess	not measured
-save_confirm	save_confirm	?	?	?	guess	not measured
+scroll_item_help	system (item/technique descriptions: kana name line + description)	12	24	3	measured	work/qa/stress2 equip (04eccc ruler wraps after 24 letters)
+scroll_map	provinces (country names, map hints)	12	24	3	measured	work/qa/stress2 map (05e720 ruler wraps after 24 letters); the white map label box (薩摩) is graphics
+scroll_name_confirm	save_confirm 061c24 (%b%n %B ... name confirm after name entry)	12	24	3	measured	work/qa/stress6 f002100: name cell(s) + 22 letters = 12 cells; the name's cells count against line 2
+scroll_link	link (lobby messages, dojo tutorial 07e398..)	12	24	3	measured	work/qa/stress2 link_versus 04d168, link_timesel 07e23c, link_lobby_m 07e090, stage_ryukyu_tutorial 07e3d8
+link_time_label	link 07e2d4 07e2dc 07e2e4 (四五分/三〇分/一五分)	3	6	1	guess	not drawn on link_timesel (its labels are graphics); likely the lobby with a 2nd GBA, unreachable headless: keep to 6 letters ("45 min")
+results_label	results 2018a0-2018ec (kanji set) and 201828-201890 (kana twins)	12	24	1	measured	work/qa/stress3 results (A..m = 24 letters, then wraps into the next label's column); `|n` is NOT a control here (drawn as a glyph): single line only
+results_value	results %d strings (2018b0 %d分, 2018c4 %d体, 2018d8 %d連撃 + kana twins)	6	12	1	measured	work/qa/stress3: value column starts mid-screen, %d digit cell + 12 letters reach the bottom; each digit takes a full cell, so letters = 2*(6 - digits)
+results_title_first	results title words, first part (201b4c etc.: adjective)	11	22	1	measured	work/qa/stress4 f005520: 11 cells then wraps into the next column
+results_title_second	results title words, second part (20205x etc.: noun, drawn one cell lower)	10	20	1	measured	work/qa/stress4 f005520: starts one cell lower, 10 cells then wraps

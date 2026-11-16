@@ -1,7 +1,7 @@
 # Text engine
 
 ## Encoding
-- **EUC-JP**, two bytes per character, NUL-terminated, stored uncompressed in ROM. **verified**: `遊戯`, `我が軍`, `新しく遊戯を始めます。|nよろしいですか？` found as EUC-JP and match the title-menu and opening shots (`work/qa/explore1`). Shift-JIS / UTF-16 searches find nothing.
+- **EUC-JP**, two bytes per character, NUL-terminated, stored uncompressed in ROM. **verified**: `遊戯`, `我が軍`, `新しく遊戯を始めます。|nよろしいですか？` found as EUC-JP and match the title-menu and opening shots (`work/qa/explore1`). UTF-16 searches find nothing. **Shift-JIS does exist** (phase 5, `jp_left.py --sjis`): item records 0x7F7A8-0x80D44 (40 bytes, name at +12; never drawn, the on-screen names are graphics, `graphics.md`) and debug printf formats 0x81DD8-0x821A4 (`Lv1:%3d`, `アイテム出現確率一覧`, tab-separated debug logs, never on screen). Neither is in `script/`; both are out of scope.
 - Control sequences are ASCII inside the EUC text:
   - `|n` (7C 6E) newline / next column. **verified** (1450 uses; line breaks match the screen).
   - `%n` player name (`よくきたな|n%nよ。`). **verified** by context (name entry precedes it).

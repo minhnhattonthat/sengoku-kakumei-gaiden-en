@@ -33,6 +33,13 @@ Results (raw codex lines: `work/re/sweep/result_chunk_*.txt`; 467 labels came ba
 | raw 0x6D0000-0x6DBFFF | kanji-large | large black brush kanji | menu headers (項目選択, 入力内容確認, 性別選択, 名前入力) |
 | raw 0x6DC000-0x6E7FFF | label | outlined labels (verified: file-menu buttons 0x6D1FF8-0x6DF870) | file menu, mode menu, はい/いいえ |
 | raw 0x6E8000-0x6F7FFF | label + kanji-large | small labels 間 防 気 力 の まで (stat names: 攻撃 防御 体力 気力 金, "次の…まで" = to next level) | field HUD / status screen |
+| raw 0x6F6A94.. (and neighbours 0x6E6000-0x700000) | label | **item / weapon / armour / technique names**, one pre-rendered 16 px-wide OBJ strip per item (数打の刀青 = OBJ tiles 281-300 on `equip`, 0x6F6AD4-0x6F6C53, verified by corrupting it) | equip, shop, status |
+
+The Shift-JIS item records at 0x7F7A8-0x80D44 (40 bytes, name at +12) are **not drawn**: their only readers are
+whole-record copies (0x0803B4B8, 0x0803BD4C, 0x0803B3FA, 0x0803BD8A; `tools/lua/sjisread.lua`), and a build with all
+139 names replaced by ＊ gave the same shots as the original on title, map_menu, equip, save, controls,
+encyclopedia, shop, results, link_versus and stage_r1_hyuga (differences only in cursor blink). So item names are a
+graphics job (phase 8), not a script bank.
 | raw 0x6BC000-0x6CFFFF, 0x70C000 | possible | small white fragments in pale rectangles | unknown, check on screen |
 | raw 0x1E4000-0x1EBFFF | label (possible) | vertical kana/kanji pieces among sprites | unknown, check on screen |
 | raw 0x1FC000-0x203FFF | font | ordered set: punctuation, digits, A-Z, a-z, hiragana, katakana | secondary small font (results / name entry?); its Latin letters may serve English |
