@@ -1,0 +1,6 @@
+# Cold boot to the title screen, then press Start (proves scripted input reaches the game).
+900 -
+6 start
+300 -
+6 start
+300 -
