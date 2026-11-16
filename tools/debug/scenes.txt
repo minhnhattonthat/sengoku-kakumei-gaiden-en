@@ -1,0 +1,169 @@
+# Scene list for tools/debug/warp.lua (run: python -X utf8 tools/debug/warp.py [NAME..]). One scene per line:
+#   NAME key=value ...
+#   country=ID   hero on that country's map node, then the inputs (ids: docs/re/scenes.md)
+#   path=a,b     countries entered first, in order, the game's own way (A, then A mashed until the map is back)
+#   flags=a,b-c  story flags to set (bitfield at S+0x164); nib=ID:V country states (S+0x128)
+#   poke=0xADDR:V absolute u32 writes (S = 0x02000614)
+#   ev=N         force event id N (S+0x184) when the next scene starts (enter a castle: country=2)
+#   mode=N       force game mode N (G = [0x03000000], G+2) when the map exits
+#   route="N btn;.." title-side scene: plain inputs from power-on, no new game
+#   input="N btn;.." presses once the map is up (default "6 a" = enter the country)
+#   wait=N hold=N mash=N mashkey=b   timing; expect=MODE[:EV] proves the scene (logs SCENE_OK)
+# ALL = every story flag and region flag: stages anywhere deploy without their region-intro events.
+
+# --- title side (no new game) ---
+title           route="900 -;6 start;200 -" hold=60
+newgame_setup   route="900 -;6 start;200 -;6 a;120 -;6 a;120 -" hold=200
+newgame_name    route="900 -;6 start;200 -;6 a;120 -;6 a;120 -;6 a;120 -;6 a;120 -;6 a;120 -" hold=200
+link_versus     route="900 -;6 start;200 -;6 left;60 -;6 a;200 -" hold=300
+link_lobby      route="900 -;6 start;200 -;6 left;60 -;6 a;200 -;6 a;300 -" hold=300
+# --- national map and its menu (Start) ---
+map             input="1 -" hold=120
+map_menu        input="6 start" hold=200
+equip           input="6 start;200 -;6 a" hold=300
+save            input="6 start;200 -;6 left;60 -;6 a" hold=300
+controls        input="6 start;200 -;6 left;60 -;6 left;60 -;6 a" hold=300
+encyclopedia    input="6 start;200 -;6 left;60 -;6 left;60 -;6 left;60 -;6 a" hold=300
+shop            input="6 start;200 -;6 left;60 -;6 left;60 -;6 left;60 -;6 left;60 -;6 a" hold=300
+# --- story path the game's own way (opening is played by every warp's boot) ---
+higo_barrier    country=4 mash=40 hold=900 expect=24:76
+lord_after_higo path=4 country=2 mash=40 hold=900 expect=24:2
+deploy_confirm  path=4,2 country=3 input="6 a" hold=300 expect=41
+# --- stages (field/HUD), one per region; Ryukyu = tutorial; mugen = endless ---
+stage_ryukyu_tutorial  country=1 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
+stage_r1_hyuga         country=3 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
+stage_r2_tosa          country=9 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
+stage_r3_izumo         country=17 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
+stage_r4_echizen       country=23 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
+stage_r5_kai           country=28 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
+stage_r6_sagami        country=34 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
+stage_r7_shimotsuke    country=40 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
+stage_r8_uzen          country=43 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
+stage_r8_mutsu         country=46 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
+stage_mugen             flags=1-24,33-90 poke=0x020007B0:732,0x020007B4:232 input="6 a;200 -;6 a" hold=900 expect=29
+# --- screens the game switches to by mode ---
+results         country=2 flags=1-24,33-90 mode=36 hold=400 expect=36
+game_over       country=2 flags=1-24,33-90 mode=21 hold=400 expect=21
+link_failed     country=2 mode=22 hold=400 expect=22
+link_timesel    country=2 mode=20 hold=400 expect=20
+link_lobby_m    country=2 mode=19 hold=400 expect=19
+ending_petals   country=2 mode=34 hold=400 expect=34
+debug_menu      country=2 mode=0 hold=400 expect=0   # leftover debug menu (debug only)
+# --- ending: ev 53 chains 53..74: epilogue, the four prose screens (LZ 0x5C84F0, 0x5CA354, 0x5C5DB8,
+#     0x5C3598), staff credits and the end card; holds land just after each prose screen loads ---
+ending_prose1   country=2 ev=53 mash=40 hold=3450 expect=24:53
+ending_prose2   country=2 ev=53 mash=40 hold=5520 expect=24:53
+ending_prose3   country=2 ev=53 mash=40 hold=9640 expect=24:53
+ending_prose4   country=2 ev=53 mash=40 hold=12090 expect=24:53
+ending_credits  country=2 ev=53 mash=40 hold=13000 expect=24:53
+ending_end      country=2 ev=53 mash=40 hold=14400 expect=24:53
+# --- every story event (castle talks, region events, boss intros, magatama, biographies) ---
+ev000_opening            country=2 ev=0 mash=40 hold=2400 expect=24:0
+ev001_lord_hint          country=2 ev=1 mash=40 hold=2400 expect=24:1
+ev002_lord_barrier       country=2 ev=2 mash=40 hold=2400 expect=24:2
+ev003                    country=2 ev=3 mash=40 hold=2400 expect=24:3
+ev004                    country=2 ev=4 mash=40 hold=2400 expect=24:4
+ev005                    country=2 ev=5 mash=40 hold=2400 expect=24:5
+ev006                    country=2 ev=6 mash=40 hold=2400 expect=24:6
+ev007                    country=2 ev=7 mash=40 hold=2400 expect=24:7
+ev008                    country=2 ev=8 mash=40 hold=2400 expect=24:8
+ev009                    country=2 ev=9 mash=40 hold=2400 expect=24:9
+ev010                    country=2 ev=10 mash=40 hold=2400 expect=24:10
+ev011                    country=2 ev=11 mash=40 hold=2400 expect=24:11
+ev012                    country=2 ev=12 mash=40 hold=2400 expect=24:12
+ev013                    country=2 ev=13 mash=40 hold=2400 expect=24:13
+ev014                    country=2 ev=14 mash=40 hold=2400 expect=24:14
+ev015                    country=2 ev=15 mash=40 hold=2400 expect=24:15
+ev016                    country=2 ev=16 mash=40 hold=2400 expect=24:16
+ev017                    country=2 ev=17 mash=40 hold=2400 expect=24:17
+ev018                    country=2 ev=18 mash=40 hold=2400 expect=24:18
+ev019                    country=2 ev=19 mash=40 hold=2400 expect=24:19
+ev020                    country=2 ev=20 mash=40 hold=2400 expect=24:20
+ev021_oichi              country=2 ev=21 mash=40 hold=2400 expect=24:21
+ev022_honnoji            country=2 ev=22 mash=40 hold=2400 expect=24:22
+ev023                    country=2 ev=23 mash=40 hold=2400 expect=24:23
+ev024                    country=2 ev=24 mash=40 hold=2400 expect=24:24
+ev025                    country=2 ev=25 mash=40 hold=2400 expect=24:25
+ev026                    country=2 ev=26 mash=40 hold=2400 expect=24:26
+ev027                    country=2 ev=27 mash=40 hold=2400 expect=24:27
+ev028                    country=2 ev=28 mash=40 hold=2400 expect=24:28
+ev029                    country=2 ev=29 mash=40 hold=2400 expect=24:29
+ev030                    country=2 ev=30 mash=40 hold=2400 expect=24:30
+ev031                    country=2 ev=31 mash=40 hold=2400 expect=24:31
+ev032                    country=2 ev=32 mash=40 hold=2400 expect=24:32
+ev033                    country=2 ev=33 mash=40 hold=2400 expect=24:33
+ev034                    country=2 ev=34 mash=40 hold=2400 expect=24:34
+ev035                    country=2 ev=35 mash=40 hold=2400 expect=24:35
+ev036                    country=2 ev=36 mash=40 hold=2400 expect=24:36
+ev037                    country=2 ev=37 mash=40 hold=2400 expect=24:37
+ev038                    country=2 ev=38 mash=40 hold=2400 expect=24:38
+ev039                    country=2 ev=39 mash=40 hold=2400 expect=24:39
+ev040                    country=2 ev=40 mash=40 hold=2400 expect=24:40
+ev041                    country=2 ev=41 mash=40 hold=2400 expect=24:41
+ev042                    country=2 ev=42 mash=40 hold=2400 expect=24:42
+ev043                    country=2 ev=43 mash=40 hold=2400 expect=24:43
+ev044                    country=2 ev=44 mash=40 hold=2400 expect=24:44
+ev045                    country=2 ev=45 mash=40 hold=2400 expect=24:45
+ev046                    country=2 ev=46 mash=40 hold=2400 expect=24:46
+ev047                    country=2 ev=47 mash=40 hold=2400 expect=24:47
+ev048                    country=2 ev=48 mash=40 hold=2400 expect=24:48
+ev049                    country=2 ev=49 mash=40 hold=2400 expect=24:49
+ev050                    country=2 ev=50 mash=40 hold=2400 expect=24:50
+ev051_boss               country=2 ev=51 mash=40 hold=2400 expect=24:51
+ev052                    country=2 ev=52 mash=40 hold=2400 expect=24:52
+ev053_epilogue           country=2 ev=53 mash=40 hold=2400 expect=24:53
+ev054                    country=2 ev=54 mash=40 hold=2400 expect=24:54
+ev055                    country=2 ev=55 mash=40 hold=2400 expect=24:55
+ev056                    country=2 ev=56 mash=40 hold=2400 expect=24:56
+ev057                    country=2 ev=57 mash=40 hold=2400 expect=24:57
+ev058                    country=2 ev=58 mash=40 hold=2400 expect=24:58
+ev059                    country=2 ev=59 mash=40 hold=2400 expect=24:59
+ev060                    country=2 ev=60 mash=40 hold=2400 expect=24:60
+ev061                    country=2 ev=61 mash=40 hold=2400 expect=24:61
+ev062                    country=2 ev=62 mash=40 hold=2400 expect=24:62
+ev063                    country=2 ev=63 mash=40 hold=2400 expect=24:63
+ev064                    country=2 ev=64 mash=40 hold=2400 expect=24:64
+ev065                    country=2 ev=65 mash=40 hold=2400 expect=24:65
+ev066                    country=2 ev=66 mash=40 hold=2400 expect=24:66
+ev067                    country=2 ev=67 mash=40 hold=2400 expect=24:67
+ev068                    country=2 ev=68 mash=40 hold=2400 expect=24:68
+ev073_resume             country=2 ev=73 mash=40 hold=2400 expect=24:73
+ev074_resume2            country=2 ev=74 mash=40 hold=2400 expect=24:74
+ev075_save_confirm       country=2 ev=75 mash=40 hold=2400 expect=24:75
+ev076_higo_barrier       country=2 ev=76 mash=40 hold=2400 expect=24:76
+ev077_barrier_break      country=2 ev=77 mash=40 hold=2400 expect=24:77
+ev078_barrier_break      country=2 ev=78 mash=40 hold=2400 expect=24:78
+ev079_barrier_break      country=2 ev=79 mash=40 hold=2400 expect=24:79
+ev080_barrier_break      country=2 ev=80 mash=40 hold=2400 expect=24:80
+ev081_barrier_break      country=2 ev=81 mash=40 hold=2400 expect=24:81
+ev082_barrier_break      country=2 ev=82 mash=40 hold=2400 expect=24:82
+ev083_barrier_break      country=2 ev=83 mash=40 hold=2400 expect=24:83
+ev084_boss               country=2 ev=84 mash=40 hold=2400 expect=24:84
+ev085_boss               country=2 ev=85 mash=40 hold=2400 expect=24:85
+ev086_boss               country=2 ev=86 mash=40 hold=2400 expect=24:86
+ev087                    country=2 ev=87 mash=40 hold=2400 expect=24:87
+ev088_boss               country=2 ev=88 mash=40 hold=2400 expect=24:88
+ev089_boss               country=2 ev=89 mash=40 hold=2400 expect=24:89
+ev090_boss               country=2 ev=90 mash=40 hold=2400 expect=24:90
+ev091_boss               country=2 ev=91 mash=40 hold=2400 expect=24:91
+ev092_biography          country=2 ev=92 mash=40 hold=2400 expect=24:92
+ev093_biography          country=2 ev=93 mash=40 hold=2400 expect=24:93
+ev094_biography          country=2 ev=94 mash=40 hold=2400 expect=24:94
+ev095_biography          country=2 ev=95 mash=40 hold=2400 expect=24:95
+ev096_biography          country=2 ev=96 mash=40 hold=2400 expect=24:96
+ev097_biography          country=2 ev=97 mash=40 hold=2400 expect=24:97
+ev098_biography          country=2 ev=98 mash=40 hold=2400 expect=24:98
+ev099_biography          country=2 ev=99 mash=40 hold=2400 expect=24:99
+ev100_biography          country=2 ev=100 mash=40 hold=2400 expect=24:100
+ev101_biography          country=2 ev=101 mash=40 hold=2400 expect=24:101
+ev102_biography          country=2 ev=102 mash=40 hold=2400 expect=24:102
+ev103_biography          country=2 ev=103 mash=40 hold=2400 expect=24:103
+ev104_boss               country=2 ev=104 mash=40 hold=2400 expect=24:104
+ev105_magatama           country=2 ev=105 mash=40 hold=2400 expect=24:105
+ev106_magatama           country=2 ev=106 mash=40 hold=2400 expect=24:106
+ev107_magatama           country=2 ev=107 mash=40 hold=2400 expect=24:107
+ev108_magatama           country=2 ev=108 mash=40 hold=2400 expect=24:108
+ev109_magatama           country=2 ev=109 mash=40 hold=2400 expect=24:109
+ev110_magatama           country=2 ev=110 mash=40 hold=2400 expect=24:110
+ev111_magatama           country=2 ev=111 mash=40 hold=2400 expect=24:111
+ev112_magatama           country=2 ev=112 mash=40 hold=2400 expect=24:112
