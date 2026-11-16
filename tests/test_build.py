@@ -25,8 +25,44 @@ KEEP_JP = ROOT / "script" / "keep_jp.txt"
 # docs/re/rom-map.md: sound samples (0x440000..) and LZ77 screen graphics (..0x68FFFF). Their bytes are noise: the
 # scan found 14 words there that look like pointers into moved strings, 13 of them mid-string (2026-11-16).
 NOISE = (0x440000, 0x690000)
+# Pointer-looking words into moved strings, each checked by hand (2026-11-16, phase 7 review): byte tables whose
+# bytes happen to read 0x0805xxxx, all landing mid-string in 04ffe4 (menu_help2, a dedup relocation).
+NOT_POINTERS = {
+    "04dd90->0x8050000",  # 0x4DD80.. rows "ff000000 00000508 121314ff": byte records (00 00 05 08 + tile ids)
+    "04dd9c->0x8050000",  # same table
+    "72b56c->0x8050002",  # "e0030000 02000508 08140c1c": byte fields of a graphics/OBJ record, not a pointer
+}
 # Original bytes at the engine's hook sites (assert before trusting a patch made for this revision).
 HOOK_ORIG = {engine.LOOKUP: "70b50004050c0024", engine.TABLE_LITERAL: "28217108"} if ORIG else {}
+
+
+def stale_readers(rom, moved, strs, sites, noise=NOISE):
+    """Words of `rom` outside `sites` (and the noise range) that point at or into a string in `moved`."""
+    spans = set()
+    for a in moved:
+        spans.update(0x08000000 | (a + k) for k in range(len(strs[a].raw) + 1))
+    return [f"{off:06x}->{v:#x}" for off in range(0, len(rom) - 3, 4)
+            if (v := struct.unpack_from("<I", rom, off)[0]) in spans and off not in sites
+            and not noise[0] <= off < noise[1]]
+
+
+class SharedPayload(unittest.TestCase):
+    def test_dedup_relocation_is_checked(self):
+        """Two strings get the same long English: the second shares the first's copy (no ' moved' entry), yet its
+        slot is cleared, so an unlisted reader of it must still be caught."""
+        rom = bytearray(0x400)
+        rom[0x100:0x104] = b"AB\0\0"
+        rom[0x200:0x204] = b"CD\0\0"
+        struct.pack_into("<III", rom, 0x10, 0x08000100, 0x08000200, 0x08000200)  # 0x18 = unlisted reader of 0x200
+        strs = {0x100: textbank.Str(0x100, b"AB", 4, [0x10]), 0x200: textbank.Str(0x200, b"CD", 4, [0x14])}
+        writes = textbank.repack(rom, {0x100: b"LONGER", 0x200: b"LONGER"}, free=(0x300, 0x400), strs=strs)
+        self.assertEqual(sum(w[3].endswith(" moved") for w in writes), 1)
+        self.assertEqual(textbank.relocated(writes), {0x100, 0x200})
+        orig = bytearray(0x400)
+        orig[0x100:0x104], orig[0x200:0x204] = b"AB\0\0", b"CD\0\0"
+        struct.pack_into("<III", orig, 0x10, 0x08000100, 0x08000200, 0x08000200)
+        self.assertEqual(stale_readers(orig, textbank.relocated(writes), strs, {0x10, 0x14}, noise=(0, 0)),
+                         ["000018->0x8000200"])
 
 
 def keep_list():
@@ -60,16 +96,12 @@ class EnglishBuild(unittest.TestCase):
         self.assertEqual(len(self.edits), sum(1 for _ in self.edits))
 
     def test_moved_strings_leave_no_reader(self):
-        """No word in the original ROM other than a known site points at (or into) a string the build moved."""
-        moved = {int(w[3].split()[1], 16) for w in self.writes if w[3].endswith(" moved")}
-        sites = {s for s, _ in textbank.load_sites()}
-        spans = {}
-        for a in moved:
-            for k in range(len(self.strs[a].raw) + 1):
-                spans[0x08000000 | (a + k)] = a
-        stale = [f"{off:06x}->{v:#x}" for off in range(0, len(ORIG) - 3, 4)
-                 if (v := struct.unpack_from("<I", ORIG, off)[0]) in spans and off not in sites
-                 and not NOISE[0] <= off < NOISE[1]]
+        """No word in the original ROM other than a known site points at (or into) a string the build moved,
+        deduplicated relocations included (textbank.relocated)."""
+        moved = textbank.relocated(self.writes)
+        self.assertGreaterEqual(len(moved), len({w[3] for w in self.writes if w[3].endswith(" moved")}))
+        stale = stale_readers(ORIG, moved, self.strs, {s for s, _ in textbank.load_sites()})
+        stale = [s for s in stale if s not in NOT_POINTERS]
         self.assertEqual(stale, [], f"stale readers: {stale[:20]}")
 
     def test_hook_sites_hold_the_original_bytes(self):

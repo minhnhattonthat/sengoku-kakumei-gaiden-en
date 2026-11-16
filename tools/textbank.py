@@ -126,6 +126,12 @@ def repack(rom, new, free=FREE, strs=None, force_move=False):
     return writes
 
 
+def relocated(writes):
+    """Source addresses of every string repack moved out of its slot. Taken from the ' old slot' entries, not
+    ' moved': a string whose English payload another string already placed shares that copy and gets no ' moved'."""
+    return {int(w[3].split()[1], 16) for w in writes if w[3].endswith(" old slot")}
+
+
 def write_log(path, writes):
     with open(path, "w", encoding="utf-8") as f:
         for off, orig, new, who in writes:
