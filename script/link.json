@@ -7,9 +7,9 @@
   "room": 64,
   "kind": "text",
   "jp": "しばらくお待ち下さい。通信中は通信ケーブルを抜かないで下さい。",
-  "en": "",
+  "en": "Please wait. Do not|nunplug the Link Cable|nwhile linked.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e0d0",
@@ -19,9 +19,9 @@
   "room": 52,
   "kind": "text",
   "jp": "参加人数がよければスタートボタンを押して下さい。",
-  "en": "",
+  "en": "If everyone has joined,|npress START.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e104",
@@ -31,9 +31,9 @@
   "room": 32,
   "kind": "text",
   "jp": "ケーブルが挿さっていません。",
-  "en": "",
+  "en": "The Link Cable is not|nconnected.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e124",
@@ -43,9 +43,9 @@
   "room": 60,
   "kind": "text",
   "jp": "１ぴーの準備ができていないかケーブルが挿さっていません。",
-  "en": "",
+  "en": "1P is not ready, or the|nLink Cable is not|nconnected.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e160",
@@ -71,9 +71,9 @@
   "room": 28,
   "kind": "text",
   "jp": "接続が変更されています。",
-  "en": "",
+  "en": "The connection has|nchanged.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e180",
@@ -83,9 +83,9 @@
   "room": 28,
   "kind": "text",
   "jp": "全員の強さを同じにします。",
-  "en": "",
+  "en": "Everyone fights at the|nsame strength.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e19c",
@@ -95,9 +95,9 @@
   "room": 56,
   "kind": "text",
   "jp": "天下大乱編で育てたキャラクターをそのまま使用します。",
-  "en": "",
+  "en": "Use the characters you|nraised in Realm in Chaos|nas they are.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e1d4",
@@ -107,9 +107,9 @@
   "room": 56,
   "kind": "text",
   "jp": "しばらくお待ち下さい。ハンディキャップを決めています。",
-  "en": "",
+  "en": "Please wait. Setting the|nhandicaps.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e20c",
@@ -119,9 +119,9 @@
   "room": 48,
   "kind": "text",
   "jp": "しばらくお待ち下さい。対戦時間を決めています。",
-  "en": "",
+  "en": "Please wait. Setting the|nbattle time.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e23c",
@@ -131,9 +131,9 @@
   "room": 56,
   "kind": "text",
   "jp": "一五分間で国を取り合います。時間が無い人はこちらで。",
-  "en": "",
+  "en": "Fight over provinces for|n15 minutes. For those|nshort on time.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e274",
@@ -143,9 +143,9 @@
   "room": 40,
   "kind": "text",
   "jp": "三十分間で国を取り合います。おすすめ！",
-  "en": "",
+  "en": "Fight over provinces for|n30 minutes. Recommended!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e29c",
@@ -155,9 +155,9 @@
   "room": 56,
   "kind": "text",
   "jp": "四五分間で国を取り合います。じっくり遊びたい人向け。",
-  "en": "",
+  "en": "Fight over provinces for|n45 minutes. For a long,|ncareful game.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e2d4",
@@ -167,9 +167,9 @@
   "room": 8,
   "kind": "text",
   "jp": "四五分",
-  "en": "",
+  "en": "45 min",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e2dc",
@@ -179,9 +179,9 @@
   "room": 8,
   "kind": "text",
   "jp": "三〇分",
-  "en": "",
+  "en": "30 min",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e2e4",
@@ -191,9 +191,9 @@
   "room": 8,
   "kind": "text",
   "jp": "一五分",
-  "en": "",
+  "en": "15 min",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e2ec",
@@ -204,9 +204,9 @@
   "room": 28,
   "kind": "text",
   "jp": "接続が変更されています。",
-  "en": "",
+  "en": "The connection has|nchanged.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e308",
@@ -216,9 +216,9 @@
   "room": 56,
   "kind": "text",
   "jp": "天下大乱編で育てたキャラクターをそのまま使用します。",
-  "en": "",
+  "en": "Use the characters you|nraised in Realm in Chaos|nas they are.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e340",
@@ -228,9 +228,9 @@
   "room": 28,
   "kind": "text",
   "jp": "全員の強さを同じにします。",
-  "en": "",
+  "en": "Everyone fights at the|nsame strength.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e35c",
@@ -240,9 +240,9 @@
   "room": 56,
   "kind": "text",
   "jp": "しばらくお待ち下さい。ハンディキャップを決めています。",
-  "en": "",
+  "en": "Please wait. Setting the|nhandicaps.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e394",
@@ -266,9 +266,9 @@
   "room": 36,
   "kind": "text",
   "jp": "（剣聖は、|nおつかれの御様子だ）|n",
-  "en": "",
+  "en": "(The Sword Saint seems|nrather tired.)",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e3bc",
@@ -278,9 +278,9 @@
   "room": 28,
   "kind": "text",
   "jp": "おぬしに、むにゃむにゃ…|n",
-  "en": "",
+  "en": "You, my boy... mumble,|nmumble...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e3d8",
@@ -291,9 +291,9 @@
   "room": 44,
   "kind": "text",
   "jp": "わしは上泉信綱。|n（かみいずみのぶつな）|n",
-  "en": "",
+  "en": "I am Nobutsuna|nKamiizumi.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e404",
@@ -310,9 +310,9 @@
   "room": 12,
   "kind": "text",
   "jp": "|n………|n",
-  "en": "",
+  "en": "...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e410",
@@ -322,9 +322,9 @@
   "room": 28,
   "kind": "text",
   "jp": "心配しなくて良いのじゃ。|n",
-  "en": "",
+  "en": "so there is nothing to|nfret about, eh?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e42c",
@@ -334,9 +334,9 @@
   "room": 48,
   "kind": "text",
   "jp": "持っている金や武器、防具はそのままじゃから|n",
-  "en": "",
+  "en": "but you keep your money,|nweapons and armor,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e45c",
@@ -346,9 +346,9 @@
   "room": 52,
   "kind": "text",
   "jp": "中断すると|nその地のはじめからに|nなるのじゃが、|n",
-  "en": "",
+  "en": "If you quit partway, you|nstart that land over|nfrom the beginning,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e490",
@@ -358,9 +358,9 @@
   "room": 36,
   "kind": "text",
   "jp": "記録はちゃんと|n残すのじゃぞ！|n",
-  "en": "",
+  "en": "So mind you save your|nprogress!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e4b4",
@@ -370,9 +370,9 @@
   "room": 36,
   "kind": "text",
   "jp": "それこそ|n「一巻の終わり」じゃ。|n",
-  "en": "",
+  "en": "and that, as they say,|nis the end of the tale.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e4d8",
@@ -382,9 +382,9 @@
   "room": 36,
   "kind": "text",
   "jp": "死んでしまうと|nさくらが散って、|n",
-  "en": "",
+  "en": "Fall in battle, and the|ncherry blossoms|nscatter...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e4fc",
@@ -394,9 +394,9 @@
   "room": 56,
   "kind": "text",
   "jp": "どんどん|n「ちょうやく」して|n連撃を決めるのじゃ！|n",
-  "en": "",
+  "en": "So Leap again and again|nand land those combos!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e534",
@@ -406,9 +406,9 @@
   "room": 24,
   "kind": "text",
   "jp": "少しのびるのじゃよ。|n",
-  "en": "",
+  "en": "stretches out a little|nlonger, you see.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e54c",
@@ -418,9 +418,9 @@
   "room": 40,
   "kind": "text",
   "jp": "「ちょうやく」すると|n連撃の時間が|n",
-  "en": "",
+  "en": "When you Leap, the time|nyou have to combo",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e574",
@@ -430,9 +430,9 @@
   "room": 20,
   "kind": "text",
   "jp": "やっておるか？|n",
-  "en": "",
+  "en": "are you doing that, eh?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e588",
@@ -442,9 +442,9 @@
   "room": 56,
   "kind": "text",
   "jp": "「走る」をすると|n「ちょうやく」が|nできるのじゃが|n",
-  "en": "",
+  "en": "Dash, and you can|nLeap...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e5c0",
@@ -454,9 +454,9 @@
   "room": 40,
   "kind": "text",
   "jp": "刀の四段目、|n槍の三段目が|n出る前に|n",
-  "en": "",
+  "en": "Before your fourth sword|nstrike or third spear|nthrust,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e5e8",
@@ -466,9 +466,9 @@
   "room": 32,
   "kind": "text",
   "jp": "向いてみるのも|n良いのじゃ！|n",
-  "en": "",
+  "en": "it is good to turn and|nface it!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e608",
@@ -478,9 +478,9 @@
   "room": 28,
   "kind": "text",
   "jp": "防御しながら見たい方向を|n",
-  "en": "",
+  "en": "guard, and press toward|nwhat you want to see:",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e624",
@@ -490,9 +490,9 @@
   "room": 24,
   "kind": "text",
   "jp": "まわりが見たい時は、|n",
-  "en": "",
+  "en": "When you want to look|naround,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e63c",
@@ -502,9 +502,9 @@
   "room": 28,
   "kind": "text",
   "jp": "うまく使うと役に立つぞ。|n",
-  "en": "",
+  "en": "Use it well and it will|nserve you.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e658",
@@ -514,9 +514,9 @@
   "room": 36,
   "kind": "text",
   "jp": "吹っ飛ばす事が|n出来るのじゃ！！|n",
-  "en": "",
+  "en": "you can send them|nflying!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e67c",
@@ -526,9 +526,9 @@
   "room": 24,
   "kind": "text",
   "jp": "敵に体当たりすると|n",
-  "en": "",
+  "en": "ram into an enemy, and",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e694",
@@ -538,9 +538,9 @@
   "room": 20,
   "kind": "text",
   "jp": "走っておる時に、|n",
-  "en": "",
+  "en": "While you are Dashing,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e6a8",
@@ -550,9 +550,9 @@
   "room": 40,
   "kind": "text",
   "jp": "道しるべの方に|n行けばよいのじゃよ。|n",
-  "en": "",
+  "en": "just follow the|nsignposts, my boy.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e6d0",
@@ -562,9 +562,9 @@
   "room": 24,
   "kind": "text",
   "jp": "次の地に向かう時は|n",
-  "en": "",
+  "en": "When you head for the|nnext land,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e6e8",
@@ -574,9 +574,9 @@
   "room": 52,
   "kind": "text",
   "jp": "うまくはじきかえすと、|n連撃に組みこめるのじゃ！|n",
-  "en": "",
+  "en": "Bat them back well, and|nyou can work them into a|ncombo!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e71c",
@@ -586,9 +586,9 @@
   "room": 48,
   "kind": "text",
   "jp": "おぬし、|n矢をはじきかえした|n事はあるか？|n",
-  "en": "",
+  "en": "Tell me, have you ever|nbatted back an arrow?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e74c",
@@ -598,9 +598,9 @@
   "room": 40,
   "kind": "text",
   "jp": "上手く使って|n連撃を決めるのじゃ！|n",
-  "en": "",
+  "en": "Use it well and land|nthose combos!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e774",
@@ -610,9 +610,9 @@
   "room": 60,
   "kind": "text",
   "jp": "「ちょうやく」や|n溜め攻撃を|n止める事ができるのじゃ！|n",
-  "en": "",
+  "en": "you can cut a Leap or a|ncharge attack short!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e7b0",
@@ -622,9 +622,9 @@
   "room": 36,
   "kind": "text",
   "jp": "武器をＬボタンで|n切り替える事で|n",
-  "en": "",
+  "en": "By switching weapons|nwith the L Button,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e7d4",
@@ -634,9 +634,9 @@
   "room": 36,
   "kind": "text",
   "jp": "良いことが|nあるかも知れんぞ！|n",
-  "en": "",
+  "en": "something good may come|nof it!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e7f8",
@@ -646,9 +646,9 @@
   "room": 36,
   "kind": "text",
   "jp": "たくさんの人と|n話しておくと、|n",
-  "en": "",
+  "en": "Talk to lots of people,|nand",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e81c",
@@ -658,9 +658,9 @@
   "room": 52,
   "kind": "text",
   "jp": "南の方から|nきせつを楽しんでみては|nいかがかな？|n",
-  "en": "",
+  "en": "Why not enjoy the|nseasons, starting from|nthe south?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e850",
@@ -670,9 +670,9 @@
   "room": 60,
   "kind": "text",
   "jp": "わしのお気に入りは|nきせつかんあふれる|nそうげんじゃよ。|n",
-  "en": "",
+  "en": "My favorite is the|ngrassland, so full of|nthe season.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e88c",
@@ -682,9 +682,9 @@
   "room": 16,
   "kind": "text",
   "jp": "面白いのお！|n",
-  "en": "",
+  "en": "Funny, eh!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e89c",
@@ -694,9 +694,9 @@
   "room": 44,
   "kind": "text",
   "jp": "その人間ですら、|n時々迷うそうじゃよ！|n",
-  "en": "",
+  "en": "Even he gets lost now|nand then, they say!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e8c8",
@@ -706,9 +706,9 @@
   "room": 16,
   "kind": "text",
   "jp": "|n……………|n",
-  "en": "",
+  "en": "...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e8d8",
@@ -718,9 +718,9 @@
   "room": 48,
   "kind": "text",
   "jp": "町の図面を書いた人間を|n知っておるのじゃ。|n",
-  "en": "",
+  "en": "I know the man who drew|nup the town maps.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e908",
@@ -730,9 +730,9 @@
   "room": 24,
   "kind": "text",
   "jp": "わしぐらいになると|n",
-  "en": "",
+  "en": "A man of my standing",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e920",
@@ -743,9 +743,9 @@
   "room": 36,
   "kind": "text",
   "jp": "（剣聖は、|nうっとりしている）|n",
-  "en": "",
+  "en": "(The Sword Saint is lost|nin rapture.)",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e944",
@@ -757,9 +757,9 @@
   "room": 24,
   "kind": "text",
   "jp": "日本一の山じゃぞ…|n",
-  "en": "",
+  "en": "The finest mountain in|nJapan...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e95c",
@@ -769,9 +769,9 @@
   "room": 28,
   "kind": "text",
   "jp": "おぬし、見たことあるか？|n",
-  "en": "",
+  "en": "Have you ever seen it,|nmy boy?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e978",
@@ -781,9 +781,9 @@
   "room": 16,
   "kind": "text",
   "jp": "ふじさん…|n",
-  "en": "",
+  "en": "Mount Fuji...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e988",
@@ -793,9 +793,9 @@
   "room": 12,
   "kind": "text",
   "jp": "ふじ…|n",
-  "en": "",
+  "en": "Fuji...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e994",
@@ -805,9 +805,9 @@
   "room": 32,
   "kind": "text",
   "jp": "（剣聖は、|n差をつけている）|n",
-  "en": "",
+  "en": "(The Sword Saint is|npulling ahead of you.)",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e9b4",
@@ -818,9 +818,9 @@
   "room": 8,
   "kind": "text",
   "jp": "|n…|n",
-  "en": "",
+  "en": "...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e9bc",
@@ -830,9 +830,9 @@
   "room": 36,
   "kind": "text",
   "jp": "どんどん連撃を|nつなげるのじゃ！|n",
-  "en": "",
+  "en": "So keep chaining those|ncombos!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07e9e0",
@@ -842,9 +842,9 @@
   "room": 32,
   "kind": "text",
   "jp": "差をつける事ができるのじゃ！|n",
-  "en": "",
+  "en": "the further ahead you|npull!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ea00",
@@ -854,9 +854,9 @@
   "room": 32,
   "kind": "text",
   "jp": "連撃数が|n多ければ多いほど|n",
-  "en": "",
+  "en": "The more hits in your|ncombo,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ea20",
@@ -866,9 +866,9 @@
   "room": 36,
   "kind": "text",
   "jp": "ともだちときそった事はあるか？|n",
-  "en": "",
+  "en": "Have you ever competed|nwith your friends?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ea44",
@@ -878,9 +878,9 @@
   "room": 52,
   "kind": "text",
   "jp": "（剣聖は、|nさくらもちについて|n考え込んでいる）|n",
-  "en": "",
+  "en": "(The Sword Saint is deep|nin thought about cherry|nrice cakes.)",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ea78",
@@ -890,9 +890,9 @@
   "room": 16,
   "kind": "text",
   "jp": "|n…………|n",
-  "en": "",
+  "en": "...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ea88",
@@ -902,9 +902,9 @@
   "room": 12,
   "kind": "text",
   "jp": "|n……|n",
-  "en": "",
+  "en": "...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ea94",
@@ -914,9 +914,9 @@
   "room": 24,
   "kind": "text",
   "jp": "さくらは良いのぉ……|n",
-  "en": "",
+  "en": "Cherry blossoms are|nlovely...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07eaac",
@@ -926,9 +926,9 @@
   "room": 44,
   "kind": "text",
   "jp": "おぬしに、戦い方を|n教えてしんぜよう。|n",
-  "en": "",
+  "en": "I shall teach you how to|nfight.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ead8",
@@ -938,9 +938,9 @@
   "room": 24,
   "kind": "text",
   "jp": "よくきたな|n%nよ。|n",
-  "en": "",
+  "en": "Welcome, %n.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07eaf0",
@@ -950,9 +950,9 @@
   "room": 52,
   "kind": "text",
   "jp": "まずは攻撃じゃ。|n「Ａ」ボタンを|n押すのじゃ。|n",
-  "en": "",
+  "en": "First, attacking. Press|nthe A Button.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07eb24",
@@ -969,9 +969,9 @@
   "room": 20,
   "kind": "text",
   "jp": "|nやってみよ！|n",
-  "en": "",
+  "en": "Give it a try!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07eb38",
@@ -981,9 +981,9 @@
   "room": 68,
   "kind": "text",
   "jp": "次は溜め攻撃じゃ。|n「Ａ」ボタンを|n押しっぱなしにするのじゃ。|n",
-  "en": "",
+  "en": "Next, the charge attack.|nHold down the A Button.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07eb7c",
@@ -993,9 +993,9 @@
   "room": 56,
   "kind": "text",
   "jp": "いまじゃ！|n「Ａ」ボタンを離すと|n溜め攻撃発動じゃ！|n",
-  "en": "",
+  "en": "Now! Let go of the A|nButton to unleash a|ncharge attack!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ebb4",
@@ -1005,9 +1005,9 @@
   "room": 28,
   "kind": "text",
   "jp": "「Ｂ」ボタンで防御じゃ。|n",
-  "en": "",
+  "en": "Guard with the B Button.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ebd0",
@@ -1017,9 +1017,9 @@
   "room": 20,
   "kind": "text",
   "jp": "次は防御じゃ。|n",
-  "en": "",
+  "en": "Next, guarding.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ebe4",
@@ -1029,9 +1029,9 @@
   "room": 56,
   "kind": "text",
   "jp": "「Ａ」ボタンと|n「Ｂ」ボタンを|n同時に押すのじゃ。|n",
-  "en": "",
+  "en": "Press the A and B|nButtons at the same|ntime.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ec1c",
@@ -1041,9 +1041,9 @@
   "room": 52,
   "kind": "text",
   "jp": "気力が無いと|n術は使えんから|n気をつけるのじゃぞ。",
-  "en": "",
+  "en": "Without spirit you|ncannot use arts, so take|ncare.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ec50",
@@ -1053,9 +1053,9 @@
   "room": 16,
   "kind": "text",
   "jp": "次は術じゃ。|n",
-  "en": "",
+  "en": "Next, arts.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ec60",
@@ -1065,9 +1065,9 @@
   "room": 64,
   "kind": "text",
   "jp": "「Ｌ」ボタンを押せば|n刀、槍、弓の順番で|n切り替わるんじゃ。|n",
-  "en": "",
+  "en": "Press the L Button to|nswitch: sword, spear,|nbow, in that order.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07eca0",
@@ -1077,9 +1077,9 @@
   "room": 16,
   "kind": "text",
   "jp": "|nゴホン！|n",
-  "en": "",
+  "en": "Ahem!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ecb0",
@@ -1089,9 +1089,9 @@
   "room": 52,
   "kind": "text",
   "jp": "つかれてきたか？|n大丈夫か？|nもう少しじゃよ！|n",
-  "en": "",
+  "en": "Getting tired? All|nright? Just a little|nmore!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ece4",
@@ -1101,9 +1101,9 @@
   "room": 28,
   "kind": "text",
   "jp": "次は武器の切り替えじゃ。|n",
-  "en": "",
+  "en": "Next, switching weapons.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ed00",
@@ -1113,9 +1113,9 @@
   "room": 44,
   "kind": "text",
   "jp": "「Ｒ」ボタンを押せば|n切り替わるんじゃ。|n",
-  "en": "",
+  "en": "Press the R Button to|nswitch them.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ed2c",
@@ -1126,9 +1126,9 @@
   "room": 28,
   "kind": "text",
   "jp": "次は術の切り替えじゃ。|n",
-  "en": "",
+  "en": "Next, switching arts.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ed48",
@@ -1138,9 +1138,9 @@
   "room": 44,
   "kind": "text",
   "jp": "「セレクト」ボタンで|n切り替わるんじゃ。|n",
-  "en": "",
+  "en": "Switch them with SELECT.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ed74",
@@ -1150,9 +1150,9 @@
   "room": 32,
   "kind": "text",
   "jp": "ニ回目は押しっぱなしじゃぞ。|n",
-  "en": "",
+  "en": "Hold it down the second|ntime.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ed94",
@@ -1162,9 +1162,9 @@
   "room": 56,
   "kind": "text",
   "jp": "「十字ボタン」を|n走りたい方向に|nニ回押すのじゃ。|n",
-  "en": "",
+  "en": "Press the Control Pad|ntwice toward where you|nwant to Dash.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07edcc",
@@ -1175,9 +1175,9 @@
   "room": 24,
   "kind": "text",
   "jp": "次は「走る」じゃ。|n",
-  "en": "",
+  "en": "Next, the Dash.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ede4",
@@ -1187,9 +1187,9 @@
   "room": 32,
   "kind": "text",
   "jp": "押しっぱなしに|nするのじゃ。|n",
-  "en": "",
+  "en": "and hold it down.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ee04",
@@ -1199,9 +1199,9 @@
   "room": 56,
   "kind": "text",
   "jp": "「Ｒ」ボタンと共に|n「十字ボタン」を|n走りたい方向に|n",
-  "en": "",
+  "en": "Hold R and press the|nControl Pad toward where|nyou want to Dash,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ee3c",
@@ -1211,9 +1211,9 @@
   "room": 24,
   "kind": "text",
   "jp": "|n頑張るのじゃぞ！|n",
-  "en": "",
+  "en": "Keep at it!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ee54",
@@ -1223,9 +1223,9 @@
   "room": 48,
   "kind": "text",
   "jp": "うまく使って、|nどんどん妖魔達を|n討つのじゃ！",
-  "en": "",
+  "en": "Use it well and slay|ndemon after demon!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07ee84",
@@ -1235,9 +1235,9 @@
   "room": 40,
   "kind": "text",
   "jp": "敵を追いかける事が|n出来るのじゃ。|n",
-  "en": "",
+  "en": "you can chase after the|nenemy.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07eeac",
@@ -1247,9 +1247,9 @@
   "room": 56,
   "kind": "text",
   "jp": "敵を吹っ飛ばす前に|nうまく「走る」を|n入力しておけば|n",
-  "en": "",
+  "en": "Input a Dash just before|nyou send an enemy|nflying, and",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07eee4",
@@ -1259,9 +1259,9 @@
   "room": 16,
   "kind": "text",
   "jp": "|nちなみに、|n",
-  "en": "",
+  "en": "By the way,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "07eef4",
@@ -1271,8 +1271,8 @@
   "room": 40,
   "kind": "text",
   "jp": "わしに教えられるのは|nここまでじゃ。|n",
-  "en": "",
+  "en": "That is all I can teach|nyou.",
   "notes": "",
-  "status": ""
+  "status": "done"
  }
 ]

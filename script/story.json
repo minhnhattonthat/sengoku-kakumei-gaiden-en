@@ -7,9 +7,9 @@
   "room": 12,
   "kind": "text",
   "jp": "伊達政宗",
-  "en": "",
+  "en": "Masamune Date",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050468",
@@ -19,9 +19,9 @@
   "room": 12,
   "kind": "text",
   "jp": "徳川家康",
-  "en": "",
+  "en": "Ieyasu Tokugawa",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050474",
@@ -31,9 +31,9 @@
   "room": 12,
   "kind": "text",
   "jp": "石田三成",
-  "en": "",
+  "en": "Mitsunari Ishida",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050480",
@@ -43,9 +43,9 @@
   "room": 12,
   "kind": "text",
   "jp": "豊臣秀吉",
-  "en": "",
+  "en": "Hideyoshi Toyotomi",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05048c",
@@ -55,9 +55,9 @@
   "room": 12,
   "kind": "text",
   "jp": "猿飛佐助",
-  "en": "",
+  "en": "Sasuke Sarutobi",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050498",
@@ -67,9 +67,9 @@
   "room": 12,
   "kind": "text",
   "jp": "真田幸村",
-  "en": "",
+  "en": "Yukimura Sanada",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0504a4",
@@ -79,9 +79,9 @@
   "room": 12,
   "kind": "text",
   "jp": "お市の方",
-  "en": "",
+  "en": "Lady Oichi",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0504b0",
@@ -91,9 +91,9 @@
   "room": 12,
   "kind": "text",
   "jp": "織田信長",
-  "en": "",
+  "en": "Nobunaga Oda",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0504bc",
@@ -103,9 +103,9 @@
   "room": 12,
   "kind": "text",
   "jp": "毛利輝元",
-  "en": "",
+  "en": "Terumoto Mori",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0504c8",
@@ -115,9 +115,9 @@
   "room": 12,
   "kind": "text",
   "jp": "毛利元就",
-  "en": "",
+  "en": "Motonari Mori",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0504d4",
@@ -127,9 +127,9 @@
   "room": 12,
   "kind": "text",
   "jp": "上泉信綱",
-  "en": "",
+  "en": "Nobutsuna Kamiizumi",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0504e0",
@@ -139,9 +139,9 @@
   "room": 12,
   "kind": "text",
   "jp": "島津義弘",
-  "en": "",
+  "en": "Yoshihiro Shimazu",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0504ec",
@@ -151,9 +151,9 @@
   "room": 56,
   "kind": "text",
   "jp": "まあ、|nしばらくはこの城で|nゆっくりしていくが良い。",
-  "en": "",
+  "en": "Well, stay and rest in|nthis castle for a while.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050524",
@@ -163,9 +163,9 @@
   "room": 44,
   "kind": "text",
   "jp": "聞けばそなた、|n全国を武者修行中とか…|n",
-  "en": "",
+  "en": "I hear you are traveling|nthe land to train as a|nwarrior...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050550",
@@ -175,9 +175,9 @@
   "room": 52,
   "kind": "text",
   "jp": "わしが九州大名、|n島津義弘|n（しまづよしひろ）だ。",
-  "en": "",
+  "en": "I am Yoshihiro Shimazu,|ndaimyo of Kyushu.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050584",
@@ -187,9 +187,9 @@
   "room": 24,
   "kind": "text",
   "jp": "よくきたな|n%nよ。|n",
-  "en": "",
+  "en": "Welcome, %n.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05059c",
@@ -199,9 +199,9 @@
   "room": 32,
   "kind": "text",
   "jp": "|n殿！一大事にござります！|n",
-  "en": "",
+  "en": "My lord! Grave news!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0505bc",
@@ -211,9 +211,9 @@
   "room": 36,
   "kind": "text",
   "jp": "なんじゃそうぞうしい。|n何事か？|n",
-  "en": "",
+  "en": "What is this racket?|nWhat has happened?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0505e0",
@@ -223,9 +223,9 @@
   "room": 56,
   "kind": "text",
   "jp": "中国の毛利軍により|n肥後の城が|n攻め落とされました！",
-  "en": "",
+  "en": "Higo Castle has fallen|nto the Mori army of|nChugoku!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050618",
@@ -235,9 +235,9 @@
   "room": 20,
   "kind": "text",
   "jp": "|nなんだとぉ！|n",
-  "en": "",
+  "en": "What!?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05062c",
@@ -247,9 +247,9 @@
   "room": 40,
   "kind": "text",
   "jp": "各地で我が軍は|n撃破されております！|n",
-  "en": "",
+  "en": "Our forces are being|ncrushed everywhere!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050654",
@@ -259,9 +259,9 @@
   "room": 60,
   "kind": "text",
   "jp": "しかも！|n敵は人間ではありませぬ！|n妖怪や魔物にござる！",
-  "en": "",
+  "en": "What is more, the enemy|nis not human! They are|nmonsters and fiends!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050690",
@@ -271,9 +271,9 @@
   "room": 52,
   "kind": "text",
   "jp": "まずは肥後の国へゆき、|n事の真偽を確かめてくれ！|n",
-  "en": "",
+  "en": "First go to Higo|nProvince and find out|nthe truth!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0506c4",
@@ -283,9 +283,9 @@
   "room": 56,
   "kind": "text",
   "jp": "魔をも斬るといわれた|nそなたの武勇に|n頼るしかない！",
-  "en": "",
+  "en": "They say your valor can|ncut down even demons.|nYou are our only hope!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0506fc",
@@ -295,9 +295,9 @@
   "room": 24,
   "kind": "text",
   "jp": "かくなる上は|n%n！|n",
-  "en": "",
+  "en": "It has come to this...|n%n!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050714",
@@ -307,9 +307,9 @@
   "room": 44,
   "kind": "text",
   "jp": "むむむ！毛利殿は|n妖魔と手を組んだのか？|n",
-  "en": "",
+  "en": "Hmm! Has Mori-dono|njoined hands with|ndemons?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050740",
@@ -319,9 +319,9 @@
   "room": 44,
   "kind": "text",
   "jp": "これは少ないが…|n旅の役に立ててくれ。|n",
-  "en": "",
+  "en": "It is not much, but...|nuse it on your journey.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05076c",
@@ -332,9 +332,9 @@
   "room": 28,
   "kind": "text",
   "jp": "|n＊五百両を手に入れた＊|n",
-  "en": "",
+  "en": "*Received 500 ryo*",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050788",
@@ -344,9 +344,9 @@
   "room": 52,
   "kind": "text",
   "jp": "まずは肥後の国へゆき、|n事の真偽を確かめるのだ。|n",
-  "en": "",
+  "en": "First go to Higo|nProvince and find out|nthe truth.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0507bc",
@@ -356,9 +356,9 @@
   "room": 28,
   "kind": "text",
   "jp": "では、頼んだぞ！|n%n！|n",
-  "en": "",
+  "en": "I am counting on you,|n%n!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0507d8",
@@ -368,9 +368,9 @@
   "room": 48,
   "kind": "text",
   "jp": "戦いに役立つ情報を|n一から教えてくれるはずだ|n",
-  "en": "",
+  "en": "He will teach you all|nyou need for battle,|nfrom the ground up.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050808",
@@ -380,9 +380,9 @@
   "room": 68,
   "kind": "text",
   "jp": "それから、戦い方を|n覚えたい時は、南の|n琉球にいってみるが良い。",
-  "en": "",
+  "en": "And if you wish to learn|nhow to fight, try going|nsouth to Ryukyu.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05084c",
@@ -392,9 +392,9 @@
   "room": 60,
   "kind": "text",
   "jp": "自分にあった|n武器や術を買って、|n戦いを有利に進めてくれ。",
-  "en": "",
+  "en": "Buy weapons and arts|nthat suit you, and gain|nthe edge in battle.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050888",
@@ -404,9 +404,9 @@
   "room": 60,
   "kind": "text",
   "jp": "全国地図で、|nすたーとぼたんを押せば|n買い物が出来るぞ。",
-  "en": "",
+  "en": "On the national map,|npress START to go|nshopping.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0508c4",
@@ -417,9 +417,9 @@
   "room": 52,
   "kind": "text",
   "jp": "琉球はこの国の|nすぐ南にある。|nがんばるのだぞ。",
-  "en": "",
+  "en": "Ryukyu lies just south|nof this province. Do|nyour best.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0508f8",
@@ -430,9 +430,9 @@
   "room": 64,
   "kind": "text",
   "jp": "それから、|n戦い方が分からない時は|n琉球にいってみるが良い。",
-  "en": "",
+  "en": "And if you are unsure|nhow to fight, try going|nto Ryukyu.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050938",
@@ -442,9 +442,9 @@
   "room": 48,
   "kind": "text",
   "jp": "各地をまわり、|nその手がかりを|n探し出すのだ。",
-  "en": "",
+  "en": "Travel the land and seek|nout a clue.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050968",
@@ -454,9 +454,9 @@
   "room": 64,
   "kind": "text",
   "jp": "ふむ、結界か…|nどこかにその結界を壊す|n手がかりがあるはずだ。",
-  "en": "",
+  "en": "Hmm, a barrier...|nSomewhere there must be|na clue to breaking it.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0509a8",
@@ -466,9 +466,9 @@
   "room": 48,
   "kind": "text",
   "jp": "各地をまわり、|n残りのかけらを|n探し出すのだ。",
-  "en": "",
+  "en": "Travel the land and seek|nout the other shards.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0509d8",
@@ -478,9 +478,9 @@
   "room": 52,
   "kind": "text",
   "jp": "おそらく、そのかけらが|n手がかりになるはずだ。|n",
-  "en": "",
+  "en": "Those shards are likely|nthe key.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050a0c",
@@ -490,9 +490,9 @@
   "room": 52,
   "kind": "text",
   "jp": "いって、事の真偽を|n確かめてくれ！|nたのんだぞ！",
-  "en": "",
+  "en": "Go and find out the|ntruth! I am counting on|nyou!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050a40",
@@ -502,9 +502,9 @@
   "room": 56,
   "kind": "text",
   "jp": "結界を破壊したか。|nこれで肥後の国へ|n入れるはずだ！",
-  "en": "",
+  "en": "You destroyed the|nbarrier? Now you should|nbe able to enter Higo!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050a78",
@@ -514,9 +514,9 @@
   "room": 60,
   "kind": "text",
   "jp": "いや、助かった。|n全てそなたのおかげだ。|n改めて礼を申す。",
-  "en": "",
+  "en": "You saved us. It is all|nthanks to you. You have|nmy deepest thanks.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050ab4",
@@ -526,9 +526,9 @@
   "room": 60,
   "kind": "text",
   "jp": "なるほど…|n肥後の結界の中には、|n妖魔の大将がおったか…",
-  "en": "",
+  "en": "I see... So within|nHigo's barrier lurked a|ndemon general...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050af0",
@@ -538,9 +538,9 @@
   "room": 32,
   "kind": "text",
   "jp": "殿！|n一大事にござります！|n",
-  "en": "",
+  "en": "My lord! Grave news!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050b10",
@@ -550,9 +550,9 @@
   "room": 28,
   "kind": "text",
   "jp": "ん…？|n今度はなんだ！|n",
-  "en": "",
+  "en": "Hm...? What is it now!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050b2c",
@@ -562,9 +562,9 @@
   "room": 36,
   "kind": "text",
   "jp": "毛利軍に攻められ|n滅亡しました！",
-  "en": "",
+  "en": "...was attacked by the|nMori army and wiped out!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050b50",
@@ -574,9 +574,9 @@
   "room": 40,
   "kind": "text",
   "jp": "四国の長宗我部|n（ちょうそかべ）家が！",
-  "en": "",
+  "en": "The Chosokabe clan of|nShikoku...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050b78",
@@ -586,9 +586,9 @@
   "room": 40,
   "kind": "text",
   "jp": "な！な！な！な！|nなんだとぉぉ！！！|n",
-  "en": "",
+  "en": "Wh-wh-wh-what!?|nWHAAAT!!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050ba0",
@@ -598,9 +598,9 @@
   "room": 44,
   "kind": "text",
   "jp": "むむっ！|nこうなれば|n一刻のゆうよも無い！",
-  "en": "",
+  "en": "Hmm! Then there is not a|nmoment to lose!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050bcc",
@@ -610,9 +610,9 @@
   "room": 44,
   "kind": "text",
   "jp": "そなただけが頼りだ…|n頼んだぞ！！|n%n！",
-  "en": "",
+  "en": "You are our only hope...|nI am counting on you!!|n%n!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050bf8",
@@ -622,9 +622,9 @@
   "room": 56,
   "kind": "text",
   "jp": "おそらく妖魔を倒せば、|n毛利殿も|n正気を取り戻すはず…",
-  "en": "",
+  "en": "Defeat the demons, and|nMori-dono may come back|nto his senses...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050c30",
@@ -634,9 +634,9 @@
   "room": 60,
   "kind": "text",
   "jp": "そなたは毛利領におもむき妖魔を打ち倒しては|nくれまいか？",
-  "en": "",
+  "en": "Will you go to the Mori|nlands and strike down|nthe demons?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050c6c",
@@ -646,9 +646,9 @@
   "room": 44,
   "kind": "text",
   "jp": "%nよ！|nわれらは|n九州を守らねばならん！",
-  "en": "",
+  "en": "%n! We must|nprotect Kyushu!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050c98",
@@ -658,9 +658,9 @@
   "room": 52,
   "kind": "text",
   "jp": "まずは各地をめぐり、|n勾玉のかけらを集める|nのだ！",
-  "en": "",
+  "en": "First travel the land|nand gather the magatama|nshards!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050ccc",
@@ -670,9 +670,9 @@
   "room": 60,
   "kind": "text",
   "jp": "毛利領の結界も、|n肥後の国と同じ要領で|n破壊出来るはずだ。",
-  "en": "",
+  "en": "The barrier over the|nMori lands should break|nthe same way as Higo's.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050d08",
@@ -682,9 +682,9 @@
   "room": 40,
   "kind": "text",
   "jp": "おお、%n！|n毛利領の様子はどうだ？|n",
-  "en": "",
+  "en": "Ah, %n! How do|nthings stand in the Mori|nlands?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050d30",
@@ -694,9 +694,9 @@
   "room": 72,
   "kind": "text",
   "jp": "おそらく、結界の中には|n妖魔の大将がいるはずだ。|n気をつけてかかれよ！",
-  "en": "",
+  "en": "A demon general must|nlurk inside the barrier.|nTake care!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050d78",
@@ -706,9 +706,9 @@
   "room": 44,
   "kind": "text",
   "jp": "おお、%n！|nそうか！|n結界を破壊したか！",
-  "en": "",
+  "en": "Ah, %n! I see! You|ndestroyed the barrier!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050da4",
@@ -718,9 +718,9 @@
   "room": 52,
   "kind": "text",
   "jp": "大した手助けは出来ぬが…これを受け取ってくれ。|n",
-  "en": "",
+  "en": "I cannot offer much|nhelp... but please take|nthis.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050dd8",
@@ -730,9 +730,9 @@
   "room": 60,
   "kind": "text",
   "jp": "そうか…|nわしの頼みから始まった事とはいえ…かたじけない。",
-  "en": "",
+  "en": "I see... It all began|nwith my request... I am|nin your debt.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050e14",
@@ -742,9 +742,9 @@
   "room": 48,
   "kind": "text",
   "jp": "おぬしは、|n妖魔を追って|n織田領に向かうか？",
-  "en": "",
+  "en": "Will you follow the|ndemons to the Oda lands?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050e44",
@@ -754,9 +754,9 @@
   "room": 64,
   "kind": "text",
   "jp": "これでひとまず安心だな。全ておぬしのおかげだ。|n礼を申すぞ！",
-  "en": "",
+  "en": "We can rest easy for|nnow, all thanks to you.|nYou have my gratitude!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050e84",
@@ -766,9 +766,9 @@
   "room": 56,
   "kind": "text",
   "jp": "そうか…|nやはり毛利殿は、|n妖魔に操られておったか。",
-  "en": "",
+  "en": "I see... So Mori-dono|nwas being controlled by|ndemons after all.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050ebc",
@@ -778,9 +778,9 @@
   "room": 24,
   "kind": "text",
   "jp": "頑張るんだぞ！|n%n！|n",
-  "en": "",
+  "en": "Do your best, %n!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050ed4",
@@ -790,9 +790,9 @@
   "room": 36,
   "kind": "text",
   "jp": "これでまた、|n天下が動く…か。|n",
-  "en": "",
+  "en": "And so the realm shifts|nonce more... eh?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050ef8",
@@ -802,9 +802,9 @@
   "room": 28,
   "kind": "text",
   "jp": "そうか…|n織田信長が…|n…",
-  "en": "",
+  "en": "I see... Nobunaga Oda...|n...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050f14",
@@ -814,9 +814,9 @@
   "room": 68,
   "kind": "text",
   "jp": "真田の情報収集能力は、|nたいしたものだ。|n敵にまわしたくないがな…",
-  "en": "",
+  "en": "The Sanada are masters|nat gathering news.|nFearsome foes...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050f58",
@@ -826,9 +826,9 @@
   "room": 48,
   "kind": "text",
   "jp": "そうか…|n妖魔の事がだいぶ分かった|nようだな。",
-  "en": "",
+  "en": "I see... You seem to|nhave learned much about|nthe demons.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050f88",
@@ -838,9 +838,9 @@
   "room": 48,
   "kind": "text",
   "jp": "いやいや…|n変なことをいった。|n忘れてくれい。",
-  "en": "",
+  "en": "No, no... I spoke out of|nturn. Forget I said it.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050fb8",
@@ -850,9 +850,9 @@
   "room": 60,
   "kind": "text",
   "jp": "まさか…秀吉殿は|n妖魔とつながっている|nのではないのか…？",
-  "en": "",
+  "en": "Could Hideyoshi-dono be|nin league with the|ndemons...?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "050ff4",
@@ -862,9 +862,9 @@
   "room": 68,
   "kind": "text",
   "jp": "妖魔の目的が天下を乱す|n事ならば、なぜ秀吉殿を|nほおっておくのか？",
-  "en": "",
+  "en": "If the demons want the|nrealm in chaos, why|nleave Hideyoshi-dono be?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051038",
@@ -874,9 +874,9 @@
   "room": 52,
   "kind": "text",
   "jp": "秀吉殿が関白になられ、|n一応天下はおさまったが…|n",
-  "en": "",
+  "en": "Hideyoshi-dono is Regent|nnow, and the realm is|ncalm, for now...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05106c",
@@ -886,9 +886,9 @@
   "room": 52,
   "kind": "text",
   "jp": "考えておいてくれぬか？|nでは頑張るのだぞ。|n%n！",
-  "en": "",
+  "en": "Will you think it over?|nNow, do your best,|n%n!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0510a0",
@@ -898,9 +898,9 @@
   "room": 60,
   "kind": "text",
   "jp": "おぬしのような家臣が|nいてくれたら、|nわしも心強いのだが…",
-  "en": "",
+  "en": "With a retainer like you|nat my side, I would feel|nmuch stronger...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0510dc",
@@ -910,9 +910,9 @@
   "room": 48,
   "kind": "text",
   "jp": "のう…|n全てが終わったら|nわしの元に来ぬか？",
-  "en": "",
+  "en": "Say... when this is all|nover, will you come and|nserve me?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05110c",
@@ -922,9 +922,9 @@
   "room": 64,
   "kind": "text",
   "jp": "この九州から始まった|nそなたの旅も、|nあと少しで終わるのだな。",
-  "en": "",
+  "en": "Your journey began here|nin Kyushu, and now it is|nnearly over.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05114c",
@@ -934,9 +934,9 @@
   "room": 32,
   "kind": "text",
   "jp": "そうか。|n残る勾玉は一つか。|n",
-  "en": "",
+  "en": "I see. Only one magatama|nremains.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05116c",
@@ -946,9 +946,9 @@
   "room": 48,
   "kind": "text",
   "jp": "死ぬでないぞ！|n%n！|n必ず生きて帰ってくるのだ",
-  "en": "",
+  "en": "Do not die, %n!|nCome back alive, no|nmatter what!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05119c",
@@ -958,9 +958,9 @@
   "room": 40,
   "kind": "text",
   "jp": "直接おぬしの手助けは|nしてやれぬが…|n",
-  "en": "",
+  "en": "I cannot lend you a hand|ndirectly...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0511c4",
@@ -970,9 +970,9 @@
   "room": 52,
   "kind": "text",
   "jp": "われらも急ぎ兵をあげ、|n妖魔の軍勢にそなえよう！|n",
-  "en": "",
+  "en": "but we will raise troops|nat once and stand ready|nfor the demon army!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0511f8",
@@ -982,9 +982,9 @@
   "room": 28,
   "kind": "text",
   "jp": "なんと…|n妖魔の王が…|n",
-  "en": "",
+  "en": "What... The Demon|nKing...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051214",
@@ -994,9 +994,9 @@
   "room": 44,
   "kind": "text",
   "jp": "では今後も頑張ってくれ！|nたのむぞ|n%n！",
-  "en": "",
+  "en": "Keep it up! I am|ncounting on you,|n%n!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051240",
@@ -1006,9 +1006,9 @@
   "room": 76,
   "kind": "text",
   "jp": "食べ物や、飲み物を落とす|n確率も高くなるので、|n逃げるより得かもしれんぞ",
-  "en": "",
+  "en": "They also drop more food|nand drink, so it may pay|nbetter than running.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05128c",
@@ -1018,9 +1018,9 @@
   "room": 72,
   "kind": "text",
   "jp": "連撃は多ければ、多いほど|nより多くのお金を、|n手に入れる事が出来る。",
-  "en": "",
+  "en": "The longer your combo,|nthe more money you earn.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0512d4",
@@ -1030,9 +1030,9 @@
   "room": 60,
   "kind": "text",
   "jp": "妖魔を倒す時、|nより多くの連続攻撃を|n決めてみることだ。",
-  "en": "",
+  "en": "When you defeat demons,|ntry to land longer|ncombos.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051310",
@@ -1042,9 +1042,9 @@
   "room": 64,
   "kind": "text",
   "jp": "おお、%n！|n頑張っておるようだな。|nおぬしに良い事を教えよう",
-  "en": "",
+  "en": "Ah, %n! Working|nhard, I see. Let me tell|nyou something useful.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051350",
@@ -1054,9 +1054,9 @@
   "room": 68,
   "kind": "text",
   "jp": "妖魔を探るなら、織田領に|n行ってみることじゃ。|n頑張るんじゃぞ。",
-  "en": "",
+  "en": "If you want to look into|nthe demons, try the Oda|nlands. Keep at it, eh?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051394",
@@ -1066,9 +1066,9 @@
   "room": 72,
   "kind": "text",
   "jp": "織田軍の強さときたら…|n妖魔の力を借りておっても|n不思議ではないわい！",
-  "en": "",
+  "en": "The might of the Oda...|nNo wonder, if demons|nlend them a hand!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0513dc",
@@ -1078,9 +1078,9 @@
   "room": 76,
   "kind": "text",
   "jp": "わしはのう、織田信長|n（おだのぶなが）が妖魔を|n操っていると思うのじゃ。",
-  "en": "",
+  "en": "I think Nobunaga Oda is|nthe one pulling the|ndemons' strings.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051428",
@@ -1090,9 +1090,9 @@
   "room": 64,
   "kind": "text",
   "jp": "やつら、ある日突然|n東の織田領の方角から|nやってきたのじゃ。",
-  "en": "",
+  "en": "One day they came out of|nnowhere, from the east,|nfrom the Oda lands.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051468",
@@ -1102,9 +1102,9 @@
   "room": 56,
   "kind": "text",
   "jp": "なぜ妖魔に操られたのか…|nわしにも|nよく分からんのじゃ",
-  "en": "",
+  "en": "Why did the demons|ncontrol me... I cannot|nquite say myself.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0514a0",
@@ -1114,9 +1114,9 @@
   "room": 40,
   "kind": "text",
   "jp": "いや、かたじけない。|n礼を申すぞ。|n",
-  "en": "",
+  "en": "Ah, my thanks to you. I|nam in your debt.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0514c8",
@@ -1126,9 +1126,9 @@
   "room": 52,
   "kind": "text",
   "jp": "どうやら…|n妖魔に操られておった|nようじゃのう…",
-  "en": "",
+  "en": "It seems... I was being|ncontrolled by demons...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0514fc",
@@ -1138,9 +1138,9 @@
   "room": 64,
   "kind": "text",
   "jp": "わしは、毛利元就|n（もうりもとなり）。|n中国を治める大名じゃ。",
-  "en": "",
+  "en": "I am Motonari Mori, the|ndaimyo who rules|nChugoku.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05153c",
@@ -1150,9 +1150,9 @@
   "room": 48,
   "kind": "text",
   "jp": "おお！妖魔を！|n妖魔を打ち倒したは|nそなたか？",
-  "en": "",
+  "en": "Oh! The demons! Was it|nyou who struck the|ndemons down?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05156c",
@@ -1162,9 +1162,9 @@
   "room": 48,
   "kind": "text",
   "jp": "わしも歳じゃ…|nわしの分まで|n頑張るんじゃぞ。",
-  "en": "",
+  "en": "I am getting on in|nyears... Keep at it, for|nmy share too, eh?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05159c",
@@ -1174,9 +1174,9 @@
   "room": 60,
   "kind": "text",
   "jp": "妖魔にとりつかれた|nせいかの…|n近頃体調が良くないのじゃ",
-  "en": "",
+  "en": "Perhaps it is the demon|npossession... I have|nbeen poorly of late.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0515d8",
@@ -1186,9 +1186,9 @@
   "room": 72,
   "kind": "text",
   "jp": "おじい様は、最期まで|nあなたと、毛利家の事を|n心配しておられました…",
-  "en": "",
+  "en": "To the end, Grandfather|nworried for you and the|nMori house...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051620",
@@ -1198,9 +1198,9 @@
   "room": 40,
   "kind": "text",
   "jp": "おじい様は…|n先日亡くなられました。|n",
-  "en": "",
+  "en": "Grandfather... passed|naway the other day.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051648",
@@ -1210,9 +1210,9 @@
   "room": 40,
   "kind": "text",
   "jp": "私は毛利輝元。|n（もうりてるもと）|n",
-  "en": "",
+  "en": "I am Terumoto Mori.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051670",
@@ -1222,9 +1222,9 @@
   "room": 52,
   "kind": "text",
   "jp": "名実ともに、|n天下人。|n…といったところですな。",
-  "en": "",
+  "en": "Ruler of the realm in|nname and in fact... so|nto speak.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0516a4",
@@ -1234,9 +1234,9 @@
   "room": 48,
   "kind": "text",
   "jp": "先ごろ、朝廷より|n関白の位を|n授かったそうで…",
-  "en": "",
+  "en": "I hear the court|nrecently made him|nImperial Regent...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0516d4",
@@ -1246,9 +1246,9 @@
   "room": 40,
   "kind": "text",
   "jp": "我らも秀吉殿に|n従うことにしました。|n",
-  "en": "",
+  "en": "We too have decided to|nfollow Hideyoshi-dono.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0516fc",
@@ -1258,9 +1258,9 @@
   "room": 52,
   "kind": "text",
   "jp": "時代の流れには|nわが毛利家といえど|n逆らえません。",
-  "en": "",
+  "en": "Not even our Mori house|ncan resist the tide of|nthe times.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051730",
@@ -1270,9 +1270,9 @@
   "room": 44,
   "kind": "text",
   "jp": "天下統一に向け|n大軍を動かしております。|n",
-  "en": "",
+  "en": "and now moves a great|narmy to unify the realm.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05175c",
@@ -1282,9 +1282,9 @@
   "room": 40,
   "kind": "text",
   "jp": "豊臣秀吉殿は|n明智光秀を討ち取り、|n",
-  "en": "",
+  "en": "Hideyoshi Toyotomi-dono|nslew Mitsuhide Akechi,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051784",
@@ -1294,9 +1294,9 @@
   "room": 52,
   "kind": "text",
   "jp": "豊臣殿につぐ実力者。|n…といったところですな。|n",
-  "en": "",
+  "en": "Second in power only to|nToyotomi-dono... so to|nspeak.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0517b8",
@@ -1306,9 +1306,9 @@
   "room": 76,
   "kind": "text",
   "jp": "今は豊臣殿に従っています|nが、豊臣殿にとっては一番|n恐ろしい武将でしょう。",
-  "en": "",
+  "en": "He serves Toyotomi-dono|nfor now, but must be the|none he fears most.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051804",
@@ -1318,9 +1318,9 @@
   "room": 48,
   "kind": "text",
   "jp": "徳川家康殿は、|n豊臣政権の五大老の|n筆頭です。",
-  "en": "",
+  "en": "Ieyasu Tokugawa-dono|nheads the Toyotomi|nregime's Five Elders.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051834",
@@ -1330,9 +1330,9 @@
   "room": 76,
   "kind": "text",
   "jp": "独眼竜の名にふさわしく|n若く、血気あふれる武将。|n…といったところですな。",
-  "en": "",
+  "en": "A young hothead, worthy|nof the name One-Eyed|nDragon... so to speak.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051880",
@@ -1342,9 +1342,9 @@
   "room": 56,
   "kind": "text",
   "jp": "内心では、|n天下取りの野望を|n捨てきれていないようで…",
-  "en": "",
+  "en": "Deep down, he still|nseems to dream of ruling|nthe realm...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0518b8",
@@ -1354,9 +1354,9 @@
   "room": 56,
   "kind": "text",
   "jp": "先の小田原での、|n北条攻めの際に|n豊臣方に従いました。",
-  "en": "",
+  "en": "He sided with the|nToyotomi in the attack|non the Hojo at Odawara.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0518f0",
@@ -1366,9 +1366,9 @@
   "room": 64,
   "kind": "text",
   "jp": "伊達政宗殿は、|n若いが、奥州の独眼竜|nとも賞される武将です。",
-  "en": "",
+  "en": "Masamune Date-dono is|nyoung, but hailed as the|nOne-Eyed Dragon of Oshu.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051930",
@@ -1378,9 +1378,9 @@
   "room": 56,
   "kind": "text",
   "jp": "今こそ、おじい様の無念…|n晴らしてみせましょうぞ！|n",
-  "en": "",
+  "en": "Now I shall avenge|nGrandfather's bitter|nregret!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051968",
@@ -1390,9 +1390,9 @@
   "room": 64,
   "kind": "text",
   "jp": "われらも急ぎ兵をあげ、|n妖魔の軍勢を迎え撃つ|n準備をします。",
-  "en": "",
+  "en": "We too will raise troops|nat once and prepare to|nmeet the demon army.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0519a8",
@@ -1402,9 +1402,9 @@
   "room": 32,
   "kind": "text",
   "jp": "そうですか…|n妖魔の王が…|n",
-  "en": "",
+  "en": "I see... The Demon|nKing...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0519c8",
@@ -1414,9 +1414,9 @@
   "room": 24,
   "kind": "text",
   "jp": "|nきゃ〜〜〜〜〜！！|n",
-  "en": "",
+  "en": "Kyaaaaaah!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0519e0",
@@ -1426,9 +1426,9 @@
   "room": 44,
   "kind": "text",
   "jp": "どうしたお市|n（おいち）！|n何があった？",
-  "en": "",
+  "en": "What is it, Oichi! What|nhappened?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051a0c",
@@ -1438,9 +1438,9 @@
   "room": 60,
   "kind": "text",
   "jp": "明智光秀|n（あけちみつひで）殿から|n使者がまいりましたわ。",
-  "en": "",
+  "en": "A messenger has come|nfrom Mitsuhide|nAkechi-dono.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051a48",
@@ -1450,9 +1450,9 @@
   "room": 60,
   "kind": "text",
   "jp": "いえ、何でもないですわ。|nそれよりのぶ…|nいえ、お兄様。",
-  "en": "",
+  "en": "Oh, it is nothing. More|nto the point, Nobu... I|nmean, dear brother.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051a84",
@@ -1462,9 +1462,9 @@
   "room": 24,
   "kind": "text",
   "jp": "|nなに！光秀から？|n",
-  "en": "",
+  "en": "What! From Mitsuhide?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051a9c",
@@ -1474,9 +1474,9 @@
   "room": 60,
   "kind": "text",
   "jp": "はい。なんでも、|n京の本能寺にて|n大事なお話があるとか…",
-  "en": "",
+  "en": "Yes. He has an important|nmatter to discuss at|nHonnoji in Kyoto...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051ad8",
@@ -1486,9 +1486,9 @@
   "room": 28,
   "kind": "text",
   "jp": "|nお市、留守を頼むぞ。|n",
-  "en": "",
+  "en": "Oichi, mind the castle|nwhile I am gone.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051af4",
@@ -1498,9 +1498,9 @@
   "room": 60,
   "kind": "text",
   "jp": "ふむ…光秀が…か。|nよし。これより本能寺に|nいってまいる。",
-  "en": "",
+  "en": "Hmm... Mitsuhide, is it?|nVery well. I shall go to|nHonnoji at once.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051b30",
@@ -1510,9 +1510,9 @@
   "room": 48,
   "kind": "text",
   "jp": "はい。|nお気をつけて|nいってらっしゃいませ。",
-  "en": "",
+  "en": "Yes. Take care, and safe|ntravels.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051b60",
@@ -1522,9 +1522,9 @@
   "room": 16,
   "kind": "text",
   "jp": "|nふふふ…|n",
-  "en": "",
+  "en": "Heh heh heh...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051b70",
@@ -1534,9 +1534,9 @@
   "room": 36,
   "kind": "text",
   "jp": "もっとも…|n本物では無いがの！|n",
-  "en": "",
+  "en": "Not the real one, mind|nyou!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051b94",
@@ -1546,9 +1546,9 @@
   "room": 44,
   "kind": "text",
   "jp": "わらわか？|nわらわは信長の妹、|nお市じゃ。",
-  "en": "",
+  "en": "Me? Why, I am Oichi,|nsister of Nobunaga.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051bc0",
@@ -1558,9 +1558,9 @@
   "room": 64,
   "kind": "text",
   "jp": "われらにそそのかされた、|n明智光秀に|n討たれておるであろう。",
-  "en": "",
+  "en": "will have been slain by|nMitsuhide Akechi, whom|nwe led astray.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051c00",
@@ -1570,9 +1570,9 @@
   "room": 52,
   "kind": "text",
   "jp": "ほほほ…遅かったのう。|n今ごろ信長は、本能寺…|n",
-  "en": "",
+  "en": "Ho ho ho... You are too|nlate. By now Nobunaga,|nat Honnoji...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051c34",
@@ -1582,9 +1582,9 @@
   "room": 68,
   "kind": "text",
   "jp": "天下を治めようとする者は|n信長だろうと光秀だろうと|n皆殺しじゃ！",
-  "en": "",
+  "en": "Whoever would rule the|nrealm, be it Nobunaga or|nMitsuhide, shall die!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051c78",
@@ -1594,9 +1594,9 @@
   "room": 64,
   "kind": "text",
   "jp": "われらが望むのは戦乱！|n人間の憎しみこそが|nわれら妖魔の糧！",
-  "en": "",
+  "en": "What we desire is war!|nHuman hatred is what we|ndemons feed on!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051cb8",
@@ -1606,9 +1606,9 @@
   "room": 72,
   "kind": "text",
   "jp": "われらの力を使って|n信長から天下を奪おうと|n思っておったようじゃが…",
-  "en": "",
+  "en": "He thought to use our|npower to seize the realm|nfrom Nobunaga, but...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051d00",
@@ -1618,9 +1618,9 @@
   "room": 68,
   "kind": "text",
   "jp": "いいことを教えてやろう…|nわれらの封印を解いたのは|n明智光秀じゃ。",
-  "en": "",
+  "en": "Here is a secret... It|nwas Mitsuhide Akechi who|nbroke our seal.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051d44",
@@ -1630,9 +1630,9 @@
   "room": 20,
   "kind": "text",
   "jp": "京|n「本能寺」|n",
-  "en": "",
+  "en": "Honnoji Temple|nKyoto",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051d58",
@@ -1642,9 +1642,9 @@
   "room": 24,
   "kind": "text",
   "jp": "|nおぬし…何者じゃ！|n",
-  "en": "",
+  "en": "You... Who are you!?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051d70",
@@ -1654,9 +1654,9 @@
   "room": 44,
   "kind": "text",
   "jp": "（信長に今までの|n　いきさつを説明した）|n",
-  "en": "",
+  "en": "(You told Nobunaga all|nthat had happened.)",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051d9c",
@@ -1666,9 +1666,9 @@
   "room": 44,
   "kind": "text",
   "jp": "さあ、もう行け。|nおぬしも逃げ遅れるぞ。|n",
-  "en": "",
+  "en": "Now, go. Or you too will|nbe too late to escape.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051dc8",
@@ -1678,9 +1678,9 @@
   "room": 48,
   "kind": "text",
   "jp": "きっと妖魔に関する|n情報も手に入るであろう。|n",
-  "en": "",
+  "en": "Surely you will learn|nsomething about the|ndemons there, too.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051df8",
@@ -1690,9 +1690,9 @@
   "room": 44,
   "kind": "text",
   "jp": "真田は、数多くの|n忍びを使う一族じゃ。|n",
-  "en": "",
+  "en": "The Sanada are a clan|nthat commands many|nninja.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051e24",
@@ -1702,9 +1702,9 @@
   "room": 52,
   "kind": "text",
   "jp": "妖魔を知るためにも|nまずは北東の真田領に|n向かえ。",
-  "en": "",
+  "en": "To learn about the|ndemons, go northeast to|nthe Sanada lands.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051e58",
@@ -1714,9 +1714,9 @@
   "room": 64,
   "kind": "text",
   "jp": "妖魔が恐れる勾玉…|nおそらく、それこそが|n妖魔封印の鍵じゃ。",
-  "en": "",
+  "en": "The magatama the demons|nfear... It must be the|nkey to sealing them.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051e98",
@@ -1726,9 +1726,9 @@
   "room": 56,
   "kind": "text",
   "jp": "おそらく…|n光秀も妖魔に利用されて|nいるだけであろう。",
-  "en": "",
+  "en": "Most likely... Mitsuhide|ntoo is merely a pawn of|nthe demons.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051ed0",
@@ -1738,9 +1738,9 @@
   "room": 56,
   "kind": "text",
   "jp": "おぬし妖魔を追うのか？|nならば光秀は、|nほおっておけ。",
-  "en": "",
+  "en": "You are hunting the|ndemons? Then leave|nMitsuhide be.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051f08",
@@ -1750,9 +1750,9 @@
   "room": 68,
   "kind": "text",
   "jp": "そうか、光秀が…|nお市まで偽者であったとは|nこの信長一生の不覚よ。",
-  "en": "",
+  "en": "Mitsuhide... and even|nOichi a fake. The worst|nblunder of my life.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051f4c",
@@ -1762,9 +1762,9 @@
   "room": 60,
   "kind": "text",
   "jp": "行け！おぬしは生きて|n妖魔どもの野望！|n打ち砕いてみよ！",
-  "en": "",
+  "en": "Go! Live, and crush the|ndemons' ambitions!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051f88",
@@ -1774,9 +1774,9 @@
   "room": 68,
   "kind": "text",
   "jp": "ゆめまぼろしの生ならば|n散りぎわを心得ぬは|n恥じさらしなだけじゃ。",
-  "en": "",
+  "en": "If life is but a|nfleeting dream, fear of|nfalling is shameful.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051fcc",
@@ -1786,9 +1786,9 @@
   "room": 24,
   "kind": "text",
   "jp": "|n人間わずか五十年。|n",
-  "en": "",
+  "en": "A man's life lasts but|nfifty years.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "051fe4",
@@ -1798,9 +1798,9 @@
   "room": 48,
   "kind": "text",
   "jp": "わしか？わしはよい。|n………………………。|n",
-  "en": "",
+  "en": "Me? Never mind me. ...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052014",
@@ -1810,9 +1810,9 @@
   "room": 40,
   "kind": "text",
   "jp": "さらばじゃ！|n%n！|nあとは任せたぞ！！",
-  "en": "",
+  "en": "Farewell, %n! I|nleave the rest to you!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05203c",
@@ -1822,9 +1822,9 @@
   "room": 40,
   "kind": "text",
   "jp": "最期にあのような者に|n会えるとはな…|n",
-  "en": "",
+  "en": "To meet someone like|nthat at the very end...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052064",
@@ -1834,9 +1834,9 @@
   "room": 16,
   "kind": "text",
   "jp": "|nふふふふ…|n",
-  "en": "",
+  "en": "Heh heh heh heh...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052074",
@@ -1846,9 +1846,9 @@
   "room": 52,
   "kind": "text",
   "jp": "家臣　明智光秀の|n謀反により|n本能寺にて自害した…",
-  "en": "",
+  "en": "died by his own hand at|nHonnoji, betrayed by|nMitsuhide Akechi...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0520a8",
@@ -1858,9 +1858,9 @@
   "room": 32,
   "kind": "text",
   "jp": "天下を目前にした|n織田信長は|n",
-  "en": "",
+  "en": "With the realm within|nhis grasp, Nobunaga Oda",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0520c8",
@@ -1870,9 +1870,9 @@
   "room": 28,
   "kind": "text",
   "jp": "|n天正十年（一五八二年）|n",
-  "en": "",
+  "en": "Tensho 10 (1582)",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0520e4",
@@ -1882,9 +1882,9 @@
   "room": 40,
   "kind": "text",
   "jp": "すみません。|n今は一人にして下さい…|n",
-  "en": "",
+  "en": "I am sorry. Please leave|nme alone for now...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05210c",
@@ -1894,9 +1894,9 @@
   "room": 48,
   "kind": "text",
   "jp": "私が油断したばかりに、|nお兄様は…|n…………",
-  "en": "",
+  "en": "I let my guard down...|nand my brother...|n...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05213c",
@@ -1906,9 +1906,9 @@
   "room": 36,
   "kind": "text",
   "jp": "お兄様のことは|n知っています…|n",
-  "en": "",
+  "en": "I know about my|nbrother...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052160",
@@ -1918,9 +1918,9 @@
   "room": 48,
   "kind": "text",
   "jp": "安心して下さい。|n偽者ではありませんから…|n",
-  "en": "",
+  "en": "Do not worry. I am no|nfake...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052190",
@@ -1930,9 +1930,9 @@
   "room": 40,
   "kind": "text",
   "jp": "私はお市（おいち）|n信長の妹です。|n",
-  "en": "",
+  "en": "I am Oichi, Nobunaga's|nsister.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0521b8",
@@ -1942,9 +1942,9 @@
   "room": 60,
   "kind": "text",
   "jp": "（お市は信長亡き後|n柴田勝家という武将と|n再婚したらしい）",
-  "en": "",
+  "en": "(After Nobunaga's death,|nOichi wed Katsuie|nShibata, they say.)",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0521f4",
@@ -1957,9 +1957,9 @@
   "room": 24,
   "kind": "text",
   "jp": "|n（だれもいない…）|n",
-  "en": "",
+  "en": "(No one is here...)",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05220c",
@@ -1969,9 +1969,9 @@
   "room": 64,
   "kind": "text",
   "jp": "（お市は柴田勝家が|n豊臣秀吉に敗れた時|n運命を共にしたらしい）",
-  "en": "",
+  "en": "(Oichi shared Katsuie|nShibata's fate when|nHideyoshi beat him.)",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05224c",
@@ -1981,9 +1981,9 @@
   "room": 36,
   "kind": "text",
   "jp": "あの…|n%n様|nではありませんか？",
-  "en": "",
+  "en": "Um... Aren't you|n%n-sama?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052270",
@@ -1993,9 +1993,9 @@
   "room": 24,
   "kind": "text",
   "jp": "|nお市っていいます。|n",
-  "en": "",
+  "en": "My name is Oichi.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052288",
@@ -2005,9 +2005,9 @@
   "room": 36,
   "kind": "text",
   "jp": "私…|nこの近くの神社の|n巫女の…",
-  "en": "",
+  "en": "I... I am a shrine|nmaiden at the shrine|nnear here...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0522ac",
@@ -2017,9 +2017,9 @@
   "room": 52,
   "kind": "text",
   "jp": "また、|n会ってもらえませんか？|n待ってますから…",
-  "en": "",
+  "en": "Will you meet me again?|nI will be waiting...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0522e0",
@@ -2029,9 +2029,9 @@
   "room": 56,
   "kind": "text",
   "jp": "あたしこのお城には|nよく来るんです。|nもしよかったら…",
-  "en": "",
+  "en": "I come to this castle|noften. If you would|nlike...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052318",
@@ -2041,9 +2041,9 @@
   "room": 68,
   "kind": "text",
   "jp": "あなたには、|nお話しなきゃいけないって|n…そんな気がしたんです。",
-  "en": "",
+  "en": "I felt like... I just|nhad to tell you.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05235c",
@@ -2053,9 +2053,9 @@
   "room": 52,
   "kind": "text",
   "jp": "…ごめんなさい！|nこんな話してしまって。|nでも…",
-  "en": "",
+  "en": "...I am sorry! Telling|nyou all this. But...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052390",
@@ -2065,9 +2065,9 @@
   "room": 56,
   "kind": "text",
   "jp": "でもその人は、|n燃えるお城の中に|n消えてしまうんです。",
-  "en": "",
+  "en": "But then she vanishes|ninto a burning castle.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0523c8",
@@ -2077,9 +2077,9 @@
   "room": 56,
   "kind": "text",
   "jp": "私…よく女の人の|n夢を見るんです。|nとても綺麗な人…",
-  "en": "",
+  "en": "I often dream of a|nwoman. A very beautiful|nwoman...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052400",
@@ -2089,9 +2089,9 @@
   "room": 64,
   "kind": "text",
   "jp": "不思議…|nあなたとは初めて会うのに|n前から知っているみたい…",
-  "en": "",
+  "en": "How strange... We have|nonly just met, yet I|nfeel I know you.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052440",
@@ -2101,9 +2101,9 @@
   "room": 20,
   "kind": "text",
   "jp": "|nそうですか…|n",
-  "en": "",
+  "en": "I see...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052454",
@@ -2113,9 +2113,9 @@
   "room": 28,
   "kind": "text",
   "jp": "えっ！|n妖魔との戦いに…|n",
-  "en": "",
+  "en": "Oh! Into battle with the|ndemons...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052470",
@@ -2125,9 +2125,9 @@
   "room": 44,
   "kind": "text",
   "jp": "%n様！|nうれしい！|n来てくれたんですね。",
-  "en": "",
+  "en": "%n-sama! I am so|nhappy! You came!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05249c",
@@ -2137,9 +2137,9 @@
   "room": 48,
   "kind": "text",
   "jp": "あなたを待ってます。|nこの城で…|nいつまでも…",
-  "en": "",
+  "en": "I will wait for you. In|nthis castle...|nforever...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0524cc",
@@ -2149,9 +2149,9 @@
   "room": 52,
   "kind": "text",
   "jp": "あの…|n頑張って下さい！|n私…なにも出来ないけど…",
-  "en": "",
+  "en": "Um... Please do your|nbest! I... cannot do|nanything, but...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052500",
@@ -2161,9 +2161,9 @@
   "room": 20,
   "kind": "text",
   "jp": "いつまでも…|n|n",
-  "en": "",
+  "en": "Forever...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052514",
@@ -2173,9 +2173,9 @@
   "room": 60,
   "kind": "text",
   "jp": "私…なにも出来ないけど…|nあなたを待ってます。|nこの城で…",
-  "en": "",
+  "en": "I cannot do anything...|nbut I will wait for you.|nIn this castle...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052550",
@@ -2185,9 +2185,9 @@
   "room": 36,
   "kind": "text",
   "jp": "%n様！|nあの…|n頑張って下さい！",
-  "en": "",
+  "en": "%n-sama! Um...|nPlease do your best!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052574",
@@ -2197,9 +2197,9 @@
   "room": 40,
   "kind": "text",
   "jp": "おとなしく勾玉を渡せ。|nさもなくば…|n",
-  "en": "",
+  "en": "Hand over the magatama|nquietly. Or else...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05259c",
@@ -2209,9 +2209,9 @@
   "room": 24,
   "kind": "text",
   "jp": "きさまが|n%nだな…|n",
-  "en": "",
+  "en": "So you are %n...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0525b4",
@@ -2221,9 +2221,9 @@
   "room": 16,
   "kind": "text",
   "jp": "|nくっ…　|n",
-  "en": "",
+  "en": "Ngh...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0525c4",
@@ -2233,9 +2233,9 @@
   "room": 52,
   "kind": "text",
   "jp": "おいらも力になるからさ！|n一緒にがんばろうぜ！|n",
-  "en": "",
+  "en": "I'll help you out too!|nLet's do this together!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0525f8",
@@ -2245,9 +2245,9 @@
   "room": 72,
   "kind": "text",
   "jp": "まず結界を壊さなくちゃ！|nおそらく、方法は今までと|n同じだと思うよ。",
-  "en": "",
+  "en": "First we gotta break the|nbarrier! Probably works|nlike before.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052640",
@@ -2257,9 +2257,9 @@
   "room": 44,
   "kind": "text",
   "jp": "幸村様の事だから、|n無事だとは思うけど…|n",
-  "en": "",
+  "en": "Knowing Yukimura-sama, I|nbet he's safe, but...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05266c",
@@ -2269,9 +2269,9 @@
   "room": 68,
   "kind": "text",
   "jp": "残念だけど…|n幸村様がいる信濃の国にも|n結界が張られちまったんだ",
-  "en": "",
+  "en": "Too bad... They put a|nbarrier over Shinano,|nwhere Yukimura-sama is.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0526b0",
@@ -2281,9 +2281,9 @@
   "room": 40,
   "kind": "text",
   "jp": "あんた、幸村様に会いに|n来たんだろ？|n",
-  "en": "",
+  "en": "You came to see|nYukimura-sama, right?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0526d8",
@@ -2293,9 +2293,9 @@
   "room": 40,
   "kind": "text",
   "jp": "いろいろ調べさせて|nもらったからね。|n",
-  "en": "",
+  "en": "I did a little digging|non you.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052700",
@@ -2305,9 +2305,9 @@
   "room": 48,
   "kind": "text",
   "jp": "あんたが|n妖魔と戦ってることは|n知ってるよ。",
-  "en": "",
+  "en": "I know you've been|nfighting demons.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052730",
@@ -2317,9 +2317,9 @@
   "room": 52,
   "kind": "text",
   "jp": "真田幸村|n（さなだゆきむら）様に|n仕える忍者さ。",
-  "en": "",
+  "en": "I'm a ninja in the|nservice of Yukimura|nSanada-sama.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052764",
@@ -2329,9 +2329,9 @@
   "room": 76,
   "kind": "text",
   "jp": "あぶないところだったね。|nおいらは佐助（さすけ）|nさるとび佐助ってんだ。",
-  "en": "",
+  "en": "That was close. I'm|nSasuke. Sasuke Sarutobi,|nthat's me.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0527b0",
@@ -2341,9 +2341,9 @@
   "room": 68,
   "kind": "text",
   "jp": "＊佐助が仲間になった！＊|n（忍者召喚の術で|n佐助を呼び出せます）",
-  "en": "",
+  "en": "*Sasuke joined you!*|n(Call him with the Ninja|nArt.)",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0527f4",
@@ -2353,9 +2353,9 @@
   "room": 44,
   "kind": "text",
   "jp": "貴様を倒してから|nゆっくり探すとしよう！|n",
-  "en": "",
+  "en": "I will take my time|nlooking once you are|ndead!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052820",
@@ -2365,9 +2365,9 @@
   "room": 48,
   "kind": "text",
   "jp": "真田幸村はどこだ？|n……………|n…まあいい。",
-  "en": "",
+  "en": "Where is Yukimura|nSanada? ... ...No|nmatter.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052850",
@@ -2377,9 +2377,9 @@
   "room": 36,
   "kind": "text",
   "jp": "わが妖魔忍軍を|n突破してきたか…|n",
-  "en": "",
+  "en": "So you broke through my|ndemon ninja corps...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052874",
@@ -2389,9 +2389,9 @@
   "room": 64,
   "kind": "text",
   "jp": "わが名は斬手（ざんしゅ）|n覚えておくがいい。|nくっくっくっ…",
-  "en": "",
+  "en": "My name is Zanshu.|nRemember it. Heh heh|nheh...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0528b4",
@@ -2401,9 +2401,9 @@
   "room": 48,
   "kind": "text",
   "jp": "人間にしてはやるな…|n次はこうはいかんぞ…|n",
-  "en": "",
+  "en": "Not bad, for a human...|nNext time will be|ndifferent...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0528e4",
@@ -2413,9 +2413,9 @@
   "room": 40,
   "kind": "text",
   "jp": "幸村様ー！！|nもう大丈夫ですよー！！|n",
-  "en": "",
+  "en": "Yukimura-samaaa!! It's|nsafe now!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05290c",
@@ -2425,9 +2425,9 @@
   "room": 48,
   "kind": "text",
   "jp": "おぬしなら、妖魔と戦う|nことができそうだな…|n",
-  "en": "",
+  "en": "You look like you could|nstand up to the|ndemons...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05293c",
@@ -2437,9 +2437,9 @@
   "room": 40,
   "kind": "text",
   "jp": "おれは|n真田幸村|n（さなだゆきむら）。",
-  "en": "",
+  "en": "I am Yukimura Sanada.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052964",
@@ -2449,9 +2449,9 @@
   "room": 48,
   "kind": "text",
   "jp": "しばらく隠れさせて|nもらったよ。|nいやお見事！",
-  "en": "",
+  "en": "I stayed hidden for a|nwhile there. Splendid|nwork!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052994",
@@ -2461,9 +2461,9 @@
   "room": 52,
   "kind": "text",
   "jp": "%n殿の|nお手並み拝見させて|nもらおうと思ってな。",
-  "en": "",
+  "en": "I wanted a look at what|n%n-dono can do.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0529c8",
@@ -2473,9 +2473,9 @@
   "room": 32,
   "kind": "text",
   "jp": "ふう！|nやっと出て行ったか。|n",
-  "en": "",
+  "en": "Phew! He is finally|ngone.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0529e8",
@@ -2485,9 +2485,9 @@
   "room": 68,
   "kind": "text",
   "jp": "豊臣秀吉のはずだ。|nここより南に豊臣領がある|nそこへ向かうがよい。",
-  "en": "",
+  "en": "It must be Hideyoshi|nToyotomi. His lands lie|nsouth. Go there.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052a2c",
@@ -2497,9 +2497,9 @@
   "room": 60,
   "kind": "text",
   "jp": "妖魔のねらいが戦乱を|n巻き起こす事ならば、|n次のねらいは…",
-  "en": "",
+  "en": "If the demons aim to|nstir up war, then their|nnext target...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052a68",
@@ -2509,9 +2509,9 @@
   "room": 56,
   "kind": "text",
   "jp": "どうやら光秀も妖魔に|n利用されていただけの|nようだな…",
-  "en": "",
+  "en": "It seems Mitsuhide was|nonly being used by the|ndemons...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052aa0",
@@ -2521,9 +2521,9 @@
   "room": 56,
   "kind": "text",
   "jp": "豊臣秀吉|n（とよとみひでよし）の|n軍勢に討ち取られた…",
-  "en": "",
+  "en": "he was struck down by|nHideyoshi Toyotomi's|nforces...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052ad8",
@@ -2533,9 +2533,9 @@
   "room": 48,
   "kind": "text",
   "jp": "その明智光秀だが、|n本能寺の変の数日のち…|n",
-  "en": "",
+  "en": "As for Mitsuhide Akechi,|ndays after the Honnoji|nIncident...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052b08",
@@ -2545,9 +2545,9 @@
   "room": 60,
   "kind": "text",
   "jp": "妖魔の封印を解いたのは、|n明智光秀…|nこれは知っているな。",
-  "en": "",
+  "en": "It was Mitsuhide Akechi|nwho broke the demons'|nseal... This you know.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052b44",
@@ -2557,9 +2557,9 @@
   "room": 60,
   "kind": "text",
   "jp": "七つの勾玉を集める事で、|n再び妖魔を封印できる|nはずだ。",
-  "en": "",
+  "en": "Gather the seven|nmagatama, and the demons|ncan be sealed again.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052b80",
@@ -2569,9 +2569,9 @@
   "room": 68,
   "kind": "text",
   "jp": "封印を解かれた妖魔は、|nこの勾玉を砕き、|n全国に散らばらせたのだ。",
-  "en": "",
+  "en": "Once freed, the demons|nbroke the magatama and|nscattered the shards.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052bc4",
@@ -2581,9 +2581,9 @@
   "room": 52,
   "kind": "text",
   "jp": "勾玉は全部で七つ。|n信、智、天、仁、|n忠、考、勇。",
-  "en": "",
+  "en": "Seven magatama: Faith,|nWisdom, Heaven, Mercy,|nLoyalty, Piety, Courage.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052bf8",
@@ -2593,9 +2593,9 @@
   "room": 76,
   "kind": "text",
   "jp": "おぬしが道中で手に入れた|n勾玉の力によって、日本|n各地に封印されていたのだ",
-  "en": "",
+  "en": "with the magatama you|nfound, in places all|nover Japan.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052c44",
@@ -2605,9 +2605,9 @@
   "room": 68,
   "kind": "text",
   "jp": "によって封印された、|n冥府魔道（めいふまどう）|nより来た者どもだ。",
-  "en": "",
+  "en": "sealed away these beings|nfrom the Netherworld",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052c88",
@@ -2617,9 +2617,9 @@
   "room": 68,
   "kind": "text",
   "jp": "まず、妖魔とは平安の頃|nかの大陰陽師、安倍晴明|n（あべのせいめい）",
-  "en": "",
+  "en": "The demons: in the Heian|nera, the great diviner|nAbe no Seimei",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052ccc",
@@ -2629,9 +2629,9 @@
   "room": 48,
   "kind": "text",
   "jp": "よし！|n我らの調べた事。|nおぬしに教えよう！",
-  "en": "",
+  "en": "Very well! I will tell|nyou what we have|nlearned!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052cfc",
@@ -2641,9 +2641,9 @@
   "room": 28,
   "kind": "text",
   "jp": "頼んだぞ！|n二人とも！！|n",
-  "en": "",
+  "en": "I am counting on you|nboth!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052d18",
@@ -2653,9 +2653,9 @@
   "room": 68,
   "kind": "text",
   "jp": "今後も色々と調べておく。|n困った事があったら|nいつでもくるがよい。",
-  "en": "",
+  "en": "We will keep digging. If|nyou are ever in trouble,|ncome by.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052d5c",
@@ -2665,9 +2665,9 @@
   "room": 48,
   "kind": "text",
   "jp": "佐助！おぬしはこのまま|n%n殿の|n手助けをしろ！",
-  "en": "",
+  "en": "Sasuke! Stay and help|n%n-dono!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052d8c",
@@ -2677,9 +2677,9 @@
   "room": 52,
   "kind": "text",
   "jp": "急ぎ尾張におもむき、|n豊臣殿をお助けするのだ！|n",
-  "en": "",
+  "en": "Hurry to Owari and help|nToyotomi-dono!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052dc0",
@@ -2689,9 +2689,9 @@
   "room": 36,
   "kind": "text",
   "jp": "今のところは|n無事なようだが…|n",
-  "en": "",
+  "en": "He seems safe for now,|nbut...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052de4",
@@ -2701,9 +2701,9 @@
   "room": 44,
   "kind": "text",
   "jp": "どうやら妖魔が|n豊臣殿に接触したようだ。|n",
-  "en": "",
+  "en": "It seems the demons have|ncontacted Toyotomi-dono.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052e10",
@@ -2713,9 +2713,9 @@
   "room": 56,
   "kind": "text",
   "jp": "詳しい事はまだわからん…|n急ぎ徳川領に|n向かってくれ！",
-  "en": "",
+  "en": "I do not know the|ndetails yet... Hurry to|nthe Tokugawa lands!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052e48",
@@ -2725,9 +2725,9 @@
   "room": 44,
   "kind": "text",
   "jp": "どうやら徳川領に|n妖魔が現れたようだ。|n",
-  "en": "",
+  "en": "It seems demons have|nappeared in the Tokugawa|nlands.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052e74",
@@ -2737,9 +2737,9 @@
   "room": 40,
   "kind": "text",
   "jp": "急ぎ江戸に向かい、|nぬえを倒すのだ！|n",
-  "en": "",
+  "en": "Hurry to Edo and defeat|nthe Nue!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052e9c",
@@ -2749,9 +2749,9 @@
   "room": 76,
   "kind": "text",
   "jp": "ぬえは天候を操る妖魔だ。|n徳川領の暗闇も、ぬえを|n倒せば元に戻るはずだ！",
-  "en": "",
+  "en": "The Nue is a weather|ndemon. Slay it to light|nthe Tokugawa lands!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052ee8",
@@ -2761,9 +2761,9 @@
   "room": 36,
   "kind": "text",
   "jp": "徳川領にぬえが|n現れたようだな。|n",
-  "en": "",
+  "en": "So the Nue has appeared|nin the Tokugawa lands.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052f0c",
@@ -2773,9 +2773,9 @@
   "room": 44,
   "kind": "text",
   "jp": "急ぎ伊達領に向かい、|n勾玉を集めるのだ！|n",
-  "en": "",
+  "en": "Hurry to the Date lands|nand gather the magatama!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052f38",
@@ -2785,9 +2785,9 @@
   "room": 64,
   "kind": "text",
   "jp": "残る勾玉は一つ…|nおそらくは伊達領に|nちらばっているはずだ。",
-  "en": "",
+  "en": "One magatama remains...|nIt must be scattered in|nthe Date lands.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052f78",
@@ -2797,9 +2797,9 @@
   "room": 36,
   "kind": "text",
   "jp": "%nよ。|n十分気をつけるのだぞ。|n",
-  "en": "",
+  "en": "%n. Be very|ncareful.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052f9c",
@@ -2809,9 +2809,9 @@
   "room": 36,
   "kind": "text",
   "jp": "おれにはどうも|n信じられんのだ…|n",
-  "en": "",
+  "en": "I just cannot believe|nit...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052fc0",
@@ -2821,9 +2821,9 @@
   "room": 48,
   "kind": "text",
   "jp": "どうやら伊達政宗に|n討ち取られたようだが…|n",
-  "en": "",
+  "en": "It seems he was slain by|nMasamune Date, but...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "052ff0",
@@ -2833,9 +2833,9 @@
   "room": 40,
   "kind": "text",
   "jp": "妖魔忍軍の首領|n斬手を覚えているか？|n",
-  "en": "",
+  "en": "Do you remember Zanshu,|nleader of the demon|nninja?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053018",
@@ -2845,9 +2845,9 @@
   "room": 48,
   "kind": "text",
   "jp": "さすがにそこまでは|n予想できなかったわ…。|n",
-  "en": "",
+  "en": "Even I did not see that|ncoming...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053048",
@@ -2857,9 +2857,9 @@
   "room": 44,
   "kind": "text",
   "jp": "…まさか、封印が|n完全でなかったとは…|n",
-  "en": "",
+  "en": "...To think the seal was|nnot complete...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053074",
@@ -2869,9 +2869,9 @@
   "room": 24,
   "kind": "text",
   "jp": "|nなにっ！妖魔王が！|n",
-  "en": "",
+  "en": "What! The Demon King!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05308c",
@@ -2881,9 +2881,9 @@
   "room": 44,
   "kind": "text",
   "jp": "妖魔どもに|n真田の戦ぶり|n見せてくれるわ！",
-  "en": "",
+  "en": "I will show those demons|nhow the Sanada fight!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0530b8",
@@ -2893,9 +2893,9 @@
   "room": 44,
   "kind": "text",
   "jp": "おれは兵を集め、|n妖魔の軍勢に備えよう！|n",
-  "en": "",
+  "en": "I will gather troops and|nprepare for the demon|narmy!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0530e4",
@@ -2905,9 +2905,9 @@
   "room": 56,
   "kind": "text",
   "jp": "%nよ！|n佐助とともに蝦夷へ向かい|n妖魔王を倒すのだ！",
-  "en": "",
+  "en": "%n! Go to Ezo with|nSasuke and defeat the|nDemon King!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05311c",
@@ -2917,9 +2917,9 @@
   "room": 60,
   "kind": "text",
   "jp": "全ての勾玉はこちらの|n手にあるのだ！|n必ずや勝機はある！",
-  "en": "",
+  "en": "All the magatama are in|nour hands! We can surely|nwin!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053158",
@@ -2929,9 +2929,9 @@
   "room": 48,
   "kind": "text",
   "jp": "しかし！|nまだ全てが終わった|nわけではない！",
-  "en": "",
+  "en": "But! It is not over yet!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053188",
@@ -2941,9 +2941,9 @@
   "room": 16,
   "kind": "text",
   "jp": "|n何者じゃ！|n",
-  "en": "",
+  "en": "Who goes there!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053198",
@@ -2953,9 +2953,9 @@
   "room": 52,
   "kind": "text",
   "jp": "さすがですな…|n豊臣秀吉|n（とよとみひでよし）殿…",
-  "en": "",
+  "en": "Impressive... Hideyoshi|nToyotomi-dono...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0531cc",
@@ -2965,9 +2965,9 @@
   "room": 48,
   "kind": "text",
   "jp": "我が名は斬手…|n妖魔忍軍の|n首領にございます…",
-  "en": "",
+  "en": "My name is Zanshu...|nleader of the demon|nninja...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0531fc",
@@ -2977,9 +2977,9 @@
   "room": 40,
   "kind": "text",
   "jp": "その妖魔が、|nこの秀吉に何用じゃ！|n",
-  "en": "",
+  "en": "And what does a demon|nwant with Hideyoshi!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053224",
@@ -2989,9 +2989,9 @@
   "room": 64,
   "kind": "text",
   "jp": "あなたが天下人になる為の|n協力をいたしたいと|n思いましてね…",
-  "en": "",
+  "en": "I thought I might help|nyou become ruler of the|nrealm...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053264",
@@ -3001,9 +3001,9 @@
   "room": 20,
   "kind": "text",
   "jp": "|nなんじゃと！？|n",
-  "en": "",
+  "en": "What did you say!?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053278",
@@ -3013,9 +3013,9 @@
   "room": 72,
   "kind": "text",
   "jp": "我らとあなたが組めば、|nこの国はおろか全世界を|n手中に収められますぞ…",
-  "en": "",
+  "en": "Join hands with us, and|nnot just this land, but|nthe world is yours...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0532c0",
@@ -3025,9 +3025,9 @@
   "room": 24,
   "kind": "text",
   "jp": "…|n話を聞こうか。|n",
-  "en": "",
+  "en": "... Let us hear it.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0532d8",
@@ -3037,9 +3037,9 @@
   "room": 20,
   "kind": "text",
   "jp": "くっくっく…|n|n",
-  "en": "",
+  "en": "Heh heh heh...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0532ec",
@@ -3049,9 +3049,9 @@
   "room": 36,
   "kind": "text",
   "jp": "いでよ！|n地獄百足（むかで）！！|n",
-  "en": "",
+  "en": "Come forth! Hell|nCentipede!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053310",
@@ -3061,9 +3061,9 @@
   "room": 44,
   "kind": "text",
   "jp": "くっくっく…、|nもはやこの地に用は無い|n",
-  "en": "",
+  "en": "Heh heh heh... We have|nno more business in this|nland.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05333c",
@@ -3073,9 +3073,9 @@
   "room": 36,
   "kind": "text",
   "jp": "すでに我らの目的は|n果たした！|n",
-  "en": "",
+  "en": "We have already achieved|nour goal!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053360",
@@ -3085,9 +3085,9 @@
   "room": 24,
   "kind": "text",
   "jp": "遅かったな。|n%n。|n",
-  "en": "",
+  "en": "Too late, %n.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053378",
@@ -3097,9 +3097,9 @@
   "room": 64,
   "kind": "text",
   "jp": "くっくっく…、|nゆっくり遊んでいくがよい|nはっーはっはっはっ…",
-  "en": "",
+  "en": "Heh heh heh... Stay and|nplay a while. Ha ha ha|nha...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0533b8",
@@ -3109,9 +3109,9 @@
   "room": 40,
   "kind": "text",
   "jp": "用がすんだら|nさっさと行くがよい。|n",
-  "en": "",
+  "en": "If you are done here, be|non your way.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0533e0",
@@ -3121,9 +3121,9 @@
   "room": 52,
   "kind": "text",
   "jp": "これ以上、おぬしの相手を|nしているひまはない！|n",
-  "en": "",
+  "en": "I have no more time to|nwaste on you!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053414",
@@ -3133,9 +3133,9 @@
   "room": 72,
   "kind": "text",
   "jp": "さあ、もういいじゃろう。|nわしは忙しいのじゃ。|nなにせ関白じゃからな！",
-  "en": "",
+  "en": "Now, that is enough. I|nam busy. I am the|nRegent, after all!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05345c",
@@ -3145,9 +3145,9 @@
   "room": 48,
   "kind": "text",
   "jp": "まあ…|n助けてくれた事には、|n礼をいうがな…",
-  "en": "",
+  "en": "Well... I do thank you|nfor saving me...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05348c",
@@ -3157,9 +3157,9 @@
   "room": 56,
   "kind": "text",
   "jp": "ただ…|n次は徳川領に向かうと|nいっておったようじゃが…",
-  "en": "",
+  "en": "Only... he did say he|nwas heading for the|nTokugawa lands next...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0534c4",
@@ -3169,9 +3169,9 @@
   "room": 48,
   "kind": "text",
   "jp": "そんなことは、こっちが|n聞きたいぐらいじゃ！|n",
-  "en": "",
+  "en": "That is what I would|nlike to know!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0534f4",
@@ -3181,9 +3181,9 @@
   "room": 44,
   "kind": "text",
   "jp": "妖魔がここでなにを|nしていたかじゃと？|n",
-  "en": "",
+  "en": "What were the demons|ndoing here, you ask?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053520",
@@ -3193,9 +3193,9 @@
   "room": 48,
   "kind": "text",
   "jp": "わしが|n豊臣秀吉|n（とよとみひでよし）じゃ。",
-  "en": "",
+  "en": "I am Hideyoshi Toyotomi!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053550",
@@ -3205,9 +3205,9 @@
   "room": 40,
   "kind": "text",
   "jp": "…おぬしが|n妖魔と戦っておる|n%nか…",
-  "en": "",
+  "en": "...So you are %n,|nwho fights the demons...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053578",
@@ -3217,9 +3217,9 @@
   "room": 40,
   "kind": "text",
   "jp": "世界を手に入れるか…|nふっふっふっ…|n",
-  "en": "",
+  "en": "The whole world, eh...|nHeh heh heh...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0535a0",
@@ -3231,9 +3231,9 @@
   "room": 28,
   "kind": "text",
   "jp": "|n早々に立ち去るが良い！|n",
-  "en": "",
+  "en": "Begone at once!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0535bc",
@@ -3244,9 +3244,9 @@
   "room": 64,
   "kind": "text",
   "jp": "秀吉様はお忙しい。|nおまえのような者とは|n会わぬとの仰せだ。",
-  "en": "",
+  "en": "Hideyoshi-sama is busy.|nHe will not meet the|nlikes of you.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0535fc",
@@ -3256,9 +3256,9 @@
   "room": 48,
   "kind": "text",
   "jp": "わたしは|n石田三成である。|n（いしだみつなり）",
-  "en": "",
+  "en": "I am Mitsunari Ishida.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05362c",
@@ -3268,9 +3268,9 @@
   "room": 44,
   "kind": "text",
   "jp": "…そのような世迷ごと、|n聞く耳もたん！|n",
-  "en": "",
+  "en": "...I will not listen to|nsuch nonsense!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053658",
@@ -3280,9 +3280,9 @@
   "room": 28,
   "kind": "text",
   "jp": "なに！？|n妖魔の王だと？|n",
-  "en": "",
+  "en": "What!? The Demon King,|nyou say?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053674",
@@ -3292,9 +3292,9 @@
   "room": 52,
   "kind": "text",
   "jp": "秀吉様はお忙しいのだ。|nおまえのような者とは…|n",
-  "en": "",
+  "en": "Hideyoshi-sama is busy.|nThe likes of you...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0536a8",
@@ -3304,9 +3304,9 @@
   "room": 52,
   "kind": "text",
   "jp": "まだ昼間だってのに、|nどうして|n真っ暗なんだろう？",
-  "en": "",
+  "en": "It's still daytime, so|nwhy's it pitch dark?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0536dc",
@@ -3316,9 +3316,9 @@
   "room": 40,
   "kind": "text",
   "jp": "なあ、%n。|nなんかおかしくないか？|n",
-  "en": "",
+  "en": "Hey, %n. Doesn't|nsomething seem off?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053704",
@@ -3328,9 +3328,9 @@
   "room": 20,
   "kind": "text",
   "jp": "|nひええええ〜|n",
-  "en": "",
+  "en": "Eeeeek!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053718",
@@ -3340,9 +3340,9 @@
   "room": 44,
   "kind": "text",
   "jp": "おいっ！どうした？|nなにがあったんだ？！|n",
-  "en": "",
+  "en": "Hey! What's wrong? What|nhappened?!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053744",
@@ -3352,9 +3352,9 @@
   "room": 36,
   "kind": "text",
   "jp": "たたりじゃ！|nたたりじゃ〜！！|n",
-  "en": "",
+  "en": "It's a curse! A|ncuuurse!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053768",
@@ -3364,9 +3364,9 @@
   "room": 56,
   "kind": "text",
   "jp": "太陽は隠れちまったし、|n江戸じゃ|n雷まで落ちてきとる…",
-  "en": "",
+  "en": "The sun's gone and hid,|nand now lightning's|nstriking Edo...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0537a0",
@@ -3376,9 +3376,9 @@
   "room": 44,
   "kind": "text",
   "jp": "ひいいい〜、ぬえじゃ！|nぬえが出た〜！！|n",
-  "en": "",
+  "en": "Eeeee, it's the Nue! The|nNue's come!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0537cc",
@@ -3388,9 +3388,9 @@
   "room": 36,
   "kind": "text",
   "jp": "行こう！|n江戸の町を救うんだ！|n",
-  "en": "",
+  "en": "Let's go! We gotta save|nEdo!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0537f0",
@@ -3400,9 +3400,9 @@
   "room": 44,
   "kind": "text",
   "jp": "%n！|nこいつは|n妖魔の仕業にちがいねえ！",
-  "en": "",
+  "en": "%n! This has gotta|nbe the demons' doing!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05381c",
@@ -3412,9 +3412,9 @@
   "room": 28,
   "kind": "text",
   "jp": "おお！おぬしが|n%n殿か？|n",
-  "en": "",
+  "en": "Oh! Are you|n%n-dono?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053838",
@@ -3424,9 +3424,9 @@
   "room": 56,
   "kind": "text",
   "jp": "%n殿。|n何としてでも妖魔の野望を|n打ち砕いてくだされ！",
-  "en": "",
+  "en": "%n-dono. Please,|ncrush the demons' plans,|nwhatever it takes!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053870",
@@ -3436,9 +3436,9 @@
   "room": 64,
   "kind": "text",
   "jp": "おぬしは、北の伊達領へ|n向かい、残りの勾玉を|n見つけるのじゃ！",
-  "en": "",
+  "en": "You must head north to|nthe Date lands and find|nthe last magatama!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0538b0",
@@ -3448,9 +3448,9 @@
   "room": 68,
   "kind": "text",
   "jp": "伊賀忍軍と、服部半蔵|n（はっとりはんぞう）|nがついておるからな。",
-  "en": "",
+  "en": "We have the Iga ninja|nand Hanzo Hattori on our|nside, after all.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0538f4",
@@ -3460,9 +3460,9 @@
   "room": 60,
   "kind": "text",
   "jp": "豊臣殿の方は我らで|n調べておこう。|nなに、心配は無用じゃ！",
-  "en": "",
+  "en": "We will look into the|nToyotomi matter. No need|nto worry!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053930",
@@ -3472,9 +3472,9 @@
   "room": 48,
   "kind": "text",
   "jp": "これは、|nはたして妖魔の意思か…|nあるいは…",
-  "en": "",
+  "en": "Is this truly the|ndemons' will... or|nelse...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053960",
@@ -3484,9 +3484,9 @@
   "room": 40,
   "kind": "text",
   "jp": "豊臣領での一件、|nわしも聞いておる。|n",
-  "en": "",
+  "en": "I have heard about the|nbusiness in the Toyotomi|nlands.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053988",
@@ -3496,9 +3496,9 @@
   "room": 60,
   "kind": "text",
   "jp": "こたびの一件、|nこの徳川領の混乱が|n目的じゃったようじゃ。",
-  "en": "",
+  "en": "This time, their goal|nseems to have been chaos|nin the Tokugawa lands.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0539c4",
@@ -3508,9 +3508,9 @@
   "room": 52,
   "kind": "text",
   "jp": "これで|n暗闇と雷鳴に怯える事も|nなくなりますわい。",
-  "en": "",
+  "en": "Now we needn't cower|nfrom the dark and the|nthunder no more, heh.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0539f8",
@@ -3520,9 +3520,9 @@
   "room": 36,
   "kind": "text",
   "jp": "よくぞ|nぬえを倒してくださった！|n",
-  "en": "",
+  "en": "You slew the Nue! Well|ndone indeed!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053a1c",
@@ -3532,9 +3532,9 @@
   "room": 44,
   "kind": "text",
   "jp": "わしが|n徳川家康|n（とくがわいえやす）じゃ",
-  "en": "",
+  "en": "I am Ieyasu Tokugawa.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053a48",
@@ -3544,9 +3544,9 @@
   "room": 64,
   "kind": "text",
   "jp": "豊臣殿の件じゃが…|nその後、妖魔とのつながり|nは無いようじゃ。",
-  "en": "",
+  "en": "As for Toyotomi-dono...|nhe seems to have no more|nties to the demons.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053a88",
@@ -3556,9 +3556,9 @@
   "room": 60,
   "kind": "text",
   "jp": "わしの取り越し苦労なら|n良いのじゃが…|nどうも心配でのう…",
-  "en": "",
+  "en": "I hope I am only|nfretting over nothing...|nbut it troubles me so...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053ac4",
@@ -3568,9 +3568,9 @@
   "room": 80,
   "kind": "text",
   "jp": "この事は、もう少し調べて|nみるつもりじゃ。おぬしは|n心おきなく戦ってくれい。",
-  "en": "",
+  "en": "I mean to look into this|nfurther. You fight on,|nfree of worry.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053b14",
@@ -3580,9 +3580,9 @@
   "room": 64,
   "kind": "text",
   "jp": "妖魔に取りつかれている|nわけでもなし…|nいったいどうしたのか…",
-  "en": "",
+  "en": "He is not possessed by|ndemons, either... What|nhas come over him...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053b54",
@@ -3592,9 +3592,9 @@
   "room": 76,
   "kind": "text",
   "jp": "わしには、妖魔の事件の後|n人が変わってしまったかに|n思えてならんのじゃ。",
-  "en": "",
+  "en": "Since the demon affair,|nhe seems a changed man|nto me.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053ba0",
@@ -3604,9 +3604,9 @@
   "room": 60,
   "kind": "text",
   "jp": "以前の豊臣殿は、|n無益な争いを好まぬ方|nだったのにのう…",
-  "en": "",
+  "en": "The Toyotomi-dono of old|ndisliked pointless|nfighting...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053bdc",
@@ -3616,9 +3616,9 @@
   "room": 64,
   "kind": "text",
   "jp": "どうやら、近いうちに|n朝鮮への出兵を|n考えているようなのじゃ。",
-  "en": "",
+  "en": "It seems he plans to|nsend troops to Korea|nbefore long.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053c1c",
@@ -3628,9 +3628,9 @@
   "room": 60,
   "kind": "text",
   "jp": "豊臣殿の件じゃが…|n妖魔とは関係ないのかも|nしれんのだが…",
-  "en": "",
+  "en": "As for Toyotomi-dono...|nit may have nothing to|ndo with the demons...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053c58",
@@ -3640,9 +3640,9 @@
   "room": 56,
   "kind": "text",
   "jp": "おぬしは蝦夷に行き、|n妖魔王を倒すのじゃ。|nそれから…",
-  "en": "",
+  "en": "Go to Ezo and defeat the|nDemon King. And then...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053c90",
@@ -3652,9 +3652,9 @@
   "room": 44,
   "kind": "text",
   "jp": "%nよ。|n妖魔の軍勢には|n我らがそなえよう。",
-  "en": "",
+  "en": "%n. We will stand|nready against the demon|narmy.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053cbc",
@@ -3664,9 +3664,9 @@
   "room": 52,
   "kind": "text",
   "jp": "妖魔王じゃと？！|nそれに妖魔の軍勢も…|nむむむむ…",
-  "en": "",
+  "en": "The Demon King?! And a|ndemon army too...|nHmmmm...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053cf0",
@@ -3676,9 +3676,9 @@
   "room": 52,
   "kind": "text",
   "jp": "ぬえは倒されたか…|n%nめ…|nそろそろ…邪魔だな。",
-  "en": "",
+  "en": "So the Nue has fallen...|nThat %n... is|nbecoming a nuisance.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053d24",
@@ -3688,9 +3688,9 @@
   "room": 48,
   "kind": "text",
   "jp": "他人の心配より、|n自分の心配を|nしたらどうだ。",
-  "en": "",
+  "en": "You should worry about|nyourself, not others.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053d54",
@@ -3700,9 +3700,9 @@
   "room": 16,
   "kind": "text",
   "jp": "|n何者だ…|n",
-  "en": "",
+  "en": "Who are you...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053d64",
@@ -3712,9 +3712,9 @@
   "room": 48,
   "kind": "text",
   "jp": "奥州の独眼竜！|n伊達政宗！|n（だてまさむね）",
-  "en": "",
+  "en": "The One-Eyed Dragon of|nOshu! Masamune Date!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053d94",
@@ -3724,9 +3724,9 @@
   "room": 48,
   "kind": "text",
   "jp": "ほう…|n伊達政宗みずから、|n我を討ちにきたか…",
-  "en": "",
+  "en": "Oh... Masamune Date|nhimself, come to slay|nme...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053dc4",
@@ -3736,9 +3736,9 @@
   "room": 44,
   "kind": "text",
   "jp": "貴様らの悪行、|n見過ごすわけにはいかん！|n",
-  "en": "",
+  "en": "I cannot let your evil|ndeeds go unpunished!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053df0",
@@ -3748,9 +3748,9 @@
   "room": 32,
   "kind": "text",
   "jp": "わかっているなら|n話は早い。|n",
-  "en": "",
+  "en": "If you know, that makes|nthis quick.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053e10",
@@ -3760,9 +3760,9 @@
   "room": 28,
   "kind": "text",
   "jp": "|n我に勝てるつもりか…|n",
-  "en": "",
+  "en": "You think you can beat|nme...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053e2c",
@@ -3772,9 +3772,9 @@
   "room": 48,
   "kind": "text",
   "jp": "なめるなよ。|n天に代わって|n成敗してくれるわ！",
-  "en": "",
+  "en": "Do not underestimate me.|nIn Heaven's name, I will|npunish you!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053e5c",
@@ -3784,9 +3784,9 @@
   "room": 52,
   "kind": "text",
   "jp": "さあ、勾玉を渡せ！|nおれが妖魔を|n封印してやろう！",
-  "en": "",
+  "en": "Now, hand over the|nmagatama! I will seal|nthe demons myself!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053e90",
@@ -3796,9 +3796,9 @@
   "room": 60,
   "kind": "text",
   "jp": "この奥州の地で|n全ての勾玉を使えば、|n妖魔を封印できる…",
-  "en": "",
+  "en": "Use all the magatama|nhere in Oshu, and the|ndemons can be sealed...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053ecc",
@@ -3808,9 +3808,9 @@
   "room": 28,
   "kind": "text",
   "jp": "|n勾玉はもっているな…|n",
-  "en": "",
+  "en": "You have the magatama...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053ee8",
@@ -3820,9 +3820,9 @@
   "room": 44,
   "kind": "text",
   "jp": "よく来たな。|n%nよ…|nおれが伊達政宗だ…",
-  "en": "",
+  "en": "So you have come,|n%n... I am|nMasamune Date...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053f14",
@@ -3832,9 +3832,9 @@
   "room": 32,
   "kind": "text",
   "jp": "|n＊勾玉をすべて奪われた＊|n",
-  "en": "",
+  "en": "*All the magatama were|ntaken*",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053f34",
@@ -3844,9 +3844,9 @@
   "room": 40,
   "kind": "text",
   "jp": "……………|n……………|n……………！",
-  "en": "",
+  "en": "...|n...|n...!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053f5c",
@@ -3856,9 +3856,9 @@
   "room": 44,
   "kind": "text",
   "jp": "……………|n妖魔の王よ！|nいまここに甦れ！",
-  "en": "",
+  "en": "...|nKing of the demons!|nRise again, here, now!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053f88",
@@ -3868,9 +3868,9 @@
   "room": 20,
   "kind": "text",
   "jp": "|n影法師の舞！！|n",
-  "en": "",
+  "en": "Shadow Puppet Dance!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053f9c",
@@ -3880,9 +3880,9 @@
   "room": 44,
   "kind": "text",
   "jp": "我が肉体を|nいけにえにささげた|n妖魔忍法…",
-  "en": "",
+  "en": "A demon ninja art that|noffers my own body as a|nsacrifice...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "053fc8",
@@ -3892,9 +3892,9 @@
   "room": 60,
   "kind": "text",
   "jp": "くっくっく…、俺か？|n俺は伊達政宗だよ…|n体だけは…な。",
-  "en": "",
+  "en": "Heh heh heh... Me? I am|nMasamune Date... In|nbody, at least.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054004",
@@ -3904,9 +3904,9 @@
   "room": 52,
   "kind": "text",
   "jp": "そうなれば、|n現世に魔界を呼ぶなど|nたやすい事よ！",
-  "en": "",
+  "en": "Then calling the demon|nworld into this one will|nbe child's play!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054038",
@@ -3916,9 +3916,9 @@
   "room": 68,
   "kind": "text",
   "jp": "まもなく妖魔王の復活に|n応え、妖魔の軍勢が|n日本全土を埋め尽くす！",
-  "en": "",
+  "en": "Soon, as the Demon King|nwakes, his army will|nswarm all of Japan!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05407c",
@@ -3928,9 +3928,9 @@
   "room": 40,
   "kind": "text",
   "jp": "こうして解く事が|n出来たのだからな！|n",
-  "en": "",
+  "en": "I was able to break it,|njust like this!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0540a4",
@@ -3940,9 +3940,9 @@
   "room": 56,
   "kind": "text",
   "jp": "明智光秀では、|n解くことの出来なかった|n最後の封印！",
-  "en": "",
+  "en": "The final seal, which|nMitsuhide Akechi could|nnot break!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0540dc",
@@ -3952,9 +3952,9 @@
   "room": 56,
   "kind": "text",
   "jp": "貴様がこうして、|n勾玉を持ってきてくれた|nおかげで…",
-  "en": "",
+  "en": "Thanks to you bringing|nme the magatama like|nthis...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054114",
@@ -3964,9 +3964,9 @@
   "room": 68,
   "kind": "text",
   "jp": "始めは各地に戦乱を|n起こし、現世に魔界を|n呼ぶつもりであったが…",
-  "en": "",
+  "en": "At first we meant to|nspark wars and call the|ndemon world here, but...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054158",
@@ -3976,9 +3976,9 @@
   "room": 40,
   "kind": "text",
   "jp": "くっくっくっ…|n礼をいうぞ。|n%nよ…",
-  "en": "",
+  "en": "Heh heh heh... My|nthanks, %n...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054180",
@@ -3988,9 +3988,9 @@
   "room": 48,
   "kind": "text",
   "jp": "いまこそ我らの主！|n妖魔王が復活するのだ！|n",
-  "en": "",
+  "en": "Now our master, the|nDemon King, shall|nreturn!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0541b0",
@@ -4000,9 +4000,9 @@
   "room": 64,
   "kind": "text",
   "jp": "うわっはっはっはー！！|nもう遅い！|n冥府魔道は完全に開いた！",
-  "en": "",
+  "en": "Wah ha ha ha!! Too late!|nThe Netherworld's gate|nis wide open!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0541f0",
@@ -4012,9 +4012,9 @@
   "room": 36,
   "kind": "text",
   "jp": "貴様に斬ることが|n出来るかな…？|n",
-  "en": "",
+  "en": "Can you really cut me|ndown...?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054214",
@@ -4024,9 +4024,9 @@
   "room": 48,
   "kind": "text",
   "jp": "くっくっく…、|nこの肉体は|n伊達政宗のもの…",
-  "en": "",
+  "en": "Heh heh heh... This body|nbelongs to Masamune|nDate...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054244",
@@ -4036,9 +4036,9 @@
   "room": 48,
   "kind": "text",
   "jp": "＊影斬手を倒し|n奪われた勾玉を|n取り返した＊",
-  "en": "",
+  "en": "*You defeated Shadow|nZanshu and took back the|nmagatama*",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054274",
@@ -4048,9 +4048,9 @@
   "room": 36,
   "kind": "text",
   "jp": "我らの命運、|nこの一戦にあり！|n",
-  "en": "",
+  "en": "Our fate rests on this|none battle!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054298",
@@ -4060,9 +4060,9 @@
   "room": 40,
   "kind": "text",
   "jp": "我らは妖魔の軍勢に備え|n兵を集める！|n",
-  "en": "",
+  "en": "We will gather troops|nagainst the demon army!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0542c0",
@@ -4073,9 +4073,9 @@
   "room": 40,
   "kind": "text",
   "jp": "蝦夷におもむき妖魔王を|n倒すのだ！|n",
-  "en": "",
+  "en": "Go to Ezo and defeat the|nDemon King!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0542e8",
@@ -4085,9 +4085,9 @@
   "room": 28,
   "kind": "text",
   "jp": "%nよ！|n時は一刻を争う！|n",
-  "en": "",
+  "en": "%n! Every moment|ncounts!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054304",
@@ -4097,9 +4097,9 @@
   "room": 52,
   "kind": "text",
   "jp": "今ならばまだ、|nやつを倒す事が|n出来るかもしれん。",
-  "en": "",
+  "en": "If we strike now, we may|nstill be able to defeat|nhim.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054338",
@@ -4109,9 +4109,9 @@
   "room": 60,
   "kind": "text",
   "jp": "やつはまだ、その力を|n完全に取り戻しては|nいないようだ…",
-  "en": "",
+  "en": "It seems he has not yet|nfully regained his|npower...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054374",
@@ -4121,9 +4121,9 @@
   "room": 64,
   "kind": "text",
   "jp": "海を越えた北海の地…|n蝦夷（えぞ）の地。|nそこに妖魔王はいる。",
-  "en": "",
+  "en": "Across the northern sea|nlies the land of Ezo.|nThe Demon King is there.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0543b4",
@@ -4133,9 +4133,9 @@
   "room": 60,
   "kind": "text",
   "jp": "だが、|nやつに操られたおかげで、|nやつらの考えもわかった…",
-  "en": "",
+  "en": "But being controlled by|nhim, I learned what they|nare thinking...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0543f0",
@@ -4145,9 +4145,9 @@
   "room": 44,
   "kind": "text",
   "jp": "くっ…|n妖魔にあやつられるとは、|n不覚！",
-  "en": "",
+  "en": "Ngh... To be controlled|nby a demon... How|nshameful!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05441c",
@@ -4157,9 +4157,9 @@
   "room": 44,
   "kind": "text",
   "jp": "苦しい戦いに|nなるだろうが…頼むぞ！|n%n！",
-  "en": "",
+  "en": "It will be a hard|nfight... I am counting|non you, %n!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054448",
@@ -4169,9 +4169,9 @@
   "room": 36,
   "kind": "text",
   "jp": "どうした？|n%n。|n時は一刻を争う！",
-  "en": "",
+  "en": "What is wrong,|n%n? Every moment|ncounts!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05446c",
@@ -4181,9 +4181,9 @@
   "room": 56,
   "kind": "text",
   "jp": "楽しみにしていよう…|nくっくっく…|nはーはっはっは！！",
-  "en": "",
+  "en": "I shall look forward to|nit... Heh heh heh... Ha|nha ha ha!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0544a4",
@@ -4193,9 +4193,9 @@
   "room": 60,
   "kind": "text",
   "jp": "我ら妖魔六将軍を打ち倒し|n妖魔王の元へ|nたどりつけるか…",
-  "en": "",
+  "en": "Can you defeat us, the|nSix Demon Generals, and|nreach the Demon King...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0544e0",
@@ -4205,9 +4205,9 @@
   "room": 72,
   "kind": "text",
   "jp": "くっくっく…妖魔王の|n無限の妖力がある限り、|n我らは何度でも甦るわ…",
-  "en": "",
+  "en": "Heh heh... While the|nDemon King lives, we|nrise again and again...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054528",
@@ -4217,9 +4217,9 @@
   "room": 56,
   "kind": "text",
   "jp": "なにをおどろいている？|n倒したはず…|nとでも思ったか？",
-  "en": "",
+  "en": "Why so surprised? Did|nyou think you had killed|nme?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054560",
@@ -4229,9 +4229,9 @@
   "room": 32,
   "kind": "text",
   "jp": "くっくっく…|nまた会ったな…|n",
-  "en": "",
+  "en": "Heh heh heh... We meet|nagain...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054580",
@@ -4241,9 +4241,9 @@
   "room": 60,
   "kind": "text",
   "jp": "よかろう…|n妖魔忍法の奥義をもって|n貴様を葬ってくれるわ！",
-  "en": "",
+  "en": "Very well... I shall|nbury you with the secret|ndemon ninja arts!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0545bc",
@@ -4253,9 +4253,9 @@
   "room": 68,
   "kind": "text",
   "jp": "ここまでたどりつくとは…|n貴様の力を、少々|n見くびっていたようだ。",
-  "en": "",
+  "en": "To make it this far...|nIt seems I|nunderestimated you.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054600",
@@ -4265,9 +4265,9 @@
   "room": 52,
   "kind": "text",
   "jp": "今こそこの世界を！|n魔界へと|n変えてくれよう！！",
-  "en": "",
+  "en": "Now I shall turn this|nworld into the demon|nworld!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054634",
@@ -4277,9 +4277,9 @@
   "room": 40,
   "kind": "text",
   "jp": "貴様ら人間の|n心の闇こそ我らの糧。|n",
-  "en": "",
+  "en": "The darkness in your|nhuman hearts is what we|nfeed on.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05465c",
@@ -4289,9 +4289,9 @@
   "room": 28,
   "kind": "text",
   "jp": "|n我は再び力を得たり！|n",
-  "en": "",
+  "en": "I have regained my|npower!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054678",
@@ -4301,9 +4301,9 @@
   "room": 36,
   "kind": "text",
   "jp": "暗き地の底に封じられ|n六百余年…|n",
-  "en": "",
+  "en": "Sealed deep in the dark|nearth for over six|nhundred years...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05469c",
@@ -4313,9 +4313,9 @@
   "room": 24,
   "kind": "text",
   "jp": "|n我は妖魔の王なり。|n",
-  "en": "",
+  "en": "I am the King of the|nDemons.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0546b4",
@@ -4325,9 +4325,9 @@
   "room": 36,
   "kind": "text",
   "jp": "我が真の姿|n見せてくれるわ！！|n",
-  "en": "",
+  "en": "I shall show you my true|nform!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0546d8",
@@ -4337,9 +4337,9 @@
   "room": 52,
   "kind": "text",
   "jp": "わーはっはっは！|nこの程度で|n我に勝てるつもりか！",
-  "en": "",
+  "en": "Wah ha ha ha! You think|nyou can beat me with|nthat?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05470c",
@@ -4349,9 +4349,9 @@
   "room": 28,
   "kind": "text",
   "jp": "なっなんだ|nこの光は！？|n",
-  "en": "",
+  "en": "Wh-what is this light!?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054728",
@@ -4361,9 +4361,9 @@
   "room": 44,
   "kind": "text",
   "jp": "わーはっはっはっはっ！|n……|n………ん？",
-  "en": "",
+  "en": "Wah ha ha ha ha!|n...|n...Hm?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054754",
@@ -4373,9 +4373,9 @@
   "room": 64,
   "kind": "text",
   "jp": "人間どもを滅ぼし！|n現世を我ら妖魔の|n世界へと変えてくれるわ！",
-  "en": "",
+  "en": "I shall destroy mankind|nand make this world a|nworld of demons!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054794",
@@ -4385,9 +4385,9 @@
   "room": 52,
   "kind": "text",
   "jp": "安倍晴明がおらぬ今、|n恐れるものなど|n何も無し！！",
-  "en": "",
+  "en": "With Abe no Seimei gone,|nI have nothing to fear!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0547c8",
@@ -4397,9 +4397,9 @@
   "room": 52,
   "kind": "text",
   "jp": "＊七つの勾玉が|n輝きはじめ|nひとつになった！！＊",
-  "en": "",
+  "en": "*The seven magatama|nbegan to shine and|nbecame one!!*",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0547fc",
@@ -4409,9 +4409,9 @@
   "room": 28,
   "kind": "text",
   "jp": "|nぐおおおおおおおー！！|n",
-  "en": "",
+  "en": "Guoooooooh!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054818",
@@ -4421,9 +4421,9 @@
   "room": 60,
   "kind": "text",
   "jp": "…よかろう。|nその宝剣もろとも、|n打ち砕いてくれるわ！！",
-  "en": "",
+  "en": "...Very well. I shall|nsmash you, sword and|nall!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054854",
@@ -4433,9 +4433,9 @@
   "room": 56,
   "kind": "text",
   "jp": "おのれ晴明っ！！|n死してなお、|n我らの邪魔をするか！",
-  "en": "",
+  "en": "Curse you, Seimei!! Even|nin death, you stand in|nour way!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05488c",
@@ -4445,9 +4445,9 @@
   "room": 40,
   "kind": "text",
   "jp": "ばっばかな…|n…|n勾玉の宝剣…だと！！",
-  "en": "",
+  "en": "N-no...|n...|nThe Magatama Sword...!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0548b4",
@@ -4457,9 +4457,9 @@
   "room": 52,
   "kind": "text",
   "jp": "ぐおおおおおおー！！|nばかなっ！ばかなー！！！|n",
-  "en": "",
+  "en": "Guooooooh!! Impossible!|nImpossible!!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0548e8",
@@ -4469,9 +4469,9 @@
   "room": 56,
   "kind": "text",
   "jp": "あやつが見たら、|n笑うであろうな…|nはははははっ！！",
-  "en": "",
+  "en": "If he saw this, he would|nlaugh... Ha ha ha ha!!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054920",
@@ -4481,9 +4481,9 @@
   "room": 36,
   "kind": "text",
   "jp": "妖魔の次は|n人間同士の戦とは…|n",
-  "en": "",
+  "en": "After the demons, now|nhumans fight each|nother...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054944",
@@ -4493,9 +4493,9 @@
   "room": 36,
   "kind": "text",
   "jp": "まだまだ|nこの国は荒れそうだな…|n",
-  "en": "",
+  "en": "This land looks set for|nmore turmoil yet...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054968",
@@ -4505,9 +4505,9 @@
   "room": 64,
   "kind": "text",
   "jp": "妖魔は去り、秀吉殿の手で|n一応の天下統一は|nなされたとはいえ…",
-  "en": "",
+  "en": "The demons are gone, and|nHideyoshi-dono has|nunited the realm, but...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0549a8",
@@ -4517,9 +4517,9 @@
   "room": 56,
   "kind": "text",
   "jp": "案外…これが|n豊臣殿の本性だったの|nかもしれんのう…",
-  "en": "",
+  "en": "Perhaps... this was|nToyotomi-dono's true|nnature all along...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0549e0",
@@ -4529,9 +4529,9 @@
   "room": 76,
   "kind": "text",
   "jp": "関東の整備は完了した。|nが、最近の秀吉殿の凶行。|nとどまるところを知らぬ。",
-  "en": "",
+  "en": "The Kanto is in order.|nBut Hideyoshi-dono's|noutrages know no bounds.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054a2c",
@@ -4541,9 +4541,9 @@
   "room": 56,
   "kind": "text",
   "jp": "ええいっ！|nわしが天下人じゃ！|nわしが世界を、世界を…",
-  "en": "",
+  "en": "Bah! I am ruler of the|nrealm! The world is|nmine, the world...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054a64",
@@ -4553,9 +4553,9 @@
   "room": 52,
   "kind": "text",
   "jp": "%n？|nそのような者は知らん！|nわしは忙しいのじゃ！",
-  "en": "",
+  "en": "%n? I know no such|nperson! I am busy!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054a98",
@@ -4565,9 +4565,9 @@
   "room": 12,
   "kind": "text",
   "jp": "|n殿下…|n",
-  "en": "",
+  "en": "Your Highness...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054aa4",
@@ -4577,9 +4577,9 @@
   "room": 60,
   "kind": "text",
   "jp": "三本の矢のようにな…|nかの者はそれを|n教えてくれた…」と。",
-  "en": "",
+  "en": "like the three arrows...|nThat one taught me so.\"",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054ae0",
@@ -4589,9 +4589,9 @@
   "room": 80,
   "kind": "text",
   "jp": "おじい様が残した遺言は、|n「人間一人一人は弱くとも|n協力すれば強くなるのじゃ",
-  "en": "",
+  "en": "Grandfather's last words|nwere: \"Alone we're weak.|nTogether, we are strong,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054b30",
@@ -4601,9 +4601,9 @@
   "room": 64,
   "kind": "text",
   "jp": "…もっとも、|nやつをしばれる大名など|nこの日本にはおらんがな！",
-  "en": "",
+  "en": "...Not that any daimyo|nin Japan could tie that|none down!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054b70",
@@ -4613,9 +4613,9 @@
   "room": 52,
   "kind": "text",
   "jp": "その後の行方？|nわしが|n聞きたいくらいじゃわい！",
-  "en": "",
+  "en": "Where did he go after?|nThat is what I would|nlike to know!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054ba4",
@@ -4625,9 +4625,9 @@
   "room": 44,
   "kind": "text",
   "jp": "ほう…あれから|nもうそんなに|nたったか。",
-  "en": "",
+  "en": "Oh... Has it been that|nlong already?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054bd0",
@@ -4637,9 +4637,9 @@
   "room": 48,
   "kind": "text",
   "jp": "あやつを|n真田十勇士に…と|n思ったのだがな…",
-  "en": "",
+  "en": "I had hoped to make that|none one of the Ten|nSanada Braves...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054c00",
@@ -4649,9 +4649,9 @@
   "room": 28,
   "kind": "text",
   "jp": "|nそうか…佐助、ご苦労。|n",
-  "en": "",
+  "en": "I see... Sasuke, well|ndone.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054c1c",
@@ -4661,9 +4661,9 @@
   "room": 40,
   "kind": "text",
   "jp": "おぬしこそ！|n日本一の|nもののふよ！",
-  "en": "",
+  "en": "No, you are the finest|nwarrior in Japan!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054c44",
@@ -4673,9 +4673,9 @@
   "room": 60,
   "kind": "text",
   "jp": "%nよ！|n後の歴史には残らずとも|nこの幸村が覚えておこう！",
-  "en": "",
+  "en": "%n! Even if|nhistory forgets you,|nYukimura will remember!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054c80",
@@ -4685,9 +4685,9 @@
   "room": 52,
   "kind": "text",
   "jp": "結界のようなものがあって中に入る事ができない…|n",
-  "en": "",
+  "en": "Some kind of barrier|nblocks the way in...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054cb4",
@@ -4697,9 +4697,9 @@
   "room": 48,
   "kind": "text",
   "jp": "「信」の勾玉の光が、|n結界を打ち消していく…|n",
-  "en": "",
+  "en": "The light of the Faith|nmagatama dispels the|nbarrier...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054ce4",
@@ -4709,9 +4709,9 @@
   "room": 48,
   "kind": "text",
   "jp": "「智」の勾玉の光が、|n結界を打ち消していく…|n",
-  "en": "",
+  "en": "The light of the Wisdom|nmagatama dispels the|nbarrier...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054d14",
@@ -4721,9 +4721,9 @@
   "room": 48,
   "kind": "text",
   "jp": "「天」の勾玉の光が、|n結界を打ち消していく…|n",
-  "en": "",
+  "en": "The light of the Heaven|nmagatama dispels the|nbarrier...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054d44",
@@ -4733,9 +4733,9 @@
   "room": 48,
   "kind": "text",
   "jp": "「仁」の勾玉の光が、|n結界を打ち消していく…|n",
-  "en": "",
+  "en": "The light of the Mercy|nmagatama dispels the|nbarrier...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054d74",
@@ -4745,9 +4745,9 @@
   "room": 48,
   "kind": "text",
   "jp": "「忠」の勾玉の光が、|n結界を打ち消していく…|n",
-  "en": "",
+  "en": "The light of the Loyalty|nmagatama dispels the|nbarrier...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054da4",
@@ -4757,9 +4757,9 @@
   "room": 48,
   "kind": "text",
   "jp": "「考」の勾玉の光が、|n結界を打ち消していく…|n",
-  "en": "",
+  "en": "The light of the Piety|nmagatama dispels the|nbarrier...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054dd4",
@@ -4769,9 +4769,9 @@
   "room": 48,
   "kind": "text",
   "jp": "「勇」の勾玉の光が、|n結界を打ち消していく…|n",
-  "en": "",
+  "en": "The light of the Courage|nmagatama dispels the|nbarrier...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054e04",
@@ -4781,9 +4781,9 @@
   "room": 64,
   "kind": "text",
   "jp": "九州統一寸前で|n豊臣秀吉に降ったが|n五六万石を安堵されていた",
-  "en": "",
+  "en": "Near to uniting Kyushu,|nhe yielded to Hideyoshi|nbut kept 560,000 koku.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054e44",
@@ -4793,9 +4793,9 @@
   "room": 72,
   "kind": "text",
   "jp": "生涯、五二回もの合戦に|n臨み、あまりの強さに|n「鬼島津」とも呼ばれた。",
-  "en": "",
+  "en": "He fought 52 battles and|nwas so strong he was|ncalled Demon Shimazu.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054e8c",
@@ -4805,9 +4805,9 @@
   "room": 64,
   "kind": "text",
   "jp": "戦国最強と言われた|n薩摩武士を率い、|n九州統一を目指した猛将。",
-  "en": "",
+  "en": "He led Satsuma's|nsamurai, the best of the|nage, to unite Kyushu.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054ecc",
@@ -4817,9 +4817,9 @@
   "room": 52,
   "kind": "text",
   "jp": "上泉伊勢守と|n知られているが、|n伊勢守は位の名前。",
-  "en": "",
+  "en": "Known as Kamiizumi|nIse-no-kami; Ise-no-kami|nwas his title.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054f00",
@@ -4829,9 +4829,9 @@
   "room": 52,
   "kind": "text",
   "jp": "宝蔵院流槍術の|n宝蔵院胤栄|nも信綱の弟子であった。",
-  "en": "",
+  "en": "Inei Hozoin of the|nHozoin spear school were|nhis pupils.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054f34",
@@ -4841,9 +4841,9 @@
   "room": 32,
   "kind": "text",
   "jp": "柳生新陰流の|n柳生石舟斉や|n",
-  "en": "",
+  "en": "Sekishusai Yagyu of the|nYagyu Shinkage school|nand",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054f54",
@@ -4853,9 +4853,9 @@
   "room": 72,
   "kind": "text",
   "jp": "主家であった長野家が|n武田信玄に滅ぼされた後|n武芸者として旅にでる。",
-  "en": "",
+  "en": "When his Nagano lords|nfell to Shingen Takeda,|nhe took to the road.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054f9c",
@@ -4865,9 +4865,9 @@
   "room": 68,
   "kind": "text",
   "jp": "剣豪として知られているが|n若年は上泉氏の当主|nとして生きていた。",
-  "en": "",
+  "en": "Famed as a swordsman, in|nyouth he lived as head|nof the Kamiizumi.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "054fe0",
@@ -4877,9 +4877,9 @@
   "room": 48,
   "kind": "text",
   "jp": "新陰流の開祖であり、|n剣聖とうたわれる剣豪。|n",
-  "en": "",
+  "en": "Founder of the Shinkage|nschool, hailed as the|nSword Saint.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055010",
@@ -4889,9 +4889,9 @@
   "room": 56,
   "kind": "text",
   "jp": "非常に細心で、|n思いやりのある|n人物だったようである。",
-  "en": "",
+  "en": "He seems to have been a|nvery careful and caring|nman.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055048",
@@ -4901,9 +4901,9 @@
   "room": 68,
   "kind": "text",
   "jp": "と三人の息子達に教えた|n有名な「三矢の訓」は、|n後世の創話だが、",
-  "en": "",
+  "en": "His famous Lesson of the|nThree Arrows to his sons|nis a later tale, but",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05508c",
@@ -4913,9 +4913,9 @@
   "room": 64,
   "kind": "text",
   "jp": "「一本の矢は簡単に|n折れるが、三本束ねれば|nなかなか折れない」",
-  "en": "",
+  "en": "\"One arrow breaks|neasily, but three bound|ntogether will not.\"",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0550cc",
@@ -4925,9 +4925,9 @@
   "room": 68,
   "kind": "text",
   "jp": "一地方の豪族であった|n毛利氏を、中国最大の|n勢力までにした名将。",
-  "en": "",
+  "en": "A great general who made|nthe local Mori the might|nof Chugoku.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055110",
@@ -4937,9 +4937,9 @@
   "room": 56,
   "kind": "text",
   "jp": "のちの関が原の合戦では|n豊臣方、西軍の|n総大将となる。",
-  "en": "",
+  "en": "Later, at Sekigahara, he|nled the Toyotomi side,|nthe Western Army.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055148",
@@ -4949,9 +4949,9 @@
   "room": 60,
   "kind": "text",
   "jp": "豊臣政権五大老の一人|nとして、秀吉の息子|n秀頼を補佐した。",
-  "en": "",
+  "en": "One of the Five Elders,|nhe aided Hideyoshi's son|nHideyori.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055184",
@@ -4961,9 +4961,9 @@
   "room": 68,
   "kind": "text",
   "jp": "毛利元就の孫。|n元就の長男、隆元が急死|nした為、毛利家を継いだ。",
-  "en": "",
+  "en": "Motonari's grandson. He|nled the Mori when his|nfather died young.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0551c8",
@@ -4973,9 +4973,9 @@
   "room": 64,
   "kind": "text",
   "jp": "が、家臣　明智光秀の|n突然の裏切りにより、|n本能寺にて倒れた。",
-  "en": "",
+  "en": "but fell at Honnoji,|nbetrayed by his retainer|nMitsuhide Akechi.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055208",
@@ -4985,9 +4985,9 @@
   "room": 76,
   "kind": "text",
   "jp": "その後も信長の快進撃は|nとどまることをしらず、|nついには天下を目前にする",
-  "en": "",
+  "en": "Victory after victory,|nuntil the realm was in|nhis grasp,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055254",
@@ -4997,9 +4997,9 @@
   "room": 56,
   "kind": "text",
   "jp": "十倍もの今川軍を破り|n天下にその名を|nとどろかせた。",
-  "en": "",
+  "en": "routed an Imagawa army|nten times his size and|nmade his name.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05528c",
@@ -5009,9 +5009,9 @@
   "room": 56,
   "kind": "text",
   "jp": "尾張の小大名に|nすぎなかった信長は、|n桶狭間の戦いで、",
-  "en": "",
+  "en": "Once a minor lord of|nOwari, Nobunaga, at the|nBattle of Okehazama,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0552c4",
@@ -5021,9 +5021,9 @@
   "room": 44,
   "kind": "text",
   "jp": "その後は、|n信長の元に|n預けられていた。",
-  "en": "",
+  "en": "After that, she was|nplaced in Nobunaga's|ncare.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0552f0",
@@ -5033,9 +5033,9 @@
   "room": 56,
   "kind": "text",
   "jp": "ついには浅井家は滅亡し|n息子も秀吉に|n殺されてしまう。",
-  "en": "",
+  "en": "In the end the Azai|nfell, and her son was|nkilled by Hideyoshi.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055328",
@@ -5045,9 +5045,9 @@
   "room": 56,
   "kind": "text",
   "jp": "信長の妹。|n浅井長政に嫁いだが、|n浅井家が信長と対立。",
-  "en": "",
+  "en": "Nobunaga's sister. She|nwed Nagamasa Azai, who|nthen defied Nobunaga.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055360",
@@ -5057,9 +5057,9 @@
   "room": 76,
   "kind": "text",
   "jp": "ちなみに「幸村」という|n名前も後世の創作である。|n本名は「信繁」という。",
-  "en": "",
+  "en": "The name Yukimura is a|nlater invention. His|nreal name: Nobushige.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0553ac",
@@ -5069,9 +5069,9 @@
   "room": 60,
   "kind": "text",
   "jp": "「関が原の合戦」|n「大阪の陣」|nにおいて生まれるのである",
-  "en": "",
+  "en": "were born at Sekigahara|nand in the Siege of|nOsaka.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0553e8",
@@ -5081,9 +5081,9 @@
   "room": 60,
   "kind": "text",
   "jp": "しかし後世に伝わる、|n彼の様々な伝説は、|nこれよりの後の、",
-  "en": "",
+  "en": "But the many legends|nabout him that come down|nto us",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055424",
@@ -5093,9 +5093,9 @@
   "room": 68,
   "kind": "text",
   "jp": "その後も、豊臣秀吉の元に|n人質に送られるなど、|n不遇の半生を送る。",
-  "en": "",
+  "en": "Later sent to Hideyoshi|nas a hostage too, he|nlived a hard life.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055468",
@@ -5105,9 +5105,9 @@
   "room": 72,
   "kind": "text",
   "jp": "父、昌幸が徳川家康と|n戦う際、和睦の条件として|n上杉景勝の人質となる。",
-  "en": "",
+  "en": "When his father Masayuki|nfought Ieyasu, he became|na hostage of the Uesugi.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0554b0",
@@ -5117,9 +5117,9 @@
   "room": 64,
   "kind": "text",
   "jp": "そのほとんどは、|n後世の創話であり、|n実在の人物ではないらしい",
-  "en": "",
+  "en": "are mostly later tales,|nand he seems not to have|nbeen a real person.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0554f0",
@@ -5129,9 +5129,9 @@
   "room": 60,
   "kind": "text",
   "jp": "あまりに有名な、|n真田十勇士、そして|n猿飛佐助であるが、",
-  "en": "",
+  "en": "The famous Ten Sanada|nBraves, and Sasuke|nSarutobi,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05552c",
@@ -5141,9 +5141,9 @@
   "room": 36,
   "kind": "text",
   "jp": "出生などの詳しい事は|n全て不明。|n",
-  "en": "",
+  "en": "His birth and early life|nare all unknown.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055550",
@@ -5153,9 +5153,9 @@
   "room": 60,
   "kind": "text",
   "jp": "甲賀流の忍術使い。|n真田幸村率いる、|n真田十勇士の一人。",
-  "en": "",
+  "en": "A Koga ninja. One of the|nTen Sanada Braves led by|nYukimura Sanada.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05558c",
@@ -5165,9 +5165,9 @@
   "room": 76,
   "kind": "text",
   "jp": "その後の争いにも勝利し|n朝廷から関白の位を授かり|nついには天下人となる。",
-  "en": "",
+  "en": "He won the wars that|nfollowed, became Regent|nand ruled the realm.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0555d8",
@@ -5177,9 +5177,9 @@
   "room": 72,
   "kind": "text",
   "jp": "知らせを受けた秀吉は|nすぐさま京へ引き返し、|n明智光秀を討ち取った。",
-  "en": "",
+  "en": "At the news, Hideyoshi|nraced back to Kyoto and|nslew Mitsuhide.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055620",
@@ -5189,9 +5189,9 @@
   "room": 72,
   "kind": "text",
   "jp": "西国攻略のため、毛利軍と|nにらみ合っていたところ|n本能寺の変が起こる。",
-  "en": "",
+  "en": "He was facing the Mori|nin the west when Honnoji|nhappened.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055668",
@@ -5201,9 +5201,9 @@
   "room": 76,
   "kind": "text",
   "jp": "信長の下で足軽として働き|n数々の手柄を立て出世。|nついには軍団長となる。",
-  "en": "",
+  "en": "A foot soldier under|nNobunaga, he rose by his|ndeeds to lead armies.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0556b4",
@@ -5213,9 +5213,9 @@
   "room": 64,
   "kind": "text",
   "jp": "若い時の名は|n「木下藤吉郎」という|n貧しい身分の出身だったが",
-  "en": "",
+  "en": "Born poor and named|nTokichiro Kinoshita in|nhis youth,",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0556f4",
@@ -5225,9 +5225,9 @@
   "room": 40,
   "kind": "text",
   "jp": "豊臣秀吉の|n右腕ともいうべき人物。|n",
-  "en": "",
+  "en": "The man who might be|ncalled Hideyoshi|nToyotomi's right hand.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05571c",
@@ -5237,9 +5237,9 @@
   "room": 56,
   "kind": "text",
   "jp": "秀吉が関白になった際、|n従五位下冶部少輔|nに任官する。",
-  "en": "",
+  "en": "When Hideyoshi became|nRegent, he was made|nJibu-no-sho at court.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055754",
@@ -5249,9 +5249,9 @@
   "room": 60,
   "kind": "text",
   "jp": "豊臣政権下で実力をつけ|n五奉行の筆頭にまで|n上り詰める。",
-  "en": "",
+  "en": "Rising under Hideyoshi,|nhe came to lead the Five|nCommissioners.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055790",
@@ -5261,9 +5261,9 @@
   "room": 52,
   "kind": "text",
   "jp": "幼少の頃、|n豊臣秀吉に見出され、|n秀吉に仕える。",
-  "en": "",
+  "en": "As a boy, he was noticed|nby Hideyoshi Toyotomi|nand entered his service.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0557c4",
@@ -5273,9 +5273,9 @@
   "room": 60,
   "kind": "text",
   "jp": "野戦のいくさを得意とし|n「東海道一の弓取り」|nと称された。",
-  "en": "",
+  "en": "A master of field|nbattle, hailed as the|nTokaido's finest bowman.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055800",
@@ -5285,9 +5285,9 @@
   "room": 36,
   "kind": "text",
   "jp": "秀吉政権の|n五大老筆頭となる。|n",
-  "en": "",
+  "en": "He became head of|nHideyoshi's Five Elders.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055824",
@@ -5297,9 +5297,9 @@
   "room": 48,
   "kind": "text",
   "jp": "信長の死後、|n秀吉を相手に|nうまく立ち回り、",
-  "en": "",
+  "en": "After Nobunaga's death,|nhe played his hand well|nagainst Hideyoshi, and",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055854",
@@ -5309,9 +5309,9 @@
   "room": 72,
   "kind": "text",
   "jp": "三河に帰り、独立した。|nその後は信長と同盟を組み|n武田信玄と対立する。",
-  "en": "",
+  "en": "went home to Mikawa, and|nallied with Nobunaga|nagainst Shingen Takeda.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05589c",
@@ -5321,9 +5321,9 @@
   "room": 76,
   "kind": "text",
   "jp": "幼少のころは今川家で|n人質として生活していたが|n信長が今川軍を破った隙に",
-  "en": "",
+  "en": "A hostage of the Imagawa|nas a boy, when Nobunaga|nbeat them he",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0558e8",
@@ -5333,9 +5333,9 @@
   "room": 68,
   "kind": "text",
   "jp": "秀吉と対面した際には|n死を覚悟したように、|n白装束だったという。",
-  "en": "",
+  "en": "When he met Hideyoshi,|nhe wore a white death|nrobe, ready to die.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05592c",
@@ -5345,9 +5345,9 @@
   "room": 44,
   "kind": "text",
   "jp": "一命は取り留めたものの|n小田原には遅参。|n",
-  "en": "",
+  "en": "He survived, but arrived|nlate to Odawara.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055958",
@@ -5357,9 +5357,9 @@
   "room": 68,
   "kind": "text",
   "jp": "参戦前日には、弟の|n小次郎を当主にと願う、|n母義姫に毒を盛られる。",
-  "en": "",
+  "en": "The day before, his|nmother poisoned him to|nmake his brother heir.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05599c",
@@ -5369,9 +5369,9 @@
   "room": 68,
   "kind": "text",
   "jp": "すでに秀吉の勢力は強く|n秀吉の「小田原攻め」に|n参戦を決意する。",
-  "en": "",
+  "en": "Hideyoshi was already|nmighty, so he chose to|njoin the Odawara siege.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "0559e0",
@@ -5381,9 +5381,9 @@
   "room": 64,
   "kind": "text",
   "jp": "天下を目指し|n着実に勢力を伸ばすが、|n彼は生まれるのが遅すぎた",
-  "en": "",
+  "en": "He grew ever stronger,|naiming for the realm,|nbut was born too late.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055a20",
@@ -5393,9 +5393,9 @@
   "room": 64,
   "kind": "text",
   "jp": "幼少のころ右目を失明。|n「奥州の独眼竜」|nの異名で呼ばれる。",
-  "en": "",
+  "en": "Blinded in one eye as a|nboy, he was the One-Eyed|nDragon of Oshu.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055a60",
@@ -5405,9 +5405,9 @@
   "room": 36,
   "kind": "text",
   "jp": "＊勾玉のかけらを|n手に入れた＊|n",
-  "en": "",
+  "en": "*You got a magatama|nshard*",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055a84",
@@ -5417,9 +5417,9 @@
   "room": 36,
   "kind": "text",
   "jp": "＊「信」の勾玉を|n手にいれた＊|n",
-  "en": "",
+  "en": "*You got the Faith|nmagatama*",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055aa8",
@@ -5429,9 +5429,9 @@
   "room": 40,
   "kind": "text",
   "jp": "＊勾玉のかけらが|nひとつになった！＊|n",
-  "en": "",
+  "en": "*The magatama shards|nbecame one!*",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055ad0",
@@ -5441,9 +5441,9 @@
   "room": 36,
   "kind": "text",
   "jp": "＊「智」の勾玉を|n手にいれた＊|n",
-  "en": "",
+  "en": "*You got the Wisdom|nmagatama*",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055af4",
@@ -5453,9 +5453,9 @@
   "room": 36,
   "kind": "text",
   "jp": "＊「天」の勾玉を|n手にいれた＊|n",
-  "en": "",
+  "en": "*You got the Heaven|nmagatama*",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055b18",
@@ -5465,9 +5465,9 @@
   "room": 36,
   "kind": "text",
   "jp": "＊「仁」の勾玉を|n手にいれた＊|n",
-  "en": "",
+  "en": "*You got the Mercy|nmagatama*",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055b3c",
@@ -5477,9 +5477,9 @@
   "room": 36,
   "kind": "text",
   "jp": "＊「忠」の勾玉を|n手にいれた＊|n",
-  "en": "",
+  "en": "*You got the Loyalty|nmagatama*",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055b60",
@@ -5489,9 +5489,9 @@
   "room": 36,
   "kind": "text",
   "jp": "＊「考」の勾玉を|n手にいれた＊|n",
-  "en": "",
+  "en": "*You got the Piety|nmagatama*",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "055b84",
@@ -5501,8 +5501,8 @@
   "room": 34,
   "kind": "text",
   "jp": "＊「勇」の勾玉を|n手にいれた＊|n",
-  "en": "",
+  "en": "*You got the Courage|nmagatama*",
   "notes": "",
-  "status": ""
+  "status": "done"
  }
 ]

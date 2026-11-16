@@ -7,9 +7,9 @@
   "room": 12,
   "kind": "text",
   "jp": "筑粟汐袈",
-  "en": "",
+  "en": "Test",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "20180c",
@@ -19,9 +19,9 @@
   "room": 8,
   "kind": "text",
   "jp": "尚勿 %d",
-  "en": "",
+  "en": "Test %d",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201814",
@@ -31,9 +31,9 @@
   "room": 8,
   "kind": "text",
   "jp": "朧爪 %d",
-  "en": "",
+  "en": "Test %d",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "20181c",
@@ -55,9 +55,9 @@
   "room": 12,
   "kind": "text",
   "jp": "しょうごう",
-  "en": "",
+  "en": "Title",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201834",
@@ -67,9 +67,9 @@
   "room": 12,
   "kind": "text",
   "jp": "かくづけ",
-  "en": "",
+  "en": "Rank",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201840",
@@ -79,9 +79,9 @@
   "room": 8,
   "kind": "text",
   "jp": "%dふん",
-  "en": "",
+  "en": "%d min",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201848",
@@ -91,9 +91,9 @@
   "room": 16,
   "kind": "text",
   "jp": "かかったじかん",
-  "en": "",
+  "en": "Time Taken",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201858",
@@ -103,9 +103,9 @@
   "room": 8,
   "kind": "text",
   "jp": "%dたい",
-  "en": "",
+  "en": "%d foes",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201860",
@@ -115,9 +115,9 @@
   "room": 16,
   "kind": "text",
   "jp": "たおしたかず",
-  "en": "",
+  "en": "Foes Defeated",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201870",
@@ -127,9 +127,9 @@
   "room": 12,
   "kind": "text",
   "jp": "%dれんげき",
-  "en": "",
+  "en": "%d hits",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "20187c",
@@ -139,9 +139,9 @@
   "room": 20,
   "kind": "text",
   "jp": "さいだいれんげき",
-  "en": "",
+  "en": "Best Combo",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201890",
@@ -151,9 +151,9 @@
   "room": 16,
   "kind": "text",
   "jp": "せんとうけっか",
-  "en": "",
+  "en": "Battle Results",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2018a0",
@@ -163,9 +163,9 @@
   "room": 8,
   "kind": "text",
   "jp": "称号",
-  "en": "",
+  "en": "Title",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2018a8",
@@ -175,9 +175,9 @@
   "room": 8,
   "kind": "text",
   "jp": "格付け",
-  "en": "",
+  "en": "Rank",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2018b0",
@@ -187,9 +187,9 @@
   "room": 8,
   "kind": "text",
   "jp": "%d分",
-  "en": "",
+  "en": "%d min",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2018b8",
@@ -199,9 +199,9 @@
   "room": 12,
   "kind": "text",
   "jp": "所要時間",
-  "en": "",
+  "en": "Time Taken",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2018c4",
@@ -211,9 +211,9 @@
   "room": 8,
   "kind": "text",
   "jp": "%d体",
-  "en": "",
+  "en": "%d foes",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2018cc",
@@ -223,9 +223,9 @@
   "room": 12,
   "kind": "text",
   "jp": "敵撃破数",
-  "en": "",
+  "en": "Foes Defeated",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2018d8",
@@ -235,9 +235,9 @@
   "room": 8,
   "kind": "text",
   "jp": "%d連撃",
-  "en": "",
+  "en": "%d hits",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2018e0",
@@ -247,9 +247,9 @@
   "room": 12,
   "kind": "text",
   "jp": "最大連撃数",
-  "en": "",
+  "en": "Best Combo",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2018ec",
@@ -259,9 +259,9 @@
   "room": 12,
   "kind": "text",
   "jp": "戦闘結果",
-  "en": "",
+  "en": "Battle Results",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2018f8",
@@ -271,9 +271,9 @@
   "room": 4,
   "kind": "text",
   "jp": "げ",
-  "en": "",
+  "en": "Low",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2018fc",
@@ -283,9 +283,9 @@
   "room": 8,
   "kind": "text",
   "jp": "ちゅう",
-  "en": "",
+  "en": "Fair",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201904",
@@ -295,9 +295,9 @@
   "room": 8,
   "kind": "text",
   "jp": "じょう",
-  "en": "",
+  "en": "High",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "20190c",
@@ -307,9 +307,9 @@
   "room": 12,
   "kind": "text",
   "jp": "とくじょう",
-  "en": "",
+  "en": "Superb",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201918",
@@ -319,9 +319,9 @@
   "room": 4,
   "kind": "text",
   "jp": "下",
-  "en": "",
+  "en": "Low",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "20191c",
@@ -331,9 +331,9 @@
   "room": 4,
   "kind": "text",
   "jp": "中",
-  "en": "",
+  "en": "Fair",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201920",
@@ -343,9 +343,9 @@
   "room": 4,
   "kind": "text",
   "jp": "上",
-  "en": "",
+  "en": "High",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201924",
@@ -355,9 +355,9 @@
   "room": 8,
   "kind": "text",
   "jp": "特上",
-  "en": "",
+  "en": "Superb",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "20192c",
@@ -367,9 +367,9 @@
   "room": 12,
   "kind": "text",
   "jp": "ひみつの",
-  "en": "",
+  "en": "Secret",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201938",
@@ -379,9 +379,9 @@
   "room": 12,
   "kind": "text",
   "jp": "はらぐろい",
-  "en": "",
+  "en": "Scheming",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201944",
@@ -391,9 +391,9 @@
   "room": 8,
   "kind": "text",
   "jp": "くろい",
-  "en": "",
+  "en": "Black",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "20194c",
@@ -403,9 +403,9 @@
   "room": 16,
   "kind": "text",
   "jp": "くろいひとみの",
-  "en": "",
+  "en": "Dark-Eyed",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "20195c",
@@ -415,9 +415,9 @@
   "room": 12,
   "kind": "text",
   "jp": "しっこくの",
-  "en": "",
+  "en": "Jet-Black",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201968",
@@ -427,9 +427,9 @@
   "room": 16,
   "kind": "text",
   "jp": "きほんてきにに",
-  "en": "",
+  "en": "Basically",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201978",
@@ -439,9 +439,9 @@
   "room": 16,
   "kind": "text",
   "jp": "みどりがすきな",
-  "en": "",
+  "en": "Green-Loving",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201988",
@@ -451,9 +451,9 @@
   "room": 12,
   "kind": "text",
   "jp": "みどりの",
-  "en": "",
+  "en": "Green",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201994",
@@ -463,9 +463,9 @@
   "room": 20,
   "kind": "text",
   "jp": "やさしいみどりの",
-  "en": "",
+  "en": "Gentle Green",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2019a8",
@@ -475,9 +475,9 @@
   "room": 16,
   "kind": "text",
   "jp": "しんりょくの",
-  "en": "",
+  "en": "Deep Green",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2019b8",
@@ -487,9 +487,9 @@
   "room": 16,
   "kind": "text",
   "jp": "あかちゃんな",
-  "en": "",
+  "en": "Babyish",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2019c8",
@@ -499,9 +499,9 @@
   "room": 8,
   "kind": "text",
   "jp": "あかい",
-  "en": "",
+  "en": "Red",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2019d0",
@@ -511,9 +511,9 @@
   "room": 16,
   "kind": "text",
   "jp": "あかいほのおの",
-  "en": "",
+  "en": "Red-Flame",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2019e0",
@@ -523,9 +523,9 @@
   "room": 12,
   "kind": "text",
   "jp": "ぐれんの",
-  "en": "",
+  "en": "Crimson",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2019ec",
@@ -535,9 +535,9 @@
   "room": 20,
   "kind": "text",
   "jp": "すいりくりょうよう",
-  "en": "",
+  "en": "Amphibious",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201a00",
@@ -547,9 +547,9 @@
   "room": 16,
   "kind": "text",
   "jp": "あおにさいな",
-  "en": "",
+  "en": "Still-Green",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201a10",
@@ -559,9 +559,9 @@
   "room": 8,
   "kind": "text",
   "jp": "あおい",
-  "en": "",
+  "en": "Blue",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201a18",
@@ -571,9 +571,9 @@
   "room": 20,
   "kind": "text",
   "jp": "あおいいなづまの",
-  "en": "",
+  "en": "Blue-Lightning",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201a2c",
@@ -583,9 +583,9 @@
   "room": 12,
   "kind": "text",
   "jp": "せいうんの",
-  "en": "",
+  "en": "Azure-Sky",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201a38",
@@ -595,9 +595,9 @@
   "room": 20,
   "kind": "text",
   "jp": "ほうこうおんちな",
-  "en": "",
+  "en": "Always-Lost",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201a4c",
@@ -607,9 +607,9 @@
   "room": 12,
   "kind": "text",
   "jp": "かぜぎみな",
-  "en": "",
+  "en": "Sniffly",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201a58",
@@ -619,9 +619,9 @@
   "room": 16,
   "kind": "text",
   "jp": "かめのような",
-  "en": "",
+  "en": "Turtle-Like",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201a68",
@@ -631,9 +631,9 @@
   "room": 16,
   "kind": "text",
   "jp": "のんびりやな",
-  "en": "",
+  "en": "Easygoing",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201a78",
@@ -643,9 +643,9 @@
   "room": 16,
   "kind": "text",
   "jp": "ていさつよう",
-  "en": "",
+  "en": "Scouting",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201a88",
@@ -655,9 +655,9 @@
   "room": 12,
   "kind": "text",
   "jp": "にげごしな",
-  "en": "",
+  "en": "Ready-to-Run",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201a94",
@@ -667,9 +667,9 @@
   "room": 16,
   "kind": "text",
   "jp": "かぜのような",
-  "en": "",
+  "en": "Windlike",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201aa4",
@@ -679,9 +679,9 @@
   "room": 12,
   "kind": "text",
   "jp": "しっぷうの",
-  "en": "",
+  "en": "Gale-Force",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201ab0",
@@ -691,9 +691,9 @@
   "room": 12,
   "kind": "text",
   "jp": "せんごくの",
-  "en": "",
+  "en": "Warring-Age",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201abc",
@@ -703,9 +703,9 @@
   "room": 8,
   "kind": "text",
   "jp": "秘密の",
-  "en": "",
+  "en": "Secret",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201ac4",
@@ -715,9 +715,9 @@
   "room": 8,
   "kind": "text",
   "jp": "腹黒い",
-  "en": "",
+  "en": "Scheming",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201acc",
@@ -727,9 +727,9 @@
   "room": 8,
   "kind": "text",
   "jp": "黒い",
-  "en": "",
+  "en": "Black",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201ad4",
@@ -739,9 +739,9 @@
   "room": 12,
   "kind": "text",
   "jp": "黒い瞳の",
-  "en": "",
+  "en": "Dark-Eyed",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201ae0",
@@ -751,9 +751,9 @@
   "room": 8,
   "kind": "text",
   "jp": "漆黒の",
-  "en": "",
+  "en": "Jet-Black",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201ae8",
@@ -763,9 +763,9 @@
   "room": 12,
   "kind": "text",
   "jp": "基本的に",
-  "en": "",
+  "en": "Basically",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201af4",
@@ -775,9 +775,9 @@
   "room": 12,
   "kind": "text",
   "jp": "緑が好きな",
-  "en": "",
+  "en": "Green-Loving",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201b00",
@@ -787,9 +787,9 @@
   "room": 8,
   "kind": "text",
   "jp": "緑の",
-  "en": "",
+  "en": "Green",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201b08",
@@ -799,9 +799,9 @@
   "room": 16,
   "kind": "text",
   "jp": "やさしい緑の",
-  "en": "",
+  "en": "Gentle Green",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201b18",
@@ -811,9 +811,9 @@
   "room": 8,
   "kind": "text",
   "jp": "深緑の",
-  "en": "",
+  "en": "Deep Green",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201b20",
@@ -824,9 +824,9 @@
   "room": 12,
   "kind": "text",
   "jp": "もえもえ",
-  "en": "",
+  "en": "Moe-Moe",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201b2c",
@@ -836,9 +836,9 @@
   "room": 12,
   "kind": "text",
   "jp": "赤ちゃんな",
-  "en": "",
+  "en": "Babyish",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201b38",
@@ -848,9 +848,9 @@
   "room": 8,
   "kind": "text",
   "jp": "赤い",
-  "en": "",
+  "en": "Red",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201b40",
@@ -860,9 +860,9 @@
   "room": 12,
   "kind": "text",
   "jp": "赤い炎の",
-  "en": "",
+  "en": "Red-Flame",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201b4c",
@@ -872,9 +872,9 @@
   "room": 8,
   "kind": "text",
   "jp": "紅蓮の",
-  "en": "",
+  "en": "Crimson",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201b54",
@@ -884,9 +884,9 @@
   "room": 12,
   "kind": "text",
   "jp": "水陸両用",
-  "en": "",
+  "en": "Amphibious",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201b60",
@@ -896,9 +896,9 @@
   "room": 12,
   "kind": "text",
   "jp": "青二才な",
-  "en": "",
+  "en": "Still-Green",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201b6c",
@@ -908,9 +908,9 @@
   "room": 8,
   "kind": "text",
   "jp": "青い",
-  "en": "",
+  "en": "Blue",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201b74",
@@ -920,9 +920,9 @@
   "room": 12,
   "kind": "text",
   "jp": "青い稲妻の",
-  "en": "",
+  "en": "Blue-Lightning",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201b80",
@@ -932,9 +932,9 @@
   "room": 8,
   "kind": "text",
   "jp": "青雲の",
-  "en": "",
+  "en": "Azure-Sky",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201b88",
@@ -945,9 +945,9 @@
   "room": 12,
   "kind": "text",
   "jp": "がんばれ！",
-  "en": "",
+  "en": "Hang-in-There!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201b94",
@@ -957,9 +957,9 @@
   "room": 12,
   "kind": "text",
   "jp": "方向音痴な",
-  "en": "",
+  "en": "Always-Lost",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201ba0",
@@ -969,9 +969,9 @@
   "room": 12,
   "kind": "text",
   "jp": "風邪ぎみな",
-  "en": "",
+  "en": "Sniffly",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201bac",
@@ -981,9 +981,9 @@
   "room": 12,
   "kind": "text",
   "jp": "亀のような",
-  "en": "",
+  "en": "Turtle-Like",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201bb8",
@@ -993,9 +993,9 @@
   "room": 16,
   "kind": "text",
   "jp": "のんびり屋な",
-  "en": "",
+  "en": "Easygoing",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201bc8",
@@ -1005,9 +1005,9 @@
   "room": 8,
   "kind": "text",
   "jp": "偵察用",
-  "en": "",
+  "en": "Scouting",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201bd0",
@@ -1017,9 +1017,9 @@
   "room": 12,
   "kind": "text",
   "jp": "逃げ腰な",
-  "en": "",
+  "en": "Ready-to-Run",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201bdc",
@@ -1029,9 +1029,9 @@
   "room": 12,
   "kind": "text",
   "jp": "風のような",
-  "en": "",
+  "en": "Windlike",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201be8",
@@ -1041,9 +1041,9 @@
   "room": 8,
   "kind": "text",
   "jp": "疾風の",
-  "en": "",
+  "en": "Gale-Force",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201bf0",
@@ -1053,9 +1053,9 @@
   "room": 8,
   "kind": "text",
   "jp": "戦国の",
-  "en": "",
+  "en": "Warring-Age",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201bf8",
@@ -1065,9 +1065,9 @@
   "room": 12,
   "kind": "text",
   "jp": "なきむし",
-  "en": "",
+  "en": "Crybaby",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201c04",
@@ -1077,9 +1077,9 @@
   "room": 12,
   "kind": "text",
   "jp": "おんなのこ",
-  "en": "",
+  "en": "Girl",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201c10",
@@ -1089,9 +1089,9 @@
   "room": 16,
   "kind": "text",
   "jp": "かれんなおとめ",
-  "en": "",
+  "en": "Lovely Maiden",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201c20",
@@ -1101,9 +1101,9 @@
   "room": 12,
   "kind": "text",
   "jp": "おひめさま",
-  "en": "",
+  "en": "Princess",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201c2c",
@@ -1113,9 +1113,9 @@
   "room": 16,
   "kind": "text",
   "jp": "かいしょうなし",
-  "en": "",
+  "en": "Good-for-Nothing",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201c3c",
@@ -1125,9 +1125,9 @@
   "room": 12,
   "kind": "text",
   "jp": "こぼうず",
-  "en": "",
+  "en": "Little Monk",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201c48",
@@ -1137,9 +1137,9 @@
   "room": 12,
   "kind": "text",
   "jp": "おとこのこ",
-  "en": "",
+  "en": "Boy",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201c54",
@@ -1149,9 +1149,9 @@
   "room": 12,
   "kind": "text",
   "jp": "だておとこ",
-  "en": "",
+  "en": "Dandy",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201c60",
@@ -1161,9 +1161,9 @@
   "room": 12,
   "kind": "text",
   "jp": "わかとの",
-  "en": "",
+  "en": "Young Lord",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201c6c",
@@ -1173,9 +1173,9 @@
   "room": 12,
   "kind": "text",
   "jp": "よわむし",
-  "en": "",
+  "en": "Weakling",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201c78",
@@ -1185,9 +1185,9 @@
   "room": 12,
   "kind": "text",
   "jp": "かめさん",
-  "en": "",
+  "en": "Mr. Turtle",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201c84",
@@ -1197,9 +1197,9 @@
   "room": 12,
   "kind": "text",
   "jp": "かたぶつ",
-  "en": "",
+  "en": "Stiff",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201c90",
@@ -1209,9 +1209,9 @@
   "room": 20,
   "kind": "text",
   "jp": "てっぺきざむらい",
-  "en": "",
+  "en": "Iron-Wall Samurai",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201ca4",
@@ -1221,9 +1221,9 @@
   "room": 16,
   "kind": "text",
   "jp": "ふつうのひと",
-  "en": "",
+  "en": "Ordinary Person",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201cb4",
@@ -1233,9 +1233,9 @@
   "room": 16,
   "kind": "text",
   "jp": "らんぼうもの",
-  "en": "",
+  "en": "Brute",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201cc4",
@@ -1245,9 +1245,9 @@
   "room": 20,
   "kind": "text",
   "jp": "こうげきざむらい",
-  "en": "",
+  "en": "Attack Samurai",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201cd8",
@@ -1257,9 +1257,9 @@
   "room": 20,
   "kind": "text",
   "jp": "べんきょうぎらい",
-  "en": "",
+  "en": "Study-Hater",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201cec",
@@ -1269,9 +1269,9 @@
   "room": 12,
   "kind": "text",
   "jp": "にくたいは",
-  "en": "",
+  "en": "Muscle Type",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201cf8",
@@ -1281,9 +1281,9 @@
   "room": 20,
   "kind": "text",
   "jp": "たいいくかいけい",
-  "en": "",
+  "en": "Jock",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201d0c",
@@ -1293,9 +1293,9 @@
   "room": 12,
   "kind": "text",
   "jp": "おぼうさん",
-  "en": "",
+  "en": "Monk",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201d18",
@@ -1305,9 +1305,9 @@
   "room": 12,
   "kind": "text",
   "jp": "そうりょ",
-  "en": "",
+  "en": "Priest",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201d24",
@@ -1317,9 +1317,9 @@
   "room": 12,
   "kind": "text",
   "jp": "やまぶし",
-  "en": "",
+  "en": "Mountain Monk",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201d30",
@@ -1329,9 +1329,9 @@
   "room": 16,
   "kind": "text",
   "jp": "おんみょうじ",
-  "en": "",
+  "en": "Diviner",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201d40",
@@ -1341,9 +1341,9 @@
   "room": 12,
   "kind": "text",
   "jp": "せんにん",
-  "en": "",
+  "en": "Sage",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201d4c",
@@ -1353,9 +1353,9 @@
   "room": 16,
   "kind": "text",
   "jp": "ばななのかわ",
-  "en": "",
+  "en": "Banana Peel",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201d5c",
@@ -1365,9 +1365,9 @@
   "room": 16,
   "kind": "text",
   "jp": "うっかりもの",
-  "en": "",
+  "en": "Klutz",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201d6c",
@@ -1377,9 +1377,9 @@
   "room": 20,
   "kind": "text",
   "jp": "あいうちかくご！",
-  "en": "",
+  "en": "Ready to Go Down!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201d80",
@@ -1389,9 +1389,9 @@
   "room": 12,
   "kind": "text",
   "jp": "にげごし",
-  "en": "",
+  "en": "Runaway",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201d8c",
@@ -1401,9 +1401,9 @@
   "room": 12,
   "kind": "text",
   "jp": "いだてん",
-  "en": "",
+  "en": "Speed Demon",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201d98",
@@ -1413,9 +1413,9 @@
   "room": 12,
   "kind": "text",
   "jp": "がんばりや",
-  "en": "",
+  "en": "Hard Worker",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201da4",
@@ -1425,9 +1425,9 @@
   "room": 12,
   "kind": "text",
   "jp": "じゅうちん",
-  "en": "",
+  "en": "Heavyweight",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201db0",
@@ -1437,9 +1437,9 @@
   "room": 20,
   "kind": "text",
   "jp": "ふどうみょうおう",
-  "en": "",
+  "en": "Fudo the Immovable",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201dc4",
@@ -1449,9 +1449,9 @@
   "room": 16,
   "kind": "text",
   "jp": "こんじょうなし",
-  "en": "",
+  "en": "Gutless",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201dd4",
@@ -1461,9 +1461,9 @@
   "room": 12,
   "kind": "text",
   "jp": "ほそうで",
-  "en": "",
+  "en": "Twig-Arms",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201de0",
@@ -1473,9 +1473,9 @@
   "room": 12,
   "kind": "text",
   "jp": "やさおとこ",
-  "en": "",
+  "en": "Softie",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201dec",
@@ -1485,9 +1485,9 @@
   "room": 12,
   "kind": "text",
   "jp": "きれもの",
-  "en": "",
+  "en": "Sharp Mind",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201df8",
@@ -1497,9 +1497,9 @@
   "room": 12,
   "kind": "text",
   "jp": "ちからもち",
-  "en": "",
+  "en": "Strongman",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201e04",
@@ -1509,9 +1509,9 @@
   "room": 12,
   "kind": "text",
   "jp": "とばしや",
-  "en": "",
+  "en": "Big Hitter",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201e10",
@@ -1521,9 +1521,9 @@
   "room": 12,
   "kind": "text",
   "jp": "ごうけつ",
-  "en": "",
+  "en": "Mighty Hero",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201e1c",
@@ -1533,9 +1533,9 @@
   "room": 16,
   "kind": "text",
   "jp": "ごうわんむしゃ",
-  "en": "",
+  "en": "Iron-Arm Warrior",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201e2c",
@@ -1545,9 +1545,9 @@
   "room": 16,
   "kind": "text",
   "jp": "こんごうりきし",
-  "en": "",
+  "en": "Temple Guardian",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201e3c",
@@ -1557,9 +1557,9 @@
   "room": 20,
   "kind": "text",
   "jp": "だめだめざむらい",
-  "en": "",
+  "en": "Hopeless Samurai",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201e50",
@@ -1569,9 +1569,9 @@
   "room": 20,
   "kind": "text",
   "jp": "へっぽこざむらい",
-  "en": "",
+  "en": "Bungling Samurai",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201e64",
@@ -1581,9 +1581,9 @@
   "room": 16,
   "kind": "text",
   "jp": "みじゅくもの",
-  "en": "",
+  "en": "Novice",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201e74",
@@ -1593,9 +1593,9 @@
   "room": 12,
   "kind": "text",
   "jp": "みならい",
-  "en": "",
+  "en": "Apprentice",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201e80",
@@ -1605,9 +1605,9 @@
   "room": 12,
   "kind": "text",
   "jp": "ろうにん",
-  "en": "",
+  "en": "Ronin",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201e8c",
@@ -1617,9 +1617,9 @@
   "room": 8,
   "kind": "text",
   "jp": "むしゃ",
-  "en": "",
+  "en": "Warrior",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201e94",
@@ -1629,9 +1629,9 @@
   "room": 12,
   "kind": "text",
   "jp": "わかむしゃ",
-  "en": "",
+  "en": "Young Warrior",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201ea0",
@@ -1641,9 +1641,9 @@
   "room": 12,
   "kind": "text",
   "jp": "あらむしゃ",
-  "en": "",
+  "en": "Wild Warrior",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201eac",
@@ -1653,9 +1653,9 @@
   "room": 12,
   "kind": "text",
   "jp": "けんごう",
-  "en": "",
+  "en": "Sword Master",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201eb8",
@@ -1665,9 +1665,9 @@
   "room": 12,
   "kind": "text",
   "jp": "かくめいじ",
-  "en": "",
+  "en": "Revolutionary",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201ec4",
@@ -1677,9 +1677,9 @@
   "room": 8,
   "kind": "text",
   "jp": "泣き虫",
-  "en": "",
+  "en": "Crybaby",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201ecc",
@@ -1690,9 +1690,9 @@
   "room": 16,
   "kind": "text",
   "jp": "ざしきわらし",
-  "en": "",
+  "en": "House Spirit",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201edc",
@@ -1702,9 +1702,9 @@
   "room": 8,
   "kind": "text",
   "jp": "女の子",
-  "en": "",
+  "en": "Girl",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201ee4",
@@ -1714,9 +1714,9 @@
   "room": 12,
   "kind": "text",
   "jp": "可憐な乙女",
-  "en": "",
+  "en": "Lovely Maiden",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201ef0",
@@ -1726,9 +1726,9 @@
   "room": 8,
   "kind": "text",
   "jp": "お姫様",
-  "en": "",
+  "en": "Princess",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201ef8",
@@ -1738,9 +1738,9 @@
   "room": 12,
   "kind": "text",
   "jp": "甲斐性なし",
-  "en": "",
+  "en": "Good-for-Nothing",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f04",
@@ -1750,9 +1750,9 @@
   "room": 8,
   "kind": "text",
   "jp": "小坊主",
-  "en": "",
+  "en": "Little Monk",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f0c",
@@ -1762,9 +1762,9 @@
   "room": 8,
   "kind": "text",
   "jp": "男の子",
-  "en": "",
+  "en": "Boy",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f14",
@@ -1774,9 +1774,9 @@
   "room": 8,
   "kind": "text",
   "jp": "伊達男",
-  "en": "",
+  "en": "Dandy",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f1c",
@@ -1786,9 +1786,9 @@
   "room": 8,
   "kind": "text",
   "jp": "若殿",
-  "en": "",
+  "en": "Young Lord",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f24",
@@ -1798,9 +1798,9 @@
   "room": 8,
   "kind": "text",
   "jp": "弱虫",
-  "en": "",
+  "en": "Weakling",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f2c",
@@ -1810,9 +1810,9 @@
   "room": 8,
   "kind": "text",
   "jp": "亀さん",
-  "en": "",
+  "en": "Mr. Turtle",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f34",
@@ -1823,9 +1823,9 @@
   "room": 12,
   "kind": "text",
   "jp": "ぬりかべ",
-  "en": "",
+  "en": "Wall Spirit",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f40",
@@ -1835,9 +1835,9 @@
   "room": 8,
   "kind": "text",
   "jp": "堅物",
-  "en": "",
+  "en": "Stiff",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f48",
@@ -1847,9 +1847,9 @@
   "room": 8,
   "kind": "text",
   "jp": "鉄壁侍",
-  "en": "",
+  "en": "Iron-Wall Samurai",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f50",
@@ -1860,9 +1860,9 @@
   "room": 12,
   "kind": "text",
   "jp": "さっぱり",
-  "en": "",
+  "en": "Clueless",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f5c",
@@ -1873,9 +1873,9 @@
   "room": 12,
   "kind": "text",
   "jp": "うさぎさん",
-  "en": "",
+  "en": "Mr. Bunny",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f68",
@@ -1885,9 +1885,9 @@
   "room": 12,
   "kind": "text",
   "jp": "普通の人",
-  "en": "",
+  "en": "Ordinary Person",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f74",
@@ -1897,9 +1897,9 @@
   "room": 8,
   "kind": "text",
   "jp": "乱暴者",
-  "en": "",
+  "en": "Brute",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f7c",
@@ -1909,9 +1909,9 @@
   "room": 8,
   "kind": "text",
   "jp": "攻撃侍",
-  "en": "",
+  "en": "Attack Samurai",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f84",
@@ -1922,9 +1922,9 @@
   "room": 12,
   "kind": "text",
   "jp": "しょんぼり",
-  "en": "",
+  "en": "Mopey",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201f90",
@@ -1935,9 +1935,9 @@
   "room": 16,
   "kind": "text",
   "jp": "いいとこなし",
-  "en": "",
+  "en": "No Good at All",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201fa0",
@@ -1947,9 +1947,9 @@
   "room": 12,
   "kind": "text",
   "jp": "勉強嫌い",
-  "en": "",
+  "en": "Study-Hater",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201fac",
@@ -1959,9 +1959,9 @@
   "room": 8,
   "kind": "text",
   "jp": "肉体派",
-  "en": "",
+  "en": "Muscle Type",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201fb4",
@@ -1971,9 +1971,9 @@
   "room": 12,
   "kind": "text",
   "jp": "体育会系",
-  "en": "",
+  "en": "Jock",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201fc0",
@@ -1983,9 +1983,9 @@
   "room": 12,
   "kind": "text",
   "jp": "お坊さん",
-  "en": "",
+  "en": "Monk",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201fcc",
@@ -1995,9 +1995,9 @@
   "room": 8,
   "kind": "text",
   "jp": "僧侶",
-  "en": "",
+  "en": "Priest",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201fd4",
@@ -2007,9 +2007,9 @@
   "room": 8,
   "kind": "text",
   "jp": "山伏",
-  "en": "",
+  "en": "Mountain Monk",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201fdc",
@@ -2019,9 +2019,9 @@
   "room": 8,
   "kind": "text",
   "jp": "陰陽師",
-  "en": "",
+  "en": "Diviner",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201fe4",
@@ -2031,9 +2031,9 @@
   "room": 8,
   "kind": "text",
   "jp": "仙人",
-  "en": "",
+  "en": "Sage",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201fec",
@@ -2044,9 +2044,9 @@
   "room": 12,
   "kind": "text",
   "jp": "つるつる",
-  "en": "",
+  "en": "Shiny Head",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "201ff8",
@@ -2056,9 +2056,9 @@
   "room": 12,
   "kind": "text",
   "jp": "ばななの皮",
-  "en": "",
+  "en": "Banana Peel",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "202004",
@@ -2068,9 +2068,9 @@
   "room": 12,
   "kind": "text",
   "jp": "うっかり者",
-  "en": "",
+  "en": "Klutz",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "202010",
@@ -2081,9 +2081,9 @@
   "room": 12,
   "kind": "text",
   "jp": "だるまさん",
-  "en": "",
+  "en": "Mr. Daruma",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "20201c",
@@ -2093,9 +2093,9 @@
   "room": 16,
   "kind": "text",
   "jp": "相打ち覚悟！",
-  "en": "",
+  "en": "Ready to Go Down!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "20202c",
@@ -2105,9 +2105,9 @@
   "room": 8,
   "kind": "text",
   "jp": "逃げ腰",
-  "en": "",
+  "en": "Runaway",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "202034",
@@ -2117,9 +2117,9 @@
   "room": 8,
   "kind": "text",
   "jp": "韋駄天",
-  "en": "",
+  "en": "Speed Demon",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "20203c",
@@ -2129,9 +2129,9 @@
   "room": 12,
   "kind": "text",
   "jp": "頑張り屋",
-  "en": "",
+  "en": "Hard Worker",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "202048",
@@ -2141,9 +2141,9 @@
   "room": 8,
   "kind": "text",
   "jp": "重鎮",
-  "en": "",
+  "en": "Heavyweight",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "202050",
@@ -2153,9 +2153,9 @@
   "room": 12,
   "kind": "text",
   "jp": "不動明王",
-  "en": "",
+  "en": "Fudo the Immovable",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "20205c",
@@ -2166,9 +2166,9 @@
   "room": 8,
   "kind": "text",
   "jp": "もやし",
-  "en": "",
+  "en": "Beansprout",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "202064",
@@ -2178,9 +2178,9 @@
   "room": 12,
   "kind": "text",
   "jp": "根性無し",
-  "en": "",
+  "en": "Gutless",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "202070",
@@ -2190,9 +2190,9 @@
   "room": 8,
   "kind": "text",
   "jp": "細腕",
-  "en": "",
+  "en": "Twig-Arms",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "202078",
@@ -2202,9 +2202,9 @@
   "room": 8,
   "kind": "text",
   "jp": "優男",
-  "en": "",
+  "en": "Softie",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "202080",
@@ -2214,9 +2214,9 @@
   "room": 8,
   "kind": "text",
   "jp": "切れ者",
-  "en": "",
+  "en": "Sharp Mind",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "202088",
@@ -2226,9 +2226,9 @@
   "room": 8,
   "kind": "text",
   "jp": "力持ち",
-  "en": "",
+  "en": "Strongman",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "202090",
@@ -2238,9 +2238,9 @@
   "room": 12,
   "kind": "text",
   "jp": "飛ばし屋",
-  "en": "",
+  "en": "Big Hitter",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "20209c",
@@ -2250,9 +2250,9 @@
   "room": 8,
   "kind": "text",
   "jp": "豪傑",
-  "en": "",
+  "en": "Mighty Hero",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2020a4",
@@ -2262,9 +2262,9 @@
   "room": 12,
   "kind": "text",
   "jp": "豪腕武者",
-  "en": "",
+  "en": "Iron-Arm Warrior",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2020b0",
@@ -2274,9 +2274,9 @@
   "room": 12,
   "kind": "text",
   "jp": "金剛力士",
-  "en": "",
+  "en": "Temple Guardian",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2020bc",
@@ -2286,9 +2286,9 @@
   "room": 12,
   "kind": "text",
   "jp": "だめだめ侍",
-  "en": "",
+  "en": "Hopeless Samurai",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2020c8",
@@ -2298,9 +2298,9 @@
   "room": 12,
   "kind": "text",
   "jp": "へっぽこ侍",
-  "en": "",
+  "en": "Bungling Samurai",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2020d4",
@@ -2310,9 +2310,9 @@
   "room": 8,
   "kind": "text",
   "jp": "未熟者",
-  "en": "",
+  "en": "Novice",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2020dc",
@@ -2322,9 +2322,9 @@
   "room": 8,
   "kind": "text",
   "jp": "見習い",
-  "en": "",
+  "en": "Apprentice",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2020e4",
@@ -2334,9 +2334,9 @@
   "room": 8,
   "kind": "text",
   "jp": "浪人",
-  "en": "",
+  "en": "Ronin",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2020ec",
@@ -2346,9 +2346,9 @@
   "room": 8,
   "kind": "text",
   "jp": "武者",
-  "en": "",
+  "en": "Warrior",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2020f4",
@@ -2358,9 +2358,9 @@
   "room": 8,
   "kind": "text",
   "jp": "若武者",
-  "en": "",
+  "en": "Young Warrior",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "2020fc",
@@ -2370,9 +2370,9 @@
   "room": 8,
   "kind": "text",
   "jp": "荒武者",
-  "en": "",
+  "en": "Wild Warrior",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "202104",
@@ -2382,9 +2382,9 @@
   "room": 8,
   "kind": "text",
   "jp": "剣豪",
-  "en": "",
+  "en": "Sword Master",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "20210c",
@@ -2394,8 +2394,8 @@
   "room": 8,
   "kind": "text",
   "jp": "革命児",
-  "en": "",
+  "en": "Revolutionary",
   "notes": "",
-  "status": ""
+  "status": "done"
  }
 ]

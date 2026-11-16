@@ -7,9 +7,9 @@
   "room": 48,
   "kind": "text",
   "jp": "どの記録に|n上書きしますか？|nＡ決定　Ｂ戻る",
-  "en": "",
+  "en": "Overwrite which save?|nA: Select  B: Back",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ce7c",
@@ -19,9 +19,9 @@
   "room": 68,
   "kind": "text",
   "jp": "走る…Ｒ押しながら方向|n術変更…セレクトボタン|n武器変更…Ｌボタン",
-  "en": "",
+  "en": "Dash: R + direction|nChange art: SELECT|nChange weapon: L Button",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04cec0",
@@ -31,9 +31,9 @@
   "room": 64,
   "kind": "text",
   "jp": "走る…方向連続二回押し|n術変更…Ｒボタン|n武器変更…Ｌボタン",
-  "en": "",
+  "en": "Dash: direction x2|nChange art: R Button|nChange weapon: L Button",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04cf00",
@@ -43,9 +43,9 @@
   "room": 32,
   "kind": "text",
   "jp": "売れる物が|n無いようですね…",
-  "en": "",
+  "en": "Looks like you have|nnothing I can buy...",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04cf20",
@@ -55,9 +55,9 @@
   "room": 32,
   "kind": "text",
   "jp": "すみません。|n今売りきれ中です",
-  "en": "",
+  "en": "Sorry, that is sold out|nright now.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04cf40",
@@ -67,9 +67,9 @@
   "room": 12,
   "kind": "text",
   "jp": "まいど！",
-  "en": "",
+  "en": "Thank you kindly!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04cf4c",
@@ -79,9 +79,9 @@
   "room": 28,
   "kind": "text",
   "jp": "こちらでよろしいですか？",
-  "en": "",
+  "en": "Is this the one you|nwant?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04cf68",
@@ -91,9 +91,9 @@
   "room": 28,
   "kind": "text",
   "jp": "どの装備にしましょうか？",
-  "en": "",
+  "en": "Which equipment would|nyou like?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04cf84",
@@ -103,9 +103,9 @@
   "room": 16,
   "kind": "text",
   "jp": "|nまいど！|n",
-  "en": "",
+  "en": "Thank you kindly!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04cf94",
@@ -115,9 +115,9 @@
   "room": 28,
   "kind": "text",
   "jp": "ボタン操作を変更します。",
-  "en": "",
+  "en": "Change the button|ncontrols.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04cfb0",
@@ -127,9 +127,9 @@
   "room": 28,
   "kind": "text",
   "jp": "音楽のON、OFFを変更します。",
-  "en": "",
+  "en": "Turn the music ON or|nOFF.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04cfcc",
@@ -139,9 +139,9 @@
   "room": 16,
   "kind": "text",
   "jp": "記録しました。",
-  "en": "",
+  "en": "Saved.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04cfdc",
@@ -151,9 +151,9 @@
   "room": 68,
   "kind": "text",
   "jp": "セーブ中です。電源を切ったりカートリッジを抜き差ししないで下さい。",
-  "en": "",
+  "en": "Saving. Do not turn off|nthe power or remove the|nGame Pak.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d020",
@@ -163,9 +163,9 @@
   "room": 32,
   "kind": "text",
   "jp": "記録します。|nよろしいですか？",
-  "en": "",
+  "en": "Save the game. Is that|nOK?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d040",
@@ -175,9 +175,9 @@
   "room": 32,
   "kind": "text",
   "jp": "出陣します。|nよろしいですか？",
-  "en": "",
+  "en": "Head out to battle. Is|nthat OK?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d060",
@@ -187,9 +187,9 @@
   "room": 20,
   "kind": "text",
   "jp": "買い物をします。",
-  "en": "",
+  "en": "Go shopping.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d074",
@@ -199,9 +199,9 @@
   "room": 36,
   "kind": "text",
   "jp": "登場人物たちの|n経歴が見られます",
-  "en": "",
+  "en": "Read the life stories of|nthe characters.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d098",
@@ -223,9 +223,9 @@
   "room": 24,
   "kind": "text",
   "jp": "操作方法を変更します。",
-  "en": "",
+  "en": "Change the controls.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d0b4",
@@ -235,9 +235,9 @@
   "room": 32,
   "kind": "text",
   "jp": "現在までの情報を|n記録します。",
-  "en": "",
+  "en": "Save your progress so|nfar.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d0d4",
@@ -247,9 +247,9 @@
   "room": 24,
   "kind": "text",
   "jp": "装備品を変更します。",
-  "en": "",
+  "en": "Change your equipment.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d0ec",
@@ -259,9 +259,9 @@
   "room": 64,
   "kind": "text",
   "jp": "２〜４人で国を取りあう|n合戦編です。|n＊通信ケーブルが必要です",
-  "en": "",
+  "en": "Battle mode: 2-4 players|nfight over provinces.|n*Needs a Link Cable.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d12c",
@@ -271,9 +271,9 @@
   "room": 28,
   "kind": "text",
   "jp": "１人で遊ぶ|n物語編です。",
-  "en": "",
+  "en": "Story mode for one|nplayer.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d148",
@@ -283,9 +283,9 @@
   "room": 32,
   "kind": "text",
   "jp": "この性別で|nよろしいですか？",
-  "en": "",
+  "en": "Is this gender all|nright?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d168",
@@ -295,9 +295,9 @@
   "room": 36,
   "kind": "text",
   "jp": "主人公の性別を|n選んでください。",
-  "en": "",
+  "en": "Choose the hero's|ngender.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d18c",
@@ -308,9 +308,9 @@
   "room": 16,
   "kind": "text",
   "jp": "決定しました。",
-  "en": "",
+  "en": "Confirmed.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d19c",
@@ -320,9 +320,9 @@
   "room": 44,
   "kind": "text",
   "jp": "新しく遊戯を始めます。|nよろしいですか？",
-  "en": "",
+  "en": "Start a new game. Is|nthat OK?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d1c8",
@@ -332,9 +332,9 @@
   "room": 24,
   "kind": "text",
   "jp": "記録を削除しました。",
-  "en": "",
+  "en": "Save deleted.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d1e0",
@@ -344,9 +344,9 @@
   "room": 44,
   "kind": "text",
   "jp": "この記録を|n削除します。|nよろしいですか？",
-  "en": "",
+  "en": "Delete this save. Is|nthat OK?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d20c",
@@ -356,9 +356,9 @@
   "room": 52,
   "kind": "text",
   "jp": "削除する記録を|n選択して下さい。|nＡ決定　Ｂ戻る",
-  "en": "",
+  "en": "Choose a save to delete.|nA: Select  B: Back",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d240",
@@ -368,9 +368,9 @@
   "room": 24,
   "kind": "text",
   "jp": "記録を複写しました。",
-  "en": "",
+  "en": "Save copied.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d258",
@@ -380,9 +380,9 @@
   "room": 48,
   "kind": "text",
   "jp": "この記録に|n上書きします。|nよろしいですか？",
-  "en": "",
+  "en": "Overwrite this save. Is|nthat OK?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d288",
@@ -392,9 +392,9 @@
   "room": 52,
   "kind": "text",
   "jp": "複写先の記録を|n選択して下さい。|nＡ決定　Ｂ戻る",
-  "en": "",
+  "en": "Pick a save to copy to.|nA: Select  B: Back",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d2bc",
@@ -404,9 +404,9 @@
   "room": 52,
   "kind": "text",
   "jp": "複写する記録を|n選択して下さい。|nＡ決定　Ｂ戻る",
-  "en": "",
+  "en": "Choose a save to copy.|nA: Select  B: Back",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d2f0",
@@ -416,9 +416,9 @@
   "room": 60,
   "kind": "text",
   "jp": "前回中断した所から|n遊戯を開始します。|nよろしいですか？",
-  "en": "",
+  "en": "Resume the game from|nwhere you last quit. Is|nthat OK?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d32c",
@@ -428,9 +428,9 @@
   "room": 48,
   "kind": "text",
   "jp": "この記録を|n読み込みます。|nよろしいですか？",
-  "en": "",
+  "en": "Load this save. Is that|nOK?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d35c",
@@ -440,9 +440,9 @@
   "room": 48,
   "kind": "text",
   "jp": "この記録で|n遊戯を始めます。|nよろしいですか？",
-  "en": "",
+  "en": "Start the game with this|nsave. Is that OK?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d38c",
@@ -452,9 +452,9 @@
   "room": 48,
   "kind": "text",
   "jp": "あなたの性別を|n選んで下さい。|nＡ決定　Ｂ戻る",
-  "en": "",
+  "en": "Choose your gender.|nA: Select  B: Back",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d3bc",
@@ -464,9 +464,9 @@
   "room": 20,
   "kind": "text",
   "jp": "読み込みました。",
-  "en": "",
+  "en": "Loaded.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d3d0",
@@ -476,9 +476,9 @@
   "room": 48,
   "kind": "text",
   "jp": "中断記録から|n再開します。|nよろしいですか？",
-  "en": "",
+  "en": "Resume the suspended|ngame. Is that OK?",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d400",
@@ -488,9 +488,9 @@
   "room": 52,
   "kind": "text",
   "jp": "使用する記録を|n選択して下さい。|nＡ決定　Ｂ戻る",
-  "en": "",
+  "en": "Choose a save to use.|nA: Select  B: Back",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d434",
@@ -500,9 +500,9 @@
   "room": 24,
   "kind": "text",
   "jp": "記録を|n削除します。",
-  "en": "",
+  "en": "Delete a save.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d44c",
@@ -512,9 +512,9 @@
   "room": 24,
   "kind": "text",
   "jp": "記録を|n複写します。",
-  "en": "",
+  "en": "Copy a save.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d464",
@@ -524,9 +524,9 @@
   "room": 20,
   "kind": "text",
   "jp": "遊戯を開始します。",
-  "en": "",
+  "en": "Start the game.",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04d478",
@@ -536,8 +536,8 @@
   "room": 34,
   "kind": "text",
   "jp": "前回中断した所から|n再開します。",
-  "en": "",
+  "en": "Resume from where you|nlast quit.",
   "notes": "",
-  "status": ""
+  "status": "done"
  }
 ]

@@ -19,9 +19,9 @@
   "room": 48,
   "kind": "text",
   "jp": "%b%n　%Bでいいですか？|n%rＡ…決定　Ｂ…戻る|n",
-  "en": "",
+  "en": "Is %b%n%B right?|n%rA: Select  B: Back|n",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "061c54",

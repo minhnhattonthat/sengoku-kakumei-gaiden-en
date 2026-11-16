@@ -760,9 +760,9 @@
   "room": 56,
   "kind": "text",
   "jp": "しょうぐんよろいくろ|n脚力をかなり高める|n防御力は低め",
-  "en": "",
+  "en": "Shogun Armor, Black|nRaises speed greatly|nDefense is low",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e250",
@@ -772,9 +772,9 @@
   "room": 40,
   "kind": "text",
   "jp": "しょうぐんよろいみどり|n防御力を高める",
-  "en": "",
+  "en": "Shogun Armor, Green|nRaises defense",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e278",
@@ -784,9 +784,9 @@
   "room": 36,
   "kind": "text",
   "jp": "しょうぐんよろいあお|n脚力を高める",
-  "en": "",
+  "en": "Shogun Armor, Blue|nRaises speed",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e29c",
@@ -796,9 +796,9 @@
   "room": 40,
   "kind": "text",
   "jp": "しょうぐんよろいあか|n攻撃力を高める",
-  "en": "",
+  "en": "Shogun Armor, Red|nRaises attack",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e2c4",
@@ -808,9 +808,9 @@
   "room": 56,
   "kind": "text",
   "jp": "だいみょうよろいくろ|n脚力をかなり高める|n防御力は低め",
-  "en": "",
+  "en": "Daimyo Armor, Black|nRaises speed greatly|nDefense is low",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e2fc",
@@ -820,9 +820,9 @@
   "room": 40,
   "kind": "text",
   "jp": "だいみょうよろいみどり|n防御力を高める",
-  "en": "",
+  "en": "Daimyo Armor, Green|nRaises defense",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e324",
@@ -832,9 +832,9 @@
   "room": 36,
   "kind": "text",
   "jp": "だいみょうよろいあお|n脚力を高める",
-  "en": "",
+  "en": "Daimyo Armor, Blue|nRaises speed",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e348",
@@ -844,9 +844,9 @@
   "room": 40,
   "kind": "text",
   "jp": "だいみょうよろいあか|n攻撃力を高める",
-  "en": "",
+  "en": "Daimyo Armor, Red|nRaises attack",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e370",
@@ -856,9 +856,9 @@
   "room": 56,
   "kind": "text",
   "jp": "ぶしょうよろいくろ|n脚力をかなり高める|n防御力は低め",
-  "en": "",
+  "en": "Warlord Armor, Black|nRaises speed greatly|nDefense is low",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e3a8",
@@ -868,9 +868,9 @@
   "room": 40,
   "kind": "text",
   "jp": "ぶしょうよろいみどり|n防御力を高める",
-  "en": "",
+  "en": "Warlord Armor, Green|nRaises defense",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e3d0",
@@ -880,9 +880,9 @@
   "room": 36,
   "kind": "text",
   "jp": "ぶしょうよろいあお|n脚力を高める",
-  "en": "",
+  "en": "Warlord Armor, Blue|nRaises speed",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e3f4",
@@ -892,9 +892,9 @@
   "room": 36,
   "kind": "text",
   "jp": "ぶしょうよろいあか|n攻撃力を高める",
-  "en": "",
+  "en": "Warlord Armor, Red|nRaises attack",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e418",
@@ -904,9 +904,9 @@
   "room": 56,
   "kind": "text",
   "jp": "さむらいよろいくろ|n脚力をかなり高める|n防御力は低め",
-  "en": "",
+  "en": "Samurai Armor, Black|nRaises speed greatly|nDefense is low",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e450",
@@ -916,9 +916,9 @@
   "room": 40,
   "kind": "text",
   "jp": "さむらいよろいみどり|n防御力を高める",
-  "en": "",
+  "en": "Samurai Armor, Green|nRaises defense",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e478",
@@ -928,9 +928,9 @@
   "room": 36,
   "kind": "text",
   "jp": "さむらいよろいあお|n脚力を高める",
-  "en": "",
+  "en": "Samurai Armor, Blue|nRaises speed",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e49c",
@@ -940,9 +940,9 @@
   "room": 36,
   "kind": "text",
   "jp": "さむらいよろいあか|n攻撃力を高める",
-  "en": "",
+  "en": "Samurai Armor, Red|nRaises attack",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e4c0",
@@ -952,9 +952,9 @@
   "room": 56,
   "kind": "text",
   "jp": "あしがるよろいくろ|n脚力をかなり高める|n防御力は低め",
-  "en": "",
+  "en": "Ashigaru Armor, Black|nRaises speed greatly|nDefense is low",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e4f8",
@@ -964,9 +964,9 @@
   "room": 40,
   "kind": "text",
   "jp": "あしがるよろいみどり|n防御力を高める",
-  "en": "",
+  "en": "Ashigaru Armor, Green|nRaises defense",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e520",
@@ -976,9 +976,9 @@
   "room": 36,
   "kind": "text",
   "jp": "あしがるよろいあお|n脚力を高める",
-  "en": "",
+  "en": "Ashigaru Armor, Blue|nRaises speed",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e544",
@@ -988,9 +988,9 @@
   "room": 36,
   "kind": "text",
   "jp": "あしがるよろいあか|n攻撃力を高める",
-  "en": "",
+  "en": "Ashigaru Armor, Red|nRaises attack",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e568",
@@ -1000,9 +1000,9 @@
   "room": 56,
   "kind": "text",
   "jp": "ぞうひょうよろいくろ|n脚力をかなり高める|n防御力は低め",
-  "en": "",
+  "en": "Footman Armor, Black|nRaises speed greatly|nDefense is low",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e5a0",
@@ -1012,9 +1012,9 @@
   "room": 40,
   "kind": "text",
   "jp": "ぞうひょうよろいみどり|n防御力を高める",
-  "en": "",
+  "en": "Footman Armor, Green|nRaises defense",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e5c8",
@@ -1024,9 +1024,9 @@
   "room": 36,
   "kind": "text",
   "jp": "ぞうひょうよろいあお|n脚力を高める",
-  "en": "",
+  "en": "Footman Armor, Blue|nRaises speed",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e5ec",
@@ -1036,9 +1036,9 @@
   "room": 40,
   "kind": "text",
   "jp": "ぞうひょうよろいあか|n攻撃力を高める",
-  "en": "",
+  "en": "Footman Armor, Red|nRaises attack",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e614",
@@ -1048,9 +1048,9 @@
   "room": 56,
   "kind": "text",
   "jp": "みならいよろいくろ|n脚力をかなり高める|n防御力は低め",
-  "en": "",
+  "en": "Trainee Armor, Black|nRaises speed greatly|nDefense is low",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e64c",
@@ -1060,9 +1060,9 @@
   "room": 40,
   "kind": "text",
   "jp": "みならいよろいみどり|n防御力を高める",
-  "en": "",
+  "en": "Trainee Armor, Green|nRaises defense",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e674",
@@ -1072,9 +1072,9 @@
   "room": 36,
   "kind": "text",
   "jp": "みならいよろいあお|n脚力を高める",
-  "en": "",
+  "en": "Trainee Armor, Blue|nRaises speed",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e698",
@@ -1084,9 +1084,9 @@
   "room": 36,
   "kind": "text",
   "jp": "みならいよろいあか|n攻撃力を高める",
-  "en": "",
+  "en": "Trainee Armor, Red|nRaises attack",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e6bc",
@@ -1096,9 +1096,9 @@
   "room": 68,
   "kind": "text",
   "jp": "ようとうむらまさくろ|n連撃時間が長いが気力消費|nため攻撃４が使える",
-  "en": "",
+  "en": "Cursed Muramasa, Black|nLong combo, uses spirit|nAllows Charge Attack 4",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e700",
@@ -1108,9 +1108,9 @@
   "room": 60,
   "kind": "text",
   "jp": "ようとうむらまさみどり|n防御力を高める|nため攻撃４が使える",
-  "en": "",
+  "en": "Cursed Muramasa, Green|nRaises defense|nAllows Charge Attack 4",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e73c",
@@ -1120,9 +1120,9 @@
   "room": 56,
   "kind": "text",
   "jp": "ようとうむらまさあお|n脚力を高める|nため攻撃４が使える",
-  "en": "",
+  "en": "Cursed Muramasa, Blue|nRaises speed|nAllows Charge Attack 4",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e774",
@@ -1132,9 +1132,9 @@
   "room": 56,
   "kind": "text",
   "jp": "ようとうむらまさあか|n攻撃力が高い|nため攻撃４が使える",
-  "en": "",
+  "en": "Cursed Muramasa, Red|nHigh attack power|nAllows Charge Attack 4",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e7ac",
@@ -1144,9 +1144,9 @@
   "room": 68,
   "kind": "text",
   "jp": "めいとうまさむねくろ|n連撃時間が長いが気力消費|nため攻撃３が使える",
-  "en": "",
+  "en": "Masamune Blade, Black|nLong combo, uses spirit|nAllows Charge Attack 3",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e7f0",
@@ -1156,9 +1156,9 @@
   "room": 60,
   "kind": "text",
   "jp": "めいとうまさむねみどり|n防御力を高める|nため攻撃３が使える",
-  "en": "",
+  "en": "Masamune Blade, Green|nRaises defense|nAllows Charge Attack 3",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e82c",
@@ -1168,9 +1168,9 @@
   "room": 56,
   "kind": "text",
   "jp": "めいとうまさむねあお|n脚力を高める|nため攻撃３が使える",
-  "en": "",
+  "en": "Masamune Blade, Blue|nRaises speed|nAllows Charge Attack 3",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e864",
@@ -1180,9 +1180,9 @@
   "room": 56,
   "kind": "text",
   "jp": "めいとうまさむねあか|n攻撃力が高い|nため攻撃３が使える",
-  "en": "",
+  "en": "Masamune Blade, Red|nHigh attack power|nAllows Charge Attack 3",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e89c",
@@ -1192,9 +1192,9 @@
   "room": 68,
   "kind": "text",
   "jp": "きくいちもんじくろ|n連撃時間が長いが気力消費|nため攻撃２が使える",
-  "en": "",
+  "en": "Kiku-Ichimonji, Black|nLong combo, uses spirit|nAllows Charge Attack 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e8e0",
@@ -1204,9 +1204,9 @@
   "room": 60,
   "kind": "text",
   "jp": "きくいちもんじみどり|n防御力を高める|nため攻撃２が使える",
-  "en": "",
+  "en": "Kiku-Ichimonji, Green|nRaises defense|nAllows Charge Attack 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e91c",
@@ -1216,9 +1216,9 @@
   "room": 56,
   "kind": "text",
   "jp": "きくいちもんじあお|n脚力を高める|nため攻撃２が使える",
-  "en": "",
+  "en": "Kiku-Ichimonji, Blue|nRaises speed|nAllows Charge Attack 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e954",
@@ -1228,9 +1228,9 @@
   "room": 56,
   "kind": "text",
   "jp": "きくいちもんじあか|n攻撃力が高い|nため攻撃２が使える",
-  "en": "",
+  "en": "Kiku-Ichimonji, Red|nHigh attack power|nAllows Charge Attack 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e98c",
@@ -1240,9 +1240,9 @@
   "room": 68,
   "kind": "text",
   "jp": "めいとうおさふねくろ|n連撃時間が長いが気力消費|nため攻撃２が使える",
-  "en": "",
+  "en": "Osafune Blade, Black|nLong combo, uses spirit|nAllows Charge Attack 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04e9d0",
@@ -1252,9 +1252,9 @@
   "room": 60,
   "kind": "text",
   "jp": "めいとうおさふねみどり|n防御力を高める|nため攻撃２が使える",
-  "en": "",
+  "en": "Osafune Blade, Green|nRaises defense|nAllows Charge Attack 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ea0c",
@@ -1264,9 +1264,9 @@
   "room": 56,
   "kind": "text",
   "jp": "めいとうおさふねあお|n脚力を高める|nため攻撃２が使える",
-  "en": "",
+  "en": "Osafune Blade, Blue|nRaises speed|nAllows Charge Attack 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ea44",
@@ -1276,9 +1276,9 @@
   "room": 56,
   "kind": "text",
   "jp": "めいとうおさふねあか|n攻撃力が高い|nため攻撃２が使える",
-  "en": "",
+  "en": "Osafune Blade, Red|nHigh attack power|nAllows Charge Attack 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ea7c",
@@ -1288,9 +1288,9 @@
   "room": 68,
   "kind": "text",
   "jp": "めいとうかねさだくろ|n連撃時間が長いが気力消費|nため攻撃１が使える",
-  "en": "",
+  "en": "Kanesada Blade, Black|nLong combo, uses spirit|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04eac0",
@@ -1300,9 +1300,9 @@
   "room": 60,
   "kind": "text",
   "jp": "めいとうかねさだみどり|n防御力を高める|nため攻撃１が使える",
-  "en": "",
+  "en": "Kanesada Blade, Green|nRaises defense|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04eafc",
@@ -1312,9 +1312,9 @@
   "room": 56,
   "kind": "text",
   "jp": "めいとうかねさだあお|n脚力を高める|nため攻撃１が使える",
-  "en": "",
+  "en": "Kanesada Blade, Blue|nRaises speed|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04eb34",
@@ -1324,9 +1324,9 @@
   "room": 56,
   "kind": "text",
   "jp": "めいとうかねさだあか|n攻撃力が高い|nため攻撃１が使える",
-  "en": "",
+  "en": "Kanesada Blade, Red|nHigh attack power|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04eb6c",
@@ -1336,9 +1336,9 @@
   "room": 64,
   "kind": "text",
   "jp": "むめいがたなくろ|n連撃時間が長いが気力消費|nため攻撃１が使える",
-  "en": "",
+  "en": "Nameless Sword, Black|nLong combo, uses spirit|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ebac",
@@ -1348,9 +1348,9 @@
   "room": 56,
   "kind": "text",
   "jp": "むめいがたなみどり|n防御力を高める|nため攻撃１が使える",
-  "en": "",
+  "en": "Nameless Sword, Green|nRaises defense|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ebe4",
@@ -1360,9 +1360,9 @@
   "room": 52,
   "kind": "text",
   "jp": "むめいがたなあお|n脚力を高める|nため攻撃１が使える",
-  "en": "",
+  "en": "Nameless Sword, Blue|nRaises speed|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ec18",
@@ -1372,9 +1372,9 @@
   "room": 52,
   "kind": "text",
   "jp": "むめいがたなあか|n攻撃力が高い|nため攻撃１が使える",
-  "en": "",
+  "en": "Nameless Sword, Red|nHigh attack power|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ec4c",
@@ -1384,9 +1384,9 @@
   "room": 68,
   "kind": "text",
   "jp": "かずうちのかたなくろ|n連撃時間が長いが気力消費|nため攻撃１が使える",
-  "en": "",
+  "en": "Common Sword, Black|nLong combo, uses spirit|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ec90",
@@ -1396,9 +1396,9 @@
   "room": 60,
   "kind": "text",
   "jp": "かずうちのかたなみどり|n防御力を高める|nため攻撃１が使える",
-  "en": "",
+  "en": "Common Sword, Green|nRaises defense|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04eccc",
@@ -1408,9 +1408,9 @@
   "room": 56,
   "kind": "text",
   "jp": "かずうちのかたなあお|n脚力を高める|nため攻撃１が使える",
-  "en": "",
+  "en": "Common Sword, Blue|nRaises speed|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ed04",
@@ -1420,9 +1420,9 @@
   "room": 56,
   "kind": "text",
   "jp": "かずうちのかたなあか|n攻撃力が高い|nため攻撃１が使える",
-  "en": "",
+  "en": "Common Sword, Red|nHigh attack power|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ed3c",
@@ -1432,9 +1432,9 @@
   "room": 60,
   "kind": "text",
   "jp": "しんそうくろ|n連撃時間が長いが気力消費|nため攻撃７が使える",
-  "en": "",
+  "en": "Divine Spear, Black|nLong combo, uses spirit|nAllows Charge Attack 7",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ed78",
@@ -1444,9 +1444,9 @@
   "room": 52,
   "kind": "text",
   "jp": "しんそうみどり|n防御力を高める|nため攻撃７が使える",
-  "en": "",
+  "en": "Divine Spear, Green|nRaises defense|nAllows Charge Attack 7",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04edac",
@@ -1456,9 +1456,9 @@
   "room": 48,
   "kind": "text",
   "jp": "しんそうあお|n脚力を高める|nため攻撃７が使える",
-  "en": "",
+  "en": "Divine Spear, Blue|nRaises speed|nAllows Charge Attack 7",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04eddc",
@@ -1468,9 +1468,9 @@
   "room": 48,
   "kind": "text",
   "jp": "しんそうあか|n攻撃力が高い|nため攻撃７が使える",
-  "en": "",
+  "en": "Divine Spear, Red|nHigh attack power|nAllows Charge Attack 7",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ee0c",
@@ -1480,9 +1480,9 @@
   "room": 64,
   "kind": "text",
   "jp": "とんぼきりくろ|n連撃時間が長いが気力消費|nため攻撃６が使える",
-  "en": "",
+  "en": "Tonbogiri, Black|nLong combo, uses spirit|nAllows Charge Attack 6",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ee4c",
@@ -1492,9 +1492,9 @@
   "room": 56,
   "kind": "text",
   "jp": "とんぼきりみどり|n防御力を高める|nため攻撃６が使える",
-  "en": "",
+  "en": "Tonbogiri, Green|nRaises defense|nAllows Charge Attack 6",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ee84",
@@ -1504,9 +1504,9 @@
   "room": 52,
   "kind": "text",
   "jp": "とんぼきりあお|n脚力を高める|nため攻撃６が使える",
-  "en": "",
+  "en": "Tonbogiri, Blue|nRaises speed|nAllows Charge Attack 6",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04eeb8",
@@ -1516,9 +1516,9 @@
   "room": 52,
   "kind": "text",
   "jp": "とんぼきりあか|n攻撃力が高い|nため攻撃６が使える",
-  "en": "",
+  "en": "Tonbogiri, Red|nHigh attack power|nAllows Charge Attack 6",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04eeec",
@@ -1528,9 +1528,9 @@
   "room": 68,
   "kind": "text",
   "jp": "じゅうもんじやりくろ|n連撃時間が長いが気力消費|nため攻撃５が使える",
-  "en": "",
+  "en": "Cross Spear, Black|nLong combo, uses spirit|nAllows Charge Attack 5",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ef30",
@@ -1540,9 +1540,9 @@
   "room": 60,
   "kind": "text",
   "jp": "じゅうもんじやりみどり|n防御力を高める|nため攻撃５が使える",
-  "en": "",
+  "en": "Cross Spear, Green|nRaises defense|nAllows Charge Attack 5",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04ef6c",
@@ -1552,9 +1552,9 @@
   "room": 56,
   "kind": "text",
   "jp": "じゅうもんじやりあお|n脚力を高める|nため攻撃５が使える",
-  "en": "",
+  "en": "Cross Spear, Blue|nRaises speed|nAllows Charge Attack 5",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04efa4",
@@ -1564,9 +1564,9 @@
   "room": 56,
   "kind": "text",
   "jp": "じゅうもんじやりあか|n攻撃力が高い|nため攻撃５が使える",
-  "en": "",
+  "en": "Cross Spear, Red|nHigh attack power|nAllows Charge Attack 5",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04efdc",
@@ -1576,9 +1576,9 @@
   "room": 64,
   "kind": "text",
   "jp": "かたかまやりくろ|n連撃時間が長いが気力消費|nため攻撃４が使える",
-  "en": "",
+  "en": "Hook Spear, Black|nLong combo, uses spirit|nAllows Charge Attack 4",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f01c",
@@ -1588,9 +1588,9 @@
   "room": 56,
   "kind": "text",
   "jp": "かたかまやりみどり|n防御力を高める|nため攻撃４が使える",
-  "en": "",
+  "en": "Hook Spear, Green|nRaises defense|nAllows Charge Attack 4",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f054",
@@ -1600,9 +1600,9 @@
   "room": 52,
   "kind": "text",
   "jp": "かたかまやりあお|n脚力を高める|nため攻撃４が使える",
-  "en": "",
+  "en": "Hook Spear, Blue|nRaises speed|nAllows Charge Attack 4",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f088",
@@ -1612,9 +1612,9 @@
   "room": 52,
   "kind": "text",
   "jp": "かたかまやりあか|n攻撃力が高い|nため攻撃４が使える",
-  "en": "",
+  "en": "Hook Spear, Red|nHigh attack power|nAllows Charge Attack 4",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f0bc",
@@ -1624,9 +1624,9 @@
   "room": 60,
   "kind": "text",
   "jp": "てつやりくろ|n連撃時間が長いが気力消費|nため攻撃３が使える",
-  "en": "",
+  "en": "Iron Spear, Black|nLong combo, uses spirit|nAllows Charge Attack 3",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f0f8",
@@ -1636,9 +1636,9 @@
   "room": 52,
   "kind": "text",
   "jp": "てつやりみどり|n防御力を高める|nため攻撃３が使える",
-  "en": "",
+  "en": "Iron Spear, Green|nRaises defense|nAllows Charge Attack 3",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f12c",
@@ -1648,9 +1648,9 @@
   "room": 48,
   "kind": "text",
   "jp": "てつやりあお|n脚力を高める|nため攻撃３が使える",
-  "en": "",
+  "en": "Iron Spear, Blue|nRaises speed|nAllows Charge Attack 3",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f15c",
@@ -1660,9 +1660,9 @@
   "room": 48,
   "kind": "text",
   "jp": "てつやりあか|n攻撃力が高い|nため攻撃３が使える",
-  "en": "",
+  "en": "Iron Spear, Red|nHigh attack power|nAllows Charge Attack 3",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f18c",
@@ -1672,9 +1672,9 @@
   "room": 60,
   "kind": "text",
   "jp": "ながやりくろ|n連撃時間が長いが気力消費|nため攻撃２が使える",
-  "en": "",
+  "en": "Long Spear, Black|nLong combo, uses spirit|nAllows Charge Attack 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f1c8",
@@ -1684,9 +1684,9 @@
   "room": 52,
   "kind": "text",
   "jp": "ながやりみどり|n防御力を高める|nため攻撃２が使える",
-  "en": "",
+  "en": "Long Spear, Green|nRaises defense|nAllows Charge Attack 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f1fc",
@@ -1696,9 +1696,9 @@
   "room": 48,
   "kind": "text",
   "jp": "ながやりあお|n脚力を高める|nため攻撃２が使える",
-  "en": "",
+  "en": "Long Spear, Blue|nRaises speed|nAllows Charge Attack 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f22c",
@@ -1708,9 +1708,9 @@
   "room": 48,
   "kind": "text",
   "jp": "ながやりあか|n攻撃力が高い|nため攻撃２が使える",
-  "en": "",
+  "en": "Long Spear, Red|nHigh attack power|nAllows Charge Attack 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f25c",
@@ -1720,9 +1720,9 @@
   "room": 60,
   "kind": "text",
   "jp": "たんやりくろ|n連撃時間が長いが気力消費|nため攻撃１が使える",
-  "en": "",
+  "en": "Short Spear, Black|nLong combo, uses spirit|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f298",
@@ -1732,9 +1732,9 @@
   "room": 52,
   "kind": "text",
   "jp": "たんやりみどり|n防御力を高める|nため攻撃１が使える",
-  "en": "",
+  "en": "Short Spear, Green|nRaises defense|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f2cc",
@@ -1744,9 +1744,9 @@
   "room": 48,
   "kind": "text",
   "jp": "たんやりあお|n脚力を高める|nため攻撃１が使える",
-  "en": "",
+  "en": "Short Spear, Blue|nRaises speed|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f2fc",
@@ -1756,9 +1756,9 @@
   "room": 48,
   "kind": "text",
   "jp": "たんやりあか|n攻撃力が高い|nため攻撃１が使える",
-  "en": "",
+  "en": "Short Spear, Red|nHigh attack power|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f32c",
@@ -1768,9 +1768,9 @@
   "room": 60,
   "kind": "text",
   "jp": "はまゆみくろ|nしばらくとまる矢を発射|n気力消費　ため攻撃７",
-  "en": "",
+  "en": "Evil-Bane Bow, Black|nFires hovering arrows|nUses spirit, Charge 7",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f368",
@@ -1780,9 +1780,9 @@
   "room": 56,
   "kind": "text",
   "jp": "はまゆみみどり|n反射する矢を撃てる|nため攻撃７が使える",
-  "en": "",
+  "en": "Evil-Bane Bow, Green|nFires bouncing arrows|nAllows Charge Attack 7",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f3a0",
@@ -1792,9 +1792,9 @@
   "room": 52,
   "kind": "text",
   "jp": "はまゆみあお|n矢の速度が速い|nため攻撃７が使える",
-  "en": "",
+  "en": "Evil-Bane Bow, Blue|nFast arrows|nAllows Charge Attack 7",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f3d4",
@@ -1804,9 +1804,9 @@
   "room": 56,
   "kind": "text",
   "jp": "はまゆみあか|n貫通する矢を撃てる|nため攻撃７が使える",
-  "en": "",
+  "en": "Evil-Bane Bow, Red|nFires piercing arrows|nAllows Charge Attack 7",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f40c",
@@ -1816,9 +1816,9 @@
   "room": 60,
   "kind": "text",
   "jp": "どきゅうくろ|nしばらくとまる矢を発射|n気力消費　ため攻撃６",
-  "en": "",
+  "en": "Crossbow, Black|nFires hovering arrows|nUses spirit, Charge 6",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f448",
@@ -1828,9 +1828,9 @@
   "room": 56,
   "kind": "text",
   "jp": "どきゅうみどり|n反射する矢を撃てる|nため攻撃６が使える",
-  "en": "",
+  "en": "Crossbow, Green|nFires bouncing arrows|nAllows Charge Attack 6",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f480",
@@ -1840,9 +1840,9 @@
   "room": 52,
   "kind": "text",
   "jp": "どきゅうあお|n矢の速度が速い|nため攻撃６が使える",
-  "en": "",
+  "en": "Crossbow, Blue|nFast arrows|nAllows Charge Attack 6",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f4b4",
@@ -1852,9 +1852,9 @@
   "room": 56,
   "kind": "text",
   "jp": "どきゅうあか|n貫通する矢を撃てる|nため攻撃６が使える",
-  "en": "",
+  "en": "Crossbow, Red|nFires piercing arrows|nAllows Charge Attack 6",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f4ec",
@@ -1864,9 +1864,9 @@
   "room": 64,
   "kind": "text",
   "jp": "はがねゆみくろ|nしばらくとまる矢を発射|n気力消費　ため攻撃５",
-  "en": "",
+  "en": "Steel Bow, Black|nFires hovering arrows|nUses spirit, Charge 5",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f52c",
@@ -1876,9 +1876,9 @@
   "room": 60,
   "kind": "text",
   "jp": "はがねゆみみどり|n反射する矢を撃てる|nため攻撃５が使える",
-  "en": "",
+  "en": "Steel Bow, Green|nFires bouncing arrows|nAllows Charge Attack 5",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f568",
@@ -1888,9 +1888,9 @@
   "room": 52,
   "kind": "text",
   "jp": "はがねゆみあお|n矢の速度が速い|nため攻撃５が使える",
-  "en": "",
+  "en": "Steel Bow, Blue|nFast arrows|nAllows Charge Attack 5",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f59c",
@@ -1900,9 +1900,9 @@
   "room": 56,
   "kind": "text",
   "jp": "はがねゆみあか|n貫通する矢を撃てる|nため攻撃５が使える",
-  "en": "",
+  "en": "Steel Bow, Red|nFires piercing arrows|nAllows Charge Attack 5",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f5d4",
@@ -1912,9 +1912,9 @@
   "room": 64,
   "kind": "text",
   "jp": "てつきゅうくろ|nしばらくとまる矢を発射|n気力消費　ため攻撃４",
-  "en": "",
+  "en": "Iron Bow, Black|nFires hovering arrows|nUses spirit, Charge 4",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f614",
@@ -1924,9 +1924,9 @@
   "room": 60,
   "kind": "text",
   "jp": "てつきゅうみどり|n反射する矢を撃てる|nため攻撃４が使える",
-  "en": "",
+  "en": "Iron Bow, Green|nFires bouncing arrows|nAllows Charge Attack 4",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f650",
@@ -1936,9 +1936,9 @@
   "room": 52,
   "kind": "text",
   "jp": "てつきゅうあお|n矢の速度が速い|nため攻撃４が使える",
-  "en": "",
+  "en": "Iron Bow, Blue|nFast arrows|nAllows Charge Attack 4",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f684",
@@ -1948,9 +1948,9 @@
   "room": 56,
   "kind": "text",
   "jp": "てつきゅうあか|n貫通する矢を撃てる|nため攻撃４が使える",
-  "en": "",
+  "en": "Iron Bow, Red|nFires piercing arrows|nAllows Charge Attack 4",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f6bc",
@@ -1960,9 +1960,9 @@
   "room": 60,
   "kind": "text",
   "jp": "おおゆみくろ|nしばらくとまる矢を発射|n気力消費　ため攻撃３",
-  "en": "",
+  "en": "Great Bow, Black|nFires hovering arrows|nUses spirit, Charge 3",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f6f8",
@@ -1972,9 +1972,9 @@
   "room": 56,
   "kind": "text",
   "jp": "おおゆみみどり|n反射する矢を撃てる|nため攻撃３が使える",
-  "en": "",
+  "en": "Great Bow, Green|nFires bouncing arrows|nAllows Charge Attack 3",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f730",
@@ -1984,9 +1984,9 @@
   "room": 52,
   "kind": "text",
   "jp": "おおゆみあお|n矢の速度が速い|nため攻撃３が使える",
-  "en": "",
+  "en": "Great Bow, Blue|nFast arrows|nAllows Charge Attack 3",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f764",
@@ -1996,9 +1996,9 @@
   "room": 56,
   "kind": "text",
   "jp": "おおゆみあか|n貫通する矢を撃てる|nため攻撃３が使える",
-  "en": "",
+  "en": "Great Bow, Red|nFires piercing arrows|nAllows Charge Attack 3",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f79c",
@@ -2008,9 +2008,9 @@
   "room": 64,
   "kind": "text",
   "jp": "もくきゅうくろ|nしばらくとまる矢を発射|n気力消費　ため攻撃２",
-  "en": "",
+  "en": "Wooden Bow, Black|nFires hovering arrows|nUses spirit, Charge 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f7dc",
@@ -2020,9 +2020,9 @@
   "room": 60,
   "kind": "text",
   "jp": "もくきゅうみどり|n反射する矢を撃てる|nため攻撃２が使える",
-  "en": "",
+  "en": "Wooden Bow, Green|nFires bouncing arrows|nAllows Charge Attack 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f818",
@@ -2032,9 +2032,9 @@
   "room": 52,
   "kind": "text",
   "jp": "もくきゅうあお|n矢の速度が速い|nため攻撃２が使える",
-  "en": "",
+  "en": "Wooden Bow, Blue|nFast arrows|nAllows Charge Attack 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f84c",
@@ -2044,9 +2044,9 @@
   "room": 56,
   "kind": "text",
   "jp": "もくきゅうあか|n貫通する矢を撃てる|nため攻撃２が使える",
-  "en": "",
+  "en": "Wooden Bow, Red|nFires piercing arrows|nAllows Charge Attack 2",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f884",
@@ -2056,9 +2056,9 @@
   "room": 64,
   "kind": "text",
   "jp": "はんきゅうくろ|nしばらくとまる矢を発射|n気力消費　ため攻撃１",
-  "en": "",
+  "en": "Short Bow, Black|nFires hovering arrows|nUses spirit, Charge 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f8c4",
@@ -2068,9 +2068,9 @@
   "room": 60,
   "kind": "text",
   "jp": "はんきゅうみどり|n反射する矢を撃てる|nため攻撃１が使える",
-  "en": "",
+  "en": "Short Bow, Green|nFires bouncing arrows|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f900",
@@ -2080,9 +2080,9 @@
   "room": 52,
   "kind": "text",
   "jp": "はんきゅうあお|n矢の速度が速い|nため攻撃１が使える",
-  "en": "",
+  "en": "Short Bow, Blue|nFast arrows|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f934",
@@ -2092,9 +2092,9 @@
   "room": 56,
   "kind": "text",
   "jp": "はんきゅうあか|n貫通する矢を撃てる|nため攻撃１が使える",
-  "en": "",
+  "en": "Short Bow, Red|nFires piercing arrows|nAllows Charge Attack 1",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f96c",
@@ -2104,9 +2104,9 @@
   "room": 40,
   "kind": "text",
   "jp": "きかんのじゅつ|nこの国から脱出する|n",
-  "en": "",
+  "en": "Return Art|nEscape this province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f994",
@@ -2116,9 +2116,9 @@
   "room": 40,
   "kind": "text",
   "jp": "にんじゃのじゅつ|n忍者を呼び出す術|n",
-  "en": "",
+  "en": "Ninja Art|nSummons a ninja",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f9bc",
@@ -2128,9 +2128,9 @@
   "room": 48,
   "kind": "text",
   "jp": "こんごうだまのじゅつ|n長持ちする究極の守り|n",
-  "en": "",
+  "en": "Diamond Orb Art|nLasting, ultimate guard",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04f9ec",
@@ -2140,9 +2140,9 @@
   "room": 48,
   "kind": "text",
   "jp": "しろがねだまのじゅつ|n何回か攻撃から身を守る|n",
-  "en": "",
+  "en": "Silver Orb Art|nBlocks a few attacks",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fa1c",
@@ -2152,9 +2152,9 @@
   "room": 44,
   "kind": "text",
   "jp": "くろがねだまのじゅつ|n全方位から身を守る|n",
-  "en": "",
+  "en": "Iron Orb Art|nGuards from all sides",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fa48",
@@ -2164,9 +2164,9 @@
   "room": 48,
   "kind": "text",
   "jp": "がんきょうのじゅつ|nより強力な鋼の体になる|n",
-  "en": "",
+  "en": "Sturdy Art|nA stronger body of steel",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fa78",
@@ -2176,9 +2176,9 @@
   "room": 48,
   "kind": "text",
   "jp": "くっきょうのじゅつ|n屈強な力で倒れなくなる|n",
-  "en": "",
+  "en": "Brawn Art|nBrawn keeps you standing",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04faa8",
@@ -2188,9 +2188,9 @@
   "room": 48,
   "kind": "text",
   "jp": "けんきょうのじゅつ|nそう簡単には転ばなくなる|n",
-  "en": "",
+  "en": "Firm Art|nHard to knock down",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fad8",
@@ -2200,9 +2200,9 @@
   "room": 48,
   "kind": "text",
   "jp": "しんそくのじゅつ|nより時間がのびた究極の術|n",
-  "en": "",
+  "en": "Godspeed Art|nUltimate art, lasts long",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fb08",
@@ -2212,9 +2212,9 @@
   "room": 40,
   "kind": "text",
   "jp": "はやてのじゅつ|n時間がのびた強力な術|n",
-  "en": "",
+  "en": "Gale Art|nStrong art, lasts longer",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fb30",
@@ -2224,9 +2224,9 @@
   "room": 48,
   "kind": "text",
   "jp": "しゅんそくのじゅつ|nすばやい速さで敵を攻撃|n",
-  "en": "",
+  "en": "Swift Art|nStrike foes at speed",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fb60",
@@ -2236,9 +2236,9 @@
   "room": 48,
   "kind": "text",
   "jp": "かんちのじゅつ|nほとんどの傷を治してしまう|n",
-  "en": "",
+  "en": "Full Cure Art|nHeals nearly all wounds",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fb90",
@@ -2248,9 +2248,9 @@
   "room": 36,
   "kind": "text",
   "jp": "ちゆのじゅつ|n体力を大幅に回復|n",
-  "en": "",
+  "en": "Cure Art|nRestores much health",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fbb4",
@@ -2260,9 +2260,9 @@
   "room": 32,
   "kind": "text",
   "jp": "いやしのじゅつ|n体力を回復|n",
-  "en": "",
+  "en": "Heal Art|nRestores health",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fbd4",
@@ -2272,9 +2272,9 @@
   "room": 44,
   "kind": "text",
   "jp": "だいじしんのじゅつ|n天変地異で敵を倒す|n",
-  "en": "",
+  "en": "Great Quake Art|nA cataclysm fells foes",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fc00",
@@ -2284,9 +2284,9 @@
   "room": 40,
   "kind": "text",
   "jp": "じしんのじゅつ|n大きな地震で敵を倒す|n",
-  "en": "",
+  "en": "Quake Art|nA big quake fells foes",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fc28",
@@ -2296,9 +2296,9 @@
   "room": 48,
   "kind": "text",
   "jp": "じひびきのじゅつ|n地震を起こして敵を転ばせる|n",
-  "en": "",
+  "en": "Tremor Art|nA tremor trips up foes",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fc58",
@@ -2308,9 +2308,9 @@
   "room": 48,
   "kind": "text",
   "jp": "じんらいのじゅつ|n雷神の力で敵を打ちはらう|n",
-  "en": "",
+  "en": "Thunder God Art|nThunder God smites foes",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fc88",
@@ -2320,9 +2320,9 @@
   "room": 44,
   "kind": "text",
   "jp": "いなずまのじゅつ|n強力な雷が敵をおそう|n",
-  "en": "",
+  "en": "Lightning Art|nFierce lightning strikes",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fcb4",
@@ -2332,9 +2332,9 @@
   "room": 44,
   "kind": "text",
   "jp": "かみなりのじゅつ|nかみなりで敵をけちらす|n",
-  "en": "",
+  "en": "Thunder Art|nThunder scatters foes",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fce0",
@@ -2344,9 +2344,9 @@
   "room": 44,
   "kind": "text",
   "jp": "こおりあらしのじゅつ|n氷の嵐で敵を全滅|n",
-  "en": "",
+  "en": "Ice Storm Art|nIce storm wipes out foes",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fd0c",
@@ -2356,9 +2356,9 @@
   "room": 40,
   "kind": "text",
   "jp": "ふぶきのじゅつ|n吹雪で敵を凍らせる|n",
-  "en": "",
+  "en": "Blizzard Art|nA blizzard freezes foes",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fd34",
@@ -2368,9 +2368,9 @@
   "room": 44,
   "kind": "text",
   "jp": "こおりのじゅつ|n敵を凍らせて動けなくする|n",
-  "en": "",
+  "en": "Ice Art|nFreezes foes in place",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fd60",
@@ -2380,9 +2380,9 @@
   "room": 48,
   "kind": "text",
   "jp": "かりゅうのじゅつ|n火の竜の力を借りる必殺技|n",
-  "en": "",
+  "en": "Fire Dragon Art|nFire dragon finisher",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fd90",
@@ -2392,9 +2392,9 @@
   "room": 36,
   "kind": "text",
   "jp": "かえんのじゅつ|n強力な火炎を出す|n",
-  "en": "",
+  "en": "Flame Art|nUnleashes fierce flames",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "04fdb4",
@@ -2404,8 +2404,8 @@
   "room": 36,
   "kind": "text",
   "jp": "かとんのじゅつ|n炎で敵を攻撃する|n",
-  "en": "",
+  "en": "Fire Art|nAttacks foes with fire",
   "notes": "",
-  "status": ""
+  "status": "done"
  }
 ]

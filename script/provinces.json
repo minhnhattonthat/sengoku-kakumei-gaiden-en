@@ -7,9 +7,9 @@
   "room": 44,
   "kind": "text",
   "jp": "いそいで|n薩摩（さつま）の国に|nもどろう",
-  "en": "",
+  "en": "Hurry back to Satsuma|nProvince!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e2d8",
@@ -19,9 +19,9 @@
   "room": 36,
   "kind": "text",
   "jp": "まず|n肥後（ひご）の国を|nめざそう",
-  "en": "",
+  "en": "First, head for Higo|nProvince!",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e2fc",
@@ -31,9 +31,9 @@
   "room": 24,
   "kind": "text",
   "jp": "無限（むげん）国|n|n",
-  "en": "",
+  "en": "Mugen Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e314",
@@ -43,9 +43,9 @@
   "room": 20,
   "kind": "text",
   "jp": "蝦夷（えぞ）国|n|n",
-  "en": "",
+  "en": "Ezo Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e328",
@@ -55,9 +55,9 @@
   "room": 20,
   "kind": "text",
   "jp": "陸奥（むつ）国|n|n",
-  "en": "",
+  "en": "Mutsu Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e33c",
@@ -67,9 +67,9 @@
   "room": 20,
   "kind": "text",
   "jp": "羽後（うご）国|n|n",
-  "en": "",
+  "en": "Ugo Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e350",
@@ -79,9 +79,9 @@
   "room": 28,
   "kind": "text",
   "jp": "陸中（りくちゅう）国|n|n",
-  "en": "",
+  "en": "Rikuchu Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e36c",
@@ -91,9 +91,9 @@
   "room": 24,
   "kind": "text",
   "jp": "羽前（うぜん）国|n|n",
-  "en": "",
+  "en": "Uzen Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e384",
@@ -103,9 +103,9 @@
   "room": 24,
   "kind": "text",
   "jp": "陸前（りくぜん）国|n|n",
-  "en": "",
+  "en": "Rikuzen Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e39c",
@@ -115,9 +115,9 @@
   "room": 24,
   "kind": "text",
   "jp": "岩代（いわしろ）国|n|n",
-  "en": "",
+  "en": "Iwashiro Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e3b4",
@@ -127,9 +127,9 @@
   "room": 24,
   "kind": "text",
   "jp": "下野（しもつけ）国|n|n",
-  "en": "",
+  "en": "Shimotsuke Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e3cc",
@@ -139,9 +139,9 @@
   "room": 24,
   "kind": "text",
   "jp": "上野（こうずけ）国|n|n",
-  "en": "",
+  "en": "Kozuke Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e3e4",
@@ -151,9 +151,9 @@
   "room": 24,
   "kind": "text",
   "jp": "常陸（ひたち）国|n|n",
-  "en": "",
+  "en": "Hitachi Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e3fc",
@@ -163,9 +163,9 @@
   "room": 24,
   "kind": "text",
   "jp": "武蔵（むさし）国|n|n",
-  "en": "",
+  "en": "Musashi Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e414",
@@ -175,9 +175,9 @@
   "room": 24,
   "kind": "text",
   "jp": "下総（しもうさ）国|n|n",
-  "en": "",
+  "en": "Shimousa Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e42c",
@@ -187,9 +187,9 @@
   "room": 20,
   "kind": "text",
   "jp": "江戸（えど）国|n|n",
-  "en": "",
+  "en": "Edo Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e440",
@@ -199,9 +199,9 @@
   "room": 24,
   "kind": "text",
   "jp": "相模（さがみ）国|n|n",
-  "en": "",
+  "en": "Sagami Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e458",
@@ -211,9 +211,9 @@
   "room": 24,
   "kind": "text",
   "jp": "駿河（するが）国|n|n",
-  "en": "",
+  "en": "Suruga Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e470",
@@ -223,9 +223,9 @@
   "room": 20,
   "kind": "text",
   "jp": "美濃（みの）国|n|n",
-  "en": "",
+  "en": "Mino Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e484",
@@ -235,9 +235,9 @@
   "room": 24,
   "kind": "text",
   "jp": "尾張（おわり）国|n|n",
-  "en": "",
+  "en": "Owari Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e49c",
@@ -247,9 +247,9 @@
   "room": 24,
   "kind": "text",
   "jp": "近江（おうみ）国|n|n",
-  "en": "",
+  "en": "Omi Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e4b4",
@@ -259,9 +259,9 @@
   "room": 20,
   "kind": "text",
   "jp": "伊勢（いせ）国|n|n",
-  "en": "",
+  "en": "Ise Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e4c8",
@@ -271,9 +271,9 @@
   "room": 20,
   "kind": "text",
   "jp": "甲斐（かい）国|n|n",
-  "en": "",
+  "en": "Kai Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e4dc",
@@ -283,9 +283,9 @@
   "room": 24,
   "kind": "text",
   "jp": "越後（えちご）国|n|n",
-  "en": "",
+  "en": "Echigo Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e4f4",
@@ -295,9 +295,9 @@
   "room": 28,
   "kind": "text",
   "jp": "越中（えっちゅう）国|n|n",
-  "en": "",
+  "en": "Etchu Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e510",
@@ -307,9 +307,9 @@
   "room": 24,
   "kind": "text",
   "jp": "信濃（しなの）国|n|n",
-  "en": "",
+  "en": "Shinano Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e528",
@@ -319,9 +319,9 @@
   "room": 20,
   "kind": "text",
   "jp": "能登（のと）国|n|n",
-  "en": "",
+  "en": "Noto Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e53c",
@@ -331,9 +331,9 @@
   "room": 24,
   "kind": "text",
   "jp": "越前（えちぜん）国|n|n",
-  "en": "",
+  "en": "Echizen Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e554",
@@ -343,9 +343,9 @@
   "room": 24,
   "kind": "text",
   "jp": "山城（やましろ）国|n|n",
-  "en": "",
+  "en": "Yamashiro Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e56c",
@@ -355,9 +355,9 @@
   "room": 24,
   "kind": "text",
   "jp": "播磨（はりま）国|n|n",
-  "en": "",
+  "en": "Harima Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e584",
@@ -367,9 +367,9 @@
   "room": 24,
   "kind": "text",
   "jp": "摂津（せっつ）国|n|n",
-  "en": "",
+  "en": "Settsu Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e59c",
@@ -379,9 +379,9 @@
   "room": 24,
   "kind": "text",
   "jp": "大和（やまと）国|n|n",
-  "en": "",
+  "en": "Yamato Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e5b4",
@@ -391,9 +391,9 @@
   "room": 20,
   "kind": "text",
   "jp": "紀伊（きい）国|n|n",
-  "en": "",
+  "en": "Kii Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e5c8",
@@ -403,9 +403,9 @@
   "room": 24,
   "kind": "text",
   "jp": "出雲（いずも）国|n|n",
-  "en": "",
+  "en": "Izumo Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e5e0",
@@ -415,9 +415,9 @@
   "room": 28,
   "kind": "text",
   "jp": "備中（びっちゅう）国|n|n",
-  "en": "",
+  "en": "Bitchu Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e5fc",
@@ -427,9 +427,9 @@
   "room": 24,
   "kind": "text",
   "jp": "石見（いわみ）国|n|n",
-  "en": "",
+  "en": "Iwami Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e614",
@@ -439,9 +439,9 @@
   "room": 20,
   "kind": "text",
   "jp": "安芸（あき）国|n|n",
-  "en": "",
+  "en": "Aki Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e628",
@@ -451,9 +451,9 @@
   "room": 24,
   "kind": "text",
   "jp": "長門（ながと）国|n|n",
-  "en": "",
+  "en": "Nagato Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e640",
@@ -463,9 +463,9 @@
   "room": 24,
   "kind": "text",
   "jp": "讃岐（さぬき）国|n|n",
-  "en": "",
+  "en": "Sanuki Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e658",
@@ -475,9 +475,9 @@
   "room": 20,
   "kind": "text",
   "jp": "阿波（あわ）国|n|n",
-  "en": "",
+  "en": "Awa Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e66c",
@@ -487,9 +487,9 @@
   "room": 20,
   "kind": "text",
   "jp": "伊予（いよ）国|n|n",
-  "en": "",
+  "en": "Iyo Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e680",
@@ -499,9 +499,9 @@
   "room": 20,
   "kind": "text",
   "jp": "土佐（とさ）国|n|n",
-  "en": "",
+  "en": "Tosa Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e694",
@@ -511,9 +511,9 @@
   "room": 24,
   "kind": "text",
   "jp": "筑前（ちくぜん）国|n|n",
-  "en": "",
+  "en": "Chikuzen Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e6ac",
@@ -523,9 +523,9 @@
   "room": 24,
   "kind": "text",
   "jp": "豊前（ぶぜん）国|n|n",
-  "en": "",
+  "en": "Buzen Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e6c4",
@@ -535,9 +535,9 @@
   "room": 24,
   "kind": "text",
   "jp": "肥前（ひぜん）国|n|n",
-  "en": "",
+  "en": "Hizen Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e6dc",
@@ -547,9 +547,9 @@
   "room": 24,
   "kind": "text",
   "jp": "豊後（ぶんご）国|n|n",
-  "en": "",
+  "en": "Bungo Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e6f4",
@@ -559,9 +559,9 @@
   "room": 20,
   "kind": "text",
   "jp": "肥後（ひご）国|n|n",
-  "en": "",
+  "en": "Higo Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e708",
@@ -571,9 +571,9 @@
   "room": 24,
   "kind": "text",
   "jp": "日向（ひゅうが）国|n|n",
-  "en": "",
+  "en": "Hyuga Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e720",
@@ -583,9 +583,9 @@
   "room": 24,
   "kind": "text",
   "jp": "薩摩（さつま）国|n|n",
-  "en": "",
+  "en": "Satsuma Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e738",
@@ -595,9 +595,9 @@
   "room": 28,
   "kind": "text",
   "jp": "琉球（りゅうきゅう）国|n|n",
-  "en": "",
+  "en": "Ryukyu Province",
   "notes": "",
-  "status": ""
+  "status": "done"
  },
  {
   "id": "05e754",
@@ -607,8 +607,8 @@
   "room": 34,
   "kind": "text",
   "jp": "スタート…メニュー|nＡ…国選択|n",
-  "en": "",
+  "en": "START: Menu|nA: Choose a province",
   "notes": "",
-  "status": ""
+  "status": "done"
  }
 ]
