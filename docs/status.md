@@ -2,7 +2,16 @@
 
 Updated at the end of every session. Keep it to what the next session needs; history is in git.
 
-- **Phase:** 8. QA in the emulator, in progress (phase 7 done 2026-11-16; text coverage gate green 2026-11-17; left: final tour on build 41741062 + Codex visual-QA verdicts + textcover re-run, see session 9). Last build: `build/sengoku_en.gba` sha1 41741062… (1036 strings, 758 letter pairs, sprite banks 20, 22-39, 44 (THE END), 47, 58, 59, 61 + small-font digits + LV UP! popup + 2 Latin name-entry pictures + 13 ending cards + 2 link cards, 2114 writes).
+- **Phase:** 8. QA in the emulator, in progress (phase 7 done 2026-11-16; text coverage gate green 2026-11-17; left: final tour on build 41741062 + Codex visual-QA verdicts + textcover re-run, see sessions 9-10; the tour needs free memory). Last build: `build/sengoku_en.gba` sha1 41741062… (1036 strings, 758 letter pairs, sprite banks 20, 22-39, 44 (THE END), 47, 58, 59, 61 + small-font digits + LV UP! popup + 2 Latin name-entry pictures + 13 ending cards + 2 link cards, 2114 writes).
+- **Phase 8 session 10 (2026-11-17): final tour stopped by low system memory again, phase did not move.** Found
+  the previous worker's runs orphaned: `final_tour.sh work/qa_b2` (every Mesen start failing, exit 3221225794 =
+  0xC0000142, out of memory next to another project's emulators) and `vqa_codex.sh` on the **old-build** chunks
+  (useless for the gate); killed both, deleted `work/qa_b2`. `final_tour.sh` now takes `JOBS=N` (default 3, was a
+  hard 5). Re-ran `JOBS=3 sh tools/debug/final_tour.sh > work/qa_final.log`; Claude Code reaped it for low memory
+  after ~163 of the tour's scene dirs (no `_proof`, pages/coverage runs not started). `work/qa/tour` is now partial
+  and the old `work/qa/manifest.tsv`/`chunks` point at the old build: start over with step (1) below. **Run it only
+  when other projects' emulators are not running** (check `Get-Process Mesen`; ~4-6 GB free is not enough for 3
+  Mesen + other sessions), or `JOBS=2`. Same next steps as session 9.
 - **Phase 8 session 9 (2026-11-17): final QA set up, runs killed by low system memory.** Done: `docs/visual-qa-brief.md`
   (game non-bugs: sideways text = `sheet.py --rotate 270`, outline menu-bar font and left start are the original's,
   scroll text over its decoration is the original's, 24-letter wraps, D5/D8/D11/D12); bank 30 Yes/No and

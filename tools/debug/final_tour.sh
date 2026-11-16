@@ -17,10 +17,13 @@ RANGES="RANGES='0804CE4C-0805043E,0805045C-08055BA6,0805E2AC-0805E776,08061C1C-0
 W="python -X utf8 tools/debug/warp.py --rom $ROM"
 run() { out=$1; shift; rm -rf "$Q/$out"; echo "== $out"; $W --out "$R/$Q/$out" $TC --var "$RANGES" "$@" 2>&1 | grep -v "tiles (row-major)"; }
 
-run tour --jobs 5 --proof
+# JOBS=N (default 3): parallel emulators (~550 MB each); 5 next to another project's emulators ran out of memory
+# and every Mesen start failed with exit 3221225794 (0xC0000142). Check the log for FAIL lines afterwards.
+J=${JOBS:-3}
+run tour --jobs $J --proof
 # dialogue pages: every ev=/dlg= scene, A every 40 frames after the shot
 grep -E '^[a-z0-9_]+ .*(ev=|dlg=)' tools/debug/scenes.txt > "$Q/pages_scenes.txt"
-run pages --jobs 5 --scenes-file "$Q/pages_scenes.txt" --var PAGES=2400
+run pages --jobs $J --scenes-file "$Q/pages_scenes.txt" --var PAGES=2400
 run desc item_desc --script tools/lua/itemdesc.lua --var STEP=1 --shot-every 40
 run prov provinces --script tools/lua/liststep.lua --var LIST=0x08731448 --var N=51 --var STEP=1 --shot-every 90
 run mhelp menu_help --script tools/lua/liststep.lua --var LIST=0x087303B8 --var N=46 --var STEP=1 --var AFTER=4900 --shot-every 60
@@ -31,7 +34,7 @@ for k in 0x17 0x29 0x33; do
 done
 run go/dojo --scenes-file work/qa/go/dojo.txt --script tools/lua/dojo.lua --var GOD=1 --var LIST=0 --var VERBOSE=1
 run go/dojo0 --scenes-file work/qa/go/dojo.txt --script tools/lua/dojo.lua --var GOD=1 --var CTRL=0 --var LIST=0 --var VERBOSE=1
-run go/lk --jobs 4 --scenes-file work/qa/go/lk.txt --script tools/lua/liststep.lua --var LIST=0 --var VERBOSE=1 --shot-every 60
+run go/lk --jobs $J--scenes-file work/qa/go/lk.txt --script tools/lua/liststep.lua --var LIST=0 --var VERBOSE=1 --shot-every 60
 # story flag branches (coverage only, no sheets in the manifest)
 rm -rf "$Q/swap"
 sh tools/debug/swap_groups.sh "$R/$Q/swap" "$ROM" 0x08730940 0x08730b38 0x08730b48 0x08730c78 0x08730cb0 0x08730f00 \
