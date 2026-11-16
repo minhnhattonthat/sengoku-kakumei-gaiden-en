@@ -29,7 +29,8 @@ STYLE = {22: {"kind": "box"}, 36: {"kind": "plain", "pal": 4, "skip": (10, 11)},
          **{n: {"kind": "outline"} for n in (23, 24, 25, 28, 29, 31, 37, 38, 39)},
          27: {"kind": "outline", "black": {290}},
          # bank 30's link time choices show with OBJ palettes 5-7, where 15 is black / dark red on a light 13
-         30: {"kind": "outline", "black": {98, 146, 194}},
+         # (centred: the original はい/いいえ/一五分 fill the 44-row bar, rows 2-37)
+         30: {"kind": "outline", "black": {98, 146, 194}, "centre": True},
          61: {"kind": "big"}}  # "big" = the combo counter's outlined gradient glyphs (draw_big())
 
 
@@ -219,11 +220,14 @@ def letter_points(text, top, x_top):
     return pts
 
 
-def draw_outline(text, n, orig, black=False):
+def draw_outline(text, n, orig, black=False, centre=False):
     """English over a menu choice slot (rows of interior peach): cleared to OUT_BG, then white letters with an
-    8-neighbour dark edge (or black letters with a shade, `black`), top-aligned from OUT_TOP."""
+    8-neighbour dark edge (or black letters with a shade, `black`), top-aligned from OUT_TOP, or centred in the
+    slot (`centre`: bank 30, whose originals spread across the whole bar)."""
     length = text_width(text)
     top = OUT_TOP if OUT_TOP + length + 2 <= n else 2  # a tight slot: the edge may touch row 1
+    if centre:
+        top = max(top, (n - length) // 2)
     if top + length + 2 > n:
         raise ValueError(f"{text!r}: {length} rows from row {top}, slot {n}")
     out = [[v if v == 0 else OUT_BG for v in row] for row in orig]
@@ -305,7 +309,8 @@ def english_rows(rom, bank):
             shade = trio[1] if len(trio) > 1 and any(15 in r for r in orig) else None
             new[start:start + n] = draw_plain(en, n, orig, trio[0], shade, style.get("centre", False))
         elif style["kind"] == "outline":
-            new[start:start + n] = draw_outline(en, n, orig, start in style.get("black", ()))
+            new[start:start + n] = draw_outline(en, n, orig, start in style.get("black", ()),
+                                                style.get("centre", False))
         elif style["kind"] == "big":
             new[start:start + n] = draw_big(en, n, orig)
         else:

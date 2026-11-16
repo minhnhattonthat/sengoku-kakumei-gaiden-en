@@ -115,7 +115,7 @@
   "room": 28,
   "kind": "text",
   "jp": "ボタン操作を変更します。",
-  "en": "Change the button|ncontrols.",
+  "en": "Change button controls.",
   "notes": "",
   "status": "done"
  },
@@ -271,7 +271,7 @@
   "room": 28,
   "kind": "text",
   "jp": "１人で遊ぶ|n物語編です。",
-  "en": "Story mode for one|nplayer.",
+  "en": "One-player story mode.",
   "notes": "",
   "status": "done"
  },
@@ -283,7 +283,7 @@
   "room": 32,
   "kind": "text",
   "jp": "この性別で|nよろしいですか？",
-  "en": "Is this gender all|nright?",
+  "en": "Is this gender OK?",
   "notes": "",
   "status": "done"
  },
@@ -295,7 +295,7 @@
   "room": 36,
   "kind": "text",
   "jp": "主人公の性別を|n選んでください。",
-  "en": "Choose the hero's|ngender.",
+  "en": "Pick the hero's gender.",
   "notes": "",
   "status": "done"
  },
