@@ -231,7 +231,8 @@ def draw_outline(text, n, orig, black=False, centre=False):
     if top + length + 2 > n:
         raise ValueError(f"{text!r}: {length} rows from row {top}, slot {n}")
     out = [[v if v == 0 else OUT_BG for v in row] for row in orig]
-    pts = letter_points(text, top, 12)
+    # Across the bar too when centred: the originals' ink spans x 2-13; caps at x_top 12 left x 5-13 (margins 5/2)
+    pts = letter_points(text, top, 11 if centre else 12)
     if black:
         for y, x in pts:
             for yy, xx in ((y + 1, x), (y, x - 1), (y + 1, x - 1)):

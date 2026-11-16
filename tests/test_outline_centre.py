@@ -26,6 +26,14 @@ class TestOutlineCentre(unittest.TestCase):
             top, bottom = ink_span(new[start:start + n])
             self.assertLessEqual(abs(top - (n - 1 - bottom)), 2, f"{en!r}: rows {top}-{bottom} of {n}")
 
+    def test_bank30_centred_across(self):
+        """Across the 16-px bar as well: the originals' ink spans x 2-13 (margins 2/2)."""
+        _, _, new = gfx_labels.english_rows(self.rom, 30)
+        for start, n, jp, en in gfx_labels.load_tsv(30):
+            xs = [x for r in new[start:start + n] for x, v in enumerate(r) if v not in (0, gfx_labels.OUT_BG)]
+            left, right = min(xs), gfx_labels.W - 1 - max(xs)
+            self.assertLessEqual(abs(left - right), 1, f"{en!r}: x {min(xs)}-{max(xs)}")
+
     def test_bank27_top_aligned(self):
         _, _, new = gfx_labels.english_rows(self.rom, 27)
         start, n, jp, en = next(r for r in gfx_labels.load_tsv(27) if r[3] == "Yes")
