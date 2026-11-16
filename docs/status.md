@@ -3,6 +3,19 @@
 Updated at the end of every session. Keep it to what the next session needs; history is in git.
 
 - **Phase:** 8. QA in the emulator, in progress (phase 7 done 2026-11-16). Last build: `build/sengoku_en.gba` sha1 1a3ff318… (1036 strings, 758 letter pairs, sprite banks 20, 22-39, 58, 59, 61 + small-font digits + Latin name entry, 2064 writes).
+- **Phase 8 session 6 (2026-11-16):** **ending cards done** (`docs/re/prose.md`, `tools/prose.py`): 6 prose
+  cards (Masamune, Ieyasu, Hideyoshi, Terumoto, Yukimura, Yoshihiro) and 7 staff-credit cards are BG pictures
+  (idx 160 B / defs 8208 B / tiles LZ triples), redrawn rotated with content-deduped metatiles in their own
+  slots; the 完 card is bank 44 OBJ tiles at 0x71BAD8 -> THE / END. Credits keep the samurai joke titles
+  (Cyber Foot Soldiers (Programming) ...), staff names in Hepburn (D2; Hiroshige Orui, Hiroshi Tanihiro least
+  sure). Scenes `ending_*` retimed: one per card (`work/gfx/shots/ending_cards.png`). **Link-error card done**
+  (`tools/link_card.py`, 8bpp, text lifted off the emblem; `work/gfx/shots/link_failed.png`); its blocks
+  outgrew their slots, so **build.py now relocates LZ blocks** to `textbank.GFX_FREE` 0x7D8000-0x7E0000 (text
+  FREE now ends there; `build.RELOCATABLE_LZ` lists pointer sites). **Link time choices** (bank 30 slots 98/146/194)
+  drawn black: they use OBJ palettes 5-7 (`work/gfx/shots/link_timesel.png`). **Bank 47** = the seven magatama
+  orbs (信智天仁忠孝勇) -> initials F W H M L P C (`gfx_labels.ORBS`); not yet seen in game (ev105 shows a shard
+  icon, not these). Full tour with `textcover.lua` + `lzlog.lua` started into `work/qa/tour2` (log
+  `work/qa/tour2.log`, ROM copy `build/tour.gba`).
 - **Phase 8 session 5 (2026-11-16):** **bank 20** province plates (`gfx_labels.PLATES`, tiny 5-row caps, "SATSU/MA"
   two-line splits; seen on `map`), **bank 58** = the stage HUD weapon glyph 刀槍弓 -> SWORD/SPEAR/BOW (`CELLS[58]`,
   seen on `stage_r1_hyuga`), **bank 59** = the title's "Please press START" banner (horizontal, `gfx_labels.HORIZ`;
@@ -43,8 +56,9 @@ Updated at the end of every session. Keep it to what the next session needs; his
   (23-25, 27-31, 37-39, style `outline`), 10 menu scenes checked (`work/gfx/shots/menus_outline.png`). Still
   Japanese on those shots: big brush 空 (save slots) and 男/女 (gender), link lobby 参加 boxes (bank 26, 32 px
   wide) + kana names, the map menu's %n default name あああ. Last build sha1 6d6b9b65….
-- **Next (phase 8), in order:** (0) leftovers: bank 58 cell 29 (framed 術 icon, 32x32; find where it shows),
-  bank 47 (blue kana-like fragments: check), a combo route for 61, the link versus map header / リプレイ label
+- **Next (phase 8), in order:** (0) leftovers: the second name-grid picture LZ 0x5B14B4 (white variant of
+  0x5AEA30 with 名前入力 + kana grid: find its scene in `work/qa/tour2/*/log.txt` lz lines), where bank 47's orbs
+  show, bank 58 cell 29 (framed 術 icon, 32x32; find where it shows), a combo route for 61, the link versus map header / リプレイ label
   (`work/qa/b33/le_4.png`), re-time `game_over` (see session 4); then
   (1) if `work/qa/tour/_proof` is missing or the log is short, re-run the tour: `python -X utf8 tools/debug/warp.py --rom <abs>/build/sengoku_en.gba --out <abs>/work/qa/tour --jobs 3 --proof --script $SKILL/scripts/lua/probes/textcover.lua --var "RANGES='0804CE4C-0805043E,0805045C-08055BA6,0805E2AC-0805E776,08061C1C-08061C59,0807E090-0807EF1C,08201800-08202114,087C1000-087DFFFF'"` (background, ~1 h); then `textcover.py work/qa/tour build/strings.tsv --mask 0x7FFFFF` and add scenes/waivers (dialogue pages beyond the first may need a mash route). (2) map the other banks: `sprites.py render N --cols 2` for each, classify (bank 36 = item names, 23/24 = buttons, 名前入力 header elsewhere), add `gfx/bankNN.tsv` rows; strips narrower/wider than 16 px need `gfx_labels.W` per bank. (3) non-sprite graphics: ending prose LZ blocks, credits, link-error card (title logo stays Japanese, name grid done; find each screen's BG block with a ppudump + `vramfind.py VRAM work/lz`, edit as `name_grid.py` does). (4) final tour on the finished build, `qa_gate.py init/todo`, visual QA by `codex exec -s read-only` per chunk, `inkbox.py`, `textcover.py`.
 - **Phase 7 result:** build green. `tools/check.py` (37 tests) = batches lint (control codes, ASCII, glossary, 3x24 budget, honorifics, gendered address, stub last lines) + `tests/test_build.py` on an in-memory English build: `build.verify` (allowed ranges + romdiff with the write log), every pointer site of every edited string reads its English, no word outside the sites points at/into a moved string (sound/LZ noise 0x440000-0x690000 excluded, 14 noise hits checked), hook bytes asserted, no branch/literal into the 8-byte lookup hook, no Japanese in `en`, untranslated text only on `script/keep_jp.txt` (061c1c arrows). `jp_left.py build/sengoku_en.gba --tbl tbl/jp.tbl --gba-ptrs --known data/jp_known.txt` = 0 runs (same with `--slots` from text_sites). Results screen labels fit in-game (`work/qa/p7`); the link time-select choices 一五分/三〇分/四五分 are graphics (added to `docs/re/graphics.md`).
