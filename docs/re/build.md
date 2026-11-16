@@ -16,7 +16,7 @@ commit. **verified**.
   debug menu's half-width katakana (0x04E018.., JIS X 0201 bytes, pointed from the 0xA000 pool).
 - **Room in place** = the string, its NUL and the zero padding up to the next 4-byte boundary, never past the next
   pointed string. Unpointed bytes in the gaps (debug labels such as `ﾊｲ`/`ｲｲｴ`, padding) are never written.
-- **Longer text** moves to free space 0x759178-0x7FFFFF (4-aligned, identical strings shared), every site is
+- **Longer text** moves to free space 0x7C1000-0x7DFFFF (`textbank.FREE`; 0x759178-0x7C0B40 is read by the magatama page, `english.md`) (4-aligned, identical strings shared), every site is
   rewritten and the old slot is zero-filled. Test: every one of the 1101 strings force-moved still reads the same
   through every site.
 - **Table**: `tbl/jp.tbl` from `tools/gen_jptbl.py` (EUC-JP JIS X 0208 pairs, ASCII, `00={end}`); decode -> encode is

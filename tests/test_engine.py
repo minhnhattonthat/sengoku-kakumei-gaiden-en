@@ -50,7 +50,23 @@ class TestEngine(unittest.TestCase):
         self.assertEqual(engine.lookup_code(engine.FONT_AT), engine.LOOKUP_BIN)
 
     def test_hook(self):
-        self.assertEqual(engine.hook_bytes(), struct.pack("<HHI", 0x4B00, 0x4718, 0x087C0001))
+        self.assertEqual(engine.hook_bytes(), struct.pack("<HHI", 0x4B00, 0x4718, 0x087E0001))
+
+    def test_palette_read_range_untouched(self):
+        # The magatama page copies 0x087573D8..0x087C0B40 into palette RAM (textbank.PALETTE_READ): nothing the
+        # build writes may land there, or the white page turns into a patterned dark screen.
+        import textbank
+        lo, hi = textbank.PALETTE_READ
+        self.assertEqual((lo, hi), (0x759178, 0x7C0B40))
+        for a, b in [textbank.FREE, engine.ENGINE]:
+            self.assertTrue(b <= lo or a >= hi, (hex(a), hex(b)))
+        log = ROOT / "build" / "writes.log"
+        if log.exists():
+            for line in log.read_text(encoding="utf-8").splitlines():
+                parts = line.split()
+                if parts and all(c in "0123456789abcdefABCDEFx" for c in parts[0]):
+                    off = int(parts[0], 16)
+                    self.assertFalse(lo <= off < hi, line)
 
     def test_patch_on_rom(self):
         rom = ROOT / "rom" / "Sengoku Kakumei Gaiden (Japan).gba"

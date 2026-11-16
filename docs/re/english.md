@@ -25,10 +25,15 @@ Recorded as D8 in `docs/decisions.md` (pre-approved run; the owner may still ask
 - The reader (0x08011E46..0x08012450) treats only `%` (then a letter 0x42-0x73) and `|` (then `n` or `d`) as
   controls; every other character is read as 2 bytes and looked up. English pair codes are `b0 b1` with b0
   0x80-0x9F and b1 0x80-0xFF (4096 codes): never `%`/`|`/NUL, never EUC (b0 >= 0xA1).
-- `tools/engine.py`: font table copied to 0x7C0100 (990 original entries + one per letter pair used by the script),
-  pointer literal 0x04A464 repointed; lookup 0x080126C0 replaced by an 8-byte jump to 0x7C0000, which maps a pair
+- `tools/engine.py`: font table copied to 0x7E0100 (990 original entries + one per letter pair used by the script),
+  pointer literal 0x04A464 repointed; lookup 0x080126C0 replaced by an 8-byte jump to 0x7E0000, which maps a pair
   code directly to 990 + (b0-0x80)*128 + (b1-0x80) and runs the original linear search for anything else.
-  Free space for text relocation is now 0x759178-0x7BFFFF (`textbank.FREE`); 0x7C0000-0x7FFFFF is the engine.
+  Free space for text relocation is 0x7C1000-0x7DFFFF (`textbank.FREE`); 0x7E0000-0x7FFFFF is the engine.
+- **0x759178-0x7C0B40 is not free** (`textbank.PALETTE_READ`, `tests/test_engine.py`): the magatama page (events
+  105-112) calls CpuSet(0x087573D8 -> 0x05001FE0, count 0x34BB4 halfwords), a game bug that streams 431 KB through
+  the 1 KB palette RAM. The last 1 KB read (0x7C0740-0x7C0B40, 0xFF) leaves the palette all white, which *is* the
+  white page. Anything written there turned the page into a dark patterned screen (found by bisecting the
+  marker build's writes, then `watch.lua` read hook -> BIOS pc 0xB8E -> `tools/lua/swilog.lua`).
 - The pair dictionary is rebuilt from the script on every build (sorted, so the same script gives the same ROM).
 
 ## Builds

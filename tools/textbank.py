@@ -28,7 +28,11 @@ RANGES = [
     ("link", 0x07E090, 0x07EF1C),
     ("results", 0x201800, 0x202114),
 ]
-FREE = (0x759178, 0x7C0000)  # 0xFF fill at the end of the 8 MiB ROM (docs/re/rom-map.md); 0x7C0000.. = tools/engine.py
+# 0x759178-0x7FFFFF is 0xFF fill, but the magatama page (ev105-112) runs CpuSet(0x087573D8 -> 0x05001FE0, 0x34BB4
+# halfwords), reading up to 0x087C0B40 into palette RAM: the last 1 KB (0xFF) is what makes that page white, and the
+# rest flashes through the palette during the copy. So that range stays untouched (docs/re/english.md).
+PALETTE_READ = (0x759178, 0x7C0B40)
+FREE = (0x7C1000, 0x7E0000)  # text relocation; 0x7E0000.. = tools/engine.py
 
 
 @dataclass

@@ -8,7 +8,8 @@ patch(rom_bytearray, encoder) -> writes [(off, old, new, who)]:
     repointed there;
   - glyph lookup 0x080126C0 (code -> glyph index, a linear search over 990 entries) jumps to LOOKUP_AT: a pair code
     (b0 0x80-0x9F) maps straight to 990 + (b0-0x80)*128 + (b1-0x80); any other code runs the original linear search.
-All of it lives in ENGINE, the top of the free space; textbank.FREE ends where it starts.
+All of it lives in ENGINE, the top of the free space; textbank.FREE ends where it starts. Nothing may go in
+textbank.PALETTE_READ (0x759178-0x7C0B40): the magatama page's palette copy reads it (docs/re/english.md).
 """
 import struct
 import sys
@@ -17,9 +18,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import font_en  # noqa: E402
 
-ENGINE = (0x7C0000, 0x800000)
-LOOKUP_AT = 0x7C0000          # thumb code, < 0x100 bytes
-FONT_AT = 0x7C0100            # 32-byte entries
+ENGINE = (0x7E0000, 0x800000)
+LOOKUP_AT = 0x7E0000          # thumb code, < 0x100 bytes
+FONT_AT = 0x7E0100            # 32-byte entries (room for 990 + 3088 pairs)
 ORIG_FONT = 0x712128
 ORIG_COUNT = 0x3DE            # 990
 ENTRY = 32
@@ -85,10 +86,12 @@ def lookup_code(font_addr):
     return code
 
 
-# lookup_code(FONT_AT), so the build needs no assembler; tests/test_engine.py re-assembles it when keystone is there
-LOOKUP_BIN = bytes.fromhex(
+# lookup_code(FONT_AT), so the build needs no assembler; tests/test_engine.py re-assembles it when keystone is there.
+# The code is position-independent; only the font literal (third pool word) depends on FONT_AT.
+_LOOKUP_CODE = bytes.fromhex(
     "70b50004050c2906090e80391f2906d82a0a803ac9018818094940180ce00024084e094b6001185aa84204d00134b442f8d906"
-    "4800e0201c70bc02bc084700bfde030000dd03000002017c0835010000")
+    "4800e0201c70bc02bc084700bfde030000dd030000")
+LOOKUP_BIN = _LOOKUP_CODE + struct.pack("<II", 0x08000000 | FONT_AT | 2, NOT_FOUND)
 
 
 def hook_bytes():

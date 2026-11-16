@@ -18,4 +18,5 @@ Coarse, from `tools/re_lzsweep.py` coverage and a render of the first 2 KB of ev
 | 0x719CE8-0x72FFFF | raw graphics (title / Konami copyright strip) |
 | 0x7303B8-0x746CE8 | event / script tables with text pointers (verified pointers) |
 | 0x746CE8-0x759177 | tables (guess) |
-| 0x759178-0x7FFFFF | 0xFF fill, 667 KB free-space candidate |
+| 0x759178-0x7C0B3F | 0xFF fill, **not free**: read into palette RAM by the magatama page's CpuSet (`english.md`) |
+| 0x7C0B40-0x7FFFFF | 0xFF fill, free: text relocation 0x7C1000-0x7DFFFF, English engine 0x7E0000-0x7FFFFF |
