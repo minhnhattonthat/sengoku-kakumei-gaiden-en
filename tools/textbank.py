@@ -121,7 +121,7 @@ def save_layout(writes, pairs, path=LAYOUT):
     path.write_text("# text_layout.tsv: relocated string -> its address in free space, frozen from the QA-toured\n"
                     "# build (textbank.repack keeps these slots so a text edit moves only the edited string; text\n"
                     "# coverage logs and tour sheets stay valid). Regenerate: build.py freeze-layout.\n"
-                    f"# end {end:06x}\n# pairs {json.dumps(list(pairs))}\n" + rows, encoding="utf-8")
+                    f"# end {end:06x}\n# pairs {json.dumps(list(pairs))}\n" + rows, encoding="utf-8", newline="\n")
 
 
 def repack(rom, new, free=FREE, strs=None, force_move=False, layout=None):
