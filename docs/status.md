@@ -2,16 +2,23 @@
 
 Updated at the end of every session. Keep it to what the next session needs; history is in git.
 
-- **Phase:** 9. Release DONE 2026-11-17: `release/Sengoku_Kakumei_Gaiden_EN_v1.0.zip` built and verified (BPS 334780 bytes + README.txt). Publishing (`gh release create`) is the owner's call. v1.0 build sha1 d7b093ee…, CRC32 A2C75821. Last build (v1.0 + English title logo, not yet released): `build/sengoku_en.gba` sha1 093e9076…, CRC32 0FBEB0DE (1036 strings, 759 letter pairs, 2116 writes).
+- **Phase:** 9. Release DONE 2026-11-17: `release/Sengoku_Kakumei_Gaiden_EN_v1.0.zip` built and verified (BPS 334780 bytes + README.txt). Publishing (`gh release create`) is the owner's call. v1.0 build sha1 d7b093ee…, CRC32 A2C75821. Last build (v1.0 + English title logo + name header fix, not yet released): `build/sengoku_en.gba` sha1 ec92a3fe…, CRC32 48B4F39F (1036 strings, 759 letter pairs, 2116 writes).
 - **Phase 9 session 2 (2026-11-17): English title logo (D15).** Owner asked for a translated logo: SENGOKU / KAKUMEI /
   GAIDEN (`tools/title_logo.py`, font `fonts/Shojumaru-Regular.ttf` OFL, `tests/test_title_logo.py`) on both title
   pictures, the usual one and the after-clear one (record 0x7527B4, other mascot; `docs/re/graphics.md`). Build
   `build/sengoku_en.gba` sha1 093e9076…, CRC32 0FBEB0DE (2116 writes); check 72 tests ok, smoke ok; differs from v1.0
   only in the title blocks. Title-side scenes re-shot (`work/qa/p10`) and Codex-judged (`work/qa/p10_verdicts`):
   title + after-clear title ok; `qa_gate.py waive` on both manifests. **The v1.0 zip predates the logo:** run
-  `tools/release.py --version 1.1` for a patch with it. **Open (pre-existing, also in v1.0):** dotted vertical
-  stripes in the "Your Name" header gradient behind "Name" (newgame_name, newgame_name7, link_lobby), flagged by
-  Codex this session; name blocks unchanged since v1.0.
+  `tools/release.py --version 1.1` for a patch with it.
+  - **"Your Name" header stripes fixed** (were in v1.0 too, flagged by Codex): the header refill copied indices per
+    row, so lone rows alternated two shades (dotted lines) and group 7, whose header spans palettes 2 and 4, got a
+    band out of order. `name_grid.redraw` now rebuilds the gradient in lightness from the raw palettes (map slot p =
+    raw palette p - 1, checked against palette dumps), monotone, with a 2-row checker at isolated steps
+    (`header_ramp`, `BAYER`), and maps it back to each tile's own band colours (a near-equal antialias twin is
+    dropped). Test `test_header_gradient_runs_one_way_without_dotted_rows` (fails on the old code). Re-shot
+    newgame_name, newgame_name7, link_lobby (`work/qa/p11`), Codex 3/3 ok (`work/qa/p11_verdicts`).
+  - **Last build:** sha1 ec92a3fe…, CRC32 48B4F39F; differs from v1.0 only in the title and name-entry LZ blocks
+    (+ the moved title map and its pointer); check 73 tests ok, smoke ok, `qa_gate.py waive` recorded.
 - **Phase 9 session 1 (2026-11-17): release done.** `python -X utf8 tools/release.py --version 1.0` ran every step with
   exit 0: build, check (67 tests), smoke ok, `jp_left` 0 runs, `qa_gate check` on `work/qa/manifest.tsv` (777 sheets,
   waiver for d7b093ee) and `work/qa/story/manifest.tsv` (11 chapters), textcover 971/1037 shown + 66 waived, polish.md

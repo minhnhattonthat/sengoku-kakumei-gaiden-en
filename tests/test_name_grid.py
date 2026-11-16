@@ -72,6 +72,38 @@ class TestNameGrid(unittest.TestCase):
                     if (y, x) not in near:
                         self.assertNotIn(v, ink, f"{hex(blk)} x {x} y {y}")
 
+    def test_header_gradient_runs_one_way_without_dotted_rows(self):
+        """The "Your Name" background is a dark-to-light ramp: no row lighter than the one below it, and a row mixing
+        two shades only as half of a 2-row dither, never alone (lone rows read as dotted lines, visual QA 093e9076;
+        group 7's mixed palettes once drew a band out of order)."""
+        import gfx_labels
+        edits = name_grid.lz_edits(self.rom)
+        for blk, path in name_grid.PICTURES.items():
+            m, data = name_grid.load_map(path), edits[blk]
+            text, (x0, y0, w, h) = name_grid.HEADERS[0]
+            h = name_grid.HEADER_H.get(blk) or h
+            length = gfx_labels.text_width(text)
+            pts = gfx_labels.letter_points(text, y0 + (h - length) // 2, x0 + 12)
+            near = {(y + dy, x + dx) for y, x in pts for dy in (0, 1) for dx in (-1, 0)}
+            means, mixed = [], []
+            for y in range(y0, y0 + h):
+                vals = []
+                for x in range(x0, x0 + w):
+                    if (y, x) in near:
+                        continue
+                    i, hi, _ = name_grid.where(m, x, y)
+                    v = data[i] >> 4 if hi else data[i] & 15
+                    vals.append(name_grid.lightness(self.rom, name_grid.HEADER_PAL[blk], m[(x // 8, y // 8)] >> 12, v))
+                means.append(sum(vals) / len(vals) if vals else None)
+                mixed.append(max(vals) - min(vals) > 0.2 if vals else False)
+            seen = [v for v in means if v is not None]
+            for a, b in zip(seen, seen[1:]):
+                self.assertLessEqual(a, b + 0.05, f"{hex(blk)}: header ramp goes back")
+            for k, mx in enumerate(mixed):
+                if mx:
+                    self.assertTrue((k > 0 and mixed[k - 1]) or (k + 1 < len(mixed) and mixed[k + 1]),
+                                    f"{hex(blk)}: lone dither row {y0 + k}")
+
     def test_group7_record_points_at_its_block(self):
         # picture group 7 = getter 0x08049BBC -> records at 0x74FAC8 (36 bytes each), tiles ptr at +12
         self.assertEqual(struct.unpack_from("<I", self.rom, 0x74FAC8 + 12)[0] - 0x08000000, 0x5B14B4)

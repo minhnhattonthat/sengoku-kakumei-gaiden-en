@@ -31,11 +31,14 @@ MAP_TSV = ROOT / "data" / "name_grid_map.tsv"
 # Mode 16 loads picture group 6 (BLOCK) or, when [0x030016FC] != 0 and the save's +0xC field != 1 (0x08010D6A),
 # group 7: the same grid, header and 決定 in the same places and inks over a pink pattern, its own tiles and map.
 PICTURES = {BLOCK: MAP_TSV, 0x5B14B4: ROOT / "data" / "name_grid_map7.tsv"}
-# Header refill per picture: "edges" alternates the row's two edge pixels (group 6's banded peach); "mode" takes
-# the row's commonest pixel outside the brush ink 1-9 (group 7's header has antialiased edges that stripe).
+# Header brush ink per picture (HEADER_FILL names the set): 1-9, and in group 6 its light grey antialias 12 (never a
+# band there: bands are 10, 11, 13-15). Group 7's header spans tiles on palettes 2 and 4, so one index is two shades.
 HEADER_FILL = {BLOCK: "edges", 0x5B14B4: "mode"}
-# Brush ink per fill: 1-9, and in group 6 its light grey antialias 12 (never a band there: bands are 10, 11, 13-15)
 HEADER_INK = {"edges": set(range(1, 10)) | {12}, "mode": set(range(1, 10))}
+# Raw BG palettes of each picture (record +16 of 0x74F9C4, 0x74FAC8; slot 1 up): the header refill works in their
+# lightness.
+HEADER_PAL = {BLOCK: 0x74F924, 0x5B14B4: 0x74F9E8}
+BAYER = ((0.125, 0.625), (0.875, 0.375))   # 2x2 ordered dither thresholds, [y % 2][x % 2]
 HEADER_H = {BLOCK: 58, 0x5B14B4: 58}  # both 名前入力 brushes run to row 61 (group 6's antialiased tail too)
 INK, EDGE = 15, 1
 
@@ -124,7 +127,44 @@ def where(m, x, y):
     return t * 32 + yy * 4 + xx // 2, xx & 1, t
 
 
-def redraw(tiles, rom, map_path=MAP_TSV, header_fill="edges", header_h=None):
+def lightness(rom, pal, p, i):
+    """Lightness of colour i of map palette p: the raw palettes load from BG slot 1, so slot p = raw p - 1 (checked
+    against palette dumps of both name-entry screens)."""
+    c = struct.unpack_from("<H", rom, pal + 32 * (p - 1) + 2 * i)[0]
+    return 0.3 * (c & 31) + 0.59 * (c >> 5 & 31) + 0.11 * (c >> 10 & 31)
+
+
+def header_ramp(samples, y0, h):
+    """{row: target lightness} for the header refill. samples: {row: lightness of the original's background there}
+    (rows the brush covers have none). Gaps are interpolated, a median over 7 rows drops stray brush antialias, the
+    ramp is held monotone (the gradient runs one way), and each step between two bands is split over its two rows
+    (1/3, 2/3) so the dither draws a 2-row checkerboard there, as the original does, never a lone dotted row."""
+    rows = list(range(y0, y0 + h))
+    known = sorted(samples)
+    raw = {}
+    for y in rows:
+        lo = max((k for k in known if k <= y), default=None)
+        hi = min((k for k in known if k >= y), default=None)
+        if lo is None or hi is None:
+            raw[y] = samples[lo if hi is None else hi]
+        else:
+            raw[y] = samples[lo] if hi == lo else samples[lo] + (samples[hi] - samples[lo]) * (y - lo) / (hi - lo)
+    med = {y: sorted(raw[k] for k in rows[max(0, i - 3):i + 4])[len(rows[max(0, i - 3):i + 4]) // 2]
+           for i, y in enumerate(rows)}
+    up = med[rows[-1]] >= med[rows[0]]
+    mono, cur = {}, None
+    for y in rows:
+        cur = med[y] if cur is None else (max(cur, med[y]) if up else min(cur, med[y]))
+        mono[y] = cur
+    out = dict(mono)
+    for a, b in zip(rows, rows[1:]):
+        if mono[a] != mono[b] and mono.get(a - 1) == mono[a] and mono.get(b + 1, mono[b]) == mono[b]:
+            out[a] = mono[a] + (mono[b] - mono[a]) / 3
+            out[b] = mono[a] + (mono[b] - mono[a]) * 2 / 3
+    return out
+
+
+def redraw(tiles, rom, map_path=MAP_TSV, header_fill="edges", header_h=None, header_pal=HEADER_PAL[BLOCK]):
     """English grid drawn into a copy of the decompressed tile block."""
     m = load_map(map_path)
     data = bytearray(tiles)
@@ -189,34 +229,42 @@ def redraw(tiles, rom, map_path=MAP_TSV, header_fill="edges", header_h=None):
     for text, (x0, y0, w, h) in HEADERS:
         import gfx_labels
         h = header_h or h
-        ink = HEADER_INK[header_fill]
-        prev = None
+        ink = HEADER_INK[header_fill] | {0}
+
+        def lum(x, y, v):
+            return lightness(rom, header_pal, m[(x // 8, y // 8)] >> 12, v)
+        # the background gradient, rebuilt in lightness (one index can be two shades in group 7) and dithered back
+        # into each tile's own band colours: the old per-row index copy drew dotted rows and out-of-order bands
+        samples = {}
         for y in range(y0, y0 + h):
-            left, right = get(x0, y), get(x0 + w - 1, y)
-            if header_fill == "mode":
-                row = [get(x, y) for x in range(x0, x0 + w)]
-                bg = [v for v in row if v not in ink] or row
-                # a tie (row 9: two band pixels each) keeps the row above's fill, not a darker stripe
-                fill = max(set(bg), key=lambda v: (bg.count(v), prev is not None and v == prev[0]))
-                # an edge pixel that is ink, or a colour found nowhere else in the row's background (group 7's
-                # antialias 11 at rows 44-45 is also a band index), would stand alone beside the letters
-                inner = {v for v in row[1:-1] if v not in ink} or set(bg)
-                for x in (x0, x0 + w - 1):
-                    if get(x, y) in ink or get(x, y) not in inner:
-                        put(x, y, fill)
-                left = right = fill
-            else:
-                # the brush's antialias touches the edge columns on some rows: alternating it across the row
-                # left dotted lines beside the letters; take the other edge, or the row above's fill
-                if left in ink:
-                    left = right if right not in ink else prev[0]
-                    put(x0, y, left)
-                if right in ink:
-                    right = left if left not in ink else prev[1]
-                    put(x0 + w - 1, y, right)
-            prev = (left, right)
-            for x in range(x0 + 1, x0 + w - 1):
-                put(x, y, left if (x - x0) % 2 else right)
+            s = sorted(lum(x, y, get(x, y)) for x in range(x0, x0 + w) if get(x, y) not in ink)
+            if s:
+                samples[y] = s[len(s) // 2]
+        ramp = header_ramp(samples, y0, h)
+        # band colours per palette: one index per lightness, the one the original background uses most (group 7's
+        # palette 4 has a grey antialias as light as its band a: picked on a tie, it drew a dark line)
+        used = {}
+        for y in range(y0, y0 + h):
+            for x in range(x0, x0 + w):
+                if get(x, y) not in ink:
+                    key = m[(x // 8, y // 8)] >> 12, get(x, y)
+                    used[key] = used.get(key, 0) + 1
+        band_sets = {}
+        for p in {m[(x // 8, y // 8)] >> 12 for y in range(y0, y0 + h) for x in range(x0, x0 + w)}:
+            bands = []
+            for i in sorted((i for i in range(16) if i not in ink and used.get((p, i))), key=lambda i: -used[(p, i)]):
+                lv = lightness(rom, header_pal, p, i)
+                if all(abs(lv - b) > 0.2 for b, _ in bands):   # a near-equal shade is the rarer twin: dropped
+                    bands.append((lv, i))
+            band_sets[p] = sorted(bands)
+        for y in range(y0, y0 + h):
+            for x in range(x0, x0 + w):
+                bands = band_sets[m[(x // 8, y // 8)] >> 12]
+                target = ramp[y]
+                lo = max((b for b in bands if b[0] <= target), default=bands[0])
+                hi = min((b for b in bands if b[0] >= target), default=bands[-1])
+                t = 0 if hi[0] == lo[0] else (target - lo[0]) / (hi[0] - lo[0])
+                put(x, y, hi[1] if t > BAYER[y % 2][x % 2] else lo[1])
         length = gfx_labels.text_width(text)
         if length > h:
             raise ValueError(f"header {text!r}: {length} rows, room {h}")
@@ -234,7 +282,7 @@ def redraw(tiles, rom, map_path=MAP_TSV, header_fill="edges", header_h=None):
 
 
 def lz_edits(rom):
-    return {blk: redraw(lz77.decompress(rom, blk)[0], rom, path, HEADER_FILL[blk], HEADER_H.get(blk))
+    return {blk: redraw(lz77.decompress(rom, blk)[0], rom, path, HEADER_FILL[blk], HEADER_H.get(blk), HEADER_PAL[blk])
             for blk, path in PICTURES.items()}
 
 
@@ -261,7 +309,7 @@ def preview(out, vram_path, pal_path, block=f"{BLOCK:x}"):
     blk = int(block, 16)
     m = load_map(PICTURES[blk])
     tiles = lz77.decompress(rom, blk)[0]
-    new = redraw(tiles, rom, PICTURES[blk], HEADER_FILL[blk], HEADER_H.get(blk))
+    new = redraw(tiles, rom, PICTURES[blk], HEADER_FILL[blk], HEADER_H.get(blk), HEADER_PAL[blk])
     x0, y0, w, h = 64, 16, 120, 136
     im = Image.new("RGB", (2 * w + 4, h))
     for j, data in enumerate((tiles, new)):
