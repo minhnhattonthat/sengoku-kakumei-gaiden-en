@@ -18,6 +18,18 @@ Updated at the end of every session. Keep it to what the next session needs; his
   `data/name_grid_map7.tsv`, scene `newgame_name7`, `work/gfx/shots/name_entry7.png`). Leftover LZ blocks placed:
   0x585370 menu backdrop, 0x5CEE84/0x5D31DC event art (no text); 0x5EF208/0x5F812C are biography crests, kept
   (**D12**). Last build sha1 6d73f6e1….
+  **Text-coverage work started:** warp.lua `--var PAGES=N` = after a dialogue scene's shot, press A every 40
+  frames for N frames (checked on ev003: pages advance, event ends, back on the map). A PAGES=2400 run over the
+  124 `ev=`/`dlg=` scenes was started at hand-off: `work/qa/pages` (log `work/qa/pages.log`, ROM copy
+  `build/tour.gba` = 6d73f6e1). If `grep -c ^ok work/qa/pages.log` is short of 124, re-run the missing ones; then
+  `textcover.py` over **both** `work/qa/tour2` and `work/qa/pages` (copy or symlink both into one dir, or run
+  twice and merge). Item descriptions: drawn via the dialogue loader 0x08012F70(list) from 0x0800A9AC, a switch
+  on category 0-6 that calls 0x0800B8F8(cat) and loads lists 0x7304E8 / 0x73055C / 0x7305D0 / 0x730474 /
+  0x730644 (29, 29, 29, 29, 26 entries); how the item index reaches the list is not yet clear (the `ldr r0, =list`
+  is followed directly by the bl: read 0x0800A9E6..0x0800AA7C whole). Probe `tools/lua/itemdesc.lua` logs these
+  calls (STEP=1 meant to step the index; untested, its r1 assumption is wrong). The `equip` route + 30 downs
+  (`work/qa/go/desc.txt`) made only one call: the cursor route has to move over the item list, find the right
+  keys from the equip shots.
 - **Phase 8 session 6 (2026-11-16):** **ending cards done** (`docs/re/prose.md`, `tools/prose.py`): 6 prose
   cards (Masamune, Ieyasu, Hideyoshi, Terumoto, Yukimura, Yoshihiro) and 7 staff-credit cards are BG pictures
   (idx 160 B / defs 8208 B / tiles LZ triples), redrawn rotated with content-deduped metatiles in their own

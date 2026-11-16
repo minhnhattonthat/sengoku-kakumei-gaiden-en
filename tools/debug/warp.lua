@@ -242,10 +242,22 @@ L.on_frame(function(n)
   if phase == "hold" and not dlgAt and (sc.mash or "") ~= "" and n % num(sc.mash) < 6 then
     L.press(sc.mashkey or "a", 1)
   end
+  -- PAGES=N (--var, text coverage): after a dialogue scene's shot, press A every 40 frames for N more frames
+  -- so the game reads every page of the event (and whatever follows it), then finish.
+  if phase == "pages" then
+    if n % 40 == 0 then L.press("a", 4) end
+    if n - t0 >= num(PAGES) then
+      L.log(string.format("PAGES done frame=%d", n))
+      phase = "end"
+      L.finish(0)
+    end
+    return
+  end
   local dlgdue = dlgAt and n - dlgAt >= dlgwait
   if (phase == "hold" or (phase == "inputs" and dlgdue)) and (dlgdue or (not dlgAt and n - t0 >= (num(HOLD) or num(sc.hold) or 600))) then
     L.shot("scene_" .. sc.name .. ".png")
     L.log(string.format("DONE %s frame=%d", sc.name, n))
+    if PAGES and dlgAt then phase = "pages"; t0 = n; return end
     phase = "end"
     if STATE_OUT then L.save_state(STATE_OUT, function() L.finish(0) end) else L.finish(0) end
   end
