@@ -49,6 +49,16 @@ The values are the **8x8 small font** (4bpp ink 1, ~0x61C58-0x7D2F8, no absolute
 0x7D098 + 32n, redrawn as rotated 0-9 (`gfx_labels.small_digit_edits`). Read with `sheet.py --rotate 270`:
 "LV 1 / NEXT LV / 5 / HEALTH 60 ... RYO 500" (`work/gfx/shots/bank32_equip_zoom.png`). 段's value is the current
 level, 次の段まで's value sits on its own line below it.
+The menu's stat panel draws the **player's name** with the same small font: its kana start at **0x7BC58** (あ)
+in the name grid table's order without the table's two gaps (index 36, 38), 82 glyphs, upright. Mapped 2026-11-17
+by poking name indices into 0x02000618 (scene `input="6 start;200 -" poke=0x02000618:..`) and matching each drawn
+glyph to its ROM tile; redrawn with name_grid's letters (`gfx_labels.small_kana_edits`, test_small_kana.py).
+
+## Bank 22 piece order (2026-11-17)
+Bank 22's piece offsets are whole tiles although its flags lack bit 3 (`sprites.WHOLE_TILE_OFFSETS`); halved,
+frames 16-18 (参加受付中・ / ・・ / ・・・) overlapped. Those frames show their 16x32 pieces out of tile order
+(frame 16: first tiles at y 128), so `gfx_labels.english_rows` assembles bank 22's cells in screen order, draws,
+and lays the pieces back (`lay_pieces`, test_bank22_frames.py). Before this the link lobby read "Taking Ent  ries.".
 
 ## Menu choice boxes: banks 23-25, 27-31, 37-39 - done
 16 px strips, one slot per choice = the peach interior (index 13) between the box lines; every frame shows its

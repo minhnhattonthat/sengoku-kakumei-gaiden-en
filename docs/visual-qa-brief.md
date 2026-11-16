@@ -44,6 +44,8 @@ Standing non-bugs, `ok` (the controller adds the game's own below):
   the same place. Only report one if its letters cannot be read at zoom 4 or it runs past its bar. The mode select
   ("Realm in Chaos" / "VS Conquest", unselected one dimmed) and the settings menu rows were checked by eye at
   zoom 2-4 and read fine: `ok` unless a label is missing, cut off or a different word.
+- The link END card (scene `link_end_card`): the original's 終了 is two 64x64 cells; 終 alone is also the
+  single-player game over card, so its "END" sits in the left cell and 了 is cleared: left of centre is `ok`.
 - The province plates beside the hero on the national map are 16x32 sprites in a tiny 5-row caps font; a name too
   long for one line is split over two lines on purpose ("SATSU/MA"): `ok`.
 - The bottom scroll's help / message text runs over the scroll's diamond and line decoration on the right half:
