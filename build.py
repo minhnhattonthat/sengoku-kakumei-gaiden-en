@@ -15,6 +15,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "tools"))
 import check_rom  # noqa: E402
+import engine  # noqa: E402
+import font_en  # noqa: E402
 import lz77  # noqa: E402
 import romdiff  # noqa: E402
 import script  # noqa: E402
@@ -42,12 +44,16 @@ def unpack(rom):
     return {"text": text, "lz": lz, "table": jp}
 
 
-def repack(rom, unpacked, text_edits=None, lz_edits=None):
-    """Return (new rom, writes). Unedited text is re-encoded from its decoded form; unedited LZ blocks are kept."""
+def repack(rom, unpacked, text_edits=None, lz_edits=None, raw_edits=None):
+    """Return (new rom, writes). Unedited text is re-encoded from its decoded form; unedited LZ blocks are kept.
+    text_edits are jp-table strings (with {end}); raw_edits are already-encoded bytes without the NUL (English)."""
     out = bytearray(rom)
     jp = unpacked["table"]
     new = {}
     for addr, txt in unpacked["text"].items():
+        if raw_edits and addr in raw_edits:
+            new[addr] = raw_edits[addr]
+            continue
         enc = jp.encode((text_edits or {}).get(addr, txt))
         if not enc.endswith(b"\0"):
             raise ValueError(f"{addr:06x}: encoded text lacks {{end}}")
@@ -68,6 +74,8 @@ def allowed_write(off, n):
     if sites is None:
         sites = allowed_write.sites = {s for s, _ in textbank.load_sites()}
     if off in sites and n == 4:
+        return True
+    if engine.allowed(off, n):
         return True
     end = off + n
     if textbank.FREE[0] <= off and end <= textbank.FREE[1]:
@@ -102,19 +110,44 @@ def identity():
     print("identity build is byte-identical to the original")
 
 
+def english(orig, edits, path):
+    """Build with {addr: English text} through the English engine (tools/font_en.py, tools/engine.py)."""
+    if not edits:
+        new, writes = repack(orig, unpack(orig))
+    else:
+        enc = font_en.Encoder(edits.values())
+        new, writes = repack(orig, unpack(orig), raw_edits={a: enc.encode(t) for a, t in edits.items()})
+        out = bytearray(new)
+        writes += engine.patch(out, enc)
+        new = bytes(out)
+        print(f"{len(edits)} English strings, {len(enc.pairs)} letter pairs")
+    finish(orig, new, writes, path)
+
+
 def build():
     check_rom.check()
     orig = textbank.original_rom()
     # Every script/ entry with an en text (or a dup whose source has one); untranslated entries keep the Japanese.
-    edits = script.load_en()
-    new, writes = repack(orig, unpack(orig), text_edits={a: t + script.END for a, t in edits.items()})
-    print(f"{len(edits)} strings from script/")
-    finish(orig, new, writes, BUILD / "sengoku_en.gba")
+    english(orig, script.load_en(), BUILD / "sengoku_en.gba")
+
+
+def marker():
+    """Every text/dup entry replaced by its marker (tools/marker.py): the phase-5 marker build.
+    STRESS=1 -> build/sengoku_stress.gba (width-gate rulers)."""
+    check_rom.check()
+    orig = textbank.original_rom()
+    name = "sengoku_stress.gba" if "STRESS=1" in sys.argv else "sengoku_marker.gba"
+    english(orig, marker_texts(), BUILD / name)
+
+
+def marker_texts():
+    import marker as mk
+    return mk.texts(script.load(), qa=dict(a.split("=", 1) for a in sys.argv[2:] if "=" in a))
 
 
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "build"
-    {"build": build, "identity": identity}[cmd]()
+    {"build": build, "identity": identity, "marker": marker}[cmd]()
 
 
 if __name__ == "__main__":

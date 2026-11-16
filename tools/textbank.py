@@ -28,7 +28,7 @@ RANGES = [
     ("link", 0x07E090, 0x07EF1C),
     ("results", 0x201800, 0x202114),
 ]
-FREE = (0x759178, 0x800000)  # 0xFF fill at the end of the 8 MiB ROM (docs/re/rom-map.md)
+FREE = (0x759178, 0x7C0000)  # 0xFF fill at the end of the 8 MiB ROM (docs/re/rom-map.md); 0x7C0000.. = tools/engine.py
 
 
 @dataclass
