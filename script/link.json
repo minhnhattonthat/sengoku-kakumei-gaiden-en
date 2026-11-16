@@ -278,7 +278,7 @@
   "room": 28,
   "kind": "text",
   "jp": "おぬしに、むにゃむにゃ…|n",
-  "en": "You, my boy... mumble,|nmumble...",
+  "en": "You, eh... mumble,|nmumble...",
   "notes": "",
   "status": "done"
  },
@@ -550,7 +550,7 @@
   "room": 40,
   "kind": "text",
   "jp": "道しるべの方に|n行けばよいのじゃよ。|n",
-  "en": "just follow the|nsignposts, my boy.",
+  "en": "just follow the|nsignposts, you see.",
   "notes": "",
   "status": "done"
  },
@@ -646,7 +646,7 @@
   "room": 36,
   "kind": "text",
   "jp": "たくさんの人と|n話しておくと、|n",
-  "en": "Talk to lots of people,|nand",
+  "en": "Talk to lots|nof people, and",
   "notes": "",
   "status": "done"
  },
@@ -718,7 +718,7 @@
   "room": 48,
   "kind": "text",
   "jp": "町の図面を書いた人間を|n知っておるのじゃ。|n",
-  "en": "I know the man who drew|nup the town maps.",
+  "en": "knows the man who drew|nup the town maps.",
   "notes": "",
   "status": "done"
  },
@@ -730,7 +730,7 @@
   "room": 24,
   "kind": "text",
   "jp": "わしぐらいになると|n",
-  "en": "A man of my standing",
+  "en": "A man like me, you see,",
   "notes": "",
   "status": "done"
  },
@@ -769,7 +769,7 @@
   "room": 28,
   "kind": "text",
   "jp": "おぬし、見たことあるか？|n",
-  "en": "Have you ever seen it,|nmy boy?",
+  "en": "Have you ever|nseen it, eh?",
   "notes": "",
   "status": "done"
  },
@@ -842,7 +842,7 @@
   "room": 32,
   "kind": "text",
   "jp": "差をつける事ができるのじゃ！|n",
-  "en": "the further ahead you|npull!",
+  "en": "the further|nahead you pull!",
   "notes": "",
   "status": "done"
  },
@@ -1029,7 +1029,7 @@
   "room": 56,
   "kind": "text",
   "jp": "「Ａ」ボタンと|n「Ｂ」ボタンを|n同時に押すのじゃ。|n",
-  "en": "Press the A and B|nButtons at the same|ntime.",
+  "en": "Press the A and|nB Buttons at|nthe same time.",
   "notes": "",
   "status": "done"
  },
@@ -1041,7 +1041,7 @@
   "room": 52,
   "kind": "text",
   "jp": "気力が無いと|n術は使えんから|n気をつけるのじゃぞ。",
-  "en": "Without spirit you|ncannot use arts, so take|ncare.",
+  "en": "Without spirit you|ncannot use arts,|nso take care.",
   "notes": "",
   "status": "done"
  },
@@ -1089,7 +1089,7 @@
   "room": 52,
   "kind": "text",
   "jp": "つかれてきたか？|n大丈夫か？|nもう少しじゃよ！|n",
-  "en": "Getting tired? All|nright? Just a little|nmore!",
+  "en": "Getting tired?|nAll right? Just|na little more!",
   "notes": "",
   "status": "done"
  },
@@ -1150,7 +1150,7 @@
   "room": 32,
   "kind": "text",
   "jp": "ニ回目は押しっぱなしじゃぞ。|n",
-  "en": "Hold it down the second|ntime.",
+  "en": "Hold it down|nthe second time.",
   "notes": "",
   "status": "done"
  },
@@ -1271,7 +1271,7 @@
   "room": 40,
   "kind": "text",
   "jp": "わしに教えられるのは|nここまでじゃ。|n",
-  "en": "That is all I can teach|nyou.",
+  "en": "That is all I|ncan teach you.",
   "notes": "",
   "status": "done"
  }

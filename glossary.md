@@ -19,13 +19,16 @@ must be in its English, and no Avoid form may be.
   `tools/batches.py`; a sentence split over several pages keeps its fragments in display order (lower-case
   continuation, no repeated subject).
 - Voices:
-  - Nobutsuna Kamiizumi, the Sword Saint (じゃ/のう): old master, "my boy", "eh?", "you see".
+  - Nobutsuna Kamiizumi, the Sword Saint (じゃ/のう): old master, "eh?", "you see", chuckling asides. Never "my boy":
+    the hero may be female (おぬし is neutral).
   - Yoshihiro Shimazu, Ieyasu Tokugawa, Yukimura Sanada, Nobunaga Oda, Masamune Date: lordly, formal, no contractions.
   - Hideyoshi Toyotomi (じゃ): pompous, impatient ("I am the Regent, after all!").
   - Motonari Mori (じゃ): elderly lord. Terumoto Mori (ですな): polite, "so to speak" for といったところですな.
   - Mitsunari Ishida (である): stiff gatekeeper.
   - Sasuke Sarutobi (おいら, 〜ぜ): casual, "gotta", contractions.
-  - Lady Oichi (わらわ, fake) archaic and haughty; the real Oichi (ですわ) gentle; Oichi the shrine maiden shy, contractions allowed.
+  - Lady Oichi, the impostor (a demon): refined ですわ/お兄様 while disguised (730a88-730ab0, the slip のぶ…いえ、お兄様),
+    archaic and haughty わらわ/じゃ/ほほほ once exposed (730ac0); the real Oichi (私, です, 730b58) gentle and grieving;
+    Oichi the shrine maiden (730b98..) shy, hesitant, contractions allowed. docs/synopsis.md has who is who.
   - Zanshu and the Demon King: menacing, "Heh heh heh", "Wah ha ha".
 
 ## Characters

@@ -2,8 +2,9 @@
 
     python -X utf8 tools/pairs.py [bank ...] > work/qa/review/pairs.txt
 
-One `>> id | JP / EN` line per translated entry, banks in file order and entries in ROM order (story pages of one
-dialogue are often stored in reverse display order: docs/re/text.md).
+One `>> id | JP / EN` line per translated entry, banks in file order and entries in ROM order. ROM order is the
+reverse of display order inside each story dialogue group (docs/re/text.md); for story review use
+`tools/story.py groups --en`, which prints display order.
 """
 import json
 import sys

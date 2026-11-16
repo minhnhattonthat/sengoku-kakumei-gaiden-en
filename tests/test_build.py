@@ -1,0 +1,109 @@
+"""Phase 7 ROM-level checks on an English build made in memory (never a stale build/ file):
+references/pipeline.md §Checks. build.verify (allowed ranges + romdiff with the write log) runs first."""
+import re
+import struct
+import sys
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "tools"))
+
+try:
+    import build  # noqa: E402
+    import capstone  # noqa: E402
+    import engine  # noqa: E402
+    import script  # noqa: E402
+    import textbank  # noqa: E402
+    ORIG = textbank.original_rom()
+except (FileNotFoundError, OSError):
+    ORIG = None
+
+JAPANESE = re.compile(r"[぀-ヿ一-鿿＀-￯]")
+KEEP_JP = ROOT / "script" / "keep_jp.txt"
+# docs/re/rom-map.md: sound samples (0x440000..) and LZ77 screen graphics (..0x68FFFF). Their bytes are noise: the
+# scan found 14 words there that look like pointers into moved strings, 13 of them mid-string (2026-11-16).
+NOISE = (0x440000, 0x690000)
+# Original bytes at the engine's hook sites (assert before trusting a patch made for this revision).
+HOOK_ORIG = {engine.LOOKUP: "70b50004050c0024", engine.TABLE_LITERAL: "28217108"} if ORIG else {}
+
+
+def keep_list():
+    return {line.split()[0] for line in KEEP_JP.read_text(encoding="utf-8").splitlines()
+            if line.strip() and not line.startswith("#")}
+
+
+@unittest.skipIf(ORIG is None, "rom/ absent")
+class EnglishBuild(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.edits = script.load_en()
+        cls.new, cls.writes, cls.enc = build.make_english(ORIG, cls.edits)
+        build.verify(ORIG, cls.new, cls.writes)
+        cls.strs = textbank.strings(ORIG)
+
+    def read(self, rom, addr):
+        return rom[addr:rom.index(b"\0", addr)]
+
+    def test_every_site_reads_its_english(self):
+        """Every pointer slot of every edited string, in the built ROM, reaches exactly that string's bytes;
+        so every entry with English was written, in place or moved."""
+        bad = []
+        for addr, text in self.edits.items():
+            want = self.enc.encode(text)
+            for site in self.strs[addr].sites:
+                ptr = struct.unpack_from("<I", self.new, site)[0]
+                if not 0x08000000 <= ptr < 0x08800000 or self.read(self.new, ptr - 0x08000000) != want:
+                    bad.append(f"{addr:06x} via {site:06x}")
+        self.assertEqual(bad, [], f"{len(bad)} sites wrong: {bad[:10]}")
+        self.assertEqual(len(self.edits), sum(1 for _ in self.edits))
+
+    def test_moved_strings_leave_no_reader(self):
+        """No word in the original ROM other than a known site points at (or into) a string the build moved."""
+        moved = {int(w[3].split()[1], 16) for w in self.writes if w[3].endswith(" moved")}
+        sites = {s for s, _ in textbank.load_sites()}
+        spans = {}
+        for a in moved:
+            for k in range(len(self.strs[a].raw) + 1):
+                spans[0x08000000 | (a + k)] = a
+        stale = [f"{off:06x}->{v:#x}" for off in range(0, len(ORIG) - 3, 4)
+                 if (v := struct.unpack_from("<I", ORIG, off)[0]) in spans and off not in sites
+                 and not NOISE[0] <= off < NOISE[1]]
+        self.assertEqual(stale, [], f"stale readers: {stale[:20]}")
+
+    def test_hook_sites_hold_the_original_bytes(self):
+        for off, hexbytes in HOOK_ORIG.items():
+            self.assertEqual(ORIG[off:off + len(hexbytes) // 2].hex(), hexbytes, f"{off:06x}")
+
+    def test_hook_swallows_no_branch_target(self):
+        """No Thumb branch within 4 KB of the lookup hook, and no literal-pool code pointer anywhere, lands strictly
+        inside the 8 overwritten bytes."""
+        lo, hi = 0x08000000 + engine.LOOKUP, 0x08000000 + engine.LOOKUP + 8
+        md = capstone.Cs(capstone.CS_ARCH_ARM, capstone.CS_MODE_THUMB)
+        md.skipdata = True
+        start = engine.LOOKUP - 0x1000
+        inside = []
+        for ins in md.disasm(ORIG[start:engine.LOOKUP + 0x1000], 0x08000000 + start):
+            if ins.mnemonic.startswith("b") and ins.op_str.startswith("#"):
+                target = int(ins.op_str[1:], 16)
+                if lo < target < hi:
+                    inside.append(f"{ins.address:#x} {ins.mnemonic} {ins.op_str}")
+        pool = [f"{off:06x}" for off in range(0, len(ORIG) - 3, 4)
+                if lo < (struct.unpack_from("<I", ORIG, off)[0] & ~1) < hi]
+        self.assertEqual(inside + pool, [])
+
+    def test_no_japanese_in_english(self):
+        bad = [f"{a:06x}" for a, t in self.edits.items() if JAPANESE.search(t)]
+        self.assertEqual(bad, [])
+
+    def test_untranslated_only_on_keep_list(self):
+        keep = keep_list()
+        missing = sorted(e["id"] for entries in script.load().values() for e in entries
+                         if e["kind"] == "text" and e["jp"].strip() and int(e["id"], 16) not in self.edits
+                         and e["id"] not in keep)
+        self.assertEqual(missing, [], "Japanese text with no English and not in script/keep_jp.txt")
+
+
+if __name__ == "__main__":
+    unittest.main()

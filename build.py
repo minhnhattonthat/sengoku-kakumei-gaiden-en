@@ -85,8 +85,8 @@ def allowed_write(off, n):
     return any(o <= off and end <= ((e + 3) & ~3) for o, e, _ in lz_blocks())
 
 
-def finish(orig, new, writes, path):
-    BUILD.mkdir(exist_ok=True)
+def verify(orig, new, writes):
+    """Raise SystemExit on a write outside the allowed ranges or a romdiff error (tests call this too)."""
     stray = [w for w in writes if not allowed_write(w[0], len(w[2]))]
     if stray:
         raise SystemExit("writes outside text ranges, sites, LZ blocks and free space:\n" +
@@ -94,6 +94,11 @@ def finish(orig, new, writes, path):
     errs, _ = romdiff.check(orig, new, set(), [w for w in writes if w[1] != w[2]])
     if errs:
         raise SystemExit("romdiff:\n  " + "\n  ".join(errs[:30]))
+
+
+def finish(orig, new, writes, path):
+    verify(orig, new, writes)
+    BUILD.mkdir(exist_ok=True)
     path.write_bytes(new)
     textbank.write_log(BUILD / "writes.log", writes)
     print(f"{path.relative_to(ROOT)}  sha1 {hashlib.sha1(new).hexdigest()}  "
@@ -110,16 +115,22 @@ def identity():
     print("identity build is byte-identical to the original")
 
 
-def english(orig, edits, path):
-    """Build with {addr: English text} through the English engine (tools/font_en.py, tools/engine.py)."""
+def make_english(orig, edits):
+    """(new rom, writes, encoder) for {addr: English text} through the English engine (tools/font_en.py,
+    tools/engine.py); encoder is None with no edits."""
     if not edits:
         new, writes = repack(orig, unpack(orig))
-    else:
-        enc = font_en.Encoder(edits.values())
-        new, writes = repack(orig, unpack(orig), raw_edits={a: enc.encode(t) for a, t in edits.items()})
-        out = bytearray(new)
-        writes += engine.patch(out, enc)
-        new = bytes(out)
+        return new, writes, None
+    enc = font_en.Encoder(edits.values())
+    new, writes = repack(orig, unpack(orig), raw_edits={a: enc.encode(t) for a, t in edits.items()})
+    out = bytearray(new)
+    writes += engine.patch(out, enc)
+    return bytes(out), writes, enc
+
+
+def english(orig, edits, path):
+    new, writes, enc = make_english(orig, edits)
+    if enc:
         print(f"{len(edits)} English strings, {len(enc.pairs)} letter pairs")
     finish(orig, new, writes, path)
 

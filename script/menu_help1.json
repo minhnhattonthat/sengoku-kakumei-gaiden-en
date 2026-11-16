@@ -79,7 +79,7 @@
   "room": 28,
   "kind": "text",
   "jp": "こちらでよろしいですか？",
-  "en": "Is this the one you|nwant?",
+  "en": "Is this the|none you want?",
   "notes": "",
   "status": "done"
  },
@@ -127,7 +127,7 @@
   "room": 28,
   "kind": "text",
   "jp": "音楽のON、OFFを変更します。",
-  "en": "Turn the music ON or|nOFF.",
+  "en": "Turn the music|nON or OFF.",
   "notes": "",
   "status": "done"
  },
@@ -163,7 +163,7 @@
   "room": 32,
   "kind": "text",
   "jp": "記録します。|nよろしいですか？",
-  "en": "Save the game. Is that|nOK?",
+  "en": "Save the game.|nIs that OK?",
   "notes": "",
   "status": "done"
  },
@@ -235,7 +235,7 @@
   "room": 32,
   "kind": "text",
   "jp": "現在までの情報を|n記録します。",
-  "en": "Save your progress so|nfar.",
+  "en": "Save your|nprogress so far.",
   "notes": "",
   "status": "done"
  },
@@ -428,7 +428,7 @@
   "room": 48,
   "kind": "text",
   "jp": "この記録を|n読み込みます。|nよろしいですか？",
-  "en": "Load this save. Is that|nOK?",
+  "en": "Load this save.|nIs that OK?",
   "notes": "",
   "status": "done"
  },

@@ -1,0 +1,5 @@
+Important | 0548e8 | “He” genders the player hero; あやつ is gender-neutral. | If they saw this, they would laugh... Ha ha ha ha!!
+Important | 07e3bc | “My boy” genders the hero; おぬし does not. | You... mumble, mumble...
+Important | 07e6a8 | “My boy” genders the hero without support in Japanese. | just follow the signposts, you see.
+Important | 07e95c | “My boy” genders the hero; おぬし does not. | Have you ever seen it, eh?
+ASSESSMENT: issue - Four remaining instances of gendering the hero.

@@ -1,0 +1,2 @@
+# Text entries that ship with no English, one id and reason per line (tests/test_build.py).
+061c1c ↑↓ arrows of the name-confirm screen: glyphs, not words; the game's own arrow glyphs stay.

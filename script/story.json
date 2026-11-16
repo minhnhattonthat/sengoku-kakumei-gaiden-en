@@ -368,7 +368,7 @@
   "room": 48,
   "kind": "text",
   "jp": "戦いに役立つ情報を|n一から教えてくれるはずだ|n",
-  "en": "He will teach you all|nyou need for battle,|nfrom the ground up.",
+  "en": "There you will learn|neverything for battle,|nfrom the ground up.",
   "notes": "",
   "status": "done"
  },
@@ -490,7 +490,7 @@
   "room": 52,
   "kind": "text",
   "jp": "いって、事の真偽を|n確かめてくれ！|nたのんだぞ！",
-  "en": "Go and find out the|ntruth! I am counting on|nyou!",
+  "en": "Go and find out|nthe truth! I am|ncounting on you!",
   "notes": "",
   "status": "done"
  },
@@ -718,7 +718,7 @@
   "room": 52,
   "kind": "text",
   "jp": "大した手助けは出来ぬが…これを受け取ってくれ。|n",
-  "en": "I cannot offer much|nhelp... but please take|nthis.",
+  "en": "I cannot offer|nmuch help... but|nplease take this.",
   "notes": "",
   "status": "done"
  },
@@ -958,7 +958,7 @@
   "room": 40,
   "kind": "text",
   "jp": "直接おぬしの手助けは|nしてやれぬが…|n",
-  "en": "I cannot lend you a hand|ndirectly...",
+  "en": "I cannot lend you a hand|ndirectly, but...",
   "notes": "",
   "status": "done"
  },
@@ -970,7 +970,7 @@
   "room": 52,
   "kind": "text",
   "jp": "われらも急ぎ兵をあげ、|n妖魔の軍勢にそなえよう！|n",
-  "en": "but we will raise troops|nat once and stand ready|nfor the demon army!",
+  "en": "We too will raise troops|nat once and stand ready|nfor the demon army!",
   "notes": "",
   "status": "done"
  },
@@ -1306,7 +1306,7 @@
   "room": 76,
   "kind": "text",
   "jp": "今は豊臣殿に従っています|nが、豊臣殿にとっては一番|n恐ろしい武将でしょう。",
-  "en": "He serves Toyotomi-dono|nfor now, but must be the|none he fears most.",
+  "en": "He serves Toyotomi-dono|nnow, but is surely the|nwarlord he fears most.",
   "notes": "",
   "status": "done"
  },
@@ -1534,7 +1534,7 @@
   "room": 36,
   "kind": "text",
   "jp": "もっとも…|n本物では無いがの！|n",
-  "en": "Not the real one, mind|nyou!",
+  "en": "Not the real|none, mind you!",
   "notes": "",
   "status": "done"
  },
@@ -1630,7 +1630,7 @@
   "room": 20,
   "kind": "text",
   "jp": "京|n「本能寺」|n",
-  "en": "Honnoji Temple|nKyoto",
+  "en": "Honnoji Temple Kyoto",
   "notes": "",
   "status": "done"
  },
@@ -2341,7 +2341,7 @@
   "room": 68,
   "kind": "text",
   "jp": "＊佐助が仲間になった！＊|n（忍者召喚の術で|n佐助を呼び出せます）",
-  "en": "*Sasuke joined you!*|n(Call him with the Ninja|nArt.)",
+  "en": "*Sasuke joined|nyou!* (Call him|nwith the Ninja Art.)",
   "notes": "",
   "status": "done"
  },
@@ -2353,7 +2353,7 @@
   "room": 44,
   "kind": "text",
   "jp": "貴様を倒してから|nゆっくり探すとしよう！|n",
-  "en": "I will take my time|nlooking once you are|ndead!",
+  "en": "I will take my|ntime looking once|nyou are dead!",
   "notes": "",
   "status": "done"
  },
@@ -2449,7 +2449,7 @@
   "room": 48,
   "kind": "text",
   "jp": "しばらく隠れさせて|nもらったよ。|nいやお見事！",
-  "en": "I stayed hidden for a|nwhile there. Splendid|nwork!",
+  "en": "I stayed hidden|nfor a while there.|nSplendid work!",
   "notes": "",
   "status": "done"
  },
@@ -2473,7 +2473,7 @@
   "room": 32,
   "kind": "text",
   "jp": "ふう！|nやっと出て行ったか。|n",
-  "en": "Phew! He is finally|ngone.",
+  "en": "Phew! He is|nfinally gone.",
   "notes": "",
   "status": "done"
  },
@@ -2485,7 +2485,7 @@
   "room": 68,
   "kind": "text",
   "jp": "豊臣秀吉のはずだ。|nここより南に豊臣領がある|nそこへ向かうがよい。",
-  "en": "It must be Hideyoshi|nToyotomi. His lands lie|nsouth. Go there.",
+  "en": "must be Hideyoshi|nToyotomi. His lands lie|nsouth of here. Go there.",
   "notes": "",
   "status": "done"
  },
@@ -2809,7 +2809,7 @@
   "room": 36,
   "kind": "text",
   "jp": "おれにはどうも|n信じられんのだ…|n",
-  "en": "I just cannot believe|nit...",
+  "en": "I just cannot|nbelieve it...",
   "notes": "",
   "status": "done"
  },
@@ -2893,7 +2893,7 @@
   "room": 44,
   "kind": "text",
   "jp": "おれは兵を集め、|n妖魔の軍勢に備えよう！|n",
-  "en": "I will gather troops and|nprepare for the demon|narmy!",
+  "en": "I will gather troops|nand prepare for|nthe demon army!",
   "notes": "",
   "status": "done"
  },
@@ -2917,7 +2917,7 @@
   "room": 60,
   "kind": "text",
   "jp": "全ての勾玉はこちらの|n手にあるのだ！|n必ずや勝機はある！",
-  "en": "All the magatama are in|nour hands! We can surely|nwin!",
+  "en": "All the magatama|nare in our hands!|nWe can surely win!",
   "notes": "",
   "status": "done"
  },
@@ -3061,7 +3061,7 @@
   "room": 44,
   "kind": "text",
   "jp": "くっくっく…、|nもはやこの地に用は無い|n",
-  "en": "Heh heh heh... We have|nno more business in this|nland.",
+  "en": "Heh heh heh... We|nhave no more business|nin this land.",
   "notes": "",
   "status": "done"
  },
@@ -3097,7 +3097,7 @@
   "room": 64,
   "kind": "text",
   "jp": "くっくっく…、|nゆっくり遊んでいくがよい|nはっーはっはっはっ…",
-  "en": "Heh heh heh... Stay and|nplay a while. Ha ha ha|nha...",
+  "en": "Heh heh heh... Stay|nand play a while.|nHa ha ha ha...",
   "notes": "",
   "status": "done"
  },
@@ -3388,7 +3388,7 @@
   "room": 36,
   "kind": "text",
   "jp": "行こう！|n江戸の町を救うんだ！|n",
-  "en": "Let's go! We gotta save|nEdo!",
+  "en": "Let's go! We|ngotta save Edo!",
   "notes": "",
   "status": "done"
  },
@@ -3460,7 +3460,7 @@
   "room": 60,
   "kind": "text",
   "jp": "豊臣殿の方は我らで|n調べておこう。|nなに、心配は無用じゃ！",
-  "en": "We will look into the|nToyotomi matter. No need|nto worry!",
+  "en": "We shall look into|nToyotomi-dono ourselves.|nNo need to worry!",
   "notes": "",
   "status": "done"
  },
@@ -3640,7 +3640,7 @@
   "room": 56,
   "kind": "text",
   "jp": "おぬしは蝦夷に行き、|n妖魔王を倒すのじゃ。|nそれから…",
-  "en": "Go to Ezo and defeat the|nDemon King. And then...",
+  "en": "Go to Ezo and defeat the|nDemon King. And one more|nthing...",
   "notes": "",
   "status": "done"
  },
@@ -3652,7 +3652,7 @@
   "room": 44,
   "kind": "text",
   "jp": "%nよ。|n妖魔の軍勢には|n我らがそなえよう。",
-  "en": "%n. We will stand|nready against the demon|narmy.",
+  "en": "%n. We will|nstand ready against|nthe demon army.",
   "notes": "",
   "status": "done"
  },
@@ -3724,7 +3724,7 @@
   "room": 48,
   "kind": "text",
   "jp": "ほう…|n伊達政宗みずから、|n我を討ちにきたか…",
-  "en": "Oh... Masamune Date|nhimself, come to slay|nme...",
+  "en": "Oh... Masamune|nDate himself,|ncome to slay me...",
   "notes": "",
   "status": "done"
  },
@@ -3760,7 +3760,7 @@
   "room": 28,
   "kind": "text",
   "jp": "|n我に勝てるつもりか…|n",
-  "en": "You think you can beat|nme...",
+  "en": "You think you|ncan beat me...",
   "notes": "",
   "status": "done"
  },
@@ -4097,7 +4097,7 @@
   "room": 52,
   "kind": "text",
   "jp": "今ならばまだ、|nやつを倒す事が|n出来るかもしれん。",
-  "en": "If we strike now, we may|nstill be able to defeat|nhim.",
+  "en": "If we strike now,|nwe may still be|nable to defeat him.",
   "notes": "",
   "status": "done"
  },
@@ -4217,7 +4217,7 @@
   "room": 56,
   "kind": "text",
   "jp": "なにをおどろいている？|n倒したはず…|nとでも思ったか？",
-  "en": "Why so surprised? Did|nyou think you had killed|nme?",
+  "en": "Why so surprised?|nDid you think you|nhad killed me?",
   "notes": "",
   "status": "done"
  },
@@ -4337,7 +4337,7 @@
   "room": 52,
   "kind": "text",
   "jp": "わーはっはっは！|nこの程度で|n我に勝てるつもりか！",
-  "en": "Wah ha ha ha! You think|nyou can beat me with|nthat?",
+  "en": "Wah ha ha ha!|nYou think you can|nbeat me with that?",
   "notes": "",
   "status": "done"
  },
@@ -4421,7 +4421,7 @@
   "room": 60,
   "kind": "text",
   "jp": "…よかろう。|nその宝剣もろとも、|n打ち砕いてくれるわ！！",
-  "en": "...Very well. I shall|nsmash you, sword and|nall!!",
+  "en": "...Very well. I|nshall smash you,|nsword and all!!",
   "notes": "",
   "status": "done"
  },
@@ -4469,7 +4469,7 @@
   "room": 56,
   "kind": "text",
   "jp": "あやつが見たら、|n笑うであろうな…|nはははははっ！！",
-  "en": "If he saw this, he would|nlaugh... Ha ha ha ha!!",
+  "en": "If they saw this, they|nwould laugh...|nHa ha ha ha!!",
   "notes": "",
   "status": "done"
  },
@@ -4613,7 +4613,7 @@
   "room": 52,
   "kind": "text",
   "jp": "その後の行方？|nわしが|n聞きたいくらいじゃわい！",
-  "en": "Where did he go after?|nThat is what I would|nlike to know!",
+  "en": "Where did they go after?|nThat is what I would|nlike to know myself!",
   "notes": "",
   "status": "done"
  },
@@ -4649,7 +4649,7 @@
   "room": 28,
   "kind": "text",
   "jp": "|nそうか…佐助、ご苦労。|n",
-  "en": "I see... Sasuke, well|ndone.",
+  "en": "I see... Sasuke,|nwell done.",
   "notes": "",
   "status": "done"
  },
@@ -4661,7 +4661,7 @@
   "room": 40,
   "kind": "text",
   "jp": "おぬしこそ！|n日本一の|nもののふよ！",
-  "en": "No, you are the finest|nwarrior in Japan!",
+  "en": "It is you who are the|nfinest warrior in Japan!",
   "notes": "",
   "status": "done"
  },
@@ -4841,7 +4841,7 @@
   "room": 32,
   "kind": "text",
   "jp": "柳生新陰流の|n柳生石舟斉や|n",
-  "en": "Sekishusai Yagyu of the|nYagyu Shinkage school|nand",
+  "en": "Sekishusai Yagyu|nof the Yagyu|nShinkage school and",
   "notes": "",
   "status": "done"
  },
@@ -4889,7 +4889,7 @@
   "room": 56,
   "kind": "text",
   "jp": "非常に細心で、|n思いやりのある|n人物だったようである。",
-  "en": "He seems to have been a|nvery careful and caring|nman.",
+  "en": "He seems to have|nbeen a very careful|nand caring man.",
   "notes": "",
   "status": "done"
  },
@@ -4973,7 +4973,7 @@
   "room": 64,
   "kind": "text",
   "jp": "が、家臣　明智光秀の|n突然の裏切りにより、|n本能寺にて倒れた。",
-  "en": "but fell at Honnoji,|nbetrayed by his retainer|nMitsuhide Akechi.",
+  "en": "but he fell at Honnoji,|nbetrayed by his retainer|nMitsuhide Akechi.",
   "notes": "",
   "status": "done"
  },
@@ -4985,7 +4985,7 @@
   "room": 76,
   "kind": "text",
   "jp": "その後も信長の快進撃は|nとどまることをしらず、|nついには天下を目前にする",
-  "en": "Victory after victory,|nuntil the realm was in|nhis grasp,",
+  "en": "He won victory after|nvictory, until the realm|nwas almost within reach,",
   "notes": "",
   "status": "done"
  },
@@ -5021,7 +5021,7 @@
   "room": 44,
   "kind": "text",
   "jp": "その後は、|n信長の元に|n預けられていた。",
-  "en": "After that, she was|nplaced in Nobunaga's|ncare.",
+  "en": "After that, she|nwas placed in|nNobunaga's care.",
   "notes": "",
   "status": "done"
  },
@@ -5081,7 +5081,7 @@
   "room": 60,
   "kind": "text",
   "jp": "しかし後世に伝わる、|n彼の様々な伝説は、|nこれよりの後の、",
-  "en": "But the many legends|nabout him that come down|nto us",
+  "en": "But the many legends|nabout him that|ncome down to us",
   "notes": "",
   "status": "done"
  },
@@ -5105,7 +5105,7 @@
   "room": 72,
   "kind": "text",
   "jp": "父、昌幸が徳川家康と|n戦う際、和睦の条件として|n上杉景勝の人質となる。",
-  "en": "When his father Masayuki|nfought Ieyasu, he became|na hostage of the Uesugi.",
+  "en": "Kagekatsu Uesugi's peace|nhostage while his father|nMasayuki fought Ieyasu.",
   "notes": "",
   "status": "done"
  },
@@ -5201,7 +5201,7 @@
   "room": 76,
   "kind": "text",
   "jp": "信長の下で足軽として働き|n数々の手柄を立て出世。|nついには軍団長となる。",
-  "en": "A foot soldier under|nNobunaga, he rose by his|ndeeds to lead armies.",
+  "en": "he served Nobunaga as a|nfoot soldier; his deeds|nmade him an army leader.",
   "notes": "",
   "status": "done"
  },
@@ -5285,7 +5285,7 @@
   "room": 36,
   "kind": "text",
   "jp": "秀吉政権の|n五大老筆頭となる。|n",
-  "en": "He became head of|nHideyoshi's Five Elders.",
+  "en": "became the head of|nHideyoshi's Five Elders.",
   "notes": "",
   "status": "done"
  },
@@ -5357,7 +5357,7 @@
   "room": 68,
   "kind": "text",
   "jp": "参戦前日には、弟の|n小次郎を当主にと願う、|n母義姫に毒を盛られる。",
-  "en": "The day before, his|nmother poisoned him to|nmake his brother heir.",
+  "en": "His mother Yoshihime|npoisoned him on the eve|nto make son Kojiro heir.",
   "notes": "",
   "status": "done"
  },

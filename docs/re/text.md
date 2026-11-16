@@ -24,7 +24,7 @@
 ## Pointers
 - GBA u32 `0x08000000 | offset`. 1009 distinct strings are pointer targets. Every kana-rich string that looked unpointed turned out to start 2 bytes earlier with `|n` or `%n` and is pointed there: **all real text is reached by a pointer to its first byte** (verified for 60 cases by script).
 - Pointer sites:
-  - **Event/script tables 0x7303B8-0x7311FC, 0x731448-0x731524, 0x733868-0x7338F8, 0x7341DC-0x7343D8, 0x7469B0-0x746CE8** (~990 pointers). In 0x730830.. pointers come in groups separated by a 0 word; inside a group the pages are stored **in reverse** (0x730854: 中国の毛利軍… then 0x730868 各地で我が軍は… is shown before しかも！ at 0x730864). guess: each group is one dialogue, pushed as a stack. Mixed with records like `08xxxxx(thumb fn) 0 id` at 0x730800 (scene handlers).
+  - **Event/script tables 0x7303B8-0x7311FC, 0x731448-0x731524, 0x733868-0x7338F8, 0x7341DC-0x7343D8, 0x7469B0-0x746CE8** (~990 pointers). In 0x730830.. pointers come in groups separated by a 0 word; inside a group the pages are **shown in pointer order**, but the strings sit in ROM in reverse, so script/*.json (ROM order) lists each group last page first. Proved in-game 2026-11-16 (`work/qa/order`): group 0x730864 shows しかも！敵は人間では… (pointer 0x730864, string 0x050654) before 各地で我が軍は… (0x730868, string 0x05062c). The earlier note here had it backwards. `tools/story.py groups --en` prints every group in display order. Mixed with records like `08xxxxx(thumb fn) 0 id` at 0x730800 (scene handlers).
   - Code literal pools: 0x9FF4-0xA2A0 (~30, menu strings), plus ~20 single pools elsewhere (`work/re/euc_pointed.tsv` lists every site).
 - Repoint only through these tables and pools; never by a whole-ROM value scan.
 

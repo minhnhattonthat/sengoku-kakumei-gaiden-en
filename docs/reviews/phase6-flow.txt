@@ -1,0 +1,17 @@
+IMPORTANT | 050654 | Opening connective depends on a later page. | The enemy is not human! They are monsters and fiends!
+IMPORTANT | 05062c | Move the additive connective here for display order. | And our forces are being crushed everywhere!
+MINOR | 0507d8 | "He" introduces a teacher who has not been identified. | There you can learn all you need for battle, from the ground up.
+MINOR | 050f14 | "Fearsome foes" loses the wish to avoid making enemies of the Sanada. | The Sanada gather news well. I would not wish to face them as foes...
+IMPORTANT | 0511c4 | Lowercase "but" continues a concession displayed afterward. | We will raise troops at once and prepare for the demon army!
+IMPORTANT | 05119c | The concession must connect backward to the preceding promise. | Though I cannot help you directly...
+MINOR | 0517b8 | Repeated "he" obscures that Toyotomi fears Ieyasu. | He serves Toyotomi-dono, who likely fears him above all other lords.
+MINOR | 0529e8 | "It" redundantly restarts the preceding unfinished sentence. | must be Hideyoshi Toyotomi. His lands lie south. Go there.
+MINOR | 053c58 | "And then" makes an additional topic sound like a subsequent task. | Go to Ezo and defeat the Demon King. One more thing...
+IMPORTANT | 054b70 | "He" assumes the selectable protagonist is male; Japanese does not. | Where did they go afterward? I would like to know myself!
+IMPORTANT | 054c1c | Added "No" turns emphatic praise into an unexplained correction. | You are truly the finest warrior in Japan!
+MINOR | 055208 | Sentence lacks a subject and says Nobunaga attained the realm. | His victories continued until the realm was almost within his grasp,
+MINOR | 0551c8 | Continuation needs a subject after the revised preceding clause. | but he fell at Honnoji, betrayed by his retainer Mitsuhide Akechi.
+MINOR | 055668 | "Born poor..." leads into "A foot soldier" rather than its subject. | he served Nobunaga as a foot soldier and rose to command armies.
+MINOR | 055800 | Repeated capitalized "He" breaks the preceding "and" continuation. | became head of Hideyoshi's Five Elders.
+IMPORTANT | 07e908 | "A man of my standing / I know..." leaves a disconnected fragment. | With my standing,
+ASSESSMENT: issue - One clear reversed continuation, several broken page joins, and minor meaning or reference errors.

@@ -3,6 +3,7 @@
     python -X utf8 tools/batches.py split [--size 3500]   work/tl/bNNN.tsv and build/terms_bNNN.txt for untranslated JP
     python -X utf8 tools/batches.py check [bNNN ...]      a batch's .out.tsv; with no batch, all shipped English (for check.py)
     python -X utf8 tools/batches.py merge bNNN ... [--overwrite]   check, then write the English into script/
+    python -X utf8 tools/batches.py rewrap                 re-break shipped lines with a stub last line (|n only)
 
 Copied from the skill's assets/batches.py. Fit the ADAPTER section to this game's text format; the rest is shared.
 Batch TSV: id, speaker, form, limit, JP. Output: work/tl/bNNN.out.tsv, id<TAB>English, every id once, same order.
@@ -23,8 +24,11 @@ MAX_ENTRIES = 150
 TOKEN = re.compile(r"\|[nd]|%[nNdbBr]")  # tools/font_en.py CONTROLS; must survive translation
 FREE = {"|n"}  # new line (next column): the English places its own breaks
 VARIABLE = r"%d"  # a number the game draws: "1st" comes out as "1th"
-# Honorifics are kept (glossary), but 殿/様 are also plain words here (殿 = my lord, 様子): checked by review, not here.
-HONORIFICS = {}
+# Honorifics are kept (glossary, D1). 殿/様 are also plain words here (殿 = my lord, 若殿, 殿下, 様子, 貴様, お兄様),
+# so only a title right after a name is enforced: after %n, a glossary JP form, or either half of a 4-kanji name.
+HONORIFICS = {"様": "-sama", "さま": "-sama", "殿": "-dono", "どの": "-dono"}
+GENDERED = re.compile(r"\b(my boy|my lad|young man|my girl|young lady)\b", re.I)  # the hero's gender is chosen
+READING = re.compile(r"（[ぁ-ゖー]+）")  # furigana in parentheses: 幸村（ゆきむら）様
 NAME_CELLS = 4  # %n: the player's name, budgeted at 4 cells (8 letters, or 4 upright kana)
 BANK = {}  # id -> bank (script/<bank>.json), filled by docs()
 # data/windows.tsv: (cells per line, lines) per box; results ids get their own budgets in width_problems.
@@ -80,14 +84,70 @@ def wrap(entry, en):
     cells, lines = budget(entry)
     if "|n" in en or lines == 1:
         return en
-    rows = [""]
-    for word in en.split():
-        cand = f"{rows[-1]} {word}" if rows[-1] else word
-        if rows[-1] and font_en.cells(cand) + NAME_CELLS * cand.count("%n") > cells:
-            rows.append(word)
-        else:
-            rows[-1] = cand
+    words = en.split()
+    rows = balanced(words, cells, lines)
+    if rows is None:  # does not fit: greedy, so the width check reports it
+        rows = [""]
+        for word in words:
+            cand = f"{rows[-1]} {word}" if rows[-1] else word
+            if rows[-1] and font_en.cells(cand) + NAME_CELLS * cand.count("%n") > cells:
+                rows.append(word)
+            else:
+                rows[-1] = cand
     return "|n".join(rows)
+
+
+STUB = 6  # a last line shorter than this (letters, %n = 8) is a stub: pipeline.md §Checks
+
+
+def row_len(row):
+    return len(row.replace("%n", "x" * 2 * NAME_CELLS))
+
+
+def is_stub(row):
+    return any(c.isalpha() for c in row.replace("%n", "")) and row_len(row.strip()) < STUB
+
+
+def balanced(words, cells, lines):
+    """Rows for words in at most `lines` lines of `cells` cells: fewest rows, then no stub last row, then the most
+    even line lengths. None if the words do not fit."""
+    import font_en
+
+    def fits(row):
+        return font_en.cells(row) + NAME_CELLS * row.count("%n") <= cells
+
+    best = None
+
+    def walk(i, rows):
+        nonlocal best
+        if i == len(words):
+            score = (len(rows), is_stub(rows[-1]) and len(rows) > 1,
+                     sum((2 * cells - row_len(r)) ** 2 for r in rows))
+            if best is None or score < best[0]:
+                best = (score, rows)
+            return
+        if len(rows) == lines:
+            return
+        for j in range(i + 1, len(words) + 1):
+            row = " ".join(words[i:j])
+            if not fits(row):
+                break
+            walk(j, rows + [row])
+
+    walk(0, [])
+    return best[1] if best else None
+
+
+def stub_problem(entry, en):
+    """A stub last line that a re-wrap of the same words would avoid (`batches.py rewrap` fixes it)."""
+    cells, lines = budget(entry)
+    rows = en.split("|n")
+    if lines == 1 or len(rows) < 2 or rows[-1] == "" or not is_stub(rows[-1]):
+        return []
+    alt = balanced(" ".join(rows).split(), cells, lines)
+    if alt and not (len(alt) > 1 and is_stub(alt[-1])):
+        return [f"stub last line {rows[-1]!r}: run batches.py rewrap"]
+    return []
 
 
 def width_problems(entry, en):
@@ -170,10 +230,31 @@ def problems(entry, en, terms):
         if any(has_term(jp_plain, j) for j in jps) and not any(e.lower() in flat.lower() for e in ens):
             out.append(f"glossary: {jps[0]} -> {ens[0]}")
         out += [f"glossary Avoid: {a}" for a in avoid if re.search(rf"\b{re.escape(a)}\b", flat)]
-    for jp_form, en_form in HONORIFICS.items():
-        if jp_form in jp_plain and en_form.lower() not in en.lower():
-            out.append(f"honorific {jp_form} needs {en_form}")
-    return out + width_problems(entry, en)
+    out += honorific_problems(jp, en, terms)
+    if m := GENDERED.search(TOKEN.sub(" ", en)):
+        out.append(f"genders the hero: {m.group(0)!r} (the player picks male or female)")
+    return out + width_problems(entry, en) + stub_problem(entry, en)
+
+
+def name_forms(terms):
+    """%n, every glossary JP form, and both halves of a 4-kanji name (豊臣秀吉 -> 豊臣, 秀吉)."""
+    names = {"%n"}
+    for jps, _, _ in terms:
+        for j in jps:
+            names.add(j)
+            if len(j) == 4 and all(kind(c) == "kanji" for c in j):
+                names |= {j[:2], j[2:]}
+    return names
+
+
+def honorific_problems(jp, en, terms):
+    text = READING.sub("", jp.replace("|n", ""))
+    out = []
+    for hon, en_form in HONORIFICS.items():
+        hit = [n for n in name_forms(terms) if re.search(re.escape(n + hon) + "(?!下)", text)]
+        if hit and en_form not in en.lower():
+            out.append(f"honorific {max(hit, key=len)}{hon} needs {en_form}")
+    return out
 
 
 def index():
@@ -261,6 +342,21 @@ def merge(new, overwrite):
     print(f"merged: {changed} entries changed")
 
 
+def rewrap():
+    """Re-break every shipped line flagged with a stub last line: only the |n positions change, never a word."""
+    new = {}
+    for _, _, entries in docs():
+        for e in entries:
+            en = e.get("en", "")
+            if en and stub_problem(e, en):
+                cells, lines = budget(e)
+                rows = balanced(" ".join(en.split("|n")).split(), cells, lines)
+                if " ".join(rows).split() != " ".join(en.split("|n")).split():
+                    sys.exit(f"{e['id']}: rewrap would change words")
+                new[e["id"]] = "|n".join(rows)
+    merge(new, overwrite=True)
+
+
 def fix(names):
     """Apply work/tl/bNNN.fix.tsv (id<TAB>English, any subset) onto bNNN.out.tsv, then delete the fix file."""
     for batch in names:
@@ -283,6 +379,8 @@ def main(argv):
         return split(int(args[args.index("--size") + 1]) if "--size" in args else 3500)
     if cmd == "fix":
         return fix(args)
+    if cmd == "rewrap":
+        return rewrap()
     overwrite = "--overwrite" in args
     names = [a for a in args if a != "--overwrite"]
     entries, terms = index(), glossary()
@@ -345,7 +443,7 @@ def _selftest():
             pass
         assert main(["merge", "b001", "--overwrite"]) == 0 and index()["a"]["en"] == "Min arrived"
         long = "Min walked all the way from the far north to the capital"
-        assert wrap(index()["a"], long) == "Min walked all the way|nfrom the far north to|nthe capital"
+        assert wrap(index()["a"], long) == "Min walked all the|nway from the far|nnorth to the capital"  # balanced
         assert width_problems(index()["a"], wrap(index()["a"], long + " in a single night")) == ["4 lines, the box has 3"]
         # odd runs around %n pad to a whole cell: 3 + 4 (name) + 9 cells
         assert width_problems(index()["a"], "Min, %n, a long greeting") == [
