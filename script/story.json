@@ -1066,7 +1066,7 @@
   "room": 72,
   "kind": "text",
   "jp": "織田軍の強さときたら…|n妖魔の力を借りておっても|n不思議ではないわい！",
-  "en": "The might of the Oda...|nNo wonder, if demons|nlend them a hand!",
+  "en": "The Oda are so strong...|nDemon aid would hardly|nsurprise me!",
   "notes": "",
   "status": "done"
  },
@@ -1774,7 +1774,7 @@
   "room": 68,
   "kind": "text",
   "jp": "ゆめまぼろしの生ならば|n散りぎわを心得ぬは|n恥じさらしなだけじゃ。",
-  "en": "If life is but a|nfleeting dream, fear of|nfalling is shameful.",
+  "en": "If life is but a dream,|nnot knowing how to die|nis shameful.",
   "notes": "",
   "status": "done"
  },
@@ -3508,7 +3508,7 @@
   "room": 52,
   "kind": "text",
   "jp": "これで|n暗闇と雷鳴に怯える事も|nなくなりますわい。",
-  "en": "Now we needn't cower|nfrom the dark and the|nthunder no more, heh.",
+  "en": "Now we need no longer|nfear the dark and the|nthunder.",
   "notes": "",
   "status": "done"
  },
@@ -3880,7 +3880,7 @@
   "room": 44,
   "kind": "text",
   "jp": "我が肉体を|nいけにえにささげた|n妖魔忍法…",
-  "en": "A demon ninja art that|noffers my own body as a|nsacrifice...",
+  "en": "A demon ninja art for|nwhich I sacrificed my|nown body...",
   "notes": "",
   "status": "done"
  },
@@ -4205,7 +4205,7 @@
   "room": 72,
   "kind": "text",
   "jp": "くっくっく…妖魔王の|n無限の妖力がある限り、|n我らは何度でも甦るわ…",
-  "en": "Heh heh... While the|nDemon King lives, we|nrise again and again...",
+  "en": "Heh heh... The Demon|nKing's endless power|nrevives us every time...",
   "notes": "",
   "status": "done"
  },
@@ -4589,7 +4589,7 @@
   "room": 80,
   "kind": "text",
   "jp": "おじい様が残した遺言は、|n「人間一人一人は弱くとも|n協力すれば強くなるのじゃ",
-  "en": "Grandfather's last words|nwere: \"Alone we're weak.|nTogether, we are strong,",
+  "en": "Grandfather's last words|nwere: \"Alone, we are|nweak; together, strong,",
   "notes": "",
   "status": "done"
  },
@@ -4961,7 +4961,7 @@
   "room": 68,
   "kind": "text",
   "jp": "毛利元就の孫。|n元就の長男、隆元が急死|nした為、毛利家を継いだ。",
-  "en": "Motonari's grandson. He|nled the Mori when his|nfather died young.",
+  "en": "Motonari's grandson,|nheir after his father|nTakamoto's sudden death.",
   "notes": "",
   "status": "done"
  },
@@ -5117,7 +5117,7 @@
   "room": 64,
   "kind": "text",
   "jp": "そのほとんどは、|n後世の創話であり、|n実在の人物ではないらしい",
-  "en": "are mostly later tales,|nand he seems not to have|nbeen a real person.",
+  "en": "are mostly later|ninventions; they seem|nnever to have lived.",
   "notes": "",
   "status": "done"
  },
@@ -5273,7 +5273,7 @@
   "room": 60,
   "kind": "text",
   "jp": "野戦のいくさを得意とし|n「東海道一の弓取り」|nと称された。",
-  "en": "A master of field|nbattle, hailed as the|nTokaido's finest bowman.",
+  "en": "A field-battle master,|nhailed as the Tokaido's|nfinest warrior.",
   "notes": "",
   "status": "done"
  },
