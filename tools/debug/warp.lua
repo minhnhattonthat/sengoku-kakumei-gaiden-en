@@ -85,6 +85,15 @@ if not KEEPSAV then
   L.log("SRAM wiped")
 end
 
+-- "N btn;N btn;..." queued as presses; "(6 left;34 -)x210" repeats the bracketed steps 210 times
+local function press_steps(s)
+  s = s:gsub("%(([^()]*)%)x(%d+)", function(body, times) return string.rep(body, tonumber(times), ";") end)
+  for step in s:gmatch("[^;]+") do
+    local k, spec = step:match("^%s*(%d+)%s+(%S+)%s*$")
+    L.press(spec, num(k))
+  end
+end
+
 -- ---------- phases ----------
 local forcing, evforce = nil, nil
 local phase = "boot"   --boot -> map -> inputs -> hold
@@ -204,10 +213,7 @@ L.on_frame(function(n)
   if phase == "boot" and sc.route then
     -- route="N btn;..": title-side scenes (title menu, new-game setup, link mode): plain inputs from power-on
     phase = "inputs"
-    for step in sc.route:gmatch("[^;]+") do
-      local k, spec = step:match("^%s*(%d+)%s+(%S+)%s*$")
-      L.press(spec, num(k))
-    end
+    press_steps(sc.route)
     if sc.mode then forcing = num(sc.mode) end
     return
   end
@@ -228,10 +234,7 @@ L.on_frame(function(n)
     -- mode=N: the map only leaves when a country is entered, and it then writes its own next mode; so keep
     -- overwriting G+2 every frame until the current mode G+0 becomes N (input should enter a country, e.g. A).
     if sc.mode then forcing = num(sc.mode) end
-    for step in (sc.input or "6 a"):gmatch("[^;]+") do
-      local k, spec = step:match("^%s*(%d+)%s+(%S+)%s*$")
-      L.press(spec, num(k))
-    end
+    press_steps(sc.input or "6 a")
     t0 = n
     return
   end

@@ -29,13 +29,28 @@ equip           input="6 start;200 -;6 a" hold=300
 save            input="6 start;200 -;6 left;60 -;6 a" hold=300
 controls        input="6 start;200 -;6 left;60 -;6 left;60 -;6 a" hold=300
 encyclopedia    input="6 start;200 -;6 left;60 -;6 left;60 -;6 left;60 -;6 a" hold=300
+encyclopedia_all country=2 flags=1-24,33-90 input="6 start;200 -;6 left;60 -;6 left;60 -;6 left;60 -;6 a;300 -;(6 left;50 -)x14" hold=100   # every character's name (list 0x73076C)
 shop            input="6 start;200 -;6 left;60 -;6 left;60 -;6 left;60 -;6 left;60 -;6 a" hold=300
+# provinces: run alone with --script tools/lua/liststep.lua --var LIST=0x08731448 --var N=51 --var STEP=1
+#   --shot-every 90: the hero walks back and forth between two nodes; each arrival redraws the map help box with
+#   the next page of the province list (51 pages: every province name and the map hints)
+provinces       country=2 flags=1-24,33-90 input="(30 right;60 -;30 left;60 -)x28" hold=90
+# menu_help: run alone with --script tools/lua/liststep.lua --var LIST=0x087303B8 --var N=46 --var STEP=1
+#   --var AFTER=4900 --shot-every 60: each left press in the map menu redraws its help box with the next page of menu_help1
+menu_help       input="6 start;200 -;(6 left;54 -)x48" hold=60
+# item_desc: run alone with --script tools/lua/itemdesc.lua --var STEP=1 --shot-every 40: each left press moves the
+#   equip cursor (7 slots, wraps) and draws the next description of that slot's list; 210 presses = 30 laps = every
+#   entry of all 5 lists (29 x 4 + 26 arts). Without the probe it just walks the slots.
+item_desc       input="6 start;200 -;6 a;200 -;(6 left;34 -)x210" hold=60
 # --- story path the game's own way (opening is played by every warp's boot) ---
 higo_barrier    country=4 mash=40 hold=900 expect=24:76
 lord_after_higo path=4 country=2 dlg=150 mash=40 hold=900 expect=24:2
 deploy_confirm  path=4,2 country=3 input="6 a" hold=300 expect=41
 # --- stages (field/HUD), one per region; Ryukyu = tutorial; mugen = endless ---
 stage_ryukyu_tutorial  country=1 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=30   # dojo: castle field (mode 30), Kamiizumi's lessons
+# dojo_lessons: run with --script tools/lua/dojo.lua --var GOD=1 (and again with --var CTRL=0): mash A, the probe
+#   steps a lesson that waits too long, so every lesson, then all 15 tip groups, are shown (docs/re/coverage.md)
+dojo_lessons    country=1 flags=1-24,33-90 input="6 a;200 -;6 a;300 -;(6 a;20 -)x500" hold=300
 stage_r1_hyuga         country=3 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
 # Hyuga with god mode: walk up into the first foot soldiers and swing A in place. Inputs start at frame 4926;
 # the combo counter reads 24 HITS at 6280, the level-up popup shows at 6300. Frame-exact: keep the routes as is.
@@ -55,6 +70,9 @@ stage_r8_mutsu         country=46 flags=1-24,33-90 input="6 a;200 -;6 a" hold=90
 # How the real game reaches 無限国, if it does, is open (docs/status.md).
 # --- screens the game switches to by mode ---
 results         country=2 flags=1-24,33-90 mode=36 hold=400 expect=36
+# results_titles: run alone with --script tools/lua/results.lua --var STEP=1: the title is redrawn every frame of
+#   the results animation, each draw with the next adjective/noun of the title tables (all of them in ~120 frames)
+results_titles  country=2 flags=1-24,33-90 mode=36 input="6 a;(300 -;6 a)x3" hold=300 expect=36
 link_end_card   country=2 flags=1-24,33-90 mode=21 hold=400 expect=21   # link versus 終了 card
 # game over: enter Hyuga's stage and pin HP to 0 300 frames in (warp.lua hpzero); the stage draws the 終 (END)
 # card about 400 frames later (shot lands on it), then the game drops to the title. Walking into the archers

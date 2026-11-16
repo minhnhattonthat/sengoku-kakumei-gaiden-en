@@ -1,0 +1,64 @@
+04fdf0	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+04fe20	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+04ff54	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+04ff70	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+04ff80	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+04ffc4	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+050004	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+050040	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+050058	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+050078	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+0500ec	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+05010c	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+050130	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+050140	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+05016c	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+050184	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+0501b0	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+0501e4	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+0501fc	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+05022c	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+050260	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+050294	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+0502d0	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+050300	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+050330	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+050360	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+050374	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+0503a4	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+0503d8	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+0503f0	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+050408	menu_help2 list 0x7306B0 is drawn only at pages 0x29/0x2A (0x0800BDEC, 0x0800C160, 0x0800C2F6); this page is never indexed (its menu_help1 twin is shown)
+061c1c	arrow glyphs kept Japanese (keep_jp.txt); pointer 0x731520 has no code reference
+07e0d0	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e104	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e124	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e164	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e180	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e19c	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e1d4	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e20c	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e274	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e29c	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e2d4	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e2dc	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e2e4	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e2ec	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e308	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e340	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+07e35c	link versus setup (2-4 GBAs): drawn only in a live link session; forced modes 19/20 draw page 1 only
+201800	debug printout 0x08039440 (debug printer 0x08049AB8), not drawn in play
+20180c	debug printout 0x08039440 (debug printer 0x08049AB8), not drawn in play
+201814	debug printout 0x08039440 (debug printer 0x08049AB8), not drawn in play
+201828	results: only entries 0-7 of label table 0x7469B0 and 0-3 of rank table 0x7469F8 are read (0x08039EA0..0x0803A01A); this kana/kanji twin is never indexed
+201834	results: only entries 0-7 of label table 0x7469B0 and 0-3 of rank table 0x7469F8 are read (0x08039EA0..0x0803A01A); this kana/kanji twin is never indexed
+201840	results: only entries 0-7 of label table 0x7469B0 and 0-3 of rank table 0x7469F8 are read (0x08039EA0..0x0803A01A); this kana/kanji twin is never indexed
+201848	results: only entries 0-7 of label table 0x7469B0 and 0-3 of rank table 0x7469F8 are read (0x08039EA0..0x0803A01A); this kana/kanji twin is never indexed
+201860	results: only entries 0-7 of label table 0x7469B0 and 0-3 of rank table 0x7469F8 are read (0x08039EA0..0x0803A01A); this kana/kanji twin is never indexed
+201870	results: only entries 0-7 of label table 0x7469B0 and 0-3 of rank table 0x7469F8 are read (0x08039EA0..0x0803A01A); this kana/kanji twin is never indexed
+20187c	results: only entries 0-7 of label table 0x7469B0 and 0-3 of rank table 0x7469F8 are read (0x08039EA0..0x0803A01A); this kana/kanji twin is never indexed
+201890	results: only entries 0-7 of label table 0x7469B0 and 0-3 of rank table 0x7469F8 are read (0x08039EA0..0x0803A01A); this kana/kanji twin is never indexed
+2018a0	results: only entries 0-7 of label table 0x7469B0 and 0-3 of rank table 0x7469F8 are read (0x08039EA0..0x0803A01A); this kana/kanji twin is never indexed
+2018fc	results: only entries 0-7 of label table 0x7469B0 and 0-3 of rank table 0x7469F8 are read (0x08039EA0..0x0803A01A); this kana/kanji twin is never indexed
+201904	results: only entries 0-7 of label table 0x7469B0 and 0-3 of rank table 0x7469F8 are read (0x08039EA0..0x0803A01A); this kana/kanji twin is never indexed
+20190c	results: only entries 0-7 of label table 0x7469B0 and 0-3 of rank table 0x7469F8 are read (0x08039EA0..0x0803A01A); this kana/kanji twin is never indexed
