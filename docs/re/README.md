@@ -16,5 +16,6 @@ Addresses are for the dump in `rom.sha1` unless a note says otherwise.
 | [compression.md](compression.md) | BIOS LZ77 wrapper 0x08048964, block list (`tools/re_lzsweep.py`) | verified |
 | [graphics.md](graphics.md) | graphics-text survey: tour screens + static sweep of raw and LZ77 graphics | first pass (phase 1); re-check on the marker tour |
 | [rom-map.md](rom-map.md) | coarse map of the 8 MiB ROM | guess per region, from renders |
+| [build.md](build.md) | identity build: text sites, in-place/relocating text writer, LZ77 codec, write checks | verified (`tests/test_identity.py`) |
 
 Recon helpers (rerun any time): `tools/re_eucscan.py ROM OUT.tsv` (EUC candidates), `tools/re_eucptrs.py ROM euc.tsv OUT.tsv` (pointer targets), `tools/re_eucblocks.py ROM pointed.tsv` (text blocks, pointer-site runs), `tools/re_lzsweep.py ROM DIR` (every LZ77 block), `tools/re_tilesheet.py` (survey sheets), `tools/lua/lzlog.lua` (LZ77 blocks loaded at run time).

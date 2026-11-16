@@ -1,0 +1,117 @@
+"""build.py: the one entry point for building the ROM.
+
+    python -X utf8 build.py            build/sengoku_en.gba + build/writes.log, checked by romdiff
+    python -X utf8 build.py identity   unpack every string and LZ77 block, repack with no edits, require the
+                                       result to be byte-identical to the original (build/identity.gba)
+
+The dump is checked against rom.sha1 first. Text goes through tools/textbank.py (in place, or relocated to free
+space with its pointers rewritten); LZ77 blocks that are not edited keep their original bytes.
+"""
+import hashlib
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT / "tools"))
+import check_rom  # noqa: E402
+import lz77  # noqa: E402
+import romdiff  # noqa: E402
+import textbank  # noqa: E402
+from tbl import Table  # noqa: E402
+
+BUILD = ROOT / "build"
+LZ_BLOCKS = ROOT / "data" / "lz_blocks.tsv"
+
+
+def lz_blocks():
+    rows = []
+    for line in LZ_BLOCKS.read_text(encoding="utf-8").splitlines():
+        if line and not line.startswith("#"):
+            off, end, size = line.split("\t")
+            rows.append((int(off, 16), int(end, 16), int(size)))
+    return rows
+
+
+def unpack(rom):
+    """Everything the build can edit, decoded: {"text": {addr: str}, "lz": {offset: bytes}}."""
+    jp = Table.load(ROOT / "tbl" / "jp.tbl")
+    text = {a: jp.decode(s.raw + b"\0", 0)[0] for a, s in textbank.strings(rom).items()}
+    lz = {off: lz77.decompress(rom, off)[0] for off, _, _ in lz_blocks()}
+    return {"text": text, "lz": lz, "table": jp}
+
+
+def repack(rom, unpacked, text_edits=None, lz_edits=None):
+    """Return (new rom, writes). Unedited text is re-encoded from its decoded form; unedited LZ blocks are kept."""
+    out = bytearray(rom)
+    jp = unpacked["table"]
+    new = {}
+    for addr, txt in unpacked["text"].items():
+        enc = jp.encode((text_edits or {}).get(addr, txt))
+        if not enc.endswith(b"\0"):
+            raise ValueError(f"{addr:06x}: encoded text lacks {{end}}")
+        new[addr] = enc[:-1]
+    writes = textbank.repack(out, new)
+    for off, data in (lz_edits or {}).items():
+        end = dict((o, e) for o, e, _ in lz_blocks())[off]
+        blob = lz77.compress(data)
+        if len(blob) > ((end + 3) & ~3) - off:
+            raise ValueError(f"LZ block {off:06x} grew past its slot; relocation not written yet")
+        writes.append((off, bytes(out[off:off + len(blob)]), blob, f"lz {off:06x}"))
+        out[off:off + len(blob)] = blob
+    return bytes(out), writes
+
+
+def allowed_write(off, n):
+    sites = getattr(allowed_write, "sites", None)
+    if sites is None:
+        sites = allowed_write.sites = {s for s, _ in textbank.load_sites()}
+    if off in sites and n == 4:
+        return True
+    end = off + n
+    if textbank.FREE[0] <= off and end <= textbank.FREE[1]:
+        return True
+    if any(lo <= off and end <= hi for _, lo, hi in textbank.RANGES):
+        return True
+    return any(o <= off and end <= ((e + 3) & ~3) for o, e, _ in lz_blocks())
+
+
+def finish(orig, new, writes, path):
+    BUILD.mkdir(exist_ok=True)
+    stray = [w for w in writes if not allowed_write(w[0], len(w[2]))]
+    if stray:
+        raise SystemExit("writes outside text ranges, sites, LZ blocks and free space:\n" +
+                         "\n".join(f"  {o:06x} {who}" for o, _, _, who in stray[:20]))
+    errs, _ = romdiff.check(orig, new, set(), [w for w in writes if w[1] != w[2]])
+    if errs:
+        raise SystemExit("romdiff:\n  " + "\n  ".join(errs[:30]))
+    path.write_bytes(new)
+    textbank.write_log(BUILD / "writes.log", writes)
+    print(f"{path.relative_to(ROOT)}  sha1 {hashlib.sha1(new).hexdigest()}  "
+          f"{sum(w[1] != w[2] for w in writes)} writes")
+
+
+def identity():
+    check_rom.check()
+    orig = textbank.original_rom()
+    new, writes = repack(orig, unpack(orig))
+    finish(orig, new, writes, BUILD / "identity.gba")
+    if new != orig:
+        raise SystemExit("identity build differs from the original")
+    print("identity build is byte-identical to the original")
+
+
+def build():
+    check_rom.check()
+    orig = textbank.original_rom()
+    # Phase 4 adds the script/ loader here; until then the build is the identity build under its release name.
+    new, writes = repack(orig, unpack(orig))
+    finish(orig, new, writes, BUILD / "sengoku_en.gba")
+
+
+def main():
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "build"
+    {"build": build, "identity": identity}[cmd]()
+
+
+if __name__ == "__main__":
+    main()

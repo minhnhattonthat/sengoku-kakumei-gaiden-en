@@ -7,4 +7,6 @@
   - 0x04C4A0 (6336), 0x04CCBC (1200), 0x04C3F4 (512): loaded at power-on.
   - 0x5FD6AC / 0x5FCEFC / 0x5FCE74, 0x5A9254 / 0x5A91F4 / 0x5A9054, 0x585370 / 0x584D14 / 0x584CA8, 0x5AEA30 / 0x5AE37C / 0x5AE300: screen sets of 16384 (tiles) + 8208 (map?) + 160-192 (palette?). guess on the roles.
   - 0x60B7CC, 0x60A1F0, 0x609D74, 0x606D94, 0x5A282C, 0x5A0580, 0x59F8DC, 0x58C878: field / opening scene.
+- Block list committed in `data/lz_blocks.tsv` (615 blocks, 5.3 MB decoded, from `re_lzsweep.py`).
+- The game's compressor is weaker than a greedy longest-match one (it stores literals where 3+ byte matches exist, ~100k such spots in the first 40 blocks), so `tools/lz77.py compress` does **not** reproduce its bytes. Not needed: the build keeps unedited blocks byte for byte, and an edited block must only decode back (`tests/test_identity.py`). `compress` uses min displacement 2 so its output is also VRAM-safe. **verified**.
 - Graphics live mostly in 0x580000-0x710000 (compressed blocks); the static sweep for graphics text decompresses them (`docs/re/graphics.md`).
