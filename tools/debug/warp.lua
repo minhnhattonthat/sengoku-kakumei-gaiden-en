@@ -144,13 +144,36 @@ if dlgwait > 0 then
   end)
 end
 
--- god mode: player HP is a u16 at S+0x80 (60 = full), mirrored into the stage task (docs/re/scenes.md)
+-- god mode: player HP is a u16 at S+0x80 (60 = full), mirrored into the stage task (docs/re/scenes.md).
+-- --var GOD=1 for every scene, or the scene key god=1.
+GOD = GOD or sc.god
 if GOD then
   local hp = tonumber(GOD) and tonumber(GOD) > 1 and tonumber(GOD) or 60
   L.on_frame(function()
     if r32(0x030016F0) < 0x02000000 then return end
     local a = state() + 0x80
     if emu.read16(a, mem) < hp then emu.write16(a, hp, mem) end
+  end)
+end
+-- poke=ADDR=VAL[,ADDR=VAL]: write these u32s (hex) every frame from boot (e.g. 030016FC=1: name entry group 7)
+if sc.poke then
+  local pk = {}
+  for a, v in sc.poke:gmatch("(%x+)=(%x+)") do pk[#pk + 1] = { tonumber(a, 16), tonumber(v, 16) } end
+  L.on_frame(function()
+    for _, p in ipairs(pk) do w32(p[1], p[2]) end
+  end)
+end
+-- hpzero=N: N frames into a stage (mode 29) during the inputs, pin player HP to 0 (game over without waiting for a hit)
+if sc.hpzero then
+  local at, inStage = num(sc.hpzero), nil
+  L.on_frame(function(n)
+    if phase ~= "inputs" and phase ~= "hold" then return end
+    if r32(0x030016F0) < 0x02000000 then return end
+    if r8(r32(0x03000000)) == 29 then inStage = inStage or n end
+    if inStage and n - inStage >= at then
+      local a = state() + 0x80
+      if emu.read16(a, mem) ~= 0 then emu.write16(a, 0, mem); L.log(string.format("HPZERO frame=%d", n)) end
+    end
   end)
 end
 -- expect=MODE[:EV]: the scene is proven when the game mode (and event id) match after the inputs start

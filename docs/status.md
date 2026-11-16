@@ -2,7 +2,22 @@
 
 Updated at the end of every session. Keep it to what the next session needs; history is in git.
 
-- **Phase:** 8. QA in the emulator, in progress (phase 7 done 2026-11-16). Last build: `build/sengoku_en.gba` sha1 b56c4791… (1036 strings, 758 letter pairs, sprite banks 20, 22-39, 44 (THE END), 47, 58, 59, 61 + small-font digits + Latin name entry + 13 ending cards + 2 link cards, 2112 writes).
+- **Phase:** 8. QA in the emulator, in progress (phase 7 done 2026-11-16). Last build: `build/sengoku_en.gba` sha1 6d73f6e1… (1036 strings, 758 letter pairs, sprite banks 20, 22-39, 44 (THE END), 47, 58, 59, 61 + small-font digits + LV UP! popup + 2 Latin name-entry pictures + 13 ending cards + 2 link cards, 2114 writes).
+- **Phase 8 session 7 (2026-11-16):** **tour2 finished** (157/157 ok, `textcover.lua` + `lzlog.lua`, log
+  `work/qa/tour2.log`; the rest re-run from `work/qa/tour2_rest.txt` on build b56c4791). **textcover: still 174/1037**
+  (`work/qa/tour2_cover.txt`): never shown = story 336/458 (dialogue pages after the first), results 187/198
+  (rank titles etc.), system 137/138 (item descriptions), link 98/102, provinces 38/51, menu_help1 28/44,
+  save_confirm 1. **game_over fixed**: new warp key `hpzero=N` (HP pinned to 0 N frames into a stage), END card
+  shot. New warp keys `god=1` (per scene) and `poke=ADDR=VAL`. **Combo counter seen** (scene `combo`, 24 HITS,
+  `work/gfx/shots/combo_hits.png`) and a new graphics text found there: the stage's **昇段!! level-up popup**
+  (raw OBJ tiles 0x42B796 in sprite record 0x74ECB8, outside the bank table) -> **LV UP!** (`gfx_labels.POPUPS`,
+  `tests/test_popups.py`, scene `lv_up`, `work/gfx/shots/lv_up.png`). `tools/sprite_scan.py` lists the 62 sprite
+  records outside the bank table (0x743000-0x74F000); the 31 small ones checked by eye, only the popup is text;
+  the 31 big ones (character/boss animation) not checked tile by tile. **Second name-entry picture done**
+  (LZ 0x5B14B4 = picture group 7, chosen when `[0x030016FC] != 0`; `name_grid.PICTURES`, map
+  `data/name_grid_map7.tsv`, scene `newgame_name7`, `work/gfx/shots/name_entry7.png`). Leftover LZ blocks placed:
+  0x585370 menu backdrop, 0x5CEE84/0x5D31DC event art (no text); 0x5EF208/0x5F812C are biography crests, kept
+  (**D12**). Last build sha1 6d73f6e1….
 - **Phase 8 session 6 (2026-11-16):** **ending cards done** (`docs/re/prose.md`, `tools/prose.py`): 6 prose
   cards (Masamune, Ieyasu, Hideyoshi, Terumoto, Yukimura, Yoshihiro) and 7 staff-credit cards are BG pictures
   (idx 160 B / defs 8208 B / tiles LZ triples), redrawn rotated with content-deduped metatiles in their own
@@ -59,12 +74,16 @@ Updated at the end of every session. Keep it to what the next session needs; his
   (23-25, 27-31, 37-39, style `outline`), 10 menu scenes checked (`work/gfx/shots/menus_outline.png`). Still
   Japanese on those shots: big brush 空 (save slots) and 男/女 (gender), link lobby 参加 boxes (bank 26, 32 px
   wide) + kana names, the map menu's %n default name あああ. Last build sha1 6d6b9b65….
-- **Next (phase 8), in order:** (0) leftovers: the second name-grid picture LZ 0x5B14B4 (white variant of
-  0x5AEA30 with 名前入力 + kana grid: find its scene in `work/qa/tour2/*/log.txt` lz lines), where bank 47's orbs
-  show, bank 58 cell 29 (framed 術 icon, 32x32; find where it shows), a combo route for 61, bank 35's 禄高/万石
-  and あなた cells, re-time `game_over` (see session 4); the other picture-record blocks of graphics.md (LZ
-  0x585370, 0x5877A4, 0x5CEE84 big characters; 0x5EF208, 0x5F812C banners; sign lettering 0x6770C8..): find
-  each one's scene from the tour's `lz f<frame> src=` lines, then edit with prose.py / link_card.py; then
+- **Next (phase 8), in order:** (A) **text coverage**, the biggest gap: story pages need a dialogue-advance
+  variant of the event scenes (press A every ~40 frames after `DLG_SHOT` until the event ends, textcover.lua on;
+  warp.lua's `mash=` only presses before the first page); item descriptions need a route over the equip/shop list
+  with every item owned (poke the inventory); results titles need the results title index poked (RE it with
+  `calllog.lua` on the results scene); provinces/menu_help: cursor routes over the map and menus; link strings
+  that need a second GBA go to `docs/text_unshown.tsv` with that reason. (0) leftovers: where bank 47's orbs
+  show, bank 58 cell 29 (framed 術 icon), bank 35's 禄高/万石 and あなた cells, LZ 0x5877A4 (picture group 3, no
+  tour scene loads it: find group 3's caller, xrefs of 0x08049AD8 with r0=3), sign lettering in stage tiles
+  0x6770C8 (Mutsu/Uzen), 0x625408 (most stages), 0x63822C (events), 0x618704 (credits): look at those scenes'
+  shots; then
   (1) if `work/qa/tour/_proof` is missing or the log is short, re-run the tour: `python -X utf8 tools/debug/warp.py --rom <abs>/build/sengoku_en.gba --out <abs>/work/qa/tour --jobs 3 --proof --script $SKILL/scripts/lua/probes/textcover.lua --var "RANGES='0804CE4C-0805043E,0805045C-08055BA6,0805E2AC-0805E776,08061C1C-08061C59,0807E090-0807EF1C,08201800-08202114,087C1000-087DFFFF'"` (background, ~1 h); then `textcover.py work/qa/tour build/strings.tsv --mask 0x7FFFFF` and add scenes/waivers (dialogue pages beyond the first may need a mash route). (2) map the other banks: `sprites.py render N --cols 2` for each, classify (bank 36 = item names, 23/24 = buttons, 名前入力 header elsewhere), add `gfx/bankNN.tsv` rows; strips narrower/wider than 16 px need `gfx_labels.W` per bank. (3) non-sprite graphics: ending prose LZ blocks, credits, link-error card (title logo stays Japanese, name grid done; find each screen's BG block with a ppudump + `vramfind.py VRAM work/lz`, edit as `name_grid.py` does). (4) final tour on the finished build, `qa_gate.py init/todo`, visual QA by `codex exec -s read-only` per chunk, `inkbox.py`, `textcover.py`.
 - **Phase 7 result:** build green. `tools/check.py` (37 tests) = batches lint (control codes, ASCII, glossary, 3x24 budget, honorifics, gendered address, stub last lines) + `tests/test_build.py` on an in-memory English build: `build.verify` (allowed ranges + romdiff with the write log), every pointer site of every edited string reads its English, no word outside the sites points at/into a moved string (sound/LZ noise 0x440000-0x690000 excluded, 14 noise hits checked), hook bytes asserted, no branch/literal into the 8-byte lookup hook, no Japanese in `en`, untranslated text only on `script/keep_jp.txt` (061c1c arrows). `jp_left.py build/sengoku_en.gba --tbl tbl/jp.tbl --gba-ptrs --known data/jp_known.txt` = 0 runs (same with `--slots` from text_sites). Results screen labels fit in-game (`work/qa/p7`); the link time-select choices 一五分/三〇分/四五分 are graphics (added to `docs/re/graphics.md`).
 - **Phase 6 review fixes (2026-11-16):** page order proved in-game (`work/qa/order`): pages show in **pointer order**, strings sit in ROM reversed, so script/*.json lists a group last page first (`docs/re/text.md` had it backwards; `tools/story.py groups --en` prints display order). Added `docs/synopsis.md`, `docs/style-reference.md`, `docs/translator-brief.md`; display-order flow review + re-review with synopsis (`docs/reviews/`), all Important fixed, one waived with reason. Honorific lint, gendered-address lint, balanced wrap + `batches.py rewrap`.

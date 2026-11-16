@@ -16,6 +16,8 @@
 title           route="900 -;6 start;200 -" hold=60
 newgame_setup   route="900 -;6 start;200 -;6 a;120 -;6 a;120 -" hold=200
 newgame_name    route="900 -;6 start;200 -;6 a;120 -;6 a;120 -;6 a;120 -;6 a;120 -;6 a;120 -" hold=200
+# the same name entry on picture group 7 (LZ 0x5B14B4, pink): mode 16 takes it when [0x030016FC] != 0 (0x08010D6A)
+newgame_name7   route="900 -;6 start;200 -;6 a;120 -;6 a;120 -;6 a;120 -;6 a;120 -;6 a;120 -" hold=200 poke=030016FC=1
 # link_versus / link_lobby: 対戦国取り編 (left on the title menu) then its gender select and name entry; the lobby
 # itself (mode 19) needs a second GBA, so link_lobby_m forces the mode instead
 link_versus     route="900 -;6 start;200 -;6 left;60 -;6 a;200 -" hold=300
@@ -35,6 +37,10 @@ deploy_confirm  path=4,2 country=3 input="6 a" hold=300 expect=41
 # --- stages (field/HUD), one per region; Ryukyu = tutorial; mugen = endless ---
 stage_ryukyu_tutorial  country=1 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=30   # dojo: castle field (mode 30), Kamiizumi's lessons
 stage_r1_hyuga         country=3 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
+# Hyuga with god mode: walk up into the first foot soldiers and swing A in place. Inputs start at frame 4926;
+# the combo counter reads 24 HITS at 6280, the level-up popup shows at 6300. Frame-exact: keep the routes as is.
+combo           country=3 flags=1-24,33-90 god=1 input="6 a;200 -;6 a;400 -;250 up;6 up;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;6 left;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -" hold=80 expect=29   # 24 HITS (bank 61)
+lv_up           country=3 flags=1-24,33-90 god=1 input="6 a;200 -;6 a;400 -;250 up;6 up;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;6 left;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;6 up;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -;4 a;4 -" hold=6 expect=29   # LV UP! popup (gfx_labels.POPUPS)
 stage_r2_tosa          country=9 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
 stage_r3_izumo         country=17 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
 stage_r4_echizen       country=23 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
@@ -50,9 +56,10 @@ stage_r8_mutsu         country=46 flags=1-24,33-90 input="6 a;200 -;6 a" hold=90
 # --- screens the game switches to by mode ---
 results         country=2 flags=1-24,33-90 mode=36 hold=400 expect=36
 link_end_card   country=2 flags=1-24,33-90 mode=21 hold=400 expect=21   # link versus 終了 card
-# game over: walk Hyuga's stage into the archers without GOD; HP 0 at about frame 7620, the stage draws 終
-# (shot lands on it), then the game drops to the title (mode 13). Deterministic from a cold boot.
-game_over       country=3 flags=1-24,33-90 input="6 a;200 -;6 a;400 -;500 up;400 left;500 up;400 right;500 up;400 down" hold=260 expect=29
+# game over: enter Hyuga's stage and pin HP to 0 300 frames in (warp.lua hpzero); the stage draws the 終 (END)
+# card about 400 frames later (shot lands on it), then the game drops to the title. Walking into the archers
+# stopped killing the hero on later builds, so no hit is needed now.
+game_over       country=3 flags=1-24,33-90 input="6 a;200 -;6 a" hpzero=300 hold=850 expect=29
 link_replay     country=2 flags=1-24,33-90 mode=21 hold=1500 expect=21   # after the END card: Sengoku Replay map (tools/link_card.py)
 link_failed     country=2 mode=22 hold=400 expect=22
 link_timesel    country=2 mode=20 hold=400 expect=20

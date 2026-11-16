@@ -44,11 +44,17 @@ class TestNameGrid(unittest.TestCase):
         self.assertEqual(hits, len(ov))
 
     def test_grid_edit_fits_its_lz_slot(self):
-        data = name_grid.lz_edits(self.rom)[name_grid.BLOCK]
-        self.assertEqual(len(data), len(lz77.decompress(self.rom, name_grid.BLOCK)[0]))
-        self.assertNotEqual(data, lz77.decompress(self.rom, name_grid.BLOCK)[0])
-        size = struct.unpack_from("<I", self.rom, name_grid.BLOCK)[0] >> 8
-        self.assertEqual(size, len(data))
+        edits = name_grid.lz_edits(self.rom)
+        self.assertEqual(set(edits), set(name_grid.PICTURES))  # group 6 (0x5AEA30) and group 7 (0x5B14B4)
+        for blk, data in edits.items():
+            self.assertEqual(len(data), len(lz77.decompress(self.rom, blk)[0]), hex(blk))
+            self.assertNotEqual(data, lz77.decompress(self.rom, blk)[0], hex(blk))
+            size = struct.unpack_from("<I", self.rom, blk)[0] >> 8
+            self.assertEqual(size, len(data), hex(blk))
+
+    def test_group7_record_points_at_its_block(self):
+        # picture group 7 = getter 0x08049BBC -> records at 0x74FAC8 (36 bytes each), tiles ptr at +12
+        self.assertEqual(struct.unpack_from("<I", self.rom, 0x74FAC8 + 12)[0] - 0x08000000, 0x5B14B4)
 
 
 if __name__ == "__main__":

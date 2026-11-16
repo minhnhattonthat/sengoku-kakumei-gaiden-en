@@ -31,9 +31,9 @@ Results (raw codex lines: `work/re/sweep/result_chunk_*.txt`; 467 labels came ba
 | LZ 0x5FD6AC, 0x601044 | kanji-large + latin | title logo 戦国革命外伝 + © 2002 Konami Computer Entertainment line | title (0x5FD6AC verified loaded on the title, lzlog f664) |
 | raw 0x719CE8-0x72FFFF | kanji-large + latin | logo fragments, ©2002 KONAMI, PRESS START | title / boot |
 | LZ 0x5BB8AC | latin + kanji-large | copyright line, title characters | title variant / ending? |
-| LZ 0x585370, 0x5877A4, 0x5CEE84, 0x5D31DC | kanji-large (possible) | big stylised characters among warrior art | mode select / chapter cards (0x585370 loaded at f959 = file/mode menu) |
-| LZ 0x5EF208, 0x5F812C | kanji-large | white banner characters (林 readable) | battle banner / clan flag |
-| LZ 0x5AEA30, 0x5B14B4, 0x5BEEC4, 0x5C11A4, 0x5D72D0, 0x5D8BD0, 0x5DA368, 0x5DB950, 0x5DD1B8, 0x5DF5A0, 0x5E17F8 | label | outlined kana/kanji on light backgrounds (0x5AEA30 loaded at f1787 = gender / name screens) | menu screens: gender, name entry, shop, status |
+| LZ 0x585370, 0x5877A4, 0x5CEE84, 0x5D31DC | kanji-large (possible) | big stylised characters among warrior art | mode select / chapter cards (0x585370 loaded at f959 = file/mode menu) **Session 7:** 0x585370 = the blue samurai backdrop of the menus (controls etc.), no text; 0x5CEE84 = ev052 villain art, 0x5D31DC = ev104_boss sword art, no text (tour shots). 0x5877A4 (picture group 3, record 0x74F1CC) loaded by no tour scene: still to place. |
+| LZ 0x5EF208, 0x5F812C | kanji-large | white banner characters (林 readable) | **biography portraits** (ev101, ev092 ...): family crests and banner mottos, kept as heraldry (D12) |
+| LZ 0x5AEA30, 0x5B14B4, 0x5BEEC4, 0x5C11A4, 0x5D72D0, 0x5D8BD0, 0x5DA368, 0x5DB950, 0x5DD1B8, 0x5DF5A0, 0x5E17F8 | label | outlined kana/kanji on light backgrounds (0x5AEA30 loaded at f1787 = gender / name screens) | name entry 0x5AEA30 + 0x5B14B4 done (`name_grid.py`, scene `newgame_name7`); 0x5BEEC4 .. 0x5E17F8 load on the ending chain = the prose/credit cards, done (`prose.py`) |
 | LZ 0x5C3598, 0x5C5DB8, 0x5C84F0, 0x5CA354 | prose | white brush-style Japanese **sentences** with punctuation, 16 KB each | story scroll (prologue / ending / chapter intro): large redraw job, likely better replaced by font-rendered text |
 | raw 0x6D0000-0x6DBFFF | kanji-large | large black brush kanji | menu headers (項目選択, 入力内容確認, 性別選択, 名前入力) |
 | raw 0x6DC000-0x6E7FFF | label | outlined labels (verified: file-menu buttons 0x6D1FF8-0x6DF870) | file menu, mode menu, はい/いいえ |

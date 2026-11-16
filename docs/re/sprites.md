@@ -100,3 +100,12 @@ Rendered with `MONO`/palette 0, so multi-palette banks look odd; only the classi
   閉める, 59 hiragana in boxes (name-entry kana grid), 61 combo counter digits + 連撃.
 - **Already English:** 44 copyright (Konami Computer Entertainment Studios).
 - **Art, no text:** 0-19, 21, 40-43, 45-58 (except 47 = blue kana-like fragments, check), 60.
+
+## Sprite records outside the bank table (session 7)
+
+The 48-byte record layout is also used outside the 62-bank table: `tools/sprite_scan.py` finds 62 more records
+at 0x743000-0x74F000 (stage effects, enemies, bosses, pickups; `--render DIR` draws each). Of the 31 records
+up to 450 tiles, only **0x74ECB8** is text: the stage's **昇段!!** level-up popup, 8 raw tiles at 0x42B796 (32x16
+OBJ, upright, OBJ palette 6), redrawn as LV UP! by `gfx_labels.POPUPS` (scene `lv_up`). Found by dumping OAM
+at the popup frame (`ppudump.lua`) and `vramfind.py`. The 31 bigger records (450-8112 tiles: character and boss
+animation) were not checked tile by tile; no text showed on any stage shot of the tour.

@@ -380,7 +380,59 @@ def grid_edits(rom, bank):
 # kanji numerals 〇 一 .. 九 at 0x7D098 + 32 * n draw the equip screen's stat values. Redrawn as rotated Arabic
 # digits (font_en's, rows 0-6 at x 7..1, columns from y 2), so the values read like the rotated labels.
 SMALL_DIGITS = 0x7D098
-SMALL_RANGES = [(SMALL_DIGITS, SMALL_DIGITS + 10 * 32)]
+
+# Raw OBJ pictures outside the sprite banks, drawn upright (horizontal) on screen. 0x42B796: the stage's
+# 昇段!! popup over the hero on a level-up (32x16 OBJ = 4x2 tiles, 1D mapping, OBJ palette 6; found by OAM dump
+# + vramfind on the combo scene, docs/re/sprites.md §Raw popups). Redrawn as `en` in font_en caps, 1 px strokes
+# doubled in height, proportional, centred, outline index 9 and the original's per-row fill gradient.
+POPUPS = {0x42B796: {"w": 32, "h": 16, "jp": "昇段!!", "en": "LV UP!", "outline": 9,
+                     "grad": [5, 5, 15, 15, 15, 15, 15, 15, 14, 14, 11, 11, 5, 5], "top": 1}}
+SMALL_RANGES = [(SMALL_DIGITS, SMALL_DIGITS + 10 * 32)] + [(o, o + p["w"] * p["h"] // 2) for o, p in POPUPS.items()]
+
+
+def popup_mask(text):
+    """{(row, x)} of `text` in font_en caps (rows 0-6), proportional: each glyph trimmed, 1 px gap, space 3 px."""
+    pts, x = set(), 0
+    for ch in text:
+        if ch == " ":
+            x += 3
+            continue
+        g = font_en.FONT[ch][:7]
+        cols = [c for c in range(5) if any(line[c] == "#" for line in g)]
+        for r, line in enumerate(g):
+            for c in cols:
+                if line[c] == "#":
+                    pts.add((r, x + c - cols[0]))
+        x += cols[-1] - cols[0] + 2
+    return pts, x - 1
+
+
+def popup_edits(rom):
+    edits = {}
+    for off, p in POPUPS.items():
+        w, h = p["w"], p["h"]
+        assert rom[off + 4:off + 8] != bytes(4), f"popup {off:x} moved"
+        mask, width = popup_mask(p["en"])
+        x0 = (w - width) // 2
+        fill = {}
+        for r, x in mask:
+            for k in range(2):
+                fill[(p["top"] + 2 * r + k, x0 + x)] = p["grad"][2 * r + k]
+        pix = {}
+        for (y, x) in fill:
+            for dy in (-1, 0, 1):
+                for dx in (-1, 0, 1):
+                    q = (y + dy, x + dx)
+                    if q not in fill and 0 <= q[0] < h and 0 <= q[1] < w:
+                        pix[q] = p["outline"]
+        pix.update(fill)
+        assert all(0 <= y < h and 0 <= x < w for y, x in pix), f"popup {p['en']!r} does not fit {w}x{h}"
+        out = bytearray(w * h // 2)
+        for (y, x), v in pix.items():
+            t = (y // 8) * (w // 8) + x // 8
+            out[t * 32 + (y % 8) * 4 + (x % 8) // 2] |= v << (4 * (x & 1))
+        edits[off] = bytes(out)
+    return edits
 
 
 def small_digit_edits(rom):
@@ -693,7 +745,7 @@ def orb_edits(rom, bank):
 
 
 def labels_edits(rom, banks=None):
-    edits = {} if banks is not None else small_digit_edits(rom)
+    edits = {} if banks is not None else {**small_digit_edits(rom), **popup_edits(rom)}
     for path in sorted((ROOT / "gfx").glob("bank*.tsv")):
         bank = int(path.stem[4:])
         if banks is not None and bank not in banks:

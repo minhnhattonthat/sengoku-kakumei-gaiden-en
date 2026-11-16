@@ -19,5 +19,12 @@ Found 2026-11-16 (phase 8 session 5). Tool: `tools/name_grid.py`, test `tests/te
   background pixel of the same tile) and draws the same letter white 15 / black edge 1, plus "Done" for 決定 and
   "Your Name" for the header. No English text uses kana glyphs, so nothing else changes. The default name
   あああ reads AAA.
+- **Second picture (session 7):** mode 16 loads picture group 6 (getter 0x08049BA8, records 0x74F9C4: block
+  0x5AEA30) or **group 7** (getter 0x08049BBC, records 0x74FAC8: block **0x5B14B4**, a pink variant with the same
+  grid, 決定 and 名前入力 in the same places and the same inks 15/1). Choice at 0x08010D6A: group 7 when
+  `[0x030016FC] != 0` and field +0xC of `[0x030016F4]`'s record != 1 (setter 0x08007618, 5 callers; which play
+  state sets it is not traced). Its own map `data/name_grid_map7.tsv`; header refilled with the row's commonest
+  background pixel and 58 rows tall (`HEADER_FILL`, `HEADER_H`). Scene `newgame_name7` (poke 030016FC=1),
+  shot `work/gfx/shots/name_entry7.png`.
 - Checked: `work/gfx/shots/name_entry.png` (A, down, A, left, A -> "A B G" in the box), `name_confirm.png`
   (`Is A B...` in the confirm line), link lobby (`work/qa/name6`).

@@ -10,8 +10,9 @@ module changes only pictures:
   - lz_edits(rom): each kana cell of the grid picture is cleared (ink 1/15 filled from the nearest background
     pixel of the same tile) and gets the same letter, white 15 with a black 1 edge.
 
-    python -X utf8 tools/name_grid.py capture VRAM.bin     write data/name_grid_map.tsv from a newgame_name dump
-    python -X utf8 tools/name_grid.py preview OUT.png      original | English grid, from the dump-free build data
+    python -X utf8 tools/name_grid.py capture VRAM.bin [MAP.tsv]   write data/name_grid_map.tsv (or MAP.tsv) from a
+                                                                   newgame_name dump (group 7: name_grid_map7.tsv)
+    python -X utf8 tools/name_grid.py preview OUT.png VRAM PAL [BLOCK]  original | English grid of one picture
 """
 import argparse
 import struct
@@ -27,6 +28,13 @@ TABLE = 0x733660   # 85 u32 EUC codes, index 0 = あ
 COUNT = 85
 BLOCK = 0x5AEA30   # LZ77 tiles of the name-entry picture (VRAM 0x0000..)
 MAP_TSV = ROOT / "data" / "name_grid_map.tsv"
+# Mode 16 loads picture group 6 (BLOCK) or, when [0x030016FC] != 0 and the save's +0xC field != 1 (0x08010D6A),
+# group 7: the same grid, header and 決定 in the same places and inks over a pink pattern, its own tiles and map.
+PICTURES = {BLOCK: MAP_TSV, 0x5B14B4: ROOT / "data" / "name_grid_map7.tsv"}
+# Header refill per picture: "edges" alternates the row's two edge pixels (group 6's banded peach); "mode" takes
+# the row's commonest pixel outside the brush ink 1-9 (group 7's header has antialiased edges that stripe).
+HEADER_FILL = {BLOCK: "edges", 0x5B14B4: "mode"}
+HEADER_H = {0x5B14B4: 58}  # group 7's 名前入力 brush ink runs to row 61
 INK, EDGE = 15, 1
 
 # Table index -> letter, laid out so the grid reads in order when the screen is turned (columns = rows).
@@ -92,9 +100,9 @@ def glyph_overrides(rom):
     return out
 
 
-def load_map():
+def load_map(path=MAP_TSV):
     m = {}
-    for line in MAP_TSV.read_text(encoding="utf-8").splitlines():
+    for line in Path(path).read_text(encoding="utf-8").splitlines():
         if line and not line.startswith("#"):
             tx, ty, e = line.split("\t")
             m[(int(tx), int(ty))] = int(e, 16)
@@ -113,9 +121,9 @@ def where(m, x, y):
     return t * 32 + yy * 4 + xx // 2, xx & 1, t
 
 
-def redraw(tiles, rom):
+def redraw(tiles, rom, map_path=MAP_TSV, header_fill="edges", header_h=None):
     """English grid drawn into a copy of the decompressed tile block."""
-    m = load_map()
+    m = load_map(map_path)
     data = bytearray(tiles)
 
     def get(x, y):
@@ -177,8 +185,13 @@ def redraw(tiles, rom):
             put(x, y, INK)
     for text, (x0, y0, w, h) in HEADERS:
         import gfx_labels
+        h = header_h or h
         for y in range(y0, y0 + h):
             left, right = get(x0, y), get(x0 + w - 1, y)
+            if header_fill == "mode":
+                row = [get(x, y) for x in range(x0, x0 + w)]
+                bg = [v for v in row if not 1 <= v <= 9] or row
+                left = right = max(set(bg), key=bg.count)
             for x in range(x0 + 1, x0 + w - 1):
                 put(x, y, left if (x - x0) % 2 else right)
         length = gfx_labels.text_width(text)
@@ -198,32 +211,34 @@ def redraw(tiles, rom):
 
 
 def lz_edits(rom):
-    tiles = lz77.decompress(rom, BLOCK)[0]
-    return {BLOCK: redraw(tiles, rom)}
+    return {blk: redraw(lz77.decompress(rom, blk)[0], rom, path, HEADER_FILL[blk], HEADER_H.get(blk))
+            for blk, path in PICTURES.items()}
 
 
-def capture(vram_path):
+def capture(vram_path, out=MAP_TSV):
     v = Path(vram_path).read_bytes()
+    out = Path(out)
     lines = ["# BG2 tilemap entries (VRAM 0x4000, 32x32) over the name-entry grid, captured from a newgame_name",
              "# dump by tools/name_grid.py capture (the game builds this map at run time). tx\tty\tentry"]
     for ty in range(0, 152 // 8):
         for tx in range(56 // 8, 240 // 8):
             e = struct.unpack_from("<H", v, 0x4000 + 2 * (ty * 32 + tx))[0]
             lines.append(f"{tx}\t{ty}\t{e:04x}")
-    MAP_TSV.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(MAP_TSV, len(lines) - 2, "entries")
+    out.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(out, len(lines) - 2, "entries")
 
 
-def preview(out, vram_path, pal_path):
+def preview(out, vram_path, pal_path, block=f"{BLOCK:x}"):
     """Grid area from a dump's VRAM/palette, original | English, 3x."""
     from PIL import Image
     import textbank
     rom = textbank.original_rom()
     v = Path(vram_path).read_bytes()
     pal = Path(pal_path).read_bytes()
-    m = load_map()
-    tiles = lz77.decompress(rom, BLOCK)[0]
-    new = redraw(tiles, rom)
+    blk = int(block, 16)
+    m = load_map(PICTURES[blk])
+    tiles = lz77.decompress(rom, blk)[0]
+    new = redraw(tiles, rom, PICTURES[blk], HEADER_FILL[blk], HEADER_H.get(blk))
     x0, y0, w, h = 64, 16, 120, 136
     im = Image.new("RGB", (2 * w + 4, h))
     for j, data in enumerate((tiles, new)):
@@ -245,7 +260,7 @@ def main():
     ap.add_argument("args", nargs="*")
     a = ap.parse_args()
     if a.cmd == "capture":
-        capture(a.args[0])
+        capture(*a.args)
     else:
         preview(*a.args)
 
