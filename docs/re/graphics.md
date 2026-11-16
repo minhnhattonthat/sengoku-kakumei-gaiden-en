@@ -11,6 +11,7 @@ Ruling D5: translate all graphics text; keep the original logo only if no offici
 | Confirm | header 入力内容確認; buttons はい / いいえ | OBJ | raw 0x6Dxxxx (vramfind run 0x6DBC18, 0x6DEE30, 0x6DF7B0) |
 | Gender | header 性別選択; large 女 / 男 | OBJ/BG | raw (guess) |
 | Name entry | header 名前入力; kana grid | OBJ + font | grid likely drawn from the text font at run time (109-112 tiles not found raw in ppu dumps = font-drawn) - guess |
+| Link time select (mode 20, `link_timesel`) | header 対戦時間選択; boxed choices 一五分 / 三〇分 / 四五分 | OBJ (guess) | not the EUC strings 07e2d4/dc/e4 (those are translated, yet the screen still shows kanji in a 2026-11-16 English-build shot, `work/qa/p7`); the only other EUC copies sit inside the description strings |
 | Message window | pink scroll frame (no text) | BG | - |
 | All dialogue and menu help | text | OBJ, drawn from the font | text engine (`text.md`), not graphics |
 
