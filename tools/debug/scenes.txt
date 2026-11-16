@@ -43,7 +43,10 @@ stage_r6_sagami        country=34 flags=1-24,33-90 input="6 a;200 -;6 a" hold=90
 stage_r7_shimotsuke    country=40 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
 stage_r8_uzen          country=43 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
 stage_r8_mutsu         country=46 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
-stage_mugen             flags=1-24,33-90 poke=0x020007B0:732,0x020007B4:232 input="6 a;200 -;6 a" hold=900 expect=29
+# stage_mugen removed 2026-11-16: country 48 (無限国, label ptr 0x731508) has no map node (node table row 48 is
+# another table's data); poking the hero to 732,232 and entering resets the game at frame ~4782 (boot code
+# 0x08000F8C re-runs, screen stays black, mode byte stale at 29), so the old SCENE_OK was a false positive.
+# How the real game reaches 無限国, if it does, is open (docs/status.md).
 # --- screens the game switches to by mode ---
 results         country=2 flags=1-24,33-90 mode=36 hold=400 expect=36
 link_end_card   country=2 flags=1-24,33-90 mode=21 hold=400 expect=21   # link versus 終了 card

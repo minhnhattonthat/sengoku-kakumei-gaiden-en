@@ -33,6 +33,8 @@ def main():
     ap.add_argument("--jobs", type=int, default=4)
     ap.add_argument("--states", action="store_true")
     ap.add_argument("--proof", action="store_true", help="collect every scene shot into <out>/_proof + sheets")
+    ap.add_argument("--proof-only", action="store_true",
+                    help="no emulator runs: collect proof from the scene dirs already in <out> (resume a split run)")
     ap.add_argument("--shot-every", default="120")
     ap.add_argument("--var", action="append", default=[])
     ap.add_argument("--script", action="append", default=[], help="extra Lua probe, e.g. tools/lua/modelog.lua")
@@ -64,6 +66,9 @@ def main():
         ok = "DONE " in log and (name not in marked or "SCENE_OK" in log)
         return name, ok, p.returncode
 
+    if a.proof_only:
+        proof(a.out, names, skill)
+        return
     bad = 0
     with ThreadPoolExecutor(a.jobs) as ex:
         for name, ok, rc in ex.map(run, names):
