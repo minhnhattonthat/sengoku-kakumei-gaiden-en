@@ -24,7 +24,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
-from skill import SKILL  # noqa: E402
+from skill import SKILL as _SKILL  # noqa: E402
+
+SKILL = Path(_SKILL)
 
 ORIG = ROOT / "rom/Sengoku Kakumei Gaiden (Japan).gba"
 BUILT = ROOT / "build/sengoku_en.gba"

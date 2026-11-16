@@ -2,7 +2,29 @@
 
 Updated at the end of every session. Keep it to what the next session needs; history is in git.
 
-- **Phase:** 9. Release, not started (phase 8 done 2026-11-17: smoke ok, `qa_gate.py check work/qa/manifest.tsv work/qa/verdicts` exit 0 with a waiver for fe25914e, textcover exit 0). Last build: `build/sengoku_en.gba` sha1 fe25914e… (1036 strings, 757 letter pairs, sprite banks 20, 22-39, 44 (THE END), 47, 58, 59, 61 + small-font digits + LV UP! popup + 2 Latin name-entry pictures + 13 ending cards + 2 link cards, 2105 writes). `build/tour.gba` is still the toured 4977f45e.
+- **Phase:** 9. Release DONE 2026-11-17: `release/Sengoku_Kakumei_Gaiden_EN_v1.0.zip` built and verified (BPS 334780 bytes + README.txt). Publishing (`gh release create`) is the owner's call. Last build: `build/sengoku_en.gba` sha1 d7b093ee…, CRC32 A2C75821 (1036 strings, 759 letter pairs, 2111 writes).
+- **Phase 9 session 1 (2026-11-17): release done.** `python -X utf8 tools/release.py --version 1.0` ran every step with
+  exit 0: build, check (67 tests), smoke ok, `jp_left` 0 runs, `qa_gate check` on `work/qa/manifest.tsv` (777 sheets,
+  waiver for d7b093ee) and `work/qa/story/manifest.tsv` (11 chapters), textcover 971/1037 shown + 66 waived, polish.md
+  all ticked, README placeholders none, header/boot code = original, bps make + independent re-apply = build.
+  - **Story pass:** `tools/story.py chapters` -> `work/qa/story/chapters/` (11 files, `story.CHAPTERS`), brief
+    `docs/story-reviewer-brief.md`, runner `tools/debug/story_codex.sh` (codex exec read-only; reports in
+    `work/qa/story/reports/`, earlier rounds in `round1/`, `round2/`). Round 1: 10 ok, 03_mori issue (051930,
+    already fixed in the polish pass). Round 2 on the 5 changed chapters: 04_oda issue = the shrine maiden spoke
+    formally (glossary gives her contractions): her lines contracted; round 3 on 04_oda ok. Minors all applied
+    (`docs/polish.md`). Verdicts in `work/qa/story/verdicts/` (+ `recheck_1.tsv` = `fixed` for 4 chapters whose
+    round-2 Minors were applied).
+  - **Frozen text layout (D14):** relocated strings were packed in order, so one longer line shifted 353 strings
+    and voided every coverage log. `data/text_layout.tsv` (`build.py freeze-layout`, frozen from the toured
+    fe25914e, reproduces it byte for byte) keeps each relocated string in its toured slot while it fits and keeps
+    the letter-pair codes (`font_en.Encoder(frozen=)`); `tests/test_layout.py`. d7b093ee differs from fe25914e in
+    1717 bytes: the 23 edited strings, their pointers, 3 new pair glyphs. Every scene showing an edited string
+    re-run (`tools/debug/recover_scenes.sh`, `work/qa/p9`, `work/qa/p9b`: 16 scenes, 50 sheets, all ok from a fresh
+    Codex pass, `work/qa/p9_verdicts`); their logs merged into `work/qa/cover` (`work/qa/cover_fe25914e` = before).
+  - **After any further text edit:** build, diff `build/strings.tsv` against `work/qa/strings_release.tsv` (v1.0's; only
+    edited ids should move), re-run the scenes that show them with `recover_scenes.sh`, Codex the new sheets,
+    `qa_gate.py waive`, then `tools/release.py --version 1.x`.
+  - **Next:** nothing left in the phase list. Owner: playtest from `build/sengoku_en.gba`, decide on publishing.
 - **Phase 8 session 13 (2026-11-17): visual QA done, phase 8 DONE.** The Codex run on the 777 sheets of 4977f45e
   finished (chunks 0-2 re-run from `work/qa/chunks_redo`: the first launch's codex died with the old session).
   99 issues, all eye-checked and all real except 8 stale ids: (1) Yes/No 5/2 px off-centre across the bar ->
