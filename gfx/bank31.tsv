@@ -1,0 +1,5 @@
+# Bank 31: save slot state (outline style), ~38-row slots.
+# start	rows	jp	en
+0	38	使用中	In Use
+39	39	未使用	Empty
+82	36	完了	Done

@@ -1,0 +1,6 @@
+# Bank 29: save slot choices (outline style), 56-row slots.
+# start	rows	jp	en
+2	55	記録 一	Save 1
+58	55	記録 二	Save 2
+114	55	記録 三	Save 3
+170	54	記録 四	Save 4

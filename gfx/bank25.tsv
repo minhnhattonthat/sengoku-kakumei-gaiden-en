@@ -1,0 +1,4 @@
+# Bank 25: link-mode handicap choice (outline style).
+# start	rows	jp	en
+2	124	ハンディキャップ有り	Handicap On
+130	124	ハンディキャップ無し	Handicap Off

@@ -1,0 +1,6 @@
+# Bank 24: save menu choices (outline style).
+# start	rows	jp	en
+2	140	中断した所から再開	Resume Suspended Game
+162	140	記録の選択	Choose a Save
+306	140	記録の複写	Copy a Save
+450	126	記録の削除	Delete a Save

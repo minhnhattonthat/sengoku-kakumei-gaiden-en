@@ -1,0 +1,4 @@
+# Bank 39: shop door choices (outline style), 28-row slots.
+# start	rows	jp	en
+2	28	入る	Go In
+34	28	閉める	Shut

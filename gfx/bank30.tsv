@@ -1,0 +1,7 @@
+# Bank 30: yes/no and link battle time choices (outline style), 44-row slots.
+# start	rows	jp	en
+2	44	はい	Yes
+50	44	いいえ	No
+98	44	一五分	15 min
+146	44	三〇分	30 min
+194	44	四五分	45 min

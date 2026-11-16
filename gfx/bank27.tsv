@@ -1,0 +1,26 @@
+# Bank 27: map menu, shop and pause choices (outline style; 290 is black ink, STYLE[27]["black"]). 92-row slots.
+# start	rows	jp	en
+2	92	装備選択	Equipment
+98	92	記録の保存	Save Game
+194	92	操作方法選択	Controls
+290	92	通り名一覧	Titles
+386	92	戦国図鑑	Encyclopedia
+482	92	準備完了!	Ready!
+578	92	対戦終了	End Battle
+1250	92	買い物	Shopping
+1346	92	買う	Buy
+1442	92	売る	Sell
+1538	92	店を出る	Leave Shop
+1634	92	はい	Yes
+1730	92	いいえ	No
+1826	92	刀	Sword
+1922	92	槍	Spear
+2018	92	弓	Bow
+2114	92	鎧	Armor
+2210	92	術	Arts
+2306	92	値段	Price
+2402	92	中断保存	Suspend & Save
+2498	92	遊戯に戻る	Back to Game
+2594	92	取り消し	Cancel
+2690	92	決定	OK
+2786	92	戻る	Back

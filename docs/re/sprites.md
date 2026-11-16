@@ -50,6 +50,15 @@ The values are the **8x8 small font** (4bpp ink 1, ~0x61C58-0x7D2F8, no absolute
 "LV 1 / NEXT LV / 5 / HEALTH 60 ... RYO 500" (`work/gfx/shots/bank32_equip_zoom.png`). 段's value is the current
 level, 次の段まで's value sits on its own line below it.
 
+## Menu choice boxes: banks 23-25, 27-31, 37-39 - done
+16 px strips, one slot per choice = the peach interior (index 13) between the box lines; every frame shows its
+whole slot (pieces per frame at rest[0] x 32 rows). Letters white 15 with a dark antialiased edge; bank 27's
+通り名一覧 (start 290) is black ink. `STYLE kind "outline"` (`draw_outline`: white letters, 8-neighbour edge 2,
+top-aligned at row 3, row 2 in a tight slot). Slots found by `work/inkruns.py`-style scan (rows whose edge
+pixels are 13). Checked on title, newgame_setup, map_menu, save, controls, encyclopedia, shop, link_timesel
+(`work/gfx/shots/menus_outline.png`, rotate 270). Not yet seen in game: bank 23 (resume / start over), 24,
+25 (handicap), 30 yes/no, 31 (in use / done), 37, 38 Type 3, 39 (Go In / Shut).
+
 ## Map of all 62 banks (2026-11-16, overview sheets `work/gfx/sheet[A-D].png`, strips wrapped at 320 rows)
 Rendered with `MONO`/palette 0, so multi-palette banks look odd; only the classification matters.
 - **Text, to redraw:** 20 province name plates (2 kanji, ~50, plus greyed variants), 23-26 menu choice boxes

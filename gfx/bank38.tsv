@@ -1,0 +1,5 @@
+# Bank 38: control type choices (outline style).
+# start	rows	jp	en
+2	92	初心者型	Beginner Type
+98	92	上級者型	Expert Type
+194	52	タイプ三	Type 3

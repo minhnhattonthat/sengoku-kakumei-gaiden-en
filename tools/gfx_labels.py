@@ -22,8 +22,12 @@ W = 16
 # How each bank's labels are drawn: "box" = bank 22's peach gradient box (draw()); "plain" = black-on-white
 # labels whose ink trio varies per slot (draw_plain(); `pal` = the palette row used to rank the trio dark..light,
 # `skip` = antialias indices shared by every trio).
+# "outline" = the menu choice boxes (banks 23-31, 37-39): white letters with a dark antialiased edge on the peach
+# slot (index 13); a slot listed in `black` has black letters instead (bank 27's 通り名一覧), drawn as bank 22's.
 STYLE = {22: {"kind": "box"}, 36: {"kind": "plain", "pal": 4, "skip": (10, 11)},
-         35: {"kind": "plain", "pal": 0, "skip": (), "centre": True}}
+         35: {"kind": "plain", "pal": 0, "skip": (), "centre": True},
+         **{n: {"kind": "outline"} for n in (23, 24, 25, 28, 29, 30, 31, 37, 38, 39)},
+         27: {"kind": "outline", "black": {290}}}
 
 
 def strip(rom, bank):
@@ -191,6 +195,55 @@ def draw_plain(text, n, orig, ink, shade, centre=False):
     return out
 
 
+OUT_BG, OUT_FILL, OUT_EDGE = 13, 15, 2  # peach slot, white letter, dark brown edge
+OUT_TOP = 3  # first letter row in an outline slot (the originals' ink starts at +2; the edge takes +2)
+
+
+def letter_points(text, top, x_top):
+    """{(row, x)} of `text` rotated clockwise, proportionally spaced from row `top`, letter row 0 at x_top."""
+    pts, y = set(), top
+    for ch in font_en.fold(text):
+        g = font_en.FONT.get(ch, font_en.FONT[" "])
+        span = glyph_cols(g)
+        if not span:
+            y += 3
+            continue
+        for r, line in enumerate(g):
+            for c, px in enumerate(line):
+                if px == "#":
+                    pts.add((y + c - span[0], x_top - r))
+        y += span[1] - span[0] + 2
+    return pts
+
+
+def draw_outline(text, n, orig, black=False):
+    """English over a menu choice slot (rows of interior peach): cleared to OUT_BG, then white letters with an
+    8-neighbour dark edge (or black letters with a shade, `black`), top-aligned from OUT_TOP."""
+    length = text_width(text)
+    top = OUT_TOP if OUT_TOP + length + 2 <= n else 2  # a tight slot: the edge may touch row 1
+    if top + length + 2 > n:
+        raise ValueError(f"{text!r}: {length} rows from row {top}, slot {n}")
+    out = [[v if v == 0 else OUT_BG for v in row] for row in orig]
+    pts = letter_points(text, top, 12)
+    if black:
+        for y, x in pts:
+            for yy, xx in ((y + 1, x), (y, x - 1), (y + 1, x - 1)):
+                if (yy, xx) not in pts and 0 <= yy < n and 0 <= xx < W:
+                    out[yy][xx] = SHADE
+        for y, x in pts:
+            out[y][x] = INK
+        return out
+    for y, x in pts:
+        for dy in (-1, 0, 1):
+            for dx in (-1, 0, 1):
+                yy, xx = y + dy, x + dx
+                if (yy, xx) not in pts and 0 <= yy < n and 0 <= xx < W:
+                    out[yy][xx] = OUT_EDGE
+    for y, x in pts:
+        out[y][x] = OUT_FILL
+    return out
+
+
 def english_rows(rom, bank):
     b, rows = strip(rom, bank)
     new = [list(r) for r in rows]
@@ -204,6 +257,8 @@ def english_rows(rom, bank):
             trio = ink_trio(orig, style, pal)
             shade = trio[1] if len(trio) > 1 and any(15 in r for r in orig) else None
             new[start:start + n] = draw_plain(en, n, orig, trio[0], shade, style.get("centre", False))
+        elif style["kind"] == "outline":
+            new[start:start + n] = draw_outline(en, n, orig, start in style.get("black", ()))
         else:
             new[start:start + n] = draw(en, n, orig)
     return b, rows, new
@@ -350,13 +405,39 @@ def preview(rom, bank, out):
     print(out)
 
 
+def strips_sheet(rom, bank, out, col=256, pal_row=0):
+    """A bank's 16 px strip wrapped into columns of `col` rows, 3x, with a ruler (tick every 16 rows, long every
+    64, the column's first row printed in the segments listing): for reading off label start rows."""
+    from PIL import Image
+    b, rows = strip(rom, bank)
+    rgb = [tuple(v * 255 // 31 for v in c) for c in palette(rom, b, pal_row)]
+    rgb[0] = (255, 0, 255)
+    ncol = (len(rows) + col - 1) // col
+    im = Image.new("RGB", (ncol * (W + 10), col), (40, 40, 40))
+    for i, row in enumerate(rows):
+        k, y = divmod(i, col)
+        x0 = k * (W + 10)
+        for x, v in enumerate(row):
+            im.putpixel((x0 + 6 + x, y), rgb[v])
+    for k in range(ncol):
+        for y in range(0, col, 16):
+            for x in range(6 if y % 64 == 0 else 3):
+                im.putpixel((k * (W + 10) + x, y), (255, 255, 0))
+    im.resize((im.size[0] * 3, col * 3), Image.NEAREST).save(out)
+    print(out, f"{ncol} columns of {col} rows")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["segments", "preview"])
+    ap.add_argument("cmd", choices=["segments", "preview", "strips"])
     ap.add_argument("bank", type=int)
     ap.add_argument("out", nargs="?")
+    ap.add_argument("--col", type=int, default=256)
+    ap.add_argument("--pal", type=int, default=0)
     a = ap.parse_args()
     rom = textbank.original_rom()
+    if a.cmd == "strips":
+        return strips_sheet(rom, a.bank, a.out, a.col, a.pal)
     if a.cmd == "segments":
         b, rows = strip(rom, a.bank)
         for start, n in segments(rows):

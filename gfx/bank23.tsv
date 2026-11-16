@@ -1,0 +1,4 @@
+# Bank 23: load menu choices (outline style). Slot = the peach interior rows between the box lines.
+# start	rows	jp	en
+2	156	記録してある所から再開	Resume from Save
+162	156	始めから始める	Start from the Beginning
