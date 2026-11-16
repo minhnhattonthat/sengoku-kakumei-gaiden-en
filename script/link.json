@@ -938,7 +938,7 @@
   "room": 24,
   "kind": "text",
   "jp": "よくきたな|n%nよ。|n",
-  "en": "Welcome, %n.",
+  "en": "Welcome,|n%n.",
   "notes": "",
   "status": "done"
  },

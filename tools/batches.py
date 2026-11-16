@@ -29,7 +29,9 @@ VARIABLE = r"%d"  # a number the game draws: "1st" comes out as "1th"
 HONORIFICS = {"様": "-sama", "さま": "-sama", "殿": "-dono", "どの": "-dono"}
 GENDERED = re.compile(r"\b(my boy|my lad|young man|my girl|young lady)\b", re.I)  # the hero's gender is chosen
 READING = re.compile(r"（[ぁ-ゖー]+）")  # furigana in parentheses: 幸村（ゆきむら）様
-NAME_CELLS = 4  # %n: the player's name, budgeted at 4 cells (8 letters, or 4 upright kana)
+# %n: the player's name, up to 8 letters, each drawn as a whole cell (name-entry letters are kana font glyphs,
+# docs/re/name-entry.md), so 8 cells. A 4-cell budget split words after a full-length name (phase 8 tour).
+NAME_CELLS = 8
 BANK = {}  # id -> bank (script/<bank>.json), filled by docs()
 # data/windows.tsv: (cells per line, lines) per box; results ids get their own budgets in width_problems.
 SCROLL = (12, 3)
@@ -445,9 +447,9 @@ def _selftest():
         long = "Min walked all the way from the far north to the capital"
         assert wrap(index()["a"], long) == "Min walked all the|nway from the far|nnorth to the capital"  # balanced
         assert width_problems(index()["a"], wrap(index()["a"], long + " in a single night")) == ["4 lines, the box has 3"]
-        # odd runs around %n pad to a whole cell: 3 + 4 (name) + 9 cells
+        # odd runs around %n pad to a whole cell: 3 + 8 (name) + 9 cells
         assert width_problems(index()["a"], "Min, %n, a long greeting") == [
-            "line over 12 cells (16): 'Min, %n, a long greeting'"]
+            "line over 12 cells (20): 'Min, %n, a long greeting'"]
     print("selftest ok")
 
 

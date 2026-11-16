@@ -187,7 +187,7 @@
   "room": 24,
   "kind": "text",
   "jp": "よくきたな|n%nよ。|n",
-  "en": "Welcome, %n.",
+  "en": "Welcome,|n%n.",
   "notes": "",
   "status": "done"
  },
@@ -646,7 +646,7 @@
   "room": 44,
   "kind": "text",
   "jp": "%nよ！|nわれらは|n九州を守らねばならん！",
-  "en": "%n! We must|nprotect Kyushu!",
+  "en": "%n!|nWe must protect Kyushu!",
   "notes": "",
   "status": "done"
  },
@@ -682,7 +682,7 @@
   "room": 40,
   "kind": "text",
   "jp": "おお、%n！|n毛利領の様子はどうだ？|n",
-  "en": "Ah, %n! How do|nthings stand in the Mori|nlands?",
+  "en": "Ah, %n!|nHow do things stand in|nthe Mori lands?",
   "notes": "",
   "status": "done"
  },
@@ -706,7 +706,7 @@
   "room": 44,
   "kind": "text",
   "jp": "おお、%n！|nそうか！|n結界を破壊したか！",
-  "en": "Ah, %n! I see! You|ndestroyed the barrier!",
+  "en": "Ah, %n!|nI see! You destroyed|nthe barrier!",
   "notes": "",
   "status": "done"
  },
@@ -778,7 +778,7 @@
   "room": 24,
   "kind": "text",
   "jp": "頑張るんだぞ！|n%n！|n",
-  "en": "Do your best, %n!",
+  "en": "Do your best,|n%n!",
   "notes": "",
   "status": "done"
  },
@@ -946,7 +946,7 @@
   "room": 48,
   "kind": "text",
   "jp": "死ぬでないぞ！|n%n！|n必ず生きて帰ってくるのだ",
-  "en": "Do not die, %n!|nCome back alive, no|nmatter what!",
+  "en": "Do not die,|n%n!|nCome back alive, please!",
   "notes": "",
   "status": "done"
  },
@@ -1042,7 +1042,7 @@
   "room": 64,
   "kind": "text",
   "jp": "おお、%n！|n頑張っておるようだな。|nおぬしに良い事を教えよう",
-  "en": "Ah, %n! Working|nhard, I see. Let me tell|nyou something useful.",
+  "en": "Ah, %n!|nHard at work, I see.|nLet me give you a tip.",
   "notes": "",
   "status": "done"
  },
@@ -1810,7 +1810,7 @@
   "room": 40,
   "kind": "text",
   "jp": "さらばじゃ！|n%n！|nあとは任せたぞ！！",
-  "en": "Farewell, %n! I|nleave the rest to you!!",
+  "en": "Farewell,|n%n! The|nrest is up to you!!",
   "notes": "",
   "status": "done"
  },
@@ -2125,7 +2125,7 @@
   "room": 44,
   "kind": "text",
   "jp": "%n様！|nうれしい！|n来てくれたんですね。",
-  "en": "%n-sama! I am so|nhappy! You came!",
+  "en": "%n-sama!|nI am so happy! You came!",
   "notes": "",
   "status": "done"
  },
@@ -2185,7 +2185,7 @@
   "room": 36,
   "kind": "text",
   "jp": "%n様！|nあの…|n頑張って下さい！",
-  "en": "%n-sama! Um...|nPlease do your best!",
+  "en": "%n-sama!|nUm... Please do|nyour best!",
   "notes": "",
   "status": "done"
  },
@@ -2209,7 +2209,7 @@
   "room": 24,
   "kind": "text",
   "jp": "きさまが|n%nだな…|n",
-  "en": "So you are %n...",
+  "en": "So you are|n%n...",
   "notes": "",
   "status": "done"
  },
@@ -2461,7 +2461,7 @@
   "room": 52,
   "kind": "text",
   "jp": "%n殿の|nお手並み拝見させて|nもらおうと思ってな。",
-  "en": "I wanted a look at what|n%n-dono can do.",
+  "en": "I wanted to see what|n%n-dono|ncan do.",
   "notes": "",
   "status": "done"
  },
@@ -2797,7 +2797,7 @@
   "room": 36,
   "kind": "text",
   "jp": "%nよ。|n十分気をつけるのだぞ。|n",
-  "en": "%n. Be very|ncareful.",
+  "en": "%n.|nBe very careful.",
   "notes": "",
   "status": "done"
  },
@@ -2905,7 +2905,7 @@
   "room": 56,
   "kind": "text",
   "jp": "%nよ！|n佐助とともに蝦夷へ向かい|n妖魔王を倒すのだ！",
-  "en": "%n! Go to Ezo with|nSasuke and defeat the|nDemon King!",
+  "en": "%n!|nGo with Sasuke to Ezo|nand slay the Demon King!",
   "notes": "",
   "status": "done"
  },
@@ -3085,7 +3085,7 @@
   "room": 24,
   "kind": "text",
   "jp": "遅かったな。|n%n。|n",
-  "en": "Too late, %n.",
+  "en": "Too late,|n%n.",
   "notes": "",
   "status": "done"
  },
@@ -3205,7 +3205,7 @@
   "room": 40,
   "kind": "text",
   "jp": "…おぬしが|n妖魔と戦っておる|n%nか…",
-  "en": "...So you are %n,|nwho fights the demons...",
+  "en": "...So you are|n%n,|nwho fights the demons...",
   "notes": "",
   "status": "done"
  },
@@ -3316,7 +3316,7 @@
   "room": 40,
   "kind": "text",
   "jp": "なあ、%n。|nなんかおかしくないか？|n",
-  "en": "Hey, %n. Doesn't|nsomething seem off?",
+  "en": "Hey, %n.|nDoesn't something|nseem off?",
   "notes": "",
   "status": "done"
  },
@@ -3400,7 +3400,7 @@
   "room": 44,
   "kind": "text",
   "jp": "%n！|nこいつは|n妖魔の仕業にちがいねえ！",
-  "en": "%n! This has gotta|nbe the demons' doing!",
+  "en": "%n!|nThis has gotta be the|ndemons' doing!",
   "notes": "",
   "status": "done"
  },
@@ -3424,7 +3424,7 @@
   "room": 56,
   "kind": "text",
   "jp": "%n殿。|n何としてでも妖魔の野望を|n打ち砕いてくだされ！",
-  "en": "%n-dono. Please,|ncrush the demons' plans,|nwhatever it takes!",
+  "en": "%n-dono!|nCrush the demons' plans,|nwhatever it takes!",
   "notes": "",
   "status": "done"
  },
@@ -3652,7 +3652,7 @@
   "room": 44,
   "kind": "text",
   "jp": "%nよ。|n妖魔の軍勢には|n我らがそなえよう。",
-  "en": "%n. We will|nstand ready against|nthe demon army.",
+  "en": "%n.|nWe will stand ready|nagainst the demon army.",
   "notes": "",
   "status": "done"
  },
@@ -3676,7 +3676,7 @@
   "room": 52,
   "kind": "text",
   "jp": "ぬえは倒されたか…|n%nめ…|nそろそろ…邪魔だな。",
-  "en": "So the Nue has fallen...|nThat %n... is|nbecoming a nuisance.",
+  "en": "So the Nue has fallen...|n%n is|nbecoming a nuisance.",
   "notes": "",
   "status": "done"
  },
@@ -3976,7 +3976,7 @@
   "room": 40,
   "kind": "text",
   "jp": "くっくっくっ…|n礼をいうぞ。|n%nよ…",
-  "en": "Heh heh heh... My|nthanks, %n...",
+  "en": "Heh heh heh...|nMy thanks,|n%n...",
   "notes": "",
   "status": "done"
  },
@@ -4085,7 +4085,7 @@
   "room": 28,
   "kind": "text",
   "jp": "%nよ！|n時は一刻を争う！|n",
-  "en": "%n! Every moment|ncounts!",
+  "en": "%n!|nEvery moment counts!",
   "notes": "",
   "status": "done"
  },
@@ -4157,7 +4157,7 @@
   "room": 44,
   "kind": "text",
   "jp": "苦しい戦いに|nなるだろうが…頼むぞ！|n%n！",
-  "en": "It will be a hard|nfight... I am counting|non you, %n!",
+  "en": "A hard fight awaits...|nI am counting on you,|n%n!",
   "notes": "",
   "status": "done"
  },
@@ -4169,7 +4169,7 @@
   "room": 36,
   "kind": "text",
   "jp": "どうした？|n%n。|n時は一刻を争う！",
-  "en": "What is wrong,|n%n? Every moment|ncounts!",
+  "en": "What is wrong,|n%n?|nEvery moment counts!",
   "notes": "",
   "status": "done"
  },
@@ -4553,7 +4553,7 @@
   "room": 52,
   "kind": "text",
   "jp": "%n？|nそのような者は知らん！|nわしは忙しいのじゃ！",
-  "en": "%n? I know no such|nperson! I am busy!",
+  "en": "%n?|nI know no such person!|nI am busy!",
   "notes": "",
   "status": "done"
  },
@@ -4673,7 +4673,7 @@
   "room": 60,
   "kind": "text",
   "jp": "%nよ！|n後の歴史には残らずとも|nこの幸村が覚えておこう！",
-  "en": "%n! Even if|nhistory forgets you,|nYukimura will remember!",
+  "en": "%n! Even|nif history forgets you,|nYukimura will remember!",
   "notes": "",
   "status": "done"
  },

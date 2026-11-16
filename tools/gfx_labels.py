@@ -295,6 +295,9 @@ def draw_big(text, n, orig, fill=BIG_FILL, edge=15):
 
 def english_rows(rom, bank):
     b, rows = strip(rom, bank)
+    strip_rows = rows
+    if bank in PIECED:
+        rows = lay_pieces(rom, b, rows)
     new = [list(r) for r in rows]
     style = STYLE.get(bank, {"kind": "box"})
     pal = palette(rom, b, style.get("pal", 0))
@@ -315,7 +318,32 @@ def english_rows(rom, bank):
             new[start:start + n] = draw_big(en, n, orig)
         else:
             new[start:start + n] = draw(en, n, orig)
+    if bank in PIECED:
+        rows, new = strip_rows, lay_pieces(rom, b, new, back=True)
     return b, rows, new
+
+
+# Box banks whose cells show their 16 px pieces out of tile order: bank 22's 参加受付中・/・・/・・・ frames (16-18)
+# put the slot's first tiles at the bottom, so a label drawn top to bottom showed "Taking Ent  ries." in game.
+# english_rows() draws on the cells as seen (top to bottom) and lays the pieces back into their tiles.
+PIECED = {22}
+
+
+def lay_pieces(rom, b, rows, back=False):
+    """Every cell's rows in screen order (back=False: tile order -> as seen), or back into its pieces' tiles
+    (back=True). Strip row of tile t = t // 2 * 8 (2 tiles per 8-row band)."""
+    out = [list(r) for r in rows]
+    for ps in sprites.frames(rom, b):
+        if any(p["w"] != 16 or p["x"] != 0 for p in ps):
+            raise ValueError(f"bank {b['n']}: a cell's pieces are not one 16 px column")
+        r0 = min(p["tile"] for p in ps) // 2 * 8
+        for p in ps:
+            pr = p["tile"] // 2 * 8
+            if back:
+                out[pr:pr + p["h"]] = rows[r0 + p["y"]:r0 + p["y"] + p["h"]]
+            else:
+                out[r0 + p["y"]:r0 + p["y"] + p["h"]] = rows[pr:pr + p["h"]]
+    return out
 
 
 # Banks drawn as whole OBJ pieces with 8 px label columns, not 16 px strips: (first tile, width, height) in tiles

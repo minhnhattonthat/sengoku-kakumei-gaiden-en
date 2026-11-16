@@ -35,7 +35,8 @@ def banks(rom):
     return out
 
 
-OBJ_SIZE = {0: [(8, 8), (16, 16), (32, 32), (64, 64)], 1: [(16, 8), (32, 8), (32, 16), (64, 32)],
+WHOLE_TILE_OFFSETS = {22}  # banks with flags bit 3 clear whose piece offsets are still whole tiles (frames())
+OBJ_SIZE = {0:[(8, 8), (16, 16), (32, 32), (64, 64)], 1: [(16, 8), (32, 8), (32, 16), (64, 32)],
             2: [(8, 16), (8, 32), (16, 32), (32, 64)]}
 
 
@@ -54,8 +55,9 @@ def frames(rom, b):
         for k in range(n):
             a0, a1, a2, y, x = struct.unpack_from("<HHHhh", rom, b["end"] + 12 * (p + k))
             w, h = OBJ_SIZE[a0 >> 14][a1 >> 14]
-            # flags bit 3 (banks 59, 60): the offset is already in tiles (bank 59's 32x16 pieces sit 8 apart)
-            step = 1 if b["flags"] & 8 else 2
+            # flags bit 3 (banks 59, 60): the offset is already in tiles (bank 59's 32x16 pieces sit 8 apart);
+            # so is bank 22's (flags 0), whose 16x32 pieces sit 8 apart: halved, its 参加受付中・ frames overlap
+            step = 1 if b["flags"] & 8 or b["n"] in WHOLE_TILE_OFFSETS else 2
             ps.append({"w": w, "h": h, "x": x, "y": y, "tile": base + (a2 & 0x3FF) // step, "pal": a2 >> 12})
         out.append(ps)
         p += n
