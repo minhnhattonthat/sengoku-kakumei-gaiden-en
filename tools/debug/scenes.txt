@@ -58,14 +58,23 @@ link_timesel    country=2 mode=20 hold=400 expect=20
 link_lobby_m    country=2 mode=19 hold=400 expect=19
 ending_petals   country=2 mode=34 hold=400 expect=34
 debug_menu      country=2 mode=0 hold=400 expect=0   # leftover debug menu (debug only); its handler runs but draws a blank green screen when entered this way
-# --- ending: ev 53 chains 53..74: epilogue, the four prose screens (LZ 0x5C84F0, 0x5CA354, 0x5C5DB8,
-#     0x5C3598), staff credits and the end card; holds land just after each prose screen loads ---
-ending_prose1   country=2 ev=53 dlg=0 mash=40 hold=3450 expect=24:53
-ending_prose2   country=2 ev=53 dlg=0 mash=40 hold=5520 expect=24:53
-ending_prose3   country=2 ev=53 dlg=0 mash=40 hold=9640 expect=24:53
-ending_prose4   country=2 ev=53 dlg=0 mash=40 hold=12090 expect=24:53
-ending_credits  country=2 ev=53 dlg=0 mash=40 hold=13000 expect=24:53
-ending_end      country=2 ev=53 dlg=0 mash=40 hold=14400 expect=24:53
+# --- ending: ev 53 chains 53..74: epilogue, then six prose cards alternating with seven staff-credit cards
+#     (docs/re/prose.md, tools/prose.py), then the THE END card (bank 44 OBJs over the sword picture);
+#     holds land on each card (timed 2026-11-16 on the English build: inputs end at frame 4932) ---
+ending_prose_masamune  country=2 ev=53 dlg=0 mash=40 hold=1790 expect=24:53
+ending_credits1        country=2 ev=53 dlg=0 mash=40 hold=2370 expect=24:53
+ending_prose1          country=2 ev=53 dlg=0 mash=40 hold=3710 expect=24:53   # Ieyasu
+ending_credits2        country=2 ev=53 dlg=0 mash=40 hold=4320 expect=24:53
+ending_prose2          country=2 ev=53 dlg=0 mash=40 hold=5870 expect=24:53   # Hideyoshi
+ending_credits3        country=2 ev=53 dlg=0 mash=40 hold=6470 expect=24:53
+ending_prose_terumoto  country=2 ev=53 dlg=0 mash=40 hold=7790 expect=24:53
+ending_credits4        country=2 ev=53 dlg=0 mash=40 hold=8370 expect=24:53
+ending_prose3          country=2 ev=53 dlg=0 mash=40 hold=9950 expect=24:53   # Yukimura
+ending_credits5        country=2 ev=53 dlg=0 mash=40 hold=10520 expect=24:53
+ending_prose4          country=2 ev=53 dlg=0 mash=40 hold=12590 expect=24:53  # Yoshihiro
+ending_credits         country=2 ev=53 dlg=0 mash=40 hold=12950 expect=24:53  # credits 6
+ending_credits7        country=2 ev=53 dlg=0 mash=40 hold=14170 expect=24:53
+ending_end             country=2 ev=53 dlg=0 mash=40 hold=15770 expect=24:53  # THE END
 # --- every story event (castle talks, region events, boss intros, magatama, biographies) ---
 ev000_opening            country=2 ev=0 mash=40 hold=2400 expect=24:0
 ev001_lord_hint          country=2 ev=1 mash=40 hold=2400 expect=24:1
