@@ -41,7 +41,11 @@ Standing non-bugs, `ok` (the controller adds the game's own below):
   position so it can be judged; if `tour_jp` shows the same art it is still worth the note.
 - Menu bar labels (save menu, mode select, Yes/No and similar choice bars) are drawn in a heavy black outlined
   font that starts at the bar's left edge (top, when upright): the original kanji labels look the same and sit in
-  the same place. Only report one if its letters cannot be read at zoom 4 or it runs past its bar.
+  the same place. Only report one if its letters cannot be read at zoom 4 or it runs past its bar. The mode select
+  ("Realm in Chaos" / "VS Conquest", unselected one dimmed) and the settings menu rows were checked by eye at
+  zoom 2-4 and read fine: `ok` unless a label is missing, cut off or a different word.
+- The province plates beside the hero on the national map are 16x32 sprites in a tiny 5-row caps font; a name too
+  long for one line is split over two lines on purpose ("SATSU/MA"): `ok`.
 - The bottom scroll's help / message text runs over the scroll's diamond and line decoration on the right half:
   the original's text does the same (the decoration is under the text area).
 - Yes/No (and 15/30/45 min) bars centre their label; other choice bars start at the bar's edge, as the original's.

@@ -2,7 +2,22 @@
 
 Updated at the end of every session. Keep it to what the next session needs; history is in git.
 
-- **Phase:** 8. QA in the emulator, in progress (phase 7 done 2026-11-16; text coverage gate green 2026-11-17; left: final tour on build 41741062 + Codex visual-QA verdicts + textcover re-run, see sessions 9-10; the tour needs free memory). Last build: `build/sengoku_en.gba` sha1 41741062… (1036 strings, 758 letter pairs, sprite banks 20, 22-39, 44 (THE END), 47, 58, 59, 61 + small-font digits + LV UP! popup + 2 Latin name-entry pictures + 13 ending cards + 2 link cards, 2114 writes).
+- **Phase:** 8. QA in the emulator, in progress (phase 7 done 2026-11-16; left: Codex visual-QA verdicts on the re-tour of build ba18e9be, then `qa_gate.py check`, see session 11). Last build: `build/sengoku_en.gba` sha1 ba18e9be… (1036 strings, 757 letter pairs, sprite banks 20, 22-39, 44 (THE END), 47, 58, 59, 61 + small-font digits + LV UP! popup + 2 Latin name-entry pictures + 13 ending cards + 2 link cards, 2104 writes).
+- **Phase 8 session 11 (2026-11-17):** final tour on 41741062 **finished** (detached `Start-Process sh`, JOBS=2:
+  tour 166/166, pages 124/124, every coverage run ok); textcover **971/1037 shown, 66 waived, exit 0**. Gate:
+  `work/qa/manifest.tsv` (731 sheets, 25 chunks), `vqa_codex.sh work/qa/chunks work/qa/verdicts 2` running
+  (log `work/qa_vqa.log`); old-build verdicts moved to `work/qa_old_b6d73/`. Codex flags so far were all the
+  heavy mode-select labels (checked by eye: readable, same as the original) and SATSU/MA plates: both now `ok`
+  in `docs/visual-qa-brief.md`. **Real bugs found and fixed:** (1) the player name split words after a full
+  8-letter name ("Ho/w", "Wo/rking"): each name letter is a whole cell, `batches.NAME_CELLS` 4 -> 8, 29 `%n`
+  lines re-broken (save confirm now `%n, OK?`). (2) Link lobby header "Taking Ent  ries.": bank 22 frames 16-18
+  show their pieces out of tile order (offsets in whole tiles, `sprites.WHOLE_TILE_OFFSETS`); `gfx_labels`
+  draws bank 22 on the assembled cells and lays them back (`tests/test_bank22_frames.py`). Build ba18e9be:
+  re-tour into `work/qa2` (`sh tools/debug/final_tour.sh work/qa2`, log `work/qa2_final.log`).
+  **Next:** when both finish, replace `work/qa/{tour,pages,desc,...}` with `work/qa2`'s, re-run `qa_gate.py init`
+  on the same dirs `--build build/tour.gba` (unchanged sheets keep their verdicts), `todo` into a fresh chunks
+  dir, Codex on the changed sheets, eye-check every `issue`, write `fixed`/`ok` lines for false flags, textcover
+  on `work/qa2/cover`, `qa_gate.py check` exit 0 = phase 8 done.
 - **Phase 8 session 10 (2026-11-17): final tour stopped by low system memory again, phase did not move.** Found
   the previous worker's runs orphaned: `final_tour.sh work/qa_b2` (every Mesen start failing, exit 3221225794 =
   0xC0000142, out of memory next to another project's emulators) and `vqa_codex.sh` on the **old-build** chunks
