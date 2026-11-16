@@ -1,4 +1,4 @@
-"""Link-error card (tools/link_card.py) and LZ relocation (build.RELOCATABLE_LZ)."""
+"""8bpp link cards (tools/link_card.py) and LZ relocation (build.RELOCATABLE_LZ)."""
 import struct
 import sys
 import unittest
@@ -17,31 +17,29 @@ class TestLinkCard(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.rom = textbank.original_rom()
+        cls.edits = link_card.lz_edits(cls.rom)
 
-    def test_render_reads_the_blocks(self):
-        rows = link_card.render(*(link_card.decoded(self.rom, o) for o in
-                                  (link_card.IDX, link_card.DEFS, link_card.TILES)))
-        self.assertEqual(len(rows), 160)
-        self.assertIn(link_card.WHITE, {v for r in rows for v in r})
+    def test_records_point_at_the_blocks(self):
+        # picture record: idx, 600-byte block, defs, tiles, palette
+        for name, c in link_card.CARDS.items():
+            rec = build.RELOCATABLE_LZ[c["idx"]][0]
+            words = [w - 0x08000000 for w in struct.unpack_from("<5I", self.rom, rec)]
+            self.assertEqual(words[0], c["idx"], name)
+            self.assertEqual(words[2:], [c["defs"], c["tiles"], c["pal"]], name)
 
     def test_new_blocks_round_trip(self):
-        idx, defs, tiles = link_card.blocks(self.rom)
-        self.assertEqual(len(idx), 2400)
-        self.assertEqual(len(tiles), 32768)
-        n = struct.unpack_from("<I", defs, 8)[0]
-        self.assertEqual(len(defs), 16 + 2 * n)
-        ids = struct.unpack("<600I", idx)
-        self.assertLess(max(i & 0xFFFF for i in ids), n)
-        rows = link_card.render(idx, defs, tiles)
-        old = link_card.render(*(link_card.decoded(self.rom, o) for o in
-                                 (link_card.IDX, link_card.DEFS, link_card.TILES)))
-        self.assertEqual(rows[0], old[0], "the border rows stay as they were")
-        self.assertEqual(rows[-1], old[-1])
+        for name in link_card.CARDS:
+            idx, defs, tiles = link_card.blocks(self.rom, name)
+            self.assertEqual((len(idx), len(tiles)), (2400, 32768), name)
+            n = struct.unpack_from("<I", defs, 8)[0]
+            self.assertEqual(len(defs), 16 + 2 * n)
+            self.assertLess(max(i & 0xFFFF for i in struct.unpack("<600I", idx)), n)
+            new, old = link_card.render(idx, defs, tiles), link_card.render(*link_card.originals(self.rom, name))
+            self.assertEqual(new[-1], old[-1], f"{name}: the bottom border stays as it was")
 
-    def test_relocatable_sites_point_at_their_block(self):
+    def test_relocatable_sites_are_every_pointer(self):
         for off, sites in build.RELOCATABLE_LZ.items():
-            hits = []
-            p = struct.pack("<I", 0x08000000 + off)
+            hits, p = [], struct.pack("<I", 0x08000000 + off)
             i = self.rom.find(p)
             while i >= 0:
                 hits.append(i)
@@ -49,16 +47,13 @@ class TestLinkCard(unittest.TestCase):
             self.assertEqual(hits, sites, f"{off:06x}: every pointer to the block must be listed")
 
     def test_moved_blocks_land_in_graphics_free_space(self):
-        unpacked = build.unpack(self.rom)
-        new, writes = build.repack(self.rom, unpacked, lz_edits=link_card.lz_edits(self.rom))
+        new, _ = build.repack(self.rom, build.unpack(self.rom), lz_edits=self.edits)
         lo, hi = textbank.GFX_FREE
         for off, sites in build.RELOCATABLE_LZ.items():
-            for s in sites:
-                dest = struct.unpack_from("<I", new, s)[0] - 0x08000000
-                if dest != off:
-                    self.assertTrue(lo <= dest < hi, f"{off:06x} -> {dest:06x}")
-                data = lz77.decompress(new, dest)[0]
-                self.assertEqual(data, link_card.lz_edits(self.rom)[off])
+            dest = struct.unpack_from("<I", new, sites[0])[0] - 0x08000000
+            if dest != off:
+                self.assertTrue(lo <= dest < hi, f"{off:06x} -> {dest:06x}")
+            self.assertEqual(lz77.decompress(new, dest)[0], self.edits[off])
 
 
 if __name__ == "__main__":

@@ -53,6 +53,7 @@ link_end_card   country=2 flags=1-24,33-90 mode=21 hold=400 expect=21   # link v
 # game over: walk Hyuga's stage into the archers without GOD; HP 0 at about frame 7620, the stage draws 終
 # (shot lands on it), then the game drops to the title (mode 13). Deterministic from a cold boot.
 game_over       country=3 flags=1-24,33-90 input="6 a;200 -;6 a;400 -;500 up;400 left;500 up;400 right;500 up;400 down" hold=260 expect=29
+link_replay     country=2 flags=1-24,33-90 mode=21 hold=1500 expect=21   # after the END card: Sengoku Replay map (tools/link_card.py)
 link_failed     country=2 mode=22 hold=400 expect=22
 link_timesel    country=2 mode=20 hold=400 expect=20
 link_lobby_m    country=2 mode=19 hold=400 expect=19

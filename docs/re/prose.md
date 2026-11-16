@@ -59,3 +59,12 @@ Found 2026-11-16 (phase 8 session 6). Tool: `tools/prose.py`, test `tests/test_p
   metatile entries, so the defs block grows (header count updated; the game reads it fine) and with the idx block
   no longer fits its slot: **build.py moves such blocks** to `textbank.GFX_FREE` (0x7D8000-0x7E0000) and rewrites
   their pointers (`build.RELOCATABLE_LZ` lists every pointer site, checked by tests/test_link_card.py).
+
+## Replay map (after the link END card, `link_replay`)
+
+- Same 8bpp record shape at 0x74FBEC: idx 0x5B3604, 0x5B692C (600 zeros), defs 0x5B3A10, tiles 0x5B3C88,
+  palette 0x74FAEC. Japanese: header 戦国リプレイ (right panel, a vertical peach-to-white gradient), 一P..四P and
+  万石 under each player's koku digits (the digits themselves are 8x8 OBJs, tile 162 = the small font).
+- `link_card.CARDS["replay"]`: the header panel is rebuilt row by row (each row = its commonest light colour),
+  then "Sengoku Replay"; 1P..4P; 万石 -> "0k", so a value of 3 reads "30k" (the box leaves 3 letters). Blocks
+  relocated like the link-error card's. Shot: `work/gfx/shots/link_replay.png`.

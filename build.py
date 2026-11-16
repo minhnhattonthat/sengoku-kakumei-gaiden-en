@@ -91,7 +91,8 @@ def repack(rom, unpacked, text_edits=None, lz_edits=None, raw_edits=None):
 
 # LZ blocks the build may move to textbank.GFX_FREE when an edit outgrows the slot: offset -> pointer sites (every
 # u32 in the ROM that points at the block; checked by tests/test_build.py).
-RELOCATABLE_LZ = {0x589198: [0x74F3B0], 0x589588: [0x74F3B8], 0x5897EC: [0x74F3BC]}   # link-error card
+RELOCATABLE_LZ = {0x589198: [0x74F3B0], 0x589588: [0x74F3B8], 0x5897EC: [0x74F3BC],   # link-error card
+                  0x5B3604: [0x74FBEC], 0x5B3A10: [0x74FBF4], 0x5B3C88: [0x74FBF8]}   # link replay map
 
 
 def allowed_write(off, n):
