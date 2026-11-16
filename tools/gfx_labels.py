@@ -19,8 +19,10 @@ import sprites  # noqa: E402
 import textbank  # noqa: E402
 
 W = 16
-# Palette indices of a label box (bank 22, menu headers): 0 transparent, BG box fill, INK letters, EDGE outline.
-STYLE = {22: {"bg": None, "ink": None, "edge": None}}
+# How each bank's labels are drawn: "box" = bank 22's peach gradient box (draw()); "plain" = black-on-white
+# labels whose ink trio varies per slot (draw_plain(); `pal` = the palette row used to rank the trio dark..light,
+# `skip` = antialias indices shared by every trio).
+STYLE = {22: {"kind": "box"}, 36: {"kind": "plain", "pal": 4, "skip": (10, 11)}}
 
 
 def strip(rom, bank):
@@ -125,12 +127,80 @@ def draw(text, n, orig):
     return out
 
 
+def glyph_cols(g):
+    """(first, last) inked column of a font_en glyph, or None for a space."""
+    cols = [i for line in g for i, ch in enumerate(line) if ch == "#"]
+    return (min(cols), max(cols)) if cols else None
+
+
+def text_width(text):
+    """Rows a label takes with proportional spacing (inked columns + 1 gap; a space is 2 rows + gap)."""
+    w = 0
+    for c in font_en.fold(text):
+        span = glyph_cols(font_en.FONT.get(c, font_en.FONT[" "]))
+        w += (span[1] - span[0] + 1 if span else 2) + 1
+    return w - 1
+
+
+def palette(rom, b, row):
+    pal = rom[b["pal"] + 32 * row:b["pal"] + 32 * row + 32]
+    return [((c & 31), (c >> 5 & 31), (c >> 10 & 31)) for c in (pal[2 * i] | pal[2 * i + 1] << 8 for i in range(16))]
+
+
+def ink_trio(orig, style, pal):
+    """The slot's own letter colours: its 3 commonest indices (not 0, 15 or the shared antialias greys), darkest
+    first by `pal`. The colour grades of bank 36 differ only in this trio."""
+    hist = colours(orig)
+    used = sorted((v for v in hist if v not in (0, 15) and v not in style["skip"]), key=lambda v: -hist[v])[:3]
+    return sorted(used, key=lambda v: sum(pal[v]))
+
+
+PLAIN_TOP = 1  # first letter row in a plain slot (the originals start at 2; 1 lets "Ashigaru Armor" fit)
+
+
+def draw_plain(text, n, orig, ink, shade):
+    """English over a white label slot: every non-transparent pixel becomes white 15, then `text` rotated
+    clockwise, proportionally spaced from row PLAIN_TOP, with a `shade` shadow."""
+    length = text_width(text)
+    if PLAIN_TOP + length > n - 1:
+        raise ValueError(f"{text!r}: {length} rows from row {PLAIN_TOP}, slot {n}")
+    out = [[0 if v == 0 else 15 for v in row] for row in orig]
+    x_top = (W + 9) // 2 + 1
+    pts, y = set(), PLAIN_TOP
+    for ch in font_en.fold(text):
+        g = font_en.FONT.get(ch, font_en.FONT[" "])
+        span = glyph_cols(g)
+        if not span:
+            y += 3
+            continue
+        for r, line in enumerate(g):
+            for c, px in enumerate(line):
+                if px == "#":
+                    pts.add((y + c - span[0], x_top - r))
+        y += span[1] - span[0] + 2
+    for yy0, xx0 in pts:
+        for yy, xx in ((yy0 + 1, xx0), (yy0, xx0 - 1), (yy0 + 1, xx0 - 1)):
+            if (yy, xx) not in pts and 0 <= yy < n and 0 <= xx < W and out[yy][xx] == 15:
+                out[yy][xx] = shade
+    for yy, xx in pts:
+        out[yy][xx] = ink
+    return out
+
+
 def english_rows(rom, bank):
     b, rows = strip(rom, bank)
     new = [list(r) for r in rows]
+    style = STYLE.get(bank, {"kind": "box"})
+    pal = palette(rom, b, style.get("pal", 0))
     for start, n, jp, en in load_tsv(bank):
-        if en:
-            new[start:start + n] = draw(en, n, rows[start:start + n])
+        if not en:
+            continue
+        orig = rows[start:start + n]
+        if style["kind"] == "plain":
+            trio = ink_trio(orig, style, pal)
+            new[start:start + n] = draw_plain(en, n, orig, trio[0], trio[1])
+        else:
+            new[start:start + n] = draw(en, n, orig)
     return b, rows, new
 
 
@@ -149,11 +219,7 @@ def labels_edits(rom, banks=None):
 def preview(rom, bank, out):
     from PIL import Image
     b, rows, new = english_rows(rom, bank)
-    pal = rom[b["pal"]:b["pal"] + 32]
-    rgb = []
-    for i in range(16):
-        c = pal[2 * i] | pal[2 * i + 1] << 8
-        rgb.append(((c & 31) * 255 // 31, (c >> 5 & 31) * 255 // 31, (c >> 10 & 31) * 255 // 31))
+    rgb = [tuple(v * 255 // 31 for v in c) for c in palette(rom, b, STYLE.get(bank, {}).get("pal", 0))]
     rgb[0] = (255, 0, 255)
     segs = [s for s in load_tsv(bank) if s[3]]
     h = max(n for _, n, _, _ in segs)

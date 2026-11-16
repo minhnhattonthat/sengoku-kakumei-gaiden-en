@@ -1,0 +1,142 @@
+# Bank 36 (tiles 0x6F6814-0x70DC94): equipment and art names, one 80-row slot each, white labels; the colour
+# grade (赤青緑黒) is the ink trio (palette 4 makes it red/blue/green/black), kept by draw_plain(), so the English
+# drops the colour word and the art suffix の術 (docs/decisions.md D11). tools/gfx_labels.py
+# start	rows	jp	en
+0	80	数打の刀赤	Common Sword
+80	80	数打の刀青	Common Sword
+160	80	数打の刀緑	Common Sword
+240	80	数打の刀黒	Common Sword
+320	80	無銘刀赤	Nameless
+400	80	無銘刀青	Nameless
+480	80	無銘刀緑	Nameless
+560	80	無銘刀黒	Nameless
+640	80	名刀兼定赤	Kanesada
+720	80	名刀兼定青	Kanesada
+800	80	名刀兼定緑	Kanesada
+880	80	名刀兼定黒	Kanesada
+960	80	名刀長船赤	Osafune
+1040	80	名刀長船青	Osafune
+1120	80	名刀長船緑	Osafune
+1200	80	名刀長船黒	Osafune
+1280	80	菊一文字赤	Ichimonji
+1360	80	菊一文字青	Ichimonji
+1440	80	菊一文字緑	Ichimonji
+1520	80	菊一文字黒	Ichimonji
+1600	80	名刀正宗赤	Masamune
+1680	80	名刀正宗青	Masamune
+1760	80	名刀正宗緑	Masamune
+1840	80	名刀正宗黒	Masamune
+1920	80	妖刀村正赤	Muramasa
+2000	80	妖刀村正青	Muramasa
+2080	80	妖刀村正緑	Muramasa
+2160	80	妖刀村正黒	Muramasa
+2240	80	短槍赤	Short Spear
+2320	80	短槍青	Short Spear
+2400	80	短槍緑	Short Spear
+2480	80	短槍黒	Short Spear
+2560	80	長槍赤	Long Spear
+2640	80	長槍青	Long Spear
+2720	80	長槍緑	Long Spear
+2800	80	長槍黒	Long Spear
+2880	80	鉄槍赤	Iron Spear
+2960	80	鉄槍青	Iron Spear
+3040	80	鉄槍緑	Iron Spear
+3120	80	鉄槍黒	Iron Spear
+3200	80	片鎌槍赤	Hook Spear
+3280	80	片鎌槍青	Hook Spear
+3360	80	片鎌槍緑	Hook Spear
+3440	80	片鎌槍黒	Hook Spear
+3520	80	十文字槍赤	Cross Spear
+3600	80	十文字槍青	Cross Spear
+3680	80	十文字槍緑	Cross Spear
+3760	80	十文字槍黒	Cross Spear
+3840	80	とんぼ斬り赤	Tonbogiri
+3920	80	とんぼ斬り青	Tonbogiri
+4000	80	とんぼ斬り緑	Tonbogiri
+4080	80	とんぼ斬り黒	Tonbogiri
+4160	80	神槍赤	Divine Spear
+4240	80	神槍青	Divine Spear
+4320	80	神槍緑	Divine Spear
+4400	80	神槍黒	Divine Spear
+4480	80	半弓赤	Short Bow
+4560	80	半弓青	Short Bow
+4640	80	半弓緑	Short Bow
+4720	80	半弓黒	Short Bow
+4800	80	木弓赤	Wooden Bow
+4880	80	木弓青	Wooden Bow
+4960	80	木弓緑	Wooden Bow
+5040	80	木弓黒	Wooden Bow
+5120	80	大弓赤	Great Bow
+5200	80	大弓青	Great Bow
+5280	80	大弓緑	Great Bow
+5360	80	大弓黒	Great Bow
+5440	80	鉄弓赤	Iron Bow
+5520	80	鉄弓青	Iron Bow
+5600	80	鉄弓緑	Iron Bow
+5680	80	鉄弓黒	Iron Bow
+5760	80	鋼弓赤	Steel Bow
+5840	80	鋼弓青	Steel Bow
+5920	80	鋼弓緑	Steel Bow
+6000	80	鋼弓黒	Steel Bow
+6080	80	弩弓赤	Crossbow
+6160	80	弩弓青	Crossbow
+6240	80	弩弓緑	Crossbow
+6320	80	弩弓黒	Crossbow
+6400	80	破魔弓赤	Bane Bow
+6480	80	破魔弓青	Bane Bow
+6560	80	破魔弓緑	Bane Bow
+6640	80	破魔弓黒	Bane Bow
+6720	80	見習鎧赤	Trainee Armor
+6800	80	見習鎧青	Trainee Armor
+6880	80	見習鎧緑	Trainee Armor
+6960	80	見習鎧黒	Trainee Armor
+7040	80	雑兵鎧赤	Footman Armor
+7120	80	雑兵鎧青	Footman Armor
+7200	80	雑兵鎧緑	Footman Armor
+7280	80	雑兵鎧黒	Footman Armor
+7360	80	足軽鎧赤	Ashigaru Armor
+7440	80	足軽鎧青	Ashigaru Armor
+7520	80	足軽鎧緑	Ashigaru Armor
+7600	80	足軽鎧黒	Ashigaru Armor
+7680	80	侍鎧赤	Samurai Armor
+7760	80	侍鎧青	Samurai Armor
+7840	80	侍鎧緑	Samurai Armor
+7920	80	侍鎧黒	Samurai Armor
+8000	80	武将鎧赤	Warlord Armor
+8080	80	武将鎧青	Warlord Armor
+8160	80	武将鎧緑	Warlord Armor
+8240	80	武将鎧黒	Warlord Armor
+8320	80	大名鎧赤	Daimyo Armor
+8400	80	大名鎧青	Daimyo Armor
+8480	80	大名鎧緑	Daimyo Armor
+8560	80	大名鎧黒	Daimyo Armor
+8640	80	将軍鎧赤	Shogun Armor
+8720	80	将軍鎧青	Shogun Armor
+8800	80	将軍鎧緑	Shogun Armor
+8880	80	将軍鎧黒	Shogun Armor
+8960	80	火遁の術	Fire
+9040	80	火炎の術	Flame
+9120	80	火竜の術	Fire Dragon
+9200	80	氷の術	Ice
+9280	80	吹雪の術	Blizzard
+9360	80	氷嵐の術	Ice Storm
+9440	80	雷の術	Thunder
+9520	80	稲妻の術	Lightning
+9600	80	神雷の術	Thunder God
+9680	80	地響きの術	Tremor
+9760	80	地震の術	Quake
+9840	80	大地震の術	Great Quake
+10160	80	黒鉄球の術	Iron Orb
+10240	80	白銀球の術	Silver Orb
+10320	80	金剛球の術	Diamond Orb
+10400	80	俊足の術	Swift
+10480	80	疾風の術	Gale
+10560	80	神速の術	Godspeed
+10640	80	堅強の術	Firm
+10720	80	屈強の術	Brawn
+10800	80	頑強の術	Sturdy
+10880	80	癒しの術	Heal
+10960	80	治癒の術	Cure
+11040	80	完治の術	Full Cure
+11280	80	忍者の術	Ninja
+11840	80	七支刀	Seven-Branch

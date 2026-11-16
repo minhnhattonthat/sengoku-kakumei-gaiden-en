@@ -34,7 +34,20 @@ Slots 2400-2880 are the four frames of the 参加受付中 animation (0-3 dots).
   English pairs.
 - Verified: `newgame_setup` shows "Load a Save" (`work/gfx/shots/pilot.png`).
 
-## Next banks to map (from `tools/sprites.py list`)
-Bank 36 (0x6F6674.., 2980 tiles, 37 frames) = item/weapon/technique names (the 0x6F6AD4 strip). Bank 23
-(0x6DBC18..) and 24.. = buttons (はい/いいえ, file-menu buttons). 名前入力 (name entry header) is not in bank 22.
-Render each with `sprites.py render N --cols 2` and classify.
+## Bank 36: equipment and art names (tiles 0x6F6814-0x70DC94) - done
+149 slots of 80 rows, white labels: 28 items (7 swords, 7 spears, 7 bows, 7 armours, `gfx/bank36.tsv`) x 4
+grades 赤青緑黒, then 30 art slots (5 blank, 帰還の術 not among them), 6 empty boxes, 七支刀. The grade is the
+**ink trio** (red {12,13,14}, blue {3,6,8}, green {2,5,9}, black {1,4,7} under palette 4; 10/11 = shared
+antialias greys); `draw_plain()` reuses each slot's trio, so the English keeps the colour (D11). Checked in game
+on `equip` (`work/gfx/shots/bank36_equip.png`).
+
+## Map of all 62 banks (2026-11-16, overview sheets `work/gfx/sheet[A-D].png`, strips wrapped at 320 rows)
+Rendered with `MONO`/palette 0, so multi-palette banks look odd; only the classification matters.
+- **Text, to redraw:** 20 province name plates (2 kanji, ~50, plus greyed variants), 23-26 menu choice boxes
+  (記録 1-4, 中断した記録, ハンディキャップ, 参加者 ...), 27 menu choices (戦国図鑑, 名一覧 ...), 28-31 menu/
+  link labels (天下太平編/対戦国取り編, 記録 一..四, 一五分..四五分 time choices, 待機中/参加者), 32 stat labels
+  (金 防御 攻撃 体力 脚力 次の段, 西/次/の/段), 33 big brush prompts (kana sentences), 35 HUD/equip icons (刀槍弓
+  鎧術, ▲▼, kanji digits 〇-九, 連撃, 禄高 万石, あなたが), 37 操作方法選択 types, 38 上級者向 / タイプ二, 39 入る/
+  閉める, 59 hiragana in boxes (name-entry kana grid), 61 combo counter digits + 連撃.
+- **Already English:** 44 copyright (Konami Computer Entertainment Studios).
+- **Art, no text:** 0-19, 21, 34, 40-43, 45-58 (except 47 = blue kana-like fragments, check), 60.
