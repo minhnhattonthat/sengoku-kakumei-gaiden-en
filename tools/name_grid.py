@@ -34,7 +34,7 @@ PICTURES = {BLOCK: MAP_TSV, 0x5B14B4: ROOT / "data" / "name_grid_map7.tsv"}
 # Header refill per picture: "edges" alternates the row's two edge pixels (group 6's banded peach); "mode" takes
 # the row's commonest pixel outside the brush ink 1-9 (group 7's header has antialiased edges that stripe).
 HEADER_FILL = {BLOCK: "edges", 0x5B14B4: "mode"}
-HEADER_H = {0x5B14B4: 58}  # group 7's 名前入力 brush ink runs to row 61
+HEADER_H = {BLOCK: 58, 0x5B14B4: 58}  # both 名前入力 brushes run to row 61 (group 6's antialiased tail too)
 INK, EDGE = 15, 1
 
 # Table index -> letter, laid out so the grid reads in order when the screen is turned (columns = rows).
@@ -54,6 +54,7 @@ BLOCK2 = [range(5, 10), range(15, 20), range(25, 30), range(35, 40), range(45, 5
           range(75, 80)]
 COL_X0, PITCH = 165, 12          # screen x of the rightmost column; columns go left
 LABELS = [("Done", (57, 119, 11, 24))]  # 決定 (confirm) left of block 2: screen x, y, w, h
+LABEL_CLEAR_W = 12  # 決定's outline reaches x 68, one column past the letters' w: cleared too
 # 名前入力 header: a 16 px peach-gradient column (indices 10-15 banded by row) with black brush ink 1-9; each row
 # is refilled from its edge pixel, then black 1 letters with a mid-tone 8 shadow (as gfx/bank22).
 HEADERS = [("Your Name", (216, 4, 16, 57))]
@@ -172,7 +173,7 @@ def redraw(tiles, rom, map_path=MAP_TSV, header_fill="edges", header_h=None):
         for y, x in pts:
             put(x, y, INK)
     for text, (x0, y0, w, h) in LABELS:
-        clear(x0, y0, w, h)
+        clear(x0, y0, LABEL_CLEAR_W, h)
         import gfx_labels
         length = gfx_labels.text_width(text)
         pts = {(y, x) for y, x in gfx_labels.letter_points(text, y0 + (h - length) // 2, x0 + w - 2)}
