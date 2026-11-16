@@ -50,6 +50,8 @@ class TestLinkCard(unittest.TestCase):
         new, _ = build.repack(self.rom, build.unpack(self.rom), lz_edits=self.edits)
         lo, hi = textbank.GFX_FREE
         for off, sites in build.RELOCATABLE_LZ.items():
+            if off not in self.edits:
+                continue   # another module's block (title picture: tests/test_title_logo.py)
             dest = struct.unpack_from("<I", new, sites[0])[0] - 0x08000000
             if dest != off:
                 self.assertTrue(lo <= dest < hi, f"{off:06x} -> {dest:06x}")

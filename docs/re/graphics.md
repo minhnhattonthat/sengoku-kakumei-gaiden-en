@@ -6,6 +6,13 @@
 
 Ruling D5: translate all graphics text; keep the original logo only if no official English logo exists (none known: the game was never released outside Japan, so the title logo gets an English version too).
 
+**Title logo (D15, done):** `tools/title_logo.py` redraws 戦国革命外伝 as SENGOKU / KAKUMEI / GAIDEN on both title
+pictures. Usual title: record 0x7525B0 = map LZ 0x5FCEFC, tiles LZ 0x5FD6AC, 15 raw palettes 0x7523D0. After a clear:
+record 0x7527B4 = map 0x6008D8, tiles 0x601044 (other mascot), palettes 0x7525D4; 0x080077DC picks record 1 when a
+save's byte +0x2A is 1 and then sets [0x030016FC] (the pink name entry). Maps are a 16-byte header + 4x4-tile
+metatiles (`map_slot()`). Shots: `work/gfx/shots/title_logo.png` (both, in game; the after-clear one from a QA copy
+with the branches at 0x080077B2/C8/DE NOP'd).
+
 ## Tour (boot -> title -> file menu -> new game -> gender -> name -> opening), `work/qa/explore1`, `work/qa/ppu-menu`
 | Screen | Element | Layer | Source (first guess) |
 |---|---|---|---|

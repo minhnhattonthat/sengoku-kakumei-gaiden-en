@@ -18,7 +18,8 @@ helps most.
 | Menu labels, item names, stat block, HUD, map province plates, big letters, LV UP!, link cards | Translated (redrawn) |
 | Ending cards and staff credits | Translated (redrawn; staff names romanized) |
 | Name entry | Latin letters |
-| Title logo; family crests and banner mottos in the biography portraits | Left in Japanese (no official English logo; the crests are heraldry, not captions) |
+| Title logo | Redrawn in English: SENGOKU KAKUMEI GAIDEN |
+| Family crests and banner mottos in the biography portraits | Left in Japanese (heraldry, not captions) |
 
 The game draws all its text in vertical columns. The English is drawn **rotated 90° clockwise** in those same
 columns, so tilt your head (or your screen) to the right to read it; columns run right to left, i.e. lines top to

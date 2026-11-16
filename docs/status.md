@@ -2,7 +2,16 @@
 
 Updated at the end of every session. Keep it to what the next session needs; history is in git.
 
-- **Phase:** 9. Release DONE 2026-11-17: `release/Sengoku_Kakumei_Gaiden_EN_v1.0.zip` built and verified (BPS 334780 bytes + README.txt). Publishing (`gh release create`) is the owner's call. Last build: `build/sengoku_en.gba` sha1 d7b093ee…, CRC32 A2C75821 (1036 strings, 759 letter pairs, 2111 writes).
+- **Phase:** 9. Release DONE 2026-11-17: `release/Sengoku_Kakumei_Gaiden_EN_v1.0.zip` built and verified (BPS 334780 bytes + README.txt). Publishing (`gh release create`) is the owner's call. v1.0 build sha1 d7b093ee…, CRC32 A2C75821. Last build (v1.0 + English title logo, not yet released): `build/sengoku_en.gba` sha1 093e9076…, CRC32 0FBEB0DE (1036 strings, 759 letter pairs, 2116 writes).
+- **Phase 9 session 2 (2026-11-17): English title logo (D15).** Owner asked for a translated logo: SENGOKU / KAKUMEI /
+  GAIDEN (`tools/title_logo.py`, font `fonts/Shojumaru-Regular.ttf` OFL, `tests/test_title_logo.py`) on both title
+  pictures, the usual one and the after-clear one (record 0x7527B4, other mascot; `docs/re/graphics.md`). Build
+  `build/sengoku_en.gba` sha1 093e9076…, CRC32 0FBEB0DE (2116 writes); check 72 tests ok, smoke ok; differs from v1.0
+  only in the title blocks. Title-side scenes re-shot (`work/qa/p10`) and Codex-judged (`work/qa/p10_verdicts`):
+  title + after-clear title ok; `qa_gate.py waive` on both manifests. **The v1.0 zip predates the logo:** run
+  `tools/release.py --version 1.1` for a patch with it. **Open (pre-existing, also in v1.0):** dotted vertical
+  stripes in the "Your Name" header gradient behind "Name" (newgame_name, newgame_name7, link_lobby), flagged by
+  Codex this session; name blocks unchanged since v1.0.
 - **Phase 9 session 1 (2026-11-17): release done.** `python -X utf8 tools/release.py --version 1.0` ran every step with
   exit 0: build, check (67 tests), smoke ok, `jp_left` 0 runs, `qa_gate check` on `work/qa/manifest.tsv` (777 sheets,
   waiver for d7b093ee) and `work/qa/story/manifest.tsv` (11 chapters), textcover 971/1037 shown + 66 waived, polish.md

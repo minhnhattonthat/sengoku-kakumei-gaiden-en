@@ -27,6 +27,7 @@ import prose  # noqa: E402
 import romdiff  # noqa: E402
 import script  # noqa: E402
 import textbank  # noqa: E402
+import title_logo  # noqa: E402
 from tbl import Table  # noqa: E402
 
 BUILD = ROOT / "build"
@@ -92,7 +93,9 @@ def repack(rom, unpacked, text_edits=None, lz_edits=None, raw_edits=None, layout
 # LZ blocks the build may move to textbank.GFX_FREE when an edit outgrows the slot: offset -> pointer sites (every
 # u32 in the ROM that points at the block; checked by tests/test_build.py).
 RELOCATABLE_LZ = {0x589198: [0x74F3B0], 0x589588: [0x74F3B8], 0x5897EC: [0x74F3BC],   # link-error card
-                  0x5B3604: [0x74FBEC], 0x5B3A10: [0x74FBF4], 0x5B3C88: [0x74FBF8]}   # link replay map
+                  0x5B3604: [0x74FBEC], 0x5B3A10: [0x74FBF4], 0x5B3C88: [0x74FBF8],   # link replay map
+                  0x5FD6AC: [0x7525BC], 0x5FCEFC: [0x7525B8],                         # title picture
+                  0x601044: [0x7527C0], 0x6008D8: [0x7527BC]}                         # title after a clear
 
 
 def allowed_write(off, n):
@@ -162,7 +165,8 @@ def make_english(orig, edits, layout=None):
     new, writes = repack(orig, unpack(orig), raw_edits={a: enc.encode(t) for a, t in edits.items()}, layout=layout,
                          lz_edits={**name_grid.lz_edits(orig),   # Latin name-entry grid (tools/name_grid.py)
                                    **prose.lz_edits(orig),       # ending prose cards (tools/prose.py)
-                                   **link_card.lz_edits(orig)})  # link-error card (tools/link_card.py)
+                                   **link_card.lz_edits(orig),   # link-error card (tools/link_card.py)
+                                   **title_logo.lz_edits(orig)})  # English title logo (tools/title_logo.py)
     out = bytearray(new)
     writes += engine.patch(out, enc, name_grid.glyph_overrides(orig))
     for off, data in {**gfx_labels.labels_edits(orig),   # OBJ label graphics, gfx/bank*.tsv

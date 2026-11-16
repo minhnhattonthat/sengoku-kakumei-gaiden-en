@@ -77,9 +77,8 @@ columns: tilt your head (or your screen) to the right. Columns run right to left
 WHAT IS TRANSLATED
 Dialogue, story events, biographies, tutorial, menus, item and art descriptions, shops, saving, link-cable setup,
 battle results and titles; menu labels, item names, stat block, HUD, map plates and the other text drawn as
-graphics; the ending cards and staff credits; the name entry (Latin letters).
-Left in Japanese: the title logo (no official English logo exists) and the family crests and banner mottos in the
-biography portraits (heraldry, not captions).
+graphics; the title logo; the ending cards and staff credits; the name entry (Latin letters).
+Left in Japanese: the family crests and banner mottos in the biography portraits (heraldry, not captions).
 
 NOTES
 - Tested in Mesen 2.2.1 (GBA) with the official BIOS. Start a new game from a cold boot; savestates made with

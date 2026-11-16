@@ -34,7 +34,8 @@ Standing non-bugs, `ok` (the controller adds the game's own below):
   those columns (D8: 2 letters per 12 px cell, columns right to left = lines top to bottom). On the raw sheet
   English letters lie on their side: crop and pass `--rotate 270` to `sheet.py` (90 shows them upside down) to read them upright. Rotated
   English is the design, never an issue by itself.
-- The title logo (戦国革命外伝 lettering) stays Japanese (D5: no official English logo).
+- The title logo reads SENGOKU / KAKUMEI / GAIDEN in English (D15), horizontal (not rotated). Any 戦国革命外伝
+  kanji left on the title is an issue.
 - The family crests and banner mottos in the biography portraits (ev092-ev103: 十, 一 with three stars, 六文銭,
   大一大万大吉, aoi) are heraldry, kept (D12). Any other kanji in those scenes is an issue.
 - Scenery kanji on signs, lanterns or banners inside stage/map backgrounds: report it as an `issue` with the tile
