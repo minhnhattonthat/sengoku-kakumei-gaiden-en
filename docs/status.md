@@ -2,7 +2,23 @@
 
 Updated at the end of every session. Keep it to what the next session needs; history is in git.
 
-- **Phase:** 8. QA in the emulator, in progress (phase 7 done 2026-11-16; left: Codex visual-QA verdicts on the 777 sheets of the final tour, then `qa_gate.py check`, see session 12). Last build: `build/sengoku_en.gba` sha1 4977f45e… = `build/tour.gba` (1036 strings, 757 letter pairs, sprite banks 20, 22-39, 44 (THE END), 47, 58, 59, 61 + small-font digits + LV UP! popup + 2 Latin name-entry pictures + 13 ending cards + 2 link cards, 2105 writes).
+- **Phase:** 9. Release, not started (phase 8 done 2026-11-17: smoke ok, `qa_gate.py check work/qa/manifest.tsv work/qa/verdicts` exit 0 with a waiver for fe25914e, textcover exit 0). Last build: `build/sengoku_en.gba` sha1 fe25914e… (1036 strings, 757 letter pairs, sprite banks 20, 22-39, 44 (THE END), 47, 58, 59, 61 + small-font digits + LV UP! popup + 2 Latin name-entry pictures + 13 ending cards + 2 link cards, 2105 writes). `build/tour.gba` is still the toured 4977f45e.
+- **Phase 8 session 13 (2026-11-17): visual QA done, phase 8 DONE.** The Codex run on the 777 sheets of 4977f45e
+  finished (chunks 0-2 re-run from `work/qa/chunks_redo`: the first launch's codex died with the old session).
+  99 issues, all eye-checked and all real except 8 stale ids: (1) Yes/No 5/2 px off-centre across the bar ->
+  bank 30 centred at x_top 11 (abb7007); (2) dotted brush antialias striped beside "Your Name" in both name-entry
+  pictures -> edge ink refilled, group 7 ties keep the row above's band (4658a42, `test_header_rows_carry_no_brush_ink`);
+  (3) mode select, Yes/No, save, map menu, controls, shop labels were black silhouettes (OBJ palettes 5-7 show 15
+  black) -> every outline bank drawn black with a shade (516a66e, 8af4653, **D13**; the brief's old "heavy font is
+  ok" ruling replaced); (4) 8 manifest ids whose sheets no longer exist (fewer pages this tour): `ok`.
+  `work/qa/verdicts/recheck_1.tsv` = 91 `fixed` + 8 `ok`. Re-shots of every changed screen on fe25914e
+  (`work/qa/hotfix`, 21 sheets) got 21 `ok` from a fresh read-only Codex pass (`work/qa/hotfix_verdicts`).
+  `manifest.tsv.build` now points at `build/sengoku_en.gba` (hash of the toured 4977f45e) and
+  `qa_gate.py waive` accepts fe25914e (diff only in the menu banks' tiles and the name LZ blocks). Banks 25
+  (handicap) and 39 (Go In / Shut) still never seen on screen (no warp reaches them). Smoke ok on fe25914e.
+  **Next (phase 9):** story-pass verdicts per chapter (`references/translation.md` §Review), `docs/polish.md`,
+  `tools/release.py` (patch + verify, qa_gate on every manifest, textcover, jp_left, debug off). **Any further
+  ROM change needs a new waiver or a re-tour** (`qa_gate.py check` fails on a new hash).
 - **Phase 8 session 12 (2026-11-17): final tour done on 4977f45e, Codex run stopped by low system memory.** The
   re-tour (`work/qa2`, FINAL_EXIT=0, no FAIL) is now in `work/qa/{tour,pages,desc,prov,mhelp,enc,restitles*,go/dojo,
   go/dojo0,go/lk,cover,swap}` (the 41741062 dirs, verdicts and chunks moved to `work/qa_old_41741/`).

@@ -67,7 +67,10 @@ whole slot (pieces per frame at rest[0] x 32 rows). Letters white 15 with a dark
 top-aligned at row 3, row 2 in a tight slot). Slots found by `work/inkruns.py`-style scan (rows whose edge
 pixels are 13). Checked on title, newgame_setup, map_menu, save, controls, encyclopedia, shop, link_timesel
 (`work/gfx/shots/menus_outline.png`, rotate 270). Not yet seen in game: bank 23 (resume / start over), 24,
-25 (handicap), 30 yes/no, 31 (in use / done), 37, 38 Type 3, 39 (Go In / Shut).
+25 (handicap), 31 (in use / done), 37, 38 Type 3, 39 (Go In / Shut).
+**In game these bars use OBJ palettes 5-7, where 15 is black (dark red on the selected bar)**, so the white
+outline letters showed as black silhouettes (visual QA on 4977f45e). Since fe25914e every outline bank is drawn
+`black: True`: ink 1 with shade 8 (`draw_outline(black=True)`); bank 30 also centred across the bar (x_top 11).
 
 ## Cell tables (decoded 2026-11-16 session 4, `sprites.frames()`, `sprites.py frames N`)
 Pieces at `end`, 12 bytes: u16 attr0 (shape bits 14-15), u16 attr1 (size bits 14-15), u16 (tile*2 in bits 0-9,
