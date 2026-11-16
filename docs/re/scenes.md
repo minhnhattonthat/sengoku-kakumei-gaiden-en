@@ -17,6 +17,7 @@ All addresses verified in MesenCE on the dump in `rom.sha1` (probes in `tools/lu
 | 16 | new-game setup: difficulty, save slot, gender, name entry |
 | 19, 20, 21, 22 | link versus: lobby (参加受付中), time select (対戦時間選択), 終了 end card, link-failure message |
 | 24 | event / cutscene; event id at S+0x184 |
+| (29→13) | single-player game over: at HP 0 the stage itself draws 終 on black, then sets mode 13 (title). No mode of its own |
 | 25 | national map (Start = menu: equip, save, controls, 戦国図鑑 encyclopedia, shop) |
 | 29 | stage (top-down action; boss fights too) |
 | 30 | castle event field |
@@ -33,8 +34,12 @@ Probe: every id 0..117 forced on entering Satsuma (`work/qa/evs`). 0..68 castle 
 92..103 biographies (mode 40), 105..112 magatama pieces. 113..117 empty.
 
 ## Game state struct
-- `S = [0x030016F0] + 0x14` (= `0x02000600` in practice), 0x41C bytes, copied to `0x02000A1C` at scene changes and
+- `S = [0x030016F0] + 0x14` (= `0x02000614` in practice; warp.lua logs it), 0x41C bytes, copied to `0x02000A1C` at scene changes and
   to SRAM (`0x0804A6B0`, via the buffer `0x030005A8`) when saving. Save type SRAM (`SRAM_V112`).
+- `S+0x80` (u16): player HP, 60 = full at the start (green HUD bar, 2 px per 4 HP); mirrored per stage into the
+  stage task (`0x02002344` in Hyuga). Found by ramsearch over a stage walk (bar shrank 5400-7230, death at 7620);
+  pinning S+0x80 alone keeps the player alive (warp.lua `GOD=1`). `S+0x82` holds 30 (the cyan bar's value, not
+  confirmed).
 - `S+0x128`: country state, one nibble per country id (odd id = low nibble). Read `0x08006E30`, write `0x08006DE4`.
   1 = cleared (counted by `0x0800F710`).
 - `S+0x164`: story flag bitfield. test `0x08006A20`, set `0x08006A50`. Flags k / k+8 / k+16 (k = region 1..8) are set

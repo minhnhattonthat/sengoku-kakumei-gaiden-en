@@ -130,7 +130,29 @@ if sc.marker then  -- marker=0xADDR : exec address that proves the scene was rea
   end)
 end
 
--- god mode: player HP lives in the stage task; pinned once known (docs/re/scenes.md)
+-- dlg=N: take the scene shot N frames after the first dialogue list loads (0x08012F70) once the scene's inputs
+-- have started, with mashing stopped, so the shot shows the first text page rather than a fade. Default 150 for
+-- ev= scenes; dlg=0 turns it off (the ending chain is timed by hold instead).
+dlgwait = num(sc.dlg) or (sc.ev and 150) or 0
+dlgAt = nil
+if dlgwait > 0 then
+  L.on_exec(0x08012F70, 0x08012F70, function()
+    if not dlgAt and (phase == "inputs" or phase == "hold") then
+      dlgAt = L.frame
+      L.log(string.format("DLG_SHOT at frame=%d (+%d)", dlgAt, dlgwait))
+    end
+  end)
+end
+
+-- god mode: player HP is a u16 at S+0x80 (60 = full), mirrored into the stage task (docs/re/scenes.md)
+if GOD then
+  local hp = tonumber(GOD) and tonumber(GOD) > 1 and tonumber(GOD) or 60
+  L.on_frame(function()
+    if r32(0x030016F0) < 0x02000000 then return end
+    local a = state() + 0x80
+    if emu.read16(a, mem) < hp then emu.write16(a, hp, mem) end
+  end)
+end
 -- expect=MODE[:EV]: the scene is proven when the game mode (and event id) match after the inputs start
 local proven = false
 L.on_frame(function(n)
@@ -194,8 +216,11 @@ L.on_frame(function(n)
     phase = "hold"; t0 = n
     L.log(string.format("INPUTS done frame=%d", n))
   end
-  if phase == "hold" and (sc.mash or "") ~= "" and n % num(sc.mash) < 6 then L.press(sc.mashkey or "a", 1) end
-  if phase == "hold" and n - t0 >= (num(HOLD) or num(sc.hold) or 600) then
+  if phase == "hold" and not dlgAt and (sc.mash or "") ~= "" and n % num(sc.mash) < 6 then
+    L.press(sc.mashkey or "a", 1)
+  end
+  local dlgdue = dlgAt and n - dlgAt >= dlgwait
+  if (phase == "hold" or (phase == "inputs" and dlgdue)) and (dlgdue or (not dlgAt and n - t0 >= (num(HOLD) or num(sc.hold) or 600))) then
     L.shot("scene_" .. sc.name .. ".png")
     L.log(string.format("DONE %s frame=%d", sc.name, n))
     phase = "end"

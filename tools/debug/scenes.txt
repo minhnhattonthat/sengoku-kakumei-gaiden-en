@@ -9,12 +9,15 @@
 #   route="N btn;.." title-side scene: plain inputs from power-on, no new game
 #   input="N btn;.." presses once the map is up (default "6 a" = enter the country)
 #   wait=N hold=N mash=N mashkey=b   timing; expect=MODE[:EV] proves the scene (logs SCENE_OK)
+#   dlg=N        shot N frames after the first dialogue list loads, mashing stopped (default 150 with ev=; dlg=0 off)
 # ALL = every story flag and region flag: stages anywhere deploy without their region-intro events.
 
 # --- title side (no new game) ---
 title           route="900 -;6 start;200 -" hold=60
 newgame_setup   route="900 -;6 start;200 -;6 a;120 -;6 a;120 -" hold=200
 newgame_name    route="900 -;6 start;200 -;6 a;120 -;6 a;120 -;6 a;120 -;6 a;120 -;6 a;120 -" hold=200
+# link_versus / link_lobby: 対戦国取り編 (left on the title menu) then its gender select and name entry; the lobby
+# itself (mode 19) needs a second GBA, so link_lobby_m forces the mode instead
 link_versus     route="900 -;6 start;200 -;6 left;60 -;6 a;200 -" hold=300
 link_lobby      route="900 -;6 start;200 -;6 left;60 -;6 a;200 -;6 a;300 -" hold=300
 # --- national map and its menu (Start) ---
@@ -27,10 +30,10 @@ encyclopedia    input="6 start;200 -;6 left;60 -;6 left;60 -;6 left;60 -;6 a" ho
 shop            input="6 start;200 -;6 left;60 -;6 left;60 -;6 left;60 -;6 left;60 -;6 a" hold=300
 # --- story path the game's own way (opening is played by every warp's boot) ---
 higo_barrier    country=4 mash=40 hold=900 expect=24:76
-lord_after_higo path=4 country=2 mash=40 hold=900 expect=24:2
+lord_after_higo path=4 country=2 dlg=150 mash=40 hold=900 expect=24:2
 deploy_confirm  path=4,2 country=3 input="6 a" hold=300 expect=41
 # --- stages (field/HUD), one per region; Ryukyu = tutorial; mugen = endless ---
-stage_ryukyu_tutorial  country=1 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
+stage_ryukyu_tutorial  country=1 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=30   # dojo: castle field (mode 30), Kamiizumi's lessons
 stage_r1_hyuga         country=3 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
 stage_r2_tosa          country=9 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
 stage_r3_izumo         country=17 flags=1-24,33-90 input="6 a;200 -;6 a" hold=900 expect=29
@@ -43,20 +46,23 @@ stage_r8_mutsu         country=46 flags=1-24,33-90 input="6 a;200 -;6 a" hold=90
 stage_mugen             flags=1-24,33-90 poke=0x020007B0:732,0x020007B4:232 input="6 a;200 -;6 a" hold=900 expect=29
 # --- screens the game switches to by mode ---
 results         country=2 flags=1-24,33-90 mode=36 hold=400 expect=36
-game_over       country=2 flags=1-24,33-90 mode=21 hold=400 expect=21
+link_end_card   country=2 flags=1-24,33-90 mode=21 hold=400 expect=21   # link versus 終了 card
+# game over: walk Hyuga's stage into the archers without GOD; HP 0 at about frame 7620, the stage draws 終
+# (shot lands on it), then the game drops to the title (mode 13). Deterministic from a cold boot.
+game_over       country=3 flags=1-24,33-90 input="6 a;200 -;6 a;400 -;500 up;400 left;500 up;400 right;500 up;400 down" hold=260 expect=29
 link_failed     country=2 mode=22 hold=400 expect=22
 link_timesel    country=2 mode=20 hold=400 expect=20
 link_lobby_m    country=2 mode=19 hold=400 expect=19
 ending_petals   country=2 mode=34 hold=400 expect=34
-debug_menu      country=2 mode=0 hold=400 expect=0   # leftover debug menu (debug only)
+debug_menu      country=2 mode=0 hold=400 expect=0   # leftover debug menu (debug only); its handler runs but draws a blank green screen when entered this way
 # --- ending: ev 53 chains 53..74: epilogue, the four prose screens (LZ 0x5C84F0, 0x5CA354, 0x5C5DB8,
 #     0x5C3598), staff credits and the end card; holds land just after each prose screen loads ---
-ending_prose1   country=2 ev=53 mash=40 hold=3450 expect=24:53
-ending_prose2   country=2 ev=53 mash=40 hold=5520 expect=24:53
-ending_prose3   country=2 ev=53 mash=40 hold=9640 expect=24:53
-ending_prose4   country=2 ev=53 mash=40 hold=12090 expect=24:53
-ending_credits  country=2 ev=53 mash=40 hold=13000 expect=24:53
-ending_end      country=2 ev=53 mash=40 hold=14400 expect=24:53
+ending_prose1   country=2 ev=53 dlg=0 mash=40 hold=3450 expect=24:53
+ending_prose2   country=2 ev=53 dlg=0 mash=40 hold=5520 expect=24:53
+ending_prose3   country=2 ev=53 dlg=0 mash=40 hold=9640 expect=24:53
+ending_prose4   country=2 ev=53 dlg=0 mash=40 hold=12090 expect=24:53
+ending_credits  country=2 ev=53 dlg=0 mash=40 hold=13000 expect=24:53
+ending_end      country=2 ev=53 dlg=0 mash=40 hold=14400 expect=24:53
 # --- every story event (castle talks, region events, boss intros, magatama, biographies) ---
 ev000_opening            country=2 ev=0 mash=40 hold=2400 expect=24:0
 ev001_lord_hint          country=2 ev=1 mash=40 hold=2400 expect=24:1
