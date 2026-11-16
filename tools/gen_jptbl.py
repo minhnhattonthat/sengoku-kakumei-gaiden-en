@@ -31,7 +31,7 @@ def main():
     path = ROOT / "tbl" / "jp.tbl"
     path.parent.mkdir(exist_ok=True)
     text = "\n".join(lines()) + "\n"
-    path.write_text(text, encoding="utf-8")
+    path.write_text(text, encoding="utf-8", newline="\n")
     print(f"wrote {path} ({text.count(chr(10))} lines)")
 
 

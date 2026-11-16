@@ -44,7 +44,7 @@ def main():
         print("text_sites.tsv", "matches" if same else "DIFFERS from a fresh scan")
         return 0 if same else 1
     textbank.SITES.parent.mkdir(exist_ok=True)
-    textbank.SITES.write_text(text, encoding="utf-8")
+    textbank.SITES.write_text(text, encoding="utf-8", newline="\n")
     print(f"wrote {textbank.SITES} ({text.count(chr(10)) - 1} sites)")
     return 0
 
