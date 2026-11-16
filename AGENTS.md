@@ -4,6 +4,7 @@ Skill: translate-retro-game (Claude Code: plugin, enabled in .claude/settings.js
 
 ## Commands (run from repo root)
 - Build:    `python -X utf8 build.py` -> build/sengoku_en.gba (checks the dump against `rom.sha1` first; written in phase 3)
+- Manga:    `python -X utf8 build.py manga` -> build/sengoku_manga.gba, the D16 bubble edition (`docs/re/manga.md`; tour: `SRC=build/sengoku_manga.gba TOUR=build/tour_manga.gba sh tools/debug/final_tour.sh work/qa/manga`; release `--variant manga`)
 - Check:    `python -X utf8 tools/check.py` (tests + lint; the pre-commit hook runs this; hooks: `git config core.hooksPath tools/hooks`)
 - Smoke:    `python -X utf8 $SKILL/scripts/emu.py build/sengoku_en.gba --out work/qa/smoke --route tools/routes/boot.txt --smoke`
 - Warp:     `python -X utf8 tools/debug/warp.py <scene>.. --rom <abs>/build/sengoku_en.gba --out <abs>/work/qa/<dir> [--proof] [--shot-every N] [--scenes-file F]` (scenes: `tools/debug/scenes.txt`; never ask the user to play to a scene)

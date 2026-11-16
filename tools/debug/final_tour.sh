@@ -2,7 +2,8 @@
 # Final QA runs on one build: the screen tour and every text-coverage run (docs/re/coverage.md), each with the
 # textcover probe, into the directories the visual-QA manifest (work/qa/manifest.tsv) and textcover.py read.
 #   sh tools/debug/final_tour.sh [OUTROOT=work/qa]
-# Copies build/sengoku_en.gba to build/tour.gba first; then:
+#   SRC=build/sengoku_manga.gba TOUR=build/tour_manga.gba sh tools/debug/final_tour.sh work/qa/manga   (D16 variant)
+# Copies $SRC (build/sengoku_en.gba) to $TOUR (build/tour.gba) first; then:
 #   python -X utf8 $SKILL/scripts/qa_gate.py init work/qa/manifest.tsv <dirs printed at the end> --build build/tour.gba
 #   python -X utf8 $SKILL/scripts/textcover.py work/qa/cover build/strings.tsv --waive docs/text_unshown.tsv --mask 0x7FFFFF
 set -u
@@ -10,8 +11,11 @@ cd "$(dirname "$0")/../.."
 Q=${1:-work/qa}
 R=$(pwd -W 2>/dev/null || pwd)
 SKILL=$(python tools/skill.py)
-cp build/sengoku_en.gba build/tour.gba
-ROM="$R/build/tour.gba"
+SRC=${SRC:-build/sengoku_en.gba}
+TOUR=${TOUR:-build/tour.gba}
+mkdir -p "$Q"
+cp "$SRC" "$TOUR"
+ROM="$R/$TOUR"
 TC="--script $SKILL/scripts/lua/probes/textcover.lua"
 RANGES="RANGES='0804CE4C-0805043E,0805045C-08055BA6,0805E2AC-0805E776,08061C1C-08061C59,0807E090-0807EF1C,08201800-08202114,087C1000-087DFFFF'"
 W="python -X utf8 tools/debug/warp.py --rom $ROM"

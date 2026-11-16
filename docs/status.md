@@ -3,6 +3,20 @@
 Updated at the end of every session. Keep it to what the next session needs; history is in git.
 
 - **Phase:** 9. Release DONE 2026-11-17: `release/Sengoku_Kakumei_Gaiden_EN_v1.0.zip` built and verified (BPS 334780 bytes + README.txt). Publishing (`gh release create`) is the owner's call. v1.0 build sha1 d7b093ee…, CRC32 A2C75821. Last build (v1.0 + English title logo + name header fix, not yet released): `build/sengoku_en.gba` sha1 ec92a3fe…, CRC32 48B4F39F (1036 strings, 759 letter pairs, 2116 writes).
+- **Manga edition (D16, 2026-11-17, in progress).** Owner asked for a second patch "with text running vertically like
+  the original and manga bubble translation style" and chose manga bubble over stacked letters. Done:
+  `tools/manga.py` (3x7 caps VWF, wrap 38 px + hyphenation, <= 16 px slices, layout limits), `tools/manga_engine.py`
+  + `data/manga_code.hex` (lookup, advance/`|n`/end hooks, run-time line and block centring; `docs/re/manga.md`),
+  `build.py manga` -> `build/sengoku_manga.gba` (sha1 be1b50c7…, 2385 slices, 1344 writes; also
+  `build/strings_manga.tsv`, `writes_manga.log`), `tests/test_manga.py` (11 tests; check 84 ok), smoke ok, v1 build
+  unchanged (ec92a3fe). Seen in game: opening, name confirm (`%b%n%B` colours, 8-letter name inline), map menu, equip,
+  shop, provinces, menu help, encyclopedia, dojo, deploy, link texts, ev010/030/052 (`work/qa/manga1..4`).
+  `tools/release.py --variant manga` (own manifest `work/qa/manga/manifest.tsv` + story pass, cover
+  `work/qa/manga/cover`, zip `..._EN_Manga_v<ver>`); `final_tour.sh` takes `SRC=`/`TOUR=`.
+  **Next:** full tour on `build/tour_manga.gba` into `work/qa/manga` (log `work/qa/manga_tour.log`), then
+  `qa_gate.py init work/qa/manga/manifest.tsv <dirs> --build build/tour_manga.gba`, visual-QA chunks, textcover on
+  `work/qa/manga/cover build/strings_manga.tsv`. Open owner question: redraw the sideways graphics labels (menus, item
+  names, results) upright for this edition, or keep v1's.
 - **Phase 9 session 2 (2026-11-17): English title logo (D15).** Owner asked for a translated logo: SENGOKU / KAKUMEI /
   GAIDEN (`tools/title_logo.py`, font `fonts/Shojumaru-Regular.ttf` OFL, `tests/test_title_logo.py`) on both title
   pictures, the usual one and the after-clear one (record 0x7527B4, other mascot; `docs/re/graphics.md`). Build

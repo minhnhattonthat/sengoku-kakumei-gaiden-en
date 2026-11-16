@@ -25,6 +25,10 @@ The game draws all its text in vertical columns. The English is drawn **rotated 
 columns, so tilt your head (or your screen) to the right to read it; columns run right to left, i.e. lines top to
 bottom.
 
+**Manga edition** (a second patch, in progress): the dialogue scroll is lettered like a manga's vertical speech
+bubble instead, upright capitals in short centred lines stacked down the tall scroll, read without tilting. Menu
+labels and other text drawn as graphics are the same as in the standard patch. Build it with `build.py manga`.
+
 Known issues: none known; see [Issues](../../issues). Link-cable play was tested only in a single emulator, not with
 two consoles.
 
@@ -59,6 +63,7 @@ git clone https://github.com/minhnhattonthat/sengoku-kakumei-gaiden-en
 cd sengoku-kakumei-gaiden-en
 # copy your dump to: rom/Sengoku Kakumei Gaiden (Japan).gba  (the build refuses any other dump, see rom.sha1)
 python -X utf8 build.py                                # -> build/sengoku_en.gba
+python -X utf8 build.py manga                          # -> build/sengoku_manga.gba (Manga edition)
 python -X utf8 tools/check.py                          # tests + text lint
 python -X utf8 tools/release.py                        # BPS patch + zip in release/ (runs every QA gate)
 ```
