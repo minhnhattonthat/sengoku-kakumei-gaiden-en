@@ -209,11 +209,97 @@ def english_rows(rom, bank):
     return b, rows, new
 
 
+# Banks drawn as whole OBJ pieces with 8 px label columns, not 16 px strips: (first tile, width, height) in tiles
+# per piece (1D mapping, row-major). gfx/bankNN.tsv rows are then `piece col row rows jp en` (col in 8 px tile
+# columns from x0, row/rows in pixel rows); the cell is cleared of `ink` to `bg` and the English drawn there in
+# caps (7 rows tall, as the 7 px kanji), rotated clockwise, proportionally spaced from `row`. Bank 32's columns
+# are not tile-aligned: the kanji sit at x = 5 + 8 * col .. +6. "(clear)" as en erases the cell.
+GRID = {32: {"pieces": [(0, 8, 8), (64, 4, 8)], "ink": 1, "bg": 13, "x0": 5}}
+
+
+def load_grid_tsv(bank):
+    out = []
+    for line in (ROOT / "gfx" / f"bank{bank:02d}.tsv").read_text(encoding="utf-8").splitlines():
+        if line and not line.startswith("#"):
+            p, col, row, n, jp, en = (line.split("\t") + [""])[:6]
+            out.append((int(p), int(col), int(row), int(n), jp, en))
+    return out
+
+
+def grid_edits(rom, bank):
+    """English for a GRID bank: {tiles offset: new tile bytes}."""
+    b = sprites.banks(rom)[bank]
+    g = GRID[bank]
+    data = bytearray(rom[b["tiles"]:b["end"]])
+
+    def at(piece, y, x):
+        t0, w, _ = g["pieces"][piece]
+        t = t0 + (y // 8) * w + x // 8
+        return t * 32 + (y % 8) * 4 + (x % 8) // 2, x & 1
+
+    def get(piece, y, x):
+        i, hi = at(piece, y, x)
+        return data[i] >> 4 if hi else data[i] & 15
+
+    def put(piece, y, x, v):
+        i, hi = at(piece, y, x)
+        data[i] = (data[i] & 0x0F) | (v << 4) if hi else (data[i] & 0xF0) | v
+
+    for piece, col, row, n, jp, en in load_grid_tsv(bank):
+        if not en:
+            continue
+        if en == "(clear)":  # erase the cell, draw nothing
+            en = ""
+        elif text_width(en) > n:
+            raise ValueError(f"bank {bank} {en!r}: {text_width(en)} rows, cell {n}")
+        x0 = g["x0"] + col * 8  # the column's 7 letter pixels are x0..x0+6 (top of a letter at x0+6)
+        for y in range(row, row + n):
+            for x in range(x0, x0 + 8):
+                if get(piece, y, x) == g["ink"]:
+                    put(piece, y, x, g["bg"])
+        y = row
+        for ch in font_en.fold(en):
+            gl = font_en.FONT.get(ch, font_en.FONT[" "])
+            span = glyph_cols(gl)
+            if not span:
+                y += 3
+                continue
+            for r, line in enumerate(gl[:7]):
+                for c, px in enumerate(line):
+                    if px == "#":
+                        put(piece, y + c - span[0], x0 + 6 - r, g["ink"])
+            y += span[1] - span[0] + 2
+    return {b["tiles"]: bytes(data)} if bytes(data) != rom[b["tiles"]:b["end"]] else {}
+
+
+# The 8x8 small font (4bpp, ink 1 on 0, 32 bytes a glyph, ~0x61C58-0x7D2F8, no absolute pointer to it): its
+# kanji numerals 〇 一 .. 九 at 0x7D098 + 32 * n draw the equip screen's stat values. Redrawn as rotated Arabic
+# digits (font_en's, rows 0-6 at x 7..1, columns from y 2), so the values read like the rotated labels.
+SMALL_DIGITS = 0x7D098
+SMALL_RANGES = [(SMALL_DIGITS, SMALL_DIGITS + 10 * 32)]
+
+
+def small_digit_edits(rom):
+    assert rom[SMALL_DIGITS + 4:SMALL_DIGITS + 8] == bytes.fromhex("00101100"), "small-font 〇 moved"
+    out = bytearray(10 * 32)
+    for n in range(10):
+        g = font_en.FONT[str(n)]
+        for r, line in enumerate(g[:7]):
+            for c, px in enumerate(line):
+                if px == "#":
+                    y, x = 2 + c, 7 - r
+                    out[n * 32 + y * 4 + x // 2] |= 1 << (4 * (x & 1))
+    return {SMALL_DIGITS: bytes(out)}
+
+
 def labels_edits(rom, banks=None):
-    edits = {}
+    edits = {} if banks is not None else small_digit_edits(rom)
     for path in sorted((ROOT / "gfx").glob("bank*.tsv")):
         bank = int(path.stem[4:])
         if banks is not None and bank not in banks:
+            continue
+        if bank in GRID:
+            edits.update(grid_edits(rom, bank))
             continue
         b, rows, new = english_rows(rom, bank)
         if new != rows:
@@ -221,8 +307,34 @@ def labels_edits(rom, banks=None):
     return edits
 
 
+def grid_preview(rom, bank, out):
+    """Every piece, original above English, 4x."""
+    from PIL import Image
+    b = sprites.banks(rom)[bank]
+    rgb = [tuple(v * 255 // 31 for v in c) for c in palette(rom, b, 0)]
+    rgb[0] = (255, 0, 255)
+    new = grid_edits(rom, bank).get(b["tiles"], rom[b["tiles"]:b["end"]])
+    pieces = GRID[bank]["pieces"]
+    wsum = sum(w * 8 + 4 for _, w, _ in pieces)
+    hmax = max(h * 8 for _, _, h in pieces)
+    im = Image.new("RGB", (wsum, 2 * hmax + 4), (40, 40, 40))
+    for k, data in enumerate((rom[b["tiles"]:b["end"]], new)):
+        x0 = 0
+        for t0, w, h in pieces:
+            for y in range(h * 8):
+                for x in range(w * 8):
+                    t = t0 + (y // 8) * w + x // 8
+                    v = data[t * 32 + (y % 8) * 4 + (x % 8) // 2]
+                    im.putpixel((x0 + x, k * (hmax + 4) + y), rgb[v >> 4 if x & 1 else v & 15])
+            x0 += w * 8 + 4
+    im.resize((im.size[0] * 4, im.size[1] * 4), Image.NEAREST).save(out)
+    print(out)
+
+
 def preview(rom, bank, out):
     from PIL import Image
+    if bank in GRID:
+        return grid_preview(rom, bank, out)
     b, rows, new = english_rows(rom, bank)
     rgb = [tuple(v * 255 // 31 for v in c) for c in palette(rom, b, STYLE.get(bank, {}).get("pal", 0))]
     rgb[0] = (255, 0, 255)

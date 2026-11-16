@@ -41,6 +41,15 @@ grades 赤青緑黒, then 30 art slots (5 blank, 帰還の術 not among them), 6
 antialias greys); `draw_plain()` reuses each slot's trio, so the English keeps the colour (D11). Checked in game
 on `equip` (`work/gfx/shots/bank36_equip.png`).
 
+## Bank 32: equip stat block (tiles 0x6EFC9C-0x6F089C) - done
+Not a strip: two OBJ pieces, 64x64 (tiles 0-63: 金 .. 両 and 脚力 防御 攻撃 気力 体力) and 32x64 (tiles 64-95:
+次の段まで, 段), 1D row-major. The 7 px kanji columns sit at x = 5 + 8k (not tile-aligned). `gfx_labels.GRID` +
+`gfx/bank32.tsv` (piece col row rows jp en) draw caps there (RYO SPEED GUARD ATTACK SPIRIT HEALTH NEXT LV LV).
+The values are the **8x8 small font** (4bpp ink 1, ~0x61C58-0x7D2F8, no absolute pointer): kanji numerals 〇-九 at
+0x7D098 + 32n, redrawn as rotated 0-9 (`gfx_labels.small_digit_edits`). Read with `sheet.py --rotate 270`:
+"LV 1 / NEXT LV / 5 / HEALTH 60 ... RYO 500" (`work/gfx/shots/bank32_equip_zoom.png`). 段's value is the current
+level, 次の段まで's value sits on its own line below it.
+
 ## Map of all 62 banks (2026-11-16, overview sheets `work/gfx/sheet[A-D].png`, strips wrapped at 320 rows)
 Rendered with `MONO`/palette 0, so multi-palette banks look odd; only the classification matters.
 - **Text, to redraw:** 20 province name plates (2 kanji, ~50, plus greyed variants), 23-26 menu choice boxes

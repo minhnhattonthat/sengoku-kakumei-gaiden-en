@@ -1,0 +1,15 @@
+# Bank 32: equip screen stat block. GRID layout (gfx_labels.GRID): piece col row rows jp en.
+# Piece 0 = 64x64 (金 .. 両 in col 0, the five stats in cols 2-6); piece 1 = 32x64 (次の段まで col 0, 段 col 1).
+# Columns are x = 5 + 8 * col; row 0 and row 62 are the frame lines.
+# Values (kanji digits, drawn by other OBJs) end at row 63 and take 8 rows per digit: a 3-digit stat starts at
+# row 39, so stat labels end by row 37; the gold value can reach row 15 with 5 digits.
+# 防御 = GUARD (the B-button move is "Guard"; DEFENSE needs 41 rows). 段 (col 1) is a guess: "LV".
+0	0	1	22	金	RYO
+0	0	55	8	両	(clear)
+0	2	1	37	脚力	SPEED
+0	3	1	37	防御	GUARD
+0	4	1	37	攻撃	ATTACK
+0	5	1	37	気力	SPIRIT
+0	6	1	37	体力	HEALTH
+1	0	1	45	次の段まで	NEXT LV
+1	1	1	12	段	LV

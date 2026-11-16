@@ -88,6 +88,8 @@ def allowed_write(off, n):
         allowed_write.banks = [(b["tiles"], b["end"]) for b in sprites.banks(textbank.original_rom())]
     if any(lo <= off and end <= hi for lo, hi in allowed_write.banks):
         return True  # sprite-bank tiles (label graphics), sizes unchanged
+    if any(lo <= off and end <= hi for lo, hi in gfx_labels.SMALL_RANGES):
+        return True  # 8x8 small-font glyphs (stat digits)
     return any(o <= off and end <= ((e + 3) & ~3) for o, e, _ in lz_blocks())
 
 
