@@ -22,7 +22,8 @@ W = 16
 # How each bank's labels are drawn: "box" = bank 22's peach gradient box (draw()); "plain" = black-on-white
 # labels whose ink trio varies per slot (draw_plain(); `pal` = the palette row used to rank the trio dark..light,
 # `skip` = antialias indices shared by every trio).
-STYLE = {22: {"kind": "box"}, 36: {"kind": "plain", "pal": 4, "skip": (10, 11)}}
+STYLE = {22: {"kind": "box"}, 36: {"kind": "plain", "pal": 4, "skip": (10, 11)},
+         35: {"kind": "plain", "pal": 0, "skip": (), "centre": True}}
 
 
 def strip(rom, bank):
@@ -158,15 +159,18 @@ def ink_trio(orig, style, pal):
 PLAIN_TOP = 1  # first letter row in a plain slot (the originals start at 2; 1 lets "Ashigaru Armor" fit)
 
 
-def draw_plain(text, n, orig, ink, shade):
+def draw_plain(text, n, orig, ink, shade, centre=False):
     """English over a white label slot: every non-transparent pixel becomes white 15, then `text` rotated
-    clockwise, proportionally spaced from row PLAIN_TOP, with a `shade` shadow."""
+    clockwise, proportionally spaced from row PLAIN_TOP (or centred), with a `shade` shadow. A slot with no white
+    (bare glyphs on transparent, e.g. bank 35's digits) is cleared to 0 and gets ink only (shade None)."""
     length = text_width(text)
-    if PLAIN_TOP + length > n - 1:
-        raise ValueError(f"{text!r}: {length} rows from row {PLAIN_TOP}, slot {n}")
-    out = [[0 if v == 0 else 15 for v in row] for row in orig]
+    top = (n - length) // 2 if centre else PLAIN_TOP
+    if top < 0 or top + length > n - 1:
+        raise ValueError(f"{text!r}: {length} rows from row {top}, slot {n}")
+    white = any(15 in row for row in orig)
+    out = [[0 if v == 0 or not white else 15 for v in row] for row in orig]
     x_top = (W + 9) // 2 + 1
-    pts, y = set(), PLAIN_TOP
+    pts, y = set(), top
     for ch in font_en.fold(text):
         g = font_en.FONT.get(ch, font_en.FONT[" "])
         span = glyph_cols(g)
@@ -178,7 +182,7 @@ def draw_plain(text, n, orig, ink, shade):
                 if px == "#":
                     pts.add((y + c - span[0], x_top - r))
         y += span[1] - span[0] + 2
-    for yy0, xx0 in pts:
+    for yy0, xx0 in pts if shade is not None else ():
         for yy, xx in ((yy0 + 1, xx0), (yy0, xx0 - 1), (yy0 + 1, xx0 - 1)):
             if (yy, xx) not in pts and 0 <= yy < n and 0 <= xx < W and out[yy][xx] == 15:
                 out[yy][xx] = shade
@@ -198,7 +202,8 @@ def english_rows(rom, bank):
         orig = rows[start:start + n]
         if style["kind"] == "plain":
             trio = ink_trio(orig, style, pal)
-            new[start:start + n] = draw_plain(en, n, orig, trio[0], trio[1])
+            shade = trio[1] if len(trio) > 1 and any(15 in r for r in orig) else None
+            new[start:start + n] = draw_plain(en, n, orig, trio[0], shade, style.get("centre", False))
         else:
             new[start:start + n] = draw(en, n, orig)
     return b, rows, new

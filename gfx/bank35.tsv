@@ -1,0 +1,21 @@
+# Bank 35 (tiles 0x6F4EDC-0x6F615C): one-glyph 16-row cells: equipment slot icons (white boxes) and the kanji
+# digits used for every stat number (bare index-2 glyphs). Still Japanese: 禄高/万石 (192-256), あなたが/は/番/!!
+# (256-400): where they show is not known yet. tools/gfx_labels.py
+# start	rows	jp	en
+48	16	刀	Sw
+64	16	槍	Sp
+80	16	弓	Bw
+96	16	鎧	Ar
+112	16	術1	A1
+128	16	術2	A2
+144	16	術3	A3
+400	16	〇	0
+416	16	一	1
+432	16	二	2
+448	16	三	3
+464	16	四	4
+480	16	五	5
+496	16	六	6
+512	16	七	7
+528	16	八	8
+544	16	九	9
