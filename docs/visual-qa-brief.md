@@ -39,11 +39,12 @@ Standing non-bugs, `ok` (the controller adds the game's own below):
   大一大万大吉, aoi) are heraldry, kept (D12). Any other kanji in those scenes is an issue.
 - Scenery kanji on signs, lanterns or banners inside stage/map backgrounds: report it as an `issue` with the tile
   position so it can be judged; if `tour_jp` shows the same art it is still worth the note.
-- Menu bar labels (save menu, mode select, Yes/No and similar choice bars) are drawn in a heavy black outlined
-  font that starts at the bar's left edge (top, when upright): the original kanji labels look the same and sit in
-  the same place. Only report one if its letters cannot be read at zoom 4 or it runs past its bar. The mode select
-  ("Realm in Chaos" / "VS Conquest", unselected one dimmed) and the settings menu rows were checked by eye at
-  zoom 2-4 and read fine: `ok` unless a label is missing, cut off or a different word.
+- Menu bar labels (save menu, controls, shop, map menu and similar choice bars) are drawn in a heavy black
+  outlined font that starts at the bar's left edge (top, when upright): the original kanji labels look the same and
+  sit in the same place. Only report one if its letters cannot be read at zoom 4 or it runs past its bar. The
+  settings menu rows were checked by eye at zoom 2-4 and read fine: `ok` unless a label is missing, cut off or a
+  different word. The mode select ("Realm in Chaos" / "VS Conquest") and the Yes/No / 15/30/45 min bars are drawn
+  thin black with a grey shadow instead (from build 2c0a1527: the outline font was a silhouette there).
 - The link END card (scene `link_end_card`): the original's 終了 is two 64x64 cells; 終 alone is also the
   single-player game over card, so its "END" sits in the left cell and 了 is cleared: left of centre is `ok`.
 - The province plates beside the hero on the national map are 16x32 sprites in a tiny 5-row caps font; a name too

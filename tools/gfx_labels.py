@@ -26,11 +26,14 @@ W = 16
 # slot (index 13); a slot listed in `black` has black letters instead (bank 27's 通り名一覧), drawn as bank 22's.
 STYLE = {22: {"kind": "box"}, 36: {"kind": "plain", "pal": 4, "skip": (10, 11)},
          35: {"kind": "plain", "pal": 0, "skip": (), "centre": True},
-         **{n: {"kind": "outline"} for n in (23, 24, 25, 28, 29, 31, 37, 38, 39)},
+         **{n: {"kind": "outline"} for n in (23, 24, 25, 29, 31, 37, 38, 39)},
+         # bank 28's mode bars use bank 30's palettes: 15 shows dark, so outline letters were black silhouettes
+         28: {"kind": "outline", "black": {2, 90}},
          27: {"kind": "outline", "black": {290}},
          # bank 30's link time choices show with OBJ palettes 5-7, where 15 is black / dark red on a light 13
-         # (centred: the original はい/いいえ/一五分 fill the 44-row bar, rows 2-37)
-         30: {"kind": "outline", "black": {98, 146, 194}, "centre": True},
+         # (centred: the original はい/いいえ/一五分 fill the 44-row bar, rows 2-37). Yes/No too: their palette
+         # also shows 15 dark, so white-with-edge letters came out as black silhouettes (visual QA, 4977f45e)
+         30: {"kind": "outline", "black": {2, 50, 98, 146, 194}, "centre": True},
          61: {"kind": "big"}}  # "big" = the combo counter's outlined gradient glyphs (draw_big())
 
 
