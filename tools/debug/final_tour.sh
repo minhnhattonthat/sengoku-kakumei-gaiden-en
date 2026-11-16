@@ -34,7 +34,7 @@ for k in 0x17 0x29 0x33; do
 done
 run go/dojo --scenes-file work/qa/go/dojo.txt --script tools/lua/dojo.lua --var GOD=1 --var LIST=0 --var VERBOSE=1
 run go/dojo0 --scenes-file work/qa/go/dojo.txt --script tools/lua/dojo.lua --var GOD=1 --var CTRL=0 --var LIST=0 --var VERBOSE=1
-run go/lk --jobs $J--scenes-file work/qa/go/lk.txt --script tools/lua/liststep.lua --var LIST=0 --var VERBOSE=1 --shot-every 60
+run go/lk --jobs $J --scenes-file work/qa/go/lk.txt --script tools/lua/liststep.lua --var LIST=0 --var VERBOSE=1 --shot-every 60
 # story flag branches (coverage only, no sheets in the manifest)
 rm -rf "$Q/swap"
 sh tools/debug/swap_groups.sh "$R/$Q/swap" "$ROM" 0x08730940 0x08730b38 0x08730b48 0x08730c78 0x08730cb0 0x08730f00 \
