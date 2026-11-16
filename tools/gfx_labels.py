@@ -420,7 +420,20 @@ SMALL_DIGITS = 0x7D098
 # doubled in height, proportional, centred, outline index 9 and the original's per-row fill gradient.
 POPUPS = {0x42B796: {"w": 32, "h": 16, "jp": "昇段!!", "en": "LV UP!", "outline": 9,
                      "grad": [5, 5, 15, 15, 15, 15, 15, 15, 14, 14, 11, 11, 5, 5], "top": 1}}
-SMALL_RANGES = [(SMALL_DIGITS, SMALL_DIGITS + 10 * 32)] + [(o, o + p["w"] * p["h"] // 2) for o, p in POPUPS.items()]
+# The same small font draws the player's name in the menu's stat panel: its kana from あ (0x7BC58) follow the name
+# grid's table (name_grid.TABLE, 0x733660) without the table's two gaps (index 36, 38), 82 glyphs. Found by
+# poking name indices into 0x02000618 and matching each drawn glyph to its ROM tile (all 82 matched). Each gets
+# name_grid's letter for that slot, rotated as the digits, so a Latin name reads as it does everywhere else.
+SMALL_KANA = 0x7BC58
+SMALL_KANA_GAPS = (36, 38)
+
+
+def small_kana_index(k):
+    return k - sum(k > g for g in SMALL_KANA_GAPS)
+
+
+SMALL_RANGES = ([(SMALL_DIGITS, SMALL_DIGITS + 10 * 32), (SMALL_KANA, SMALL_KANA + 82 * 32)]
+                + [(o, o + p["w"] * p["h"] // 2) for o, p in POPUPS.items()])
 
 
 def popup_mask(text):
@@ -479,6 +492,37 @@ def small_digit_edits(rom):
                     y, x = 2 + c, 7 - r
                     out[n * 32 + y * 4 + x // 2] |= 1 << (4 * (x & 1))
     return {SMALL_DIGITS: bytes(out)}
+
+
+def small_glyph(ch):
+    """32 bytes: font_en's ch rotated as small_digit_edits (row r at x 7 - r, column c at y 2 + c); a letter with
+    a descender (ink in row 8) moves up one row so it fits the 8 px tile, or, with ink in row 0 too ('j'), loses
+    its first blank row (the gap under the dot)."""
+    g = list(font_en.FONT[ch])
+    ink = [r for r, line in enumerate(g) if "#" in line]
+    if ink and ink[-1] >= 8:
+        if ink[0] >= 1:
+            g = g[1:]
+        else:
+            g.pop(next(r for r in range(ink[0], ink[-1]) if "#" not in g[r]))
+    out = bytearray(32)
+    for r, line in enumerate(g):
+        for c, px in enumerate(line):
+            if px == "#":
+                y, x = 2 + c, 7 - r
+                assert 0 <= x < 8 and 0 <= y < 8, (ch, r, c)
+                out[y * 4 + x // 2] |= 1 << (4 * (x & 1))
+    return bytes(out)
+
+
+def small_kana_edits(rom):
+    import name_grid
+    assert rom[SMALL_KANA + 4:SMALL_KANA + 8] == bytes.fromhex("00100000"), "small-font あ moved"
+    out = bytearray(rom[SMALL_KANA:SMALL_KANA + 82 * 32])
+    for k, ch in name_grid.LETTERS.items():
+        i = small_kana_index(k)
+        out[32 * i:32 * i + 32] = small_glyph(ch)
+    return {SMALL_KANA: bytes(out)}
 
 
 # Banks of square glyph cells (one 32x32 OBJ each, 4x4 tiles row-major, cells consecutive): gfx/bankNN.tsv rows
@@ -778,7 +822,7 @@ def orb_edits(rom, bank):
 
 
 def labels_edits(rom, banks=None):
-    edits = {} if banks is not None else {**small_digit_edits(rom), **popup_edits(rom)}
+    edits = {} if banks is not None else {**small_digit_edits(rom), **small_kana_edits(rom), **popup_edits(rom)}
     for path in sorted((ROOT / "gfx").glob("bank*.tsv")):
         bank = int(path.stem[4:])
         if banks is not None and bank not in banks:
