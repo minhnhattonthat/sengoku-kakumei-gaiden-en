@@ -1,5 +1,9 @@
 # Graphics text survey
 
+**Phase 8:** every OBJ label (headers, buttons, item names, stat labels) comes from the sprite-bank table at
+0x7585D0, decoded in `sprites.md`, with the redraw pipeline `tools/gfx_labels.py` + `gfx/bankNN.tsv`. Done: bank 22
+(29 menu headers).
+
 Ruling D5: translate all graphics text; keep the original logo only if no official English logo exists (none known: the game was never released outside Japan, so the title logo gets an English version too).
 
 ## Tour (boot -> title -> file menu -> new game -> gender -> name -> opening), `work/qa/explore1`, `work/qa/ppu-menu`

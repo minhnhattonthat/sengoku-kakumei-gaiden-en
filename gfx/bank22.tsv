@@ -1,0 +1,31 @@
+# Bank 22 (tiles 0x6D1FF8-0x6DB0F8): menu header labels, one 160-row slot (5 x 16x32 OBJ) each. tools/gfx_labels.py
+# start	rows	jp	en
+0	160	項目選択	Choose an Option
+160	160	記録の選択	Choose a Save
+320	160	性別選択	Choose Gender
+480	160	入力内容確認	Confirm Entry
+640	160	記録の読み込み	Load a Save
+800	160	記録の複写	Copy a Save
+960	160	記録の削除	Delete a Save
+1120	160	遊び選択	Choose a Mode
+1280	160	装備選択	Choose Equipment
+1440	160	記録の保存	Save the Game
+1600	160	遊戯の中断	Suspend the Game
+1760	160	各種設定	Settings
+1920	160	出陣確認	Head Out to Battle?
+2080	160	装備確認	Check Equipment
+2240	160	戦利品一覧	Spoils of War
+2400	160	参加受付中	Taking Entries
+2560	160	参加受付中・	Taking Entries.
+2720	160	参加受付中・・	Taking Entries..
+2880	160	参加受付中・・・	Taking Entries...
+3040	160	対戦方式の選択	Choose Battle Type
+3200	160	対戦時間選択	Choose Time Limit
+3360	160	対戦の終了	End of Battle
+3520	160	結果発表	Results
+3680	160	買い物	Shopping
+3840	160	買う	Buy
+4000	160	売る	Sell
+4160	160	操作方法選択	Choose Controls
+4320	160	音楽設定	Music
+4480	160	戦国図鑑	Encyclopedia

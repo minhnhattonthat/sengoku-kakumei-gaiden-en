@@ -17,6 +17,8 @@ sys.path.insert(0, str(ROOT / "tools"))
 import check_rom  # noqa: E402
 import engine  # noqa: E402
 import font_en  # noqa: E402
+import gfx_labels  # noqa: E402
+import sprites  # noqa: E402
 import lz77  # noqa: E402
 import romdiff  # noqa: E402
 import script  # noqa: E402
@@ -82,6 +84,10 @@ def allowed_write(off, n):
         return True
     if any(lo <= off and end <= hi for _, lo, hi in textbank.RANGES):
         return True
+    if not hasattr(allowed_write, "banks"):
+        allowed_write.banks = [(b["tiles"], b["end"]) for b in sprites.banks(textbank.original_rom())]
+    if any(lo <= off and end <= hi for lo, hi in allowed_write.banks):
+        return True  # sprite-bank tiles (label graphics), sizes unchanged
     return any(o <= off and end <= ((e + 3) & ~3) for o, e, _ in lz_blocks())
 
 
@@ -125,6 +131,9 @@ def make_english(orig, edits):
     new, writes = repack(orig, unpack(orig), raw_edits={a: enc.encode(t) for a, t in edits.items()})
     out = bytearray(new)
     writes += engine.patch(out, enc)
+    for off, data in gfx_labels.labels_edits(orig).items():  # OBJ label graphics, gfx/bank*.tsv
+        writes.append((off, bytes(out[off:off + len(data)]), data, f"gfx {off:06x}"))
+        out[off:off + len(data)] = data
     return bytes(out), writes, enc
 
 
@@ -133,6 +142,19 @@ def english(orig, edits, path):
     if enc:
         print(f"{len(edits)} English strings, {len(enc.pairs)} letter pairs")
     finish(orig, new, writes, path)
+    write_strings(orig, new)
+
+
+def write_strings(orig, new):
+    """build/strings.tsv for textcover.py: id (= script id) <TAB> the ROM offset the game reads the string's first
+    byte from in this build (its first pointer site), for every `text` and `dup` entry."""
+    kinds = {e["id"]: e["kind"] for entries in script.load().values() for e in entries}
+    rows = []
+    for addr, s in sorted(textbank.strings(orig).items()):
+        if kinds.get(f"{addr:06x}") in ("text", "dup"):
+            ptr = int.from_bytes(new[s.sites[0]:s.sites[0] + 4], "little") - 0x08000000
+            rows.append(f"{addr:06x}\t{ptr:x}\n")
+    (BUILD / "strings.tsv").write_text("".join(rows), encoding="utf-8")
 
 
 def build():
