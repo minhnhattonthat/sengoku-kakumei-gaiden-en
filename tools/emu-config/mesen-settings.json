@@ -9,5 +9,8 @@
       "Type": "SnesController"
     }
   },
-  "ConfigUpgrade": 1
+  "ConfigUpgrade": 1,
+  "Preferences": {
+    "RewindBufferSize": 0
+  }
 }

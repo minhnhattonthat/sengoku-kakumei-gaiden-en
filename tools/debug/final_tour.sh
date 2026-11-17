@@ -3,6 +3,7 @@
 # textcover probe, into the directories the visual-QA manifest (work/qa/manifest.tsv) and textcover.py read.
 #   sh tools/debug/final_tour.sh [OUTROOT=work/qa]
 #   SRC=other.gba TOUR=build/tour_other.gba sh tools/debug/final_tour.sh work/qa/other   (another ROM)
+#   SKIP="tour" JOBS=1 sh tools/debug/final_tour.sh   (resume: keep runs that finished on this same build)
 # Copies $SRC (build/sengoku_en.gba) to $TOUR (build/tour.gba) first; then:
 #   python -X utf8 $SKILL/scripts/qa_gate.py init work/qa/manifest.tsv <dirs printed at the end> --build build/tour.gba
 #   python -X utf8 $SKILL/scripts/textcover.py work/qa/cover build/strings.tsv --waive docs/text_unshown.tsv --mask 0x7FFFFF
@@ -19,7 +20,10 @@ ROM="$R/$TOUR"
 TC="--script $SKILL/scripts/lua/probes/textcover.lua"
 RANGES="RANGES='0804CE4C-0805043E,0805045C-08055BA6,0805E2AC-0805E776,08061C1C-08061C59,0807E090-0807EF1C,08201800-08202114,087C1000-087DFFFF'"
 W="python -X utf8 tools/debug/warp.py --rom $ROM"
-run() { out=$1; shift; rm -rf "$Q/$out"; echo "== $out"; $W --out "$R/$Q/$out" $TC --var "$RANGES" "$@" 2>&1 | grep -v "tiles (row-major)"; }
+# SKIP="tour pages ..": keep those runs' existing output (same build, after a run that was killed part-way)
+run() { out=$1; shift
+  case " ${SKIP:-} " in *" $out "*) echo "== $out (skipped, kept)"; return;; esac
+  rm -rf "$Q/$out"; echo "== $out"; $W --out "$R/$Q/$out" $TC --var "$RANGES" "$@" 2>&1 | grep -v "tiles (row-major)"; }
 
 # JOBS=N (default 3): parallel emulators (~550 MB each); 5 next to another project's emulators ran out of memory
 # and every Mesen start failed with exit 3221225794 (0xC0000142). Check the log for FAIL lines afterwards.
