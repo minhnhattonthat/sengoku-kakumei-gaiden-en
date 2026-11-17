@@ -50,6 +50,10 @@ Standing non-bugs, `ok` (the controller adds the game's own below):
   showed as black silhouettes: an issue there, fixed since.
 - The link END card (scene `link_end_card`): the original's 終了 is two 64x64 cells; 終 alone is also the
   single-player game over card, so its "END" sits in the left cell and 了 is cleared: left of centre is `ok`.
+- After the magatama page (ev105-112) the scroll comes back plain white and the national map greyscale with green
+  outlines: the original does the same (that page's CpuSet streams ROM into palette RAM): `ok`.
+- Results titles (`restitles*`): the tour swaps the title every 1-2 frames, so a frame can show two titles drawn over
+  each other ("Ready-to / -RunYoung Wa", stray letters): `ok`. Held steady (`results.lua` K=n) every title fits.
 - The province plates beside the hero on the national map are 16x32 sprites in a tiny 5-row caps font; a name too
   long for one line is split over two lines on purpose ("SATSU/MA"): `ok`.
 - The bottom scroll's help / message text runs over the scroll's diamond and line decoration on the right half:

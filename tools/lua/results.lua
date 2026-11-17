@@ -25,8 +25,9 @@ local k = 0
 L.on_exec(0x08039E6A, 0x08039E6A, function()
   local r7 = emu.getState()["cpu.r7"]
   local adj, noun = r32(r7 + 0x14), r32(r7 + 0x1C)
-  if STEP then
-    adj = ADJ[(k % #ADJ) + 1]; noun = NOUN[(k % #NOUN) + 1]
+  if STEP then  -- K=n (with STEP=1): hold title n on every draw, for a steady shot of one title
+    local i = K and tonumber(K) or k
+    adj = ADJ[(i % #ADJ) + 1]; noun = NOUN[(i % #NOUN) + 1]
     w32(r7 + 0x14, adj); w32(r7 + 0x1C, noun)
   end
   L.log(string.format("TITLE k=%d adj=%08X noun=%08X frame=%d", k, adj, noun, L.frame))
