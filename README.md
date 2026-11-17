@@ -21,13 +21,11 @@ helps most.
 | Title logo | Redrawn in English: SENGOKU KAKUMEI GAIDEN |
 | Family crests and banner mottos in the biography portraits | Left in Japanese (heraldry, not captions) |
 
-The game draws all its text in vertical columns. The English is drawn **rotated 90° clockwise** in those same
-columns, so tilt your head (or your screen) to the right to read it; columns run right to left, i.e. lines top to
-bottom.
-
-**Manga edition** (a second patch, in progress): the dialogue scroll is lettered like a manga's vertical speech
-bubble instead, upright capitals in short centred lines stacked down the tall scroll, read without tilting. Menu
-labels and other text drawn as graphics are the same as in the standard patch. Build it with `build.py manga`.
+The game was written in vertical Japanese. All the English reads **upright**, with the console held normally: the
+dialogue is lettered like a manga's speech bubble, in short centred lines of capitals down the game's tall scroll;
+menu labels, item names and the other narrow vertical labels have their letters stacked one under another, read top
+to bottom (a long label continues in the next column to the right); the ending cards and credits are ordinary
+pages. (v1.x drew the English rotated 90°; from v2.0 there is only this upright edition.)
 
 Known issues: none known; see [Issues](../../issues). Link-cable play was tested only in a single emulator, not with
 two consoles.
@@ -63,7 +61,6 @@ git clone https://github.com/minhnhattonthat/sengoku-kakumei-gaiden-en
 cd sengoku-kakumei-gaiden-en
 # copy your dump to: rom/Sengoku Kakumei Gaiden (Japan).gba  (the build refuses any other dump, see rom.sha1)
 python -X utf8 build.py                                # -> build/sengoku_en.gba
-python -X utf8 build.py manga                          # -> build/sengoku_manga.gba (Manga edition)
 python -X utf8 tools/check.py                          # tests + text lint
 python -X utf8 tools/release.py                        # BPS patch + zip in release/ (runs every QA gate)
 ```

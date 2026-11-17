@@ -7,8 +7,8 @@ Each card is a BG2 picture made of three LZ77 blocks laid out in the ROM right b
                       15 = black on the credits and on the Masamune/Terumoto cards, a tint on the others)
 A card's pointers sit in the table at 0x750000 (one u32 per block). All three blocks are rewritten in their own
 slots: metatile ids are given by content (blank cells share one id), so the idx block stays small.
-English is drawn rotated 90 degrees clockwise like the rest of the game (D8): lines read top to bottom, the
-first line at the right edge of the screen.
+English is drawn upright as an ordinary page (D18): horizontal lines from the top, font_en's mixed case when the
+card fits, else manga's condensed 3x7 lettering.
 
     python -X utf8 tools/prose.py preview OUT.png     every card, original | English (screen orientation)
 The 完 ("The End") card after the credits is OBJ tiles instead (END_TILES): end_edits() redraws it as THE / END.
@@ -22,6 +22,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import font_en  # noqa: E402
 import lz77  # noqa: E402
+import manga  # noqa: E402
 
 SW, SH = 240, 160          # screen
 MW = 8                     # metatiles per row (256 px)
@@ -102,48 +103,74 @@ def decoded(rom, off):
     return lz77.decompress(rom, off)[0]
 
 
-def wrap(text, width):
-    """Greedy word wrap to `width` px of ADV-wide letters."""
-    room = width // ADV
+# Upright pages (D18): horizontal lines, top to bottom, as an English page. A card uses font_en (mixed case, 5x9)
+# when it fits, else manga's condensed 3x7 lettering (FONTS order).
+FONTS = {"en": {"art": lambda ch: font_en.FONT[ch], "adv": lambda ch: ADV, "pitch": 11, "head": 15, "gap": 6},
+         "manga": {"art": lambda ch: manga.FONT[ch] if ch != " " else ["..."] * 7,
+                   "adv": lambda ch: manga.adv(ch), "pitch": 10, "head": 13, "gap": 5}}
+LINE_W = SW - 2 * MARGIN   # px of a line
+TOP, BOTTOM = 5, SH - 4    # rows the text may use
+
+
+def text_w(text, f, bold=False):
+    return sum(FONTS[f]["adv"](ch) + (1 if bold else 0) for ch in text) - 1
+
+
+def wrap(text, width, f="en"):
+    """Greedy word wrap to `width` px."""
     lines, cur = [], ""
     for w in font_en.fold(text).split():
-        if len(w) > room:
+        if text_w(w, f) > width:
             raise ValueError(f"word too long for a line: {w!r}")
-        if cur and len(cur) + 1 + len(w) > room:
+        cand = f"{cur} {w}" if cur else w
+        if cur and text_w(cand, f) > width:
             lines.append(cur)
             cur = w
         else:
-            cur = f"{cur} {w}" if cur else w
+            cur = cand
     return lines + [cur] if cur else lines
 
 
-def layout(title, body):
-    """[(v, u, bold, text)]: v = canvas row from the screen's right edge, u = px along the line."""
-    out, v = [], 4
+def layout(title, body, f="en"):
+    """[(y, x, bold, text)] of the card's lines in font f (screen pixels, top-left of each line's cap row)."""
+    p = FONTS[f]
+    out, y = [], TOP
 
-    def line(text, bold=False, u=0, pitch=PITCH):
-        nonlocal v
-        if len(text) * (BOLD_ADV if bold else ADV) > ROOM - u:
+    def line(text, bold=False, x=0, pitch=p["pitch"]):
+        nonlocal y
+        if text_w(text, f, bold) > LINE_W - x:
             raise ValueError(f"line too long: {text!r}")
-        out.append((v, MARGIN + u, bold, text))
-        v += pitch
+        out.append((y, MARGIN + x, bold, text))
+        y += pitch
 
     if title:
-        line(title, bold=True, pitch=HEAD_PITCH)
-        for t in wrap(body, ROOM):
+        line(title, bold=True, pitch=p["head"])
+        for t in wrap(body, LINE_W, f):
             line(t)
     else:
         for k, (role, gloss, names) in enumerate(body):
             if k:
-                v += GAP
+                y += p["gap"]
             line(role, bold=True)
             line(gloss)
             for name in names:
-                for t in wrap(name, ROOM - INDENT):
-                    line(t, u=INDENT)
-    if v - PITCH + font_en.H > SW:
-        raise ValueError(f"{title or body[0][0]}: text runs off the screen")
-    return out
+                for t in wrap(name, LINE_W - INDENT, f):
+                    line(t, x=INDENT)
+    end = y - p["pitch"] + 9
+    if end > BOTTOM:
+        raise ValueError(f"{title or body[0][0]}: text runs off the screen in {f}")
+    shift = (BOTTOM - end) // 2   # the block centred down the screen
+    return [(yy + shift, x, b, t) for yy, x, b, t in out]
+
+
+def fit(title, body):
+    """(font, lines) of the first font in FONTS whose layout fits the screen."""
+    for f in FONTS:
+        try:
+            return f, layout(title, body, f)
+        except ValueError:
+            continue
+    raise ValueError(f"{title or body[0][0]}: fits no font")
 
 
 def background(rom, card):
@@ -160,21 +187,23 @@ def draw_card(title, body, bg):
     """Screen pixels (160 rows of 256) with a one-pixel shadow under every letter."""
     px = [[bg] * (MW * 32) for _ in range(SH)]
     ink_px = []
-    for v, u0, bold, text in layout(title, body):
-        ink, adv = (HEAD, BOLD_ADV) if bold else (INK, ADV)
-        for k, ch in enumerate(text):
-            art = font_en.FONT[ch]
-            for r in range(font_en.H):
-                for c in range(font_en.W):
-                    if art[r][c] == "#":
+    f, lines = fit(title, body)
+    p = FONTS[f]
+    for y0, x0, bold, text in lines:
+        ink = HEAD if bold else INK
+        x = x0
+        for ch in text:
+            for r, row in enumerate(p["art"](ch)):
+                for c, v in enumerate(row):
+                    if v == "#":
                         for dx in range(2 if bold else 1):  # bold = each pixel doubled along the line
-                            ink_px.append((u0 + k * adv + c + dx, v + r, ink))
-    for u, v, _ in ink_px:  # shadow first, ink over it
-        x, y = SW - 1 - (v + 1), u + 1
-        if 0 <= x < SW and 0 <= y < SH:
-            px[y][x] = SHADOW
-    for u, v, ink in ink_px:
-        px[u][SW - 1 - v] = ink
+                            ink_px.append((y0 + r, x + c + dx, ink))
+            x += p["adv"](ch) + (1 if bold else 0)
+    for y, x, _ in ink_px:  # shadow first, ink over it
+        if 0 <= x + 1 < SW and 0 <= y + 1 < SH:
+            px[y + 1][x + 1] = SHADOW
+    for y, x, ink in ink_px:
+        px[y][x] = ink
     return px
 
 
@@ -198,20 +227,20 @@ def tiles_of(px):
 
 
 def end_box():
-    """96x96 index rows: THE / END in big rotated letters (ink 15 on transparent 0), as 完 was."""
+    """96x96 index rows: THE / END in big upright letters (ink 15 on transparent 0), as 完 was."""
     s, n = END_SCALE, END_BOX
     px = [[0] * n for _ in range(n)]
     for line, word in enumerate(("THE", "END")):
-        v0 = (n - 2 * font_en.H * s - END_LEAD) // 2 + line * (font_en.H * s + END_LEAD)
-        u0 = (n - (len(word) * ADV - 1) * s) // 2
+        y0 = (n - 2 * 7 * s - END_LEAD) // 2 + line * (7 * s + END_LEAD)
+        x0 = (n - (len(word) * ADV - 1) * s) // 2
         for k, ch in enumerate(word):
             art = font_en.FONT[ch]
-            for r in range(font_en.H):
+            for r in range(7):
                 for c in range(font_en.W):
                     if art[r][c] == "#":
                         for a in range(s):
                             for b in range(s):
-                                px[u0 + (k * ADV + c) * s + a][n - 1 - (v0 + r * s + b)] = 15
+                                px[y0 + r * s + b][x0 + (k * ADV + c) * s + a] = 15
     return px
 
 

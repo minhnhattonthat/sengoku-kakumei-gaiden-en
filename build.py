@@ -1,11 +1,12 @@
 """build.py: the one entry point for building the ROM.
 
     python -X utf8 build.py            build/sengoku_en.gba + build/writes.log from script/*.json (tools/script.py),
-                                       checked by romdiff
+                                       checked by romdiff: upright English everywhere (D16-D18): manga-bubble
+                                       caps lines centred in the scroll (tools/manga.py), labels stacked upright
+                                       (tools/upright.py)
     python -X utf8 build.py identity   unpack every string and LZ77 block, repack with no edits, require the
                                        result to be byte-identical to the original (build/identity.gba)
-    python -X utf8 build.py manga      build/sengoku_manga.gba: the manga-bubble variant (D16, tools/manga.py):
-                                       upright caps lines centred in the scroll instead of rotated English
+    python -X utf8 build.py marker     the phase-5 marker build (v1 rotated engine, a debug tool)
 
 The dump is checked against rom.sha1 first. Text goes through tools/textbank.py (in place, or relocated to free
 space with its pointers rewritten); LZ77 blocks that are not edited keep their original bytes.
@@ -196,29 +197,31 @@ def manga_overrides(orig):
 
 def make_manga(orig, edits):
     """(new rom, writes, slice encoder): scroll text (mode 0) as manga bubbles; the results bank (mode-1 label
-    columns) keeps the v1 rotated pairs."""
+    columns) as upright letters stacked down the column (manga.StackEncoder)."""
     banks = script.load()
-    rotated = {int(e["id"], 16) for b in manga.MANGA_BANKS_SKIP for e in banks.get(b, [])}
-    pairs = {a: t for a, t in edits.items() if a in rotated}
-    bubbles = {a: t for a, t in edits.items() if a not in rotated}
-    penc = font_en.Encoder(pairs.values()) if pairs else None
+    stacked = {int(e["id"], 16) for b in manga.MANGA_BANKS_SKIP for e in banks.get(b, [])}
+    labels = {a: t for a, t in edits.items() if a in stacked}
+    bubbles = {a: t for a, t in edits.items() if a not in stacked}
     menc = manga.Encoder(bubbles.values())
-    raw = {**{a: penc.encode(t) for a, t in pairs.items()}, **{a: menc.encode(t) for a, t in bubbles.items()}}
+    senc = manga.StackEncoder(labels.values(), len(menc.slices),
+                              bg={t for a, t in labels.items() if a in manga.BG_LABELS})
+    raw = {**{a: senc.encode(t) for a, t in labels.items()}, **{a: menc.encode(t) for a, t in bubbles.items()}}
     new, writes = repack(orig, unpack(orig), raw_edits=raw, lz_edits=lz_english(orig))
     out = bytearray(new)
-    writes += manga_engine.patch(out, penc, menc, manga_overrides(orig))
+    writes += manga_engine.patch(out, None, menc, manga_overrides(orig), senc)
     gfx_english(orig, out, writes)
     return bytes(out), writes, menc
 
 
-def build_manga():
+def build():
+    """The English build (one edition since D18): upright manga-bubble scroll text and upright labels."""
     check_rom.check()
     orig = textbank.original_rom()
     edits = script.load_en()
     new, writes, menc = make_manga(orig, edits)
     print(f"{len(edits)} English strings, {len(menc.slices)} manga slices")
-    finish(orig, new, writes, BUILD / "sengoku_manga.gba", log="writes_manga.log")
-    write_strings(orig, new, BUILD / "strings_manga.tsv")
+    finish(orig, new, writes, BUILD / "sengoku_en.gba")
+    write_strings(orig, new)
 
 
 def english(orig, edits, path, layout=None):
@@ -241,22 +244,6 @@ def write_strings(orig, new, path=BUILD / "strings.tsv"):
     path.write_text("".join(rows), encoding="utf-8")
 
 
-def build():
-    check_rom.check()
-    orig = textbank.original_rom()
-    # Every script/ entry with an en text (or a dup whose source has one); untranslated entries keep the Japanese.
-    english(orig, script.load_en(), BUILD / "sengoku_en.gba", textbank.load_layout())
-
-
-def freeze_layout():
-    """data/text_layout.tsv from the current script with no layout: run on the build a QA tour ran on."""
-    check_rom.check()
-    orig = textbank.original_rom()
-    _, writes, enc = make_english(orig, script.load_en())
-    textbank.save_layout(writes, enc.pairs)
-    print(f"wrote {textbank.LAYOUT.relative_to(ROOT)}")
-
-
 def marker():
     """Every text/dup entry replaced by its marker (tools/marker.py): the phase-5 marker build.
     STRESS=1 -> build/sengoku_stress.gba (width-gate rulers)."""
@@ -273,8 +260,7 @@ def marker_texts():
 
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "build"
-    {"build": build, "identity": identity, "marker": marker, "freeze-layout": freeze_layout,
-     "manga": build_manga}[cmd]()
+    {"build": build, "identity": identity, "marker": marker}[cmd]()
 
 
 if __name__ == "__main__":

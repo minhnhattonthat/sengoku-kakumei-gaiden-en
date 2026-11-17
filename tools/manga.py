@@ -140,7 +140,7 @@ NAME_ADV = 4                   # reserved advance per name letter (3 px letters 
 CONTROLS = re.compile(r"\|n|%[nbBr]")
 CODE_B0 = (0x01, 0x25)         # slice codes: b0 0x01-0x24, b1 0x01-0xFF
 MAX_SLICES = (CODE_B0[1] - CODE_B0[0]) * 255
-MANGA_BANKS_SKIP = {"results"}  # drawn by mode 1 in one-column label boxes: kept in the v1 rotated pairs
+MANGA_BANKS_SKIP = {"results"}  # drawn in one-column labels (mode 1 / BG): StackEncoder, not bubbles
 
 
 COLOURS = {"%b": "\x01", "%B": "\x02", "%r": "\x03"}   # zero-width marks in the layout, codes again in the output
@@ -405,6 +405,115 @@ class Encoder:
     def widths(self):
         """Advance of each slice (index order)."""
         return [run_width(s) for s in self.slices]
+
+
+STACK_LIMIT = 116   # rows a mode-1 label may take: the title noun column starts near y 33 and the reader wraps
+                    # a glyph past y 147, so the last letter (start = 33 + length - 7) must start by 147
+STACK_SPACE = 4     # down-advance of a space
+STACK_CX = 5        # letters centred on x 5 of the 16 px glyph (a 12 px column, as name_glyph)
+
+
+def stack_glyph(ch, font):
+    """(13 u16 rows, down-advance): one upright letter of `font` (upright.FONTS) for the mode-1 label columns,
+    centred on STACK_CX, ink from row 2 (as the name letters), advance = ink height + 1 (a space STACK_SPACE)."""
+    import upright
+    rows = [0] * GLYPH_ROWS
+    if ch == " ":
+        return b"".join(struct.pack(">H", v) for v in rows), STACK_SPACE
+    pts, w, h = upright.ink(ch, font)
+    x0 = STACK_CX - w // 2
+    for r, c in pts:
+        rows[2 + r] |= 0x8000 >> (x0 + c)
+    return b"".join(struct.pack(">H", v) for v in rows), h + 1
+
+
+def pair_glyph(two):
+    """13 u16 rows: two TINY letters stacked upright in one 12-row cell (rows 1-5 and 7-11), for the results
+    screen's BG text routine 0x08012A2C, which steps a fixed 12 px a glyph: 6 px a letter."""
+    import upright
+    rows = [0] * GLYPH_ROWS
+    for k, ch in enumerate(two):
+        if ch == " ":
+            continue
+        pts, w, h = upright.ink(ch, "tiny")
+        x0, y0 = STACK_CX - w // 2, 1 + 6 * k + (5 - h if ch in ".," else 0)
+        for r, c in pts:
+            rows[y0 + r] |= 0x8000 >> (x0 + c)
+    return b"".join(struct.pack(">H", v) for v in rows)
+
+
+# The results screen's stat labels and ranks (tables 0x7469B0 / 0x7469F8, script ids 201828-201927) are drawn by
+# the BG routine 0x08012A2C, not the reader: they get letter pairs (pair_glyph).
+BG_LABELS = range(0x201828, 0x201928)
+
+
+class StackEncoder:
+    """Mode-1 labels (the results screen) as upright letters stacked down the column, one font entry per
+    letter; the engine moves down by each entry's +5 byte (manga_engine). A label longer than STACK_LIMIT in the
+    3x7 caps uses upright's 3x5 TINY caps. `bg` texts are drawn by the BG routine instead: TINY letter pairs, one
+    per 12 px glyph. Codes follow the scroll slices (code(first + k))."""
+
+    def __init__(self, texts, first, bg=()):
+        self.first = first
+        self.bg = set(bg)
+        self.font_of = {t: self._font(t) for t in texts if t not in self.bg}
+        keys = {(f, ch) for t, f in self.font_of.items() for ch in self._chars(t)}
+        keys |= {("pair", p) for t in self.bg for p in self._pairs(t)}
+        self.glyphs = sorted(keys)
+        self.index = {k: first + n for n, k in enumerate(self.glyphs)}
+        if first + len(self.glyphs) > MAX_SLICES:
+            raise ValueError("no codes left for the stacked labels")
+
+    @classmethod
+    def _pairs(cls, text):
+        out = []
+        for part in cls._parts(text):
+            if not part.startswith("%"):
+                part += " " * (len(part) % 2)
+                out += [part[k:k + 2] for k in range(0, len(part), 2)]
+        return out
+
+    @staticmethod
+    def _parts(text):
+        """Upper-cased text split around its printf codes (kept lower case: %d)."""
+        t = re.sub(r"%([A-Z])", lambda m: "%" + m.group(1).lower(), fold(text).upper())
+        return [p for p in re.split(r"(%[a-z])", t) if p]
+
+    @classmethod
+    def _chars(cls, text):
+        return [ch for part in cls._parts(text) if not part.startswith("%") for ch in part]
+
+    def length(self, text, font):
+        return sum(stack_glyph(ch, font)[1] for ch in self._chars(text)) - 1
+
+    def _font(self, text):
+        return "manga" if self.length(text, "manga") <= STACK_LIMIT else "tiny"
+
+    def encode(self, text):
+        out = bytearray()
+        for part in self._parts(text):
+            if part.startswith("%"):
+                out += part.encode("ascii")
+            elif text in self.bg:
+                part += " " * (len(part) % 2)
+                for k in range(0, len(part), 2):
+                    out += code(self.index[("pair", part[k:k + 2])])
+            else:
+                for ch in part:
+                    out += code(self.index[(self.font_of[text], ch)])
+        return bytes(out)
+
+    def entries(self):
+        """[(code index, glyph bytes, u16 at +4)] (+4 low byte 0: no mode-0 advance; high byte = down-advance,
+        0 = 12 for the pairs)."""
+        out = []
+        for (f, ch) in self.glyphs:
+            if f == "pair":
+                out.append((self.index[(f, ch)], pair_glyph(ch), 0))
+                continue
+            g, adv = stack_glyph(ch, f)
+            out.append((self.index[(f, ch)], g, adv << 8))
+        return out
 
 
 # ---- tools --------------------------------------------------------------------------------------------------

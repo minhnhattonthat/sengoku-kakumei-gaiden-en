@@ -8,7 +8,9 @@ On top of tools/engine.py's layout (font table copy at FONT_AT, lookup at LOOKUP
   - font entry +4 (u16, 0 in the original table) = the glyph's advance in px for mode 0; 0 means 12.
   - 0x08011DB8 (position advance, called only by the reader 0x08011DDC): in mode 0 (the scroll, reader's
     [sp+0x4c] == 0) x += the advance of the glyph just drawn (code at [sb-2], or the name letter at [r5-2] after
-    `%n`, whose sprite is also pulled left by manga.NAME_COL_X); y stays. Mode 1 keeps the original column flow.
+    `%n`, whose sprite is also pulled left by manga.NAME_COL_X); y stays. Mode 1 keeps the original column flow
+    but moves down by the glyph's +5 byte when set (code at [sb-2], or [r5-2] inside `%s`): the results titles'
+    stacked letters (manga.StackEncoder).
   - 0x0801225C (`|n`): in mode 0 centre the line just finished (shift every sprite of the page whose y is the line's
     y so the line's centre lands on CX), then x = start x, y += LINE_PITCH.
   - 0x08012450 (end of the string): in mode 0 centre the last line, then move the whole block so its centre lands
@@ -160,11 +162,38 @@ def handlers_src():
         pop {{r4}}
         pop {{r2}}
         bx r2
-    adv_orig:                           @ 0x08011DBA.. as the game has it
-        adds r4, r0, #0
+    adv_orig:                           @ mode 1: 0x08011DBA.. as the game has it, but y += the glyph's +5 byte
+        push {{r0, r1, r2, r3, r5}}       @ (0 = 12): the stacked label letters (manga.StackEncoder)
+        movs r4, #12
+        mov r0, sb
+        subs r0, #2
+        ldrb r1, [r0]
+        cmp r1, #0x25
+        bne m1_code
+        ldrb r1, [r0, #1]
+        cmp r1, #0x73                   @ %s (case 0x08011F38, the results labels): r5 is past the letter
+        bne m1_step
+        subs r0, r5, #2
+    m1_code:
+        ldrb r1, [r0]
+        ldrb r2, [r0, #1]
+        lsls r2, r2, #8
+        orrs r1, r2
+        adds r0, r1, #0
+        bl {lookup:#x}
+        lsls r0, r0, #5
+        ldr r1, lit_font
+        adds r0, r0, r1
+        ldrb r1, [r0, #5]
+        cmp r1, #0
+        beq m1_step
+        adds r4, r1, #0
+    m1_step:
+        pop {{r0, r1, r2, r3, r5}}
         lsls r3, r3, #16
         lsrs r3, r3, #16
-        adds r2, #12
+        adds r2, r2, r4
+        adds r4, r0, #0
         adds r0, r2, #0
         adds r0, #12
         cmp r0, #0x9f
@@ -365,8 +394,9 @@ def hooks(labels):
     return {HOOK_ADV: adv, HOOK_NL: nl, HOOK_END: end, engine.LOOKUP: engine.hook_bytes()}
 
 
-def font_table(rom, pairs_enc, slices_enc, overrides):
-    """Original 990 entries (+ name-letter overrides with their advance), v1 pairs, manga slices (advance at +4)."""
+def font_table(rom, pairs_enc, slices_enc, overrides, stack_enc=None):
+    """Original 990 entries (+ name-letter overrides with their advance), v1 pairs, manga slices (advance at +4),
+    then the stacked mode-1 letters (down-advance at +5)."""
     out = bytearray(rom[engine.ORIG_FONT:engine.ORIG_FONT + engine.ORIG_COUNT * engine.ENTRY])
     for k in range(engine.ORIG_COUNT):
         o = overrides.get((out[k * engine.ENTRY + 2], out[k * engine.ENTRY + 3]))
@@ -382,10 +412,15 @@ def font_table(rom, pairs_enc, slices_enc, overrides):
     for k, s in enumerate(slices_enc.slices):
         b0, b1 = manga.code(k)
         out += struct.pack("<HBBH", base + k, b0, b1, manga.run_width(s)) + manga.glyph_bytes(s)
+    if stack_enc:
+        assert stack_enc.first == len(slices_enc.slices)
+        for k, glyph, field in stack_enc.entries():
+            b0, b1 = manga.code(k)
+            out += struct.pack("<HBBH", base + k, b0, b1, field) + glyph
     return bytes(out), base
 
 
-def patch(out, pairs_enc, slices_enc, overrides):
+def patch(out, pairs_enc, slices_enc, overrides, stack_enc=None):
     """Apply the manga engine to bytearray out; return the write list."""
     writes = []
 
@@ -393,7 +428,7 @@ def patch(out, pairs_enc, slices_enc, overrides):
         writes.append((off, bytes(out[off:off + len(data)]), data, who))
         out[off:off + len(data)] = data
 
-    table, base = font_table(out, pairs_enc, slices_enc, overrides)
+    table, base = font_table(out, pairs_enc, slices_enc, overrides, stack_enc)
     if engine.FONT_AT + len(table) > CODE_AT:
         raise ValueError(f"font table {len(table):#x} bytes overruns {CODE_AT:#x}")
     code, labels = handlers()
