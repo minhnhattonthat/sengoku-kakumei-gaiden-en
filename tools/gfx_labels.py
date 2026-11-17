@@ -1,7 +1,6 @@
 """OBJ label strips (menu headers etc.): 16 px wide vertical labels stored as 2-tile-wide 4bpp runs in a sprite bank
 (tools/sprites.py). Viewed with 2 tiles per row, a bank is one tall 16 px strip; each label is a run of non-blank
-rows. English is drawn upright, letters stacked top to bottom (D17/D18, tools/upright.py: manga's 3x7 caps, 3x5
-caps when long, more columns left to right); the other renderers below (grid, cells, frames, plates, orbs) too.
+rows. English is drawn rotated 90 degrees clockwise (reads top to bottom, as D8's text) with font_en's 5x9 letters.
 
     python -X utf8 tools/gfx_labels.py segments BANK          list the label runs (strip rows) and colour counts
     python -X utf8 tools/gfx_labels.py preview BANK OUT.png   original | English, side by side, from gfx/<bank>.tsv
@@ -16,10 +15,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import font_en  # noqa: E402
-import manga  # noqa: E402
 import sprites  # noqa: E402
 import textbank  # noqa: E402
-import upright  # noqa: E402
 
 W = 16
 # How each bank's labels are drawn: "box" = bank 22's peach gradient box (draw()); "plain" = black-on-white
@@ -109,38 +106,34 @@ def colours(rows):
     return hist
 
 
-INK_W = W - 2  # px of ink (+ shadow) across a 16 px strip: x 1..14
-
-
-def placed(lay, top, x_lo, x_hi, extra=1):
-    """{(row, x)} of an upright layout from row `top`, centred across x_lo..x_hi (with `extra` px of shadow or
-    edge to the right counted in the width)."""
-    x0 = x_lo + (x_hi - x_lo + 1 - (lay.w + extra)) // 2
-    return {(top + y, x0 + x) for y, x in lay.points}
-
-
-def paint(out, ink_pts, n, ink, shade=None, edge=None, only=None):
-    """Ink `ink` with an upright drop shadow `shade` or an 8-neighbour `edge`, clipped to n rows x W; `only`: the
-    colours a shadow may cover."""
-    ring = upright.edge(ink_pts) if edge is not None else upright.shadow(ink_pts) if shade is not None else set()
-    for y, x in ring:
-        if 0 <= y < n and 0 <= x < W and (only is None or out[y][x] in only):
-            out[y][x] = edge if edge is not None else shade
-    for y, x in ink_pts:
-        out[y][x] = ink
-
-
 def draw(text, n, orig):
     """English label over a whole slot of n rows x 16 px (one OBJ frame, white below its box): a new gradient box
-    from the original's first row, PAD rows longer than the text at each end, white after it; `text` upright and
-    stacked (tools/upright.py), black with a mid-tone shadow."""
+    from the original's first row, PAD rows longer than the text at each end, white after it; `text` is drawn
+    rotated clockwise (letter rows run right to left across the strip, letters top to bottom) in font_en's 5x9
+    letters with a mid-tone shadow."""
+    glyphs = [font_en.FONT.get(c, font_en.FONT[" "]) for c in font_en.fold(text)]
+    length = len(glyphs) * ADV - 1
     c0 = next(i for i, row in enumerate(orig) if not blank(row))
-    lay = upright.stack(text, n - c0 - 2 * PAD - 1, INK_W - 1)
-    box = lay.h + 1 + 2 * PAD
+    box = length + 2 * PAD
+    if c0 + box > n:
+        raise ValueError(f"{text!r}: box {box} rows from row {c0}, slot {n}")
     out = [[15] * W for _ in range(n)]
     for i in range(box):
         out[c0 + i] = [GRADIENT[i * len(GRADIENT) // box]] * W
-    paint(out, placed(lay, c0 + PAD, 0, W - 1), n, INK, SHADE)
+    y0 = c0 + PAD
+    x_top = (W + 9) // 2 + 1  # 9 letter rows (cap 0-6, descender 7-8) + 1 shadow column, centred
+    ink = set()
+    for k, g in enumerate(glyphs):
+        for r, line in enumerate(g):
+            for c, ch in enumerate(line):
+                if ch == "#":
+                    ink.add((y0 + k * ADV + c, x_top - r))
+    for y, x in ink:  # shadow one px right and down in the upright view = down and left in the strip
+        for yy, xx in ((y + 1, x), (y, x - 1), (y + 1, x - 1)):
+            if (yy, xx) not in ink and 0 <= yy < n and 0 <= xx < W:
+                out[yy][xx] = SHADE
+    for y, x in ink:
+        out[y][x] = INK
     return out
 
 
@@ -176,14 +169,34 @@ PLAIN_TOP = 1  # first letter row in a plain slot (the originals start at 2; 1 l
 
 
 def draw_plain(text, n, orig, ink, shade, centre=False):
-    """English over a white label slot: every non-transparent pixel becomes white 15, then `text` upright and
-    stacked from row PLAIN_TOP (or centred), with a `shade` shadow. A slot with no white (bare glyphs on
-    transparent, e.g. bank 35's digits) is cleared to 0 and gets ink only (shade None)."""
-    lay = upright.stack(text, n - PLAIN_TOP - 1, INK_W - 1)
-    top = (n - lay.h - 1) // 2 if centre or lay.h + 1 > n - 2 * PLAIN_TOP else PLAIN_TOP
+    """English over a white label slot: every non-transparent pixel becomes white 15, then `text` rotated
+    clockwise, proportionally spaced from row PLAIN_TOP (or centred), with a `shade` shadow. A slot with no white
+    (bare glyphs on transparent, e.g. bank 35's digits) is cleared to 0 and gets ink only (shade None)."""
+    length = text_width(text)
+    top = (n - length) // 2 if centre else PLAIN_TOP
+    if top < 0 or top + length > n - 1:
+        raise ValueError(f"{text!r}: {length} rows from row {top}, slot {n}")
     white = any(15 in row for row in orig)
     out = [[0 if v == 0 or not white else 15 for v in row] for row in orig]
-    paint(out, placed(lay, max(0, top), 0, W - 1), n, ink, shade, only=(15,))
+    x_top = (W + 9) // 2 + 1
+    pts, y = set(), top
+    for ch in font_en.fold(text):
+        g = font_en.FONT.get(ch, font_en.FONT[" "])
+        span = glyph_cols(g)
+        if not span:
+            y += 3
+            continue
+        for r, line in enumerate(g):
+            for c, px in enumerate(line):
+                if px == "#":
+                    pts.add((y + c - span[0], x_top - r))
+        y += span[1] - span[0] + 2
+    for yy0, xx0 in pts if shade is not None else ():
+        for yy, xx in ((yy0 + 1, xx0), (yy0, xx0 - 1), (yy0 + 1, xx0 - 1)):
+            if (yy, xx) not in pts and 0 <= yy < n and 0 <= xx < W and out[yy][xx] == 15:
+                out[yy][xx] = shade
+    for yy, xx in pts:
+        out[yy][xx] = ink
     return out
 
 
@@ -211,16 +224,32 @@ def letter_points(text, top, x_top):
 def draw_outline(text, n, orig, black=False, centre=False):
     """English over a menu choice slot (rows of interior peach): cleared to OUT_BG, then white letters with an
     8-neighbour dark edge (or black letters with a shade, `black`), top-aligned from OUT_TOP, or centred in the
-    slot (`centre`: bank 30, whose originals spread across the whole bar). Letters upright and stacked."""
-    lay = upright.stack(text, n - 2 - 2, 12 - 1)   # from row 2 at the earliest, edge/shade below; ink x 2..13
-    top = OUT_TOP if OUT_TOP + lay.h + 2 <= n else 2   # a tight slot: the edge may touch row 1
+    slot (`centre`: bank 30, whose originals spread across the whole bar)."""
+    length = text_width(text)
+    top = OUT_TOP if OUT_TOP + length + 2 <= n else 2  # a tight slot: the edge may touch row 1
     if centre:
-        top = max(top, (n - lay.h) // 2)
+        top = max(top, (n - length) // 2)
+    if top + length + 2 > n:
+        raise ValueError(f"{text!r}: {length} rows from row {top}, slot {n}")
     out = [[v if v == 0 else OUT_BG for v in row] for row in orig]
+    # Across the bar too when centred: the originals' ink spans x 2-13; caps at x_top 12 left x 5-13 (margins 5/2)
+    pts = letter_points(text, top, 11 if centre else 12)
     if black:
-        paint(out, placed(lay, top, 2, 13), n, INK, SHADE)
-    else:
-        paint(out, placed(lay, top, 2, 13, extra=0), n, OUT_FILL, edge=OUT_EDGE)
+        for y, x in pts:
+            for yy, xx in ((y + 1, x), (y, x - 1), (y + 1, x - 1)):
+                if (yy, xx) not in pts and 0 <= yy < n and 0 <= xx < W:
+                    out[yy][xx] = SHADE
+        for y, x in pts:
+            out[y][x] = INK
+        return out
+    for y, x in pts:
+        for dy in (-1, 0, 1):
+            for dx in (-1, 0, 1):
+                yy, xx = y + dy, x + dx
+                if (yy, xx) not in pts and 0 <= yy < n and 0 <= xx < W:
+                    out[yy][xx] = OUT_EDGE
+    for y, x in pts:
+        out[y][x] = OUT_FILL
     return out
 
 
@@ -228,31 +257,42 @@ BIG_FILL = {1: 4, 2: 4, 3: 3, 4: 3, 5: 2, 6: 2, 7: 1, 8: 1, 9: 2, 10: 2, 11: 3, 
 
 
 def draw_big(text, n, orig, fill=BIG_FILL, edge=15):
-    """Big outlined glyphs (bank 61's combo counter): upright, 2x when it fits (a digit cell), else 1x stacked;
-    the fill is the original's x gradient `fill` (white centre, blue rim), with an 8-neighbour `edge` outline;
-    centred in the slot, everything else transparent."""
-    lay = fit_scaled(text, n - 2, W - 2, ((2, 2), (1, 1)), gap=2)
-    top = (n - lay.h) // 2
-    pts = placed(lay, top, 0, W - 1, extra=0)
+    """Big outlined glyphs (bank 61's combo counter): font_en caps scaled 2x in letter height (strip x 1..14,
+    letter top at x 14) and 2x in width when a single glyph fits (a digit cell), else 1x; the fill is the
+    original's x gradient `fill` (white centre, blue rim), with an 8-neighbour `edge` outline; centred in the
+    slot, everything else transparent."""
+    glyphs = [font_en.FONT.get(c, font_en.FONT[" "]) for c in font_en.fold(text)]
+    spans = [glyph_cols(gl) for gl in glyphs]
+
+    def width(sy):
+        return sum((s[1] - s[0] + 1) * sy if s else 2 for s in spans) + len(spans) - 1
+
+    sy = 2 if width(2) + 2 <= n else 1
+    length = width(sy)
+    if length + 2 > n:
+        raise ValueError(f"{text!r}: {length} rows + edge, slot {n}")
+    top = (n - length) // 2
+    pts, y = set(), top
+    for gl, s in zip(glyphs, spans):
+        if not s:
+            y += 3
+            continue
+        for r, line in enumerate(gl[:7]):
+            for c, px in enumerate(line):
+                if px == "#":
+                    for dy in range(sy):
+                        for dx in range(2):
+                            pts.add((y + (c - s[0]) * sy + dy, 14 - 2 * r - dx))
+        y += (s[1] - s[0] + 1) * sy + 1
     out = [[0] * W for _ in range(n)]
-    for yy, xx in upright.edge(pts):
-        if 0 <= yy < n and 0 <= xx < W:
-            out[yy][xx] = edge
     for yy, xx in pts:
-        out[yy][xx] = fill.get(xx, edge)
+        for dy in (-1, 0, 1):
+            for dx in (-1, 0, 1):
+                if (yy + dy, xx + dx) not in pts and 0 <= yy + dy < n and 0 <= xx + dx < W:
+                    out[yy + dy][xx + dx] = edge
+    for yy, xx in pts:
+        out[yy][xx] = fill[xx]
     return out
-
-
-def fit_scaled(text, room, width, scales, **kw):
-    """The first (largest) scale (sx, sy) in `scales` at which `text` stacks upright in room x width: whole words
-    at any scale before a word broken across columns."""
-    for allow in (False, True):
-        for sx, sy in scales:
-            try:
-                return upright.stack(text, room, width, sx=sx, sy=sy, allow_split=allow, **kw)
-            except ValueError:
-                continue
-    raise ValueError(f"{text!r} does not fit {room} rows x {width} px at any of {scales}")
 
 
 def english_rows(rom, bank):
@@ -350,14 +390,25 @@ def grid_edits(rom, bank):
             continue
         if en == "(clear)":  # erase the cell, draw nothing
             en = ""
-        x0 = g["x0"] + col * 8  # the column's 7 letter pixels are x0..x0+6
+        elif text_width(en) > n:
+            raise ValueError(f"bank {bank} {en!r}: {text_width(en)} rows, cell {n}")
+        x0 = g["x0"] + col * 8  # the column's 7 letter pixels are x0..x0+6 (top of a letter at x0+6)
         for y in range(row, row + n):
             for x in range(x0, x0 + 8):
                 if get(piece, y, x) == g["ink"]:
                     put(piece, y, x, g["bg"])
-        lay = upright.stack(en, n, 7, max_cols=1)
-        for y, x in placed(lay, row, x0, x0 + 6, extra=0):
-            put(piece, y, x, g["ink"])
+        y = row
+        for ch in font_en.fold(en):
+            gl = font_en.FONT.get(ch, font_en.FONT[" "])
+            span = glyph_cols(gl)
+            if not span:
+                y += 3
+                continue
+            for r, line in enumerate(gl[:7]):
+                for c, px in enumerate(line):
+                    if px == "#":
+                        put(piece, y + c - span[0], x0 + 6 - r, g["ink"])
+            y += span[1] - span[0] + 2
     return {b["tiles"]: bytes(data)} if bytes(data) != rom[b["tiles"]:b["end"]] else {}
 
 
@@ -434,25 +485,34 @@ def popup_edits(rom):
 
 
 def small_digit_edits(rom):
-    """The stat digits upright (manga's 3x7 digits, rows 0-6, centred across the 8 px tile): the tiles stack down
-    the stat column, so a value reads top to bottom like the labels."""
     assert rom[SMALL_DIGITS + 4:SMALL_DIGITS + 8] == bytes.fromhex("00101100"), "small-font 〇 moved"
-    return {SMALL_DIGITS: b"".join(small_glyph(str(n)) for n in range(10))}
+    out = bytearray(10 * 32)
+    for n in range(10):
+        g = font_en.FONT[str(n)]
+        for r, line in enumerate(g[:7]):
+            for c, px in enumerate(line):
+                if px == "#":
+                    y, x = 2 + c, 7 - r
+                    out[n * 32 + y * 4 + x // 2] |= 1 << (4 * (x & 1))
+    return {SMALL_DIGITS: bytes(out)}
 
 
 def small_glyph(ch):
-    """32 bytes: manga.FONT's ch upright in an 8x8 tile, centred across, cap top at row 0; a letter with a
-    descender (9 rows) loses its first blank row (the space above the x-height, or for 'j' the gap under the
-    dot)."""
-    g = list(manga.FONT[ch])
-    if len(g) > 8:
-        g.pop(next(r for r in range(len(g)) if "#" not in g[r]))
+    """32 bytes: font_en's ch rotated as small_digit_edits (row r at x 7 - r, column c at y 2 + c); a letter with
+    a descender (ink in row 8) moves up one row so it fits the 8 px tile, or, with ink in row 0 too ('j'), loses
+    its first blank row (the gap under the dot)."""
+    g = list(font_en.FONT[ch])
+    ink = [r for r, line in enumerate(g) if "#" in line]
+    if ink and ink[-1] >= 8:
+        if ink[0] >= 1:
+            g = g[1:]
+        else:
+            g.pop(next(r for r in range(ink[0], ink[-1]) if "#" not in g[r]))
     out = bytearray(32)
-    x0 = (8 - len(g[0])) // 2
     for r, line in enumerate(g):
         for c, px in enumerate(line):
             if px == "#":
-                y, x = r, x0 + c
+                y, x = 2 + c, 7 - r
                 assert 0 <= x < 8 and 0 <= y < 8, (ch, r, c)
                 out[y * 4 + x // 2] |= 1 << (4 * (x & 1))
     return bytes(out)
@@ -480,15 +540,8 @@ def small_kana_edits(rom):
 # letters 14 px across (sx 2), condensed (sy 1 + bold 1), from row `top`, letter tops at x `x_top`, with a dark
 # `edge` (4) ring so they read over the playfield too. Keys `top`/`x_top`/`bold`/`edge` are optional (default:
 # centred, bold 1, no edge).
-# Upright (D17): manga caps stacked down the cell column at the largest of `scales` (sx, sy) that fits `width`
-# px across and the cells' rows less 4 (or `max_rows`), `gap` rows between letters; `cols` = the x range to
-# centre in (default the cell). `bold` adds a px right of every stroke.
-CELLS = {33: {"size": 32, "ink": 2, "width": 27, "bold": 1,
-              "scales": [(4, 3), (4, 2.5), (4, 2), (4, 1.75), (3, 1.5), (3, 1.25), (2, 1)]},
-         34: {"size": 64, "ink": 2, "width": 59, "bold": 1,
-              "scales": [(6, 3), (5, 2.5), (4, 2), (4, 1.75), (3, 1.5), (2, 1.25), (2, 1)]},
-         58: {"size": 64, "ink": 1, "width": 21, "cols": (2, 24), "top": 4, "edge": 4, "max_rows": 44,
-              "scales": [(3, 2), (3, 1.75), (3, 1.5), (3, 1.25), (3, 1), (2, 1)]}}
+CELLS = {33: {"size": 32, "ink": 2, "sx": 3, "sy": 2}, 34: {"size": 64, "ink": 2, "sx": 4, "sy": 2},
+         58: {"size": 64, "ink": 1, "sx": 2, "sy": 1, "top": 4, "x_top": 18, "edge": 4, "max_rows": 44, "bold": 0}}
 
 
 def load_cells_tsv(bank):
@@ -499,6 +552,24 @@ def load_cells_tsv(bank):
             out.append((int(c), int(k), jp, en))
     return out
 
+
+def scaled_points(text, top, x_top, sx, sy, bold=1):
+    """{(row, x)} of `text` rotated clockwise with each font pixel sx (x) by sy (+bold) rows; letter top at x_top."""
+    pts, y = set(), top
+    for ch in font_en.fold(text):
+        gl = font_en.FONT.get(ch, font_en.FONT[" "])
+        s = glyph_cols(gl)
+        if not s:
+            y += 3 * sy
+            continue
+        for r, line in enumerate(gl[:7]):
+            for c, px in enumerate(line):
+                if px == "#":
+                    for dy in range(sy + bold):
+                        for dx in range(sx):
+                            pts.add((y + (c - s[0]) * sy + dy, x_top - r * sx - dx))
+        y += (s[1] - s[0] + 1) * sy + sy  # the bold px eats into the sy-row gap
+    return pts, y - top - sy + bold
 
 
 def cells_edits(rom, bank):
@@ -515,14 +586,12 @@ def cells_edits(rom, bank):
     for cell, k, jp, en in load_cells_tsv(bank):
         if not en:
             continue
-        room = g.get("max_rows", k * n - 4)
-        lay = fit_scaled("" if en == "(clear)" else en, room, g["width"], g["scales"], gap=g.get("gap", 2),
-                         space=g.get("gap", 2) * 3, fonts=("manga",))
-        if g.get("bold"):  # one more px to the right of every stroke
-            lay = lay._replace(points=lay.points | {(y, x + 1) for y, x in lay.points}, w=lay.w + 1)
-        top = g.get("top", (k * n - lay.h) // 2)
-        x_lo, x_hi = g.get("cols", (0, n - 1))
-        ink = placed(lay, top, x_lo, x_hi, extra=0)
+        pts, length = scaled_points("" if en == "(clear)" else en, 0, 0, g["sx"], g["sy"], g.get("bold", 1))
+        if length > g.get("max_rows", k * n):
+            raise ValueError(f"bank {bank} {en!r}: {length} rows, room {g.get('max_rows', k * n)}")
+        height = 7 * g["sx"]
+        top = g.get("top", (k * n - length) // 2)
+        x_top = g.get("x_top", (n + height) // 2 - 1)
 
         def put(y, x, v):
             i, hi = at(cell + y // n, y % n, x)
@@ -531,6 +600,7 @@ def cells_edits(rom, bank):
         for y in range(k * n):  # clear
             for x in range(n):
                 put(y, x, 0)
+        ink = {(yy + top, xx + x_top) for yy, xx in pts}
         if g.get("edge"):
             for y, x in ink:
                 for dy in (-1, 0, 1):
@@ -548,7 +618,7 @@ def cells_edits(rom, bank):
 # the game draws the player's name in the box's left half, x < 17, so the label keeps to x 18-27).
 # Bank 26's frames show their own rows 32-63 again at 64-95 (the 32x32 piece reuses the tiles), so a label must
 # end above row `end` or it repeats.
-FRAMES = {26: {"bg": 13, "ink": 15, "shade": 9, "cols": (18, 27), "row": 3, "top_keep": 2, "end": 32}}
+FRAMES = {26: {"bg": 13, "ink": 15, "shade": 9, "x_top": 27, "row": 3, "top_keep": 2, "end": 32}}
 
 
 def frames_edits(rom, bank):
@@ -569,7 +639,9 @@ def frames_edits(rom, bank):
                     t = p["tile"] + (y // 8) * (p["w"] // 8) + x // 8
                     pix[(p["y"] + y, p["x"] + x)] = (t * 32 + (y % 8) * 4 + (x % 8) // 2, x & 1)
         height = g.get("end") or max(y for y, _ in pix) + 1
-        lay = upright.stack(en, height - g["row"], g["cols"][1] - g["cols"][0])   # shadow may clip at the end
+        length = text_width(en)
+        if g["row"] + length > height:
+            raise ValueError(f"bank {bank} {en!r}: {length} rows from {g['row']}, frame {height}")
 
         def put(y, x, v):
             i, hi = pix[(y, x)]
@@ -578,10 +650,11 @@ def frames_edits(rom, bank):
         for (y, x) in pix:
             if y >= g["top_keep"]:
                 put(y, x, g["bg"])
-        pts = placed(lay, g["row"], *g["cols"])
-        for yy, xx in upright.shadow(pts):
-            if (yy, xx) in pix and yy < height:
-                put(yy, xx, g["shade"])
+        pts = letter_points(en, g["row"], g["x_top"])
+        for y, x in pts:
+            for yy, xx in ((y + 1, x), (y, x - 1), (y + 1, x - 1)):
+                if (yy, xx) not in pts and (yy, xx) in pix and yy < height:
+                    put(yy, xx, g["shade"])
         for y, x in pts:
             put(y, x, g["ink"])
     return {b["tiles"]: bytes(data)} if bytes(data) != rom[b["tiles"]:b["end"]] else {}
@@ -589,10 +662,32 @@ def frames_edits(rom, bank):
 
 # Bank 20 = the province name plates beside the hero on the national map (frames 0-46, one 16x32 OBJ each, tile
 # 8*frame; frames 47+ are flags, art). A plate is a black border (index 15) around a white field (14), the two
-# kanji in rows 3-28, x 3-12. English (D18): upright.TINY 3x5 caps, one syllable per line (plate_layout), the
-# lines centred in rows 4-27 (24 rows: a 1 px margin inside the border) and across x 1-14, ink 15. The tsv's '/'
-# (v1 line breaks) is ignored. gfx/bank20.tsv rows `frame jp en`.
-PLATES = {20: {"ink": 15, "bg": 14, "rows": (3, 28), "text_rows": (4, 27), "clear_x": (1, 14)}}
+# kanji in rows 3-28, x 3-12. English: a tiny 5-row caps font (TINY, letters 1-5 px wide, 1 px gap) rotated
+# clockwise, one line (letter tops at x 10) or two ("SATSU/MA" in the tsv: first line tops at x 13, second at 6),
+# each centred in rows 4-27 (24 rows: a 1 px margin inside the border), ink 15. gfx/bank20.tsv rows `frame jp en`.
+TINY = {
+    "A": ".#.|#.#|###|#.#|#.#", "B": "##.|#.#|##.|#.#|##.", "C": ".##|#..|#..|#..|.##", "D": "##.|#.#|#.#|#.#|##.",
+    "E": "###|#..|##.|#..|###", "G": ".##|#..|#.#|#.#|.##", "H": "#.#|#.#|###|#.#|#.#", "I": "#|#|#|#|#",
+    "K": "#.#|#.#|##.|#.#|#.#", "M": "#...#|##.##|#.#.#|#...#|#...#", "N": "#..#|##.#|#.##|#..#|#..#",
+    "O": ".#.|#.#|#.#|#.#|.#.", "R": "##.|#.#|##.|#.#|#.#", "S": ".##|#..|.#.|..#|##.", "T": "###|.#.|.#.|.#.|.#.",
+    "U": "#.#|#.#|#.#|#.#|###", "W": "#...#|#...#|#.#.#|##.##|#...#", "Y": "#.#|#.#|.#.|.#.|.#.",
+    "Z": "###|..#|.#.|#..|###",
+}
+PLATES = {20: {"ink": 15, "bg": 14, "rows": (3, 28), "text_rows": (4, 27), "clear_x": (1, 14), "x_one": 10,
+               "x_two": (13, 6)}}
+
+
+def tiny_line(text, top, x_top):
+    """{(row, x)} of a TINY caps line rotated clockwise (glyph column c -> row top + c, glyph row r -> x_top - r)."""
+    pts, y = set(), top
+    for ch in text.upper():
+        g = TINY[ch].split("|")
+        for r, line in enumerate(g):
+            for c, px in enumerate(line):
+                if px == "#":
+                    pts.add((y + c, x_top - r))
+        y += len(g[0]) + 1
+    return pts, y - top - 1
 
 
 def plates_edits(rom, bank):
@@ -617,28 +712,19 @@ def plates_edits(rom, bank):
         for y in range(r0, r1 + 1):
             for x in range(g["clear_x"][0], g["clear_x"][1] + 1):
                 put(y, x, g["bg"])
+        parts = en.split("/")
+        tops = [g["x_one"]] if len(parts) == 1 else list(g["x_two"])
+        if len(parts) > 2:
+            raise ValueError(f"bank {bank} {en!r}: at most two lines")
         t0, t1 = g["text_rows"]
-        lay = plate_layout(en, t1 - t0 + 1, g["clear_x"][1] - g["clear_x"][0] + 1)
-        top = t0 + (t1 - t0 + 1 - lay.h) // 2
-        for y, x in placed(lay, top, *g["clear_x"], extra=0):
-            put(y, x, g["ink"])
+        for part, x_top in zip(parts, tops):
+            _, length = tiny_line(part, 0, 0)
+            if length > t1 - t0 + 1:
+                raise ValueError(f"bank {bank} {part!r}: {length} rows, plate has {t1 - t0 + 1}")
+            pts, _ = tiny_line(part, t0 + (t1 - t0 + 1 - length) // 2, x_top)
+            for y, x in pts:
+                put(y, x, g["ink"])
     return {b["tiles"]: bytes(data)} if bytes(data) != rom[b["tiles"]:b["end"]] else {}
-
-
-def plate_layout(name, room, width):
-    """A province name in TINY caps, upright, one syllable per line stacked down the plate (HYU / GA), centred.
-    With more syllables than lines fit, neighbours share a line (shortest lines first) while it fits `width`."""
-    rows = upright.syllables(name.replace("/", ""))
-    max_rows = (room + 1) // 6
-    while len(rows) > max_rows:
-        k = min(range(len(rows) - 1), key=lambda i: upright.line_width(rows[i] + rows[i + 1]))
-        if upright.line_width(rows[k] + rows[k + 1]) > width:
-            raise ValueError(f"plate {name!r} does not fit {room} x {width}")
-        rows[k:k + 2] = [rows[k] + rows[k + 1]]
-    lay = upright.lines(rows)
-    if lay.w > width or lay.h > room:
-        raise ValueError(f"plate {name!r}: {lay.w}x{lay.h}, room {width}x{room}")
-    return lay
 
 
 # Bank 59 = the horizontal "スタートボタンを押してね" banner (16 cells of 112x16, 4 pieces each, identical pixels,
@@ -712,8 +798,10 @@ def orb_edits(rom, bank):
             continue
         f, jp, en = line.split("\t")[:3]
         f = int(f)
-        lay = upright.stack(en, 20, 20, sx=3, sy=2)
-        ink = placed(lay, (32 - lay.h) // 2, 0, 31, extra=0)
+        pts, length = scaled_points(en, 0, 0, 2, 2, 0)
+        top = (32 - length) // 2
+        x_top = (32 + 14) // 2 - 1
+        ink = {(y + top, x + x_top) for y, x in pts}
         orb = sum(get(f, y, x) == g["disc"] for y in range(32) for x in range(32)) > 200
         if orb:  # the kanji's pixels inside the disc go back to the disc colour
             for y in range(32):

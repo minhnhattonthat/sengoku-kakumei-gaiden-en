@@ -2,7 +2,7 @@
 # Final QA runs on one build: the screen tour and every text-coverage run (docs/re/coverage.md), each with the
 # textcover probe, into the directories the visual-QA manifest (work/qa/manifest.tsv) and textcover.py read.
 #   sh tools/debug/final_tour.sh [OUTROOT=work/qa]
-#   SRC=build/sengoku_manga.gba TOUR=build/tour_manga.gba sh tools/debug/final_tour.sh work/qa/manga   (D16 variant)
+#   SRC=other.gba TOUR=build/tour_other.gba sh tools/debug/final_tour.sh work/qa/other   (another ROM)
 # Copies $SRC (build/sengoku_en.gba) to $TOUR (build/tour.gba) first; then:
 #   python -X utf8 $SKILL/scripts/qa_gate.py init work/qa/manifest.tsv <dirs printed at the end> --build build/tour.gba
 #   python -X utf8 $SKILL/scripts/textcover.py work/qa/cover build/strings.tsv --waive docs/text_unshown.tsv --mask 0x7FFFFF

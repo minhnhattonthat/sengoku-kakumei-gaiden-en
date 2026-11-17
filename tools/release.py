@@ -33,10 +33,10 @@ SKILL = Path(_SKILL)
 ORIG = ROOT / "rom/Sengoku Kakumei Gaiden (Japan).gba"
 PY = [sys.executable, "-X", "utf8"]
 READING = """READING THE TEXT
-The game was written in vertical Japanese. All the English reads upright, with no head tilt: the dialogue is
-lettered like a manga's speech bubble, in short centred lines of capitals down the game's tall scroll; menu
-labels, item names and the other narrow vertical labels have their letters stacked one under another, read top
-to bottom (a long label continues in the next column to the right); the ending and credits are ordinary pages."""
+The game was written in vertical Japanese. The dialogue reads upright, lettered like a manga's speech bubble: short
+centred lines of capitals down the game's tall scroll. The name entry, the ending and the credits are upright too.
+The narrow vertical labels (menu bars, item names, the stat block, the results screen, map plates) are drawn
+rotated 90 degrees clockwise in their columns: tilt your head to the right to read those."""
 BUILT = "build/sengoku_en.gba"
 NAME = "Sengoku_Kakumei_Gaiden_EN"
 

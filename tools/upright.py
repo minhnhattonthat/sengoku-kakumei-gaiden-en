@@ -1,6 +1,7 @@
-"""upright.py: English labels as upright letters stacked down a column (D17, docs/decisions.md).
+"""upright.py: English labels as upright letters stacked down a column (D17/D18, docs/decisions.md).
 
-The game's graphic labels are tall, narrow slots made for vertical Japanese. English goes in them the same way:
+Used for the name-entry header and OK (tools/name_grid.py) and the link replay header (tools/link_card.py); the
+sprite-bank labels went back to sideways in D19 (tools/gfx_labels.py). Narrow slots made for vertical Japanese:
 upright capitals one under another, top to bottom; a label too long for one column continues in a second (and
 third) column to the right, broken between words (a single word too long breaks at a syllable with a hyphen).
 Two fonts: manga.FONT's condensed 3x7 caps (the scroll's lettering) and TINY, 3x5 caps for small slots. Spacing

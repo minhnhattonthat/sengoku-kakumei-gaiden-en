@@ -3,7 +3,7 @@
 Skill: translate-retro-game (Claude Code: plugin, enabled in .claude/settings.json; other agents: `<SKILL_DIR>/SKILL.md`; `$SKILL` = the directory holding its SKILL.md, printed by `python tools/skill.py`). Read it before ROM, text or QA work.
 
 ## Commands (run from repo root)
-- Build:    `python -X utf8 build.py` -> build/sengoku_en.gba (checks the dump against `rom.sha1` first): the one edition (D18), all English upright: manga-bubble dialogue (`docs/re/manga.md`), labels stacked by `tools/upright.py`
+- Build:    `python -X utf8 build.py` -> build/sengoku_en.gba (checks the dump against `rom.sha1` first): the one edition (D18/D19): manga-bubble dialogue (`docs/re/manga.md`), upright name grid/ending/link cards, narrow graphic labels sideways
 - Tour:     `sh tools/debug/final_tour.sh` (every QA scene into work/qa/; then `qa_gate.py init`, visual QA, textcover)
 - Check:    `python -X utf8 tools/check.py` (tests + lint; the pre-commit hook runs this; hooks: `git config core.hooksPath tools/hooks`)
 - Smoke:    `python -X utf8 $SKILL/scripts/emu.py build/sengoku_en.gba --out work/qa/smoke --route tools/routes/boot.txt --smoke`

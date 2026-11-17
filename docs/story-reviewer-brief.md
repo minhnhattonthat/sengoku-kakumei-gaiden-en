@@ -13,8 +13,8 @@ Read-only: no edits, no git, no subagents. Return the report as your final messa
   `docs/style-reference.md` (voice per character), `glossary.md` (rulings at the top).
 
 ## Game facts that are not bugs
-- Every page is at most 3 lines of 24 letters (English drawn rotated in the game's vertical columns), so lines are
-  short and terse by design. Do not ask for longer lines.
+- Every page is short (about 3 x 24 letters, re-wrapped in game into short upright capital lines down the narrow
+  scroll), so text is terse by design. Do not ask for longer pages.
 - `%n` is the player's name (up to 8 letters); the hero's gender is chosen by the player: no gendered words for the
   hero (`glossary.md`).
 - Names in Western order ("Yoshihiro Shimazu"); honorifics kept, hyphenated (Nobunaga-sama) (`docs/decisions.md` D1).

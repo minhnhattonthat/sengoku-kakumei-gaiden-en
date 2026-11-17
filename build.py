@@ -1,9 +1,9 @@
 """build.py: the one entry point for building the ROM.
 
     python -X utf8 build.py            build/sengoku_en.gba + build/writes.log from script/*.json (tools/script.py),
-                                       checked by romdiff: upright English everywhere (D16-D18): manga-bubble
-                                       caps lines centred in the scroll (tools/manga.py), labels stacked upright
-                                       (tools/upright.py)
+                                       checked by romdiff (D16-D19): manga-bubble caps lines centred in the
+                                       scroll (tools/manga.py); name grid, ending and link cards upright; the
+                                       narrow graphic labels sideways (tools/gfx_labels.py)
     python -X utf8 build.py identity   unpack every string and LZ77 block, repack with no edits, require the
                                        result to be byte-identical to the original (build/identity.gba)
     python -X utf8 build.py marker     the phase-5 marker build (v1 rotated engine, a debug tool)
@@ -191,30 +191,30 @@ def make_english(orig, edits, layout=None):
 
 def manga_overrides(orig):
     """Name-grid kana -> upright manga letters with their advance (tools/manga.py name_glyph)."""
-    return {(code & 0xFF, code >> 8): (manga.name_glyph(name_grid.LETTERS[k]), manga.adv(name_grid.LETTERS[k]))
+    return {(code & 0xFF, code >> 8): (manga.name_glyph(name_grid.LETTERS[k]), manga.name_adv(name_grid.LETTERS[k]))
             for k, code in enumerate(name_grid.codes(orig)) if k in name_grid.LETTERS}
 
 
 def make_manga(orig, edits):
-    """(new rom, writes, slice encoder): scroll text (mode 0) as manga bubbles; the results bank (mode-1 label
-    columns) as upright letters stacked down the column (manga.StackEncoder)."""
+    """(new rom, writes, slice encoder): scroll text (mode 0) as manga bubbles; the results bank (one-column
+    labels, mode 1 and the BG routine 0x08012A2C) in the sideways letter pairs (D19)."""
     banks = script.load()
-    stacked = {int(e["id"], 16) for b in manga.MANGA_BANKS_SKIP for e in banks.get(b, [])}
-    labels = {a: t for a, t in edits.items() if a in stacked}
-    bubbles = {a: t for a, t in edits.items() if a not in stacked}
+    rotated = {int(e["id"], 16) for b in manga.MANGA_BANKS_SKIP for e in banks.get(b, [])}
+    pairs = {a: t for a, t in edits.items() if a in rotated}
+    bubbles = {a: t for a, t in edits.items() if a not in rotated}
+    penc = font_en.Encoder(pairs.values()) if pairs else None
     menc = manga.Encoder(bubbles.values())
-    senc = manga.StackEncoder(labels.values(), len(menc.slices),
-                              bg={t for a, t in labels.items() if a in manga.BG_LABELS})
-    raw = {**{a: senc.encode(t) for a, t in labels.items()}, **{a: menc.encode(t) for a, t in bubbles.items()}}
+    raw = {**{a: penc.encode(t) for a, t in pairs.items()}, **{a: menc.encode(t) for a, t in bubbles.items()}}
     new, writes = repack(orig, unpack(orig), raw_edits=raw, lz_edits=lz_english(orig))
     out = bytearray(new)
-    writes += manga_engine.patch(out, None, menc, manga_overrides(orig), senc)
+    writes += manga_engine.patch(out, penc, menc, manga_overrides(orig))
     gfx_english(orig, out, writes)
     return bytes(out), writes, menc
 
 
 def build():
-    """The English build (one edition since D18): upright manga-bubble scroll text and upright labels."""
+    """The English build (one edition since D18): manga-bubble scroll text, upright name grid and pages, the
+    narrow graphic labels sideways (D19)."""
     check_rom.check()
     orig = textbank.original_rom()
     edits = script.load_en()
