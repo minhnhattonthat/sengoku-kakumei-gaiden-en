@@ -8,9 +8,12 @@ Updated at the end of every session. Keep it to what the next session needs; his
   chose "all narrow labels sideways": `tools/gfx_labels.py`, `tools/manga.py`, `tools/manga_engine.py`,
   `data/manga_code.hex` restored from 55a1d79 (v1 rotated labels, stat digits/name letters, plates; results in v1
   pairs); kept upright: dialogue, name grid (A-I rows, YOUR/NAME, OK), ending pages, link cards. Name report
-  ("upper case enters lower case") not reproduced (`work/qa/name_case_scenes.txt`: typed I H G f g h o, got the
-  same, both name pictures); a name's I now has serifs (`manga.NAME_ART`). Build `build/sengoku_en.gba` sha1
-  bea0bafe… (1345 writes), check 89 ok. Seen: name entry, results, equip, map menu, plates, ending, link failed
+  ("upper case enters lower case"): **fixed** from the owner's state `work/states/onmyou_name_input.mss` (B
+  entered b): `name_grid.BLOCK1/BLOCK2` had the ぱ/ば columns swapped; checked by logging 140 presses
+  (`tools/lua/namelog.lua`, routes `work/qa/r_names*.txt`), all match the cell under the cursor; a name's I now
+  has serifs (`manga.NAME_ART`). Build `build/sengoku_en.gba` sha1 7863785d… (1345 writes), check 90 ok. The
+  full tour of the D19 build was killed by low system memory (not a build fault); rerun it with JOBS=2 when
+  memory allows. Seen: name entry, results, equip, map menu, plates, ending, link failed
   (`work/qa/d19`). **Next:** full tour of this build, then the QA gates and `tools/release.py --version 2.0`
   (steps below). The D18 entry below is history (its upright labels were reverted).
 - **D18 session (2026-11-17): one edition, everything upright.** Owner: "just have one version which is the manga

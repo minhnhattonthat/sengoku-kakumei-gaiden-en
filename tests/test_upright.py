@@ -29,6 +29,19 @@ class TestUpright(unittest.TestCase):
         g = manga.name_glyph("I")
         self.assertEqual(len(g), 26)
 
+    def test_grid_columns_match_the_cursor(self):
+        """Indices the game enters per cell, logged in game (tools/lua/namelog.lua): block 1's top row left to
+        right, block 2's rows 3 right to left (index 38 is a gap)."""
+        cells = name_grid.cells()
+        at = {xy: k for k, xy in cells.items()}
+        top = [at[(x, name_grid.ROW_Y0[1])] for x in sorted({x for x, _ in cells.values()})
+               if (x, name_grid.ROW_Y0[1]) in at]
+        self.assertEqual(top, [80, 70, 60, 50, 40, 30, 20, 10, 0])
+        row3 = [at.get((name_grid.COL_X0 - name_grid.PITCH * c, name_grid.ROW_Y0[2] + 3 * name_grid.PITCH))
+                for c in range(8)]
+        self.assertEqual(row3, [8, 18, 28, 38, 48, 58, 68, 78])
+        self.assertEqual(name_grid.LETTERS[70], "B")   # the top row's second cell: picking B enters B
+
     def test_name_letters_keep_their_case(self):
         """Upper-case block letters are upper case, lower-case block letters lower case (owner report D19)."""
         cells = name_grid.cells()

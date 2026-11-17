@@ -44,10 +44,13 @@ BAYER = ((0.125, 0.625), (0.875, 0.375))   # 2x2 ordered dither thresholds, [y %
 HEADER_H = {BLOCK: 58, 0x5B14B4: 58}  # both 名前入力 brushes run to row 61 (group 6's antialiased tail too)
 INK, EDGE = 15, 1
 
-# Block 1 (top, 9 columns right to left): あ さ な ま ら が だ ば ゃ; block 2 (8 columns): か た は や わ ざ ぱ ぁ.
+# Table indices of each grid column, right to left, as the game's cursor enters them (logged with
+# tools/lua/namelog.lua, owner's state work/states/onmyou_name_input.mss): block 1 (top, 9 columns) あ さ な ま ら
+# が だ ぱ(70-74) ゃ; block 2 (8 columns) か た は や わ ざ ば(65-69) ぁ. (Until D19 the ぱ/ば columns were swapped
+# here, so B in the picture entered b: owner bug report.)
 BLOCK1 = [range(0, 5), range(10, 15), range(20, 25), range(30, 35), range(40, 45), range(50, 55), range(60, 65),
-          range(65, 70), range(80, 84)]
-BLOCK2 = [range(5, 10), range(15, 20), range(25, 30), range(35, 40), range(45, 50), range(55, 60), range(70, 75),
+          range(70, 75), range(80, 84)]
+BLOCK2 = [range(5, 10), range(15, 20), range(25, 30), range(35, 40), range(45, 50), range(55, 60), range(65, 70),
           range(75, 80)]
 GAPS = (36, 38)   # full-width spaces in the table: empty grid slots
 
