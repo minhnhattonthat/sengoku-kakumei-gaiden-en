@@ -18,7 +18,7 @@ mkdir -p "$Q"
 cp "$SRC" "$TOUR"
 ROM="$R/$TOUR"
 TC="--script $SKILL/scripts/lua/probes/textcover.lua"
-RANGES="RANGES='0804CE4C-0805043E,0805045C-08055BA6,0805E2AC-0805E776,08061C1C-08061C59,0807E090-0807EF1C,08201800-08202114,087C1000-087DFFFF'"
+RANGES="RANGES='0804CE4C-0805043E,0805045C-08055BA6,0805E2AC-0805E776,08061C1C-08061C59,0807E090-0807EF28,08201800-08202114,087C1000-087DFFFF'"
 W="python -X utf8 tools/debug/warp.py --rom $ROM"
 # SKIP="tour pages ..": keep those runs' existing output (same build, after a run that was killed part-way)
 run() { out=$1; shift

@@ -37,7 +37,7 @@
 | 0x05045C-0x055BA5 | 22 KB | story dialogue (Shimazu, Nobunaga, Oichi, Sasuke, Yukimura, the Yokai King…) |
 | 0x05E2AC-0x05E775 | 1.2 KB | goals and province names (`薩摩（さつま）の国`) |
 | 0x061C1C-0x061C58 | small | save-confirm with `%b %B %r` |
-| 0x07E090-0x07EF1B | 3.7 KB | link-cable battle mode, minigame, debug-ish `の出現位置が設定されていません` |
+| 0x07E090-0x07EF27 | 3.7 KB | link-cable battle mode, minigame, debug-ish `の出現位置が設定されていません` |
 | 0x201800-0x202113 | 2.3 KB | results screen labels (kana and kanji twins: しょうごう / 称号), combo text |
 Total about 36 KB of Japanese in about 1000 strings.
 

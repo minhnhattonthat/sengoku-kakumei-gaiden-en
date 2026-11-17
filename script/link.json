@@ -1274,5 +1274,17 @@
   "en": "That is all I|ncan teach you.",
   "notes": "",
   "status": "done"
+ },
+ {
+  "id": "07ef1c",
+  "sites": [
+   "7343c0"
+  ],
+  "room": 12,
+  "kind": "text",
+  "jp": "|nよし！|n",
+  "en": "Good!",
+  "notes": "Dojo master's approval. Missed by extraction (bank range ended at 0x07EF1C) until visual QA.",
+  "status": "done"
  }
 ]

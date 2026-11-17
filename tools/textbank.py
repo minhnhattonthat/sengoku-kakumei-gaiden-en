@@ -27,7 +27,7 @@ RANGES = [
     ("story", 0x05045C, 0x055BA6),
     ("provinces", 0x05E2AC, 0x05E776),
     ("save_confirm", 0x061C1C, 0x061C59),
-    ("link", 0x07E090, 0x07EF1C),
+    ("link", 0x07E090, 0x07EF28),  # to 0x07EF1C until visual QA met its last string (dojo "|nよし！|n", list 0x7343C0)
     ("results", 0x201800, 0x202114),
 ]
 # 0x759178-0x7FFFFF is 0xFF fill, but the magatama page (ev105-112) runs CpuSet(0x087573D8 -> 0x05001FE0, 0x34BB4

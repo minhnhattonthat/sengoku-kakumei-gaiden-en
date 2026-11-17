@@ -13,7 +13,7 @@ SKILL=$(python tools/skill.py)
 cp build/sengoku_en.gba build/recover.gba
 ROM="$R/build/recover.gba"
 TC="--script $SKILL/scripts/lua/probes/textcover.lua"
-RANGES="RANGES='0804CE4C-0805043E,0805045C-08055BA6,0805E2AC-0805E776,08061C1C-08061C59,0807E090-0807EF1C,08201800-08202114,087C1000-087DFFFF'"
+RANGES="RANGES='0804CE4C-0805043E,0805045C-08055BA6,0805E2AC-0805E776,08061C1C-08061C59,0807E090-0807EF28,08201800-08202114,087C1000-087DFFFF'"
 W="python -X utf8 tools/debug/warp.py --rom $ROM"
 run() { out=$1; shift; rm -rf "$Q/$out"; echo "== $out"; $W --out "$R/$Q/$out" $TC --var "$RANGES" "$@" 2>&1 | grep -v "tiles (row-major)"; }
 J=${JOBS:-2}

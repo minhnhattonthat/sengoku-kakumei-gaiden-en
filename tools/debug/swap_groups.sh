@@ -6,7 +6,7 @@
 out=$1; rom=$2; shift 2
 root=$(cd "$(dirname "$0")/../.." && pwd -W 2>/dev/null || pwd)
 skill=$(python "$root/tools/skill.py")
-ranges="RANGES='0804CE4C-0805043E,0805045C-08055BA6,0805E2AC-0805E776,08061C1C-08061C59,0807E090-0807EF1C,08201800-08202114,087C1000-087DFFFF'"
+ranges="RANGES='0804CE4C-0805043E,0805045C-08055BA6,0805E2AC-0805E776,08061C1C-08061C59,0807E090-0807EF28,08201800-08202114,087C1000-087DFFFF'"
 for g in "$@"; do
   python -X utf8 "$root/tools/debug/warp.py" ev003 --rom "$rom" --out "$out/$g" --shot-every 40 \
     --var PAGES=2400 --var LIST=0 --var "SWAP=$g" --script "$root/tools/lua/liststep.lua" \

@@ -5,7 +5,7 @@ How every script bank is reached in the emulator for `textcover.py`, and why the
 `python -X utf8 tools/cover_report.py DIR.. --unshown work/qa/unshown.tsv` (per-bank counts).
 
 All runs add `--script $SKILL/scripts/lua/probes/textcover.lua --var "RANGES='0804CE4C-0805043E,0805045C-08055BA6,
-0805E2AC-0805E776,08061C1C-08061C59,0807E090-0807EF1C,08201800-08202114,087C1000-087DFFFF'"`.
+0805E2AC-0805E776,08061C1C-08061C59,0807E090-0807EF28,08201800-08202114,087C1000-087DFFFF'"`.
 
 ## Dialogue lists
 
