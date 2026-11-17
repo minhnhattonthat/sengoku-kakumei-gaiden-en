@@ -288,6 +288,18 @@ def wrap(text, line_max=LINE_MAX):
                 cur = cand
                 continue
             if cur:
+                if _wordw(w) > line_max:   # it must be split anyway: start it on this line ("A FIELD-", not "A")
+                    try:
+                        head, tail = _split_long(w, line_max - _wordw(cur + " "))
+                    except ValueError:
+                        head = None
+                    own = "-" in w[:-1]   # TOYOTOMI-DONO: only at its own hyphen, never inside the name
+                    if (head and _wordw(f"{cur} {head}") <= line_max
+                            and (not own or w[len(head) - 1:len(head)] == "-")):
+                        lines.append(f"{cur} {head}")
+                        cur = ""
+                        words.insert(0, tail)
+                        continue
                 lines.append(cur)
                 cur = ""
                 words.insert(0, w)

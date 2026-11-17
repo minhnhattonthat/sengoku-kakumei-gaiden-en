@@ -80,6 +80,14 @@ class Code(unittest.TestCase):
 
 
 @unittest.skipIf(ORIG is None, "needs the original ROM")
+class Wrap(unittest.TestCase):
+    def test_a_word_split_anyway_starts_on_the_current_line(self):
+        """Visual QA (ev102 Ieyasu): "A / FIELD- / BATTLE" left the A alone although "A FIELD-" fits."""
+        lines = manga.wrap("A field-battle master,".upper())
+        self.assertEqual(lines[0], "A FIELD-")
+        self.assertTrue(all(manga._wordw(l) <= manga.LINE_MAX for l in lines))
+
+
 class KeepLines(unittest.TestCase):
     def test_fields_get_a_stop_and_their_own_line(self):
         t = manga.keep_lines("Common Sword, Blue|nRaises speed|nAllows Charge Attack 1")
