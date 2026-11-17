@@ -4,6 +4,14 @@ Updated at the end of every session. Keep it to what the next session needs; his
 
 - **Phase:** 8/9 again for **v2.0, the one upright edition (D18)**. v1.0 (rotated English) was released as a zip
   2026-11-17 and is retired; `build.py` now builds only the upright edition.
+- **Release v2.0 in progress (D20, 2026-11-17):** owner asked to release and publish (public repo + `gh release
+  create v2.0`). Done: build re-made (sha1 7863785d…, check ok), story gate ok, polish.md clean, no ROM/save in
+  history, known issue (sideways labels a bit hard to read, technical limitation) in README.md and
+  `tools/release.py`. The full tour (JOBS=2, log `work/qa/rel_tour.log`) was killed again by low system memory
+  during `pages` (another project, vattroller-x-en, was running ~1 GB Mesens beside it); `tour` itself had finished.
+  **Next:** rerun `JOBS=2 sh tools/debug/final_tour.sh` when memory allows, then `qa_gate.py init work/qa/manifest.tsv
+  <dirs> --build build/tour.gba`, visual-QA verdicts, textcover, `tools/release.py --version 2.0`, push, set public
+  (topics fan-translation, gba; description "English fan translation of Sengoku Kakumei Gaiden (GBA)"), release.
 - **D19 (2026-11-17, same session): narrow labels sideways again.** Owner found some upright labels hard to read and
   chose "all narrow labels sideways": `tools/gfx_labels.py`, `tools/manga.py`, `tools/manga_engine.py`,
   `data/manga_code.hex` restored from 55a1d79 (v1 rotated labels, stat digits/name letters, plates; results in v1

@@ -27,8 +27,11 @@ too. The narrow vertical labels (menu bars, item names, the stat block, the resu
 **rotated 90° clockwise** in their columns: tilt your head to the right to read those. (v1.x drew all the English
 rotated; v2.0 is this one edition.)
 
-Known issues: none known; see [Issues](../../issues). Link-cable play was tested only in a single emulator, not with
-two consoles.
+Known issues (see also [Issues](../../issues)):
+- The sideways labels (menu bars, item names, the stat block, the results screen, map plates) are a bit hard to read.
+  This is a technical limitation: those columns are only a few pixels wide, too narrow for readable upright English
+  words, so the English runs along the column instead.
+- Link-cable play was tested only in a single emulator, not with two consoles.
 
 ## What's here
 

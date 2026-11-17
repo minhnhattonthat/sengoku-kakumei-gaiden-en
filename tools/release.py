@@ -94,7 +94,10 @@ NOTES
 - Tested in Mesen 2.2.1 (GBA) with the official BIOS. Start a new game from a cold boot; savestates made with
   the Japanese ROM carry its old text and graphics. In-game saves are compatible.
 - Link-cable play was tested only in an emulator, not with two consoles.
-- Known issues: none known. Please report bugs (with a savestate if you can) at the GitHub page above.
+- Known issue: the sideways labels (menu bars, item names, the stat block, the results screen, map plates) are a
+  bit hard to read. This is a technical limitation: those columns are only a few pixels wide, too narrow for
+  readable upright English words, so the English runs along the column instead (tilt your head to the right).
+- Please report bugs (with a savestate if you can) at the GitHub page above.
 
 CREDITS
 Translation, hacking and QA: minhnhattonthat, with extensive AI assistance (Claude by Anthropic; OpenAI Codex as
