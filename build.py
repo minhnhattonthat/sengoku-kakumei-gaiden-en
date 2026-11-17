@@ -1,9 +1,12 @@
 """build.py: the one entry point for building the ROM.
 
     python -X utf8 build.py            build/sengoku_en.gba + build/writes.log from script/*.json (tools/script.py),
-                                       checked by romdiff
+                                       checked by romdiff (D16-D19): manga-bubble caps lines centred in the
+                                       scroll (tools/manga.py); name grid, ending and link cards upright; the
+                                       narrow graphic labels sideways (tools/gfx_labels.py)
     python -X utf8 build.py identity   unpack every string and LZ77 block, repack with no edits, require the
                                        result to be byte-identical to the original (build/identity.gba)
+    python -X utf8 build.py marker     the phase-5 marker build (v1 rotated engine, a debug tool)
 
 The dump is checked against rom.sha1 first. Text goes through tools/textbank.py (in place, or relocated to free
 space with its pointers rewritten); LZ77 blocks that are not edited keep their original bytes.
@@ -22,6 +25,8 @@ import gfx_labels  # noqa: E402
 import sprites  # noqa: E402
 import lz77  # noqa: E402
 import link_card  # noqa: E402
+import manga  # noqa: E402
+import manga_engine  # noqa: E402
 import name_grid  # noqa: E402
 import prose  # noqa: E402
 import romdiff  # noqa: E402
@@ -104,7 +109,7 @@ def allowed_write(off, n):
         sites = allowed_write.sites = {s for s, _ in textbank.load_sites()}
     if off in sites and n == 4:
         return True
-    if engine.allowed(off, n):
+    if engine.allowed(off, n) or manga_engine.allowed(off, n):
         return True
     end = off + n
     if textbank.FREE[0] <= off and end <= textbank.FREE[1]:
@@ -135,11 +140,11 @@ def verify(orig, new, writes):
         raise SystemExit("romdiff:\n  " + "\n  ".join(errs[:30]))
 
 
-def finish(orig, new, writes, path):
+def finish(orig, new, writes, path, log="writes.log"):
     verify(orig, new, writes)
     BUILD.mkdir(exist_ok=True)
     path.write_bytes(new)
-    textbank.write_log(BUILD / "writes.log", writes)
+    textbank.write_log(BUILD / log, writes)
     print(f"{path.relative_to(ROOT)}  sha1 {hashlib.sha1(new).hexdigest()}  "
           f"{sum(w[1] != w[2] for w in writes)} writes")
 
@@ -154,6 +159,20 @@ def identity():
     print("identity build is byte-identical to the original")
 
 
+def lz_english(orig):
+    return {**name_grid.lz_edits(orig),    # Latin name-entry grid (tools/name_grid.py)
+            **prose.lz_edits(orig),        # ending prose cards (tools/prose.py)
+            **link_card.lz_edits(orig),    # link-error card (tools/link_card.py)
+            **title_logo.lz_edits(orig)}   # English title logo (tools/title_logo.py)
+
+
+def gfx_english(orig, out, writes):
+    for off, data in {**gfx_labels.labels_edits(orig),   # OBJ label graphics, gfx/bank*.tsv
+                      **prose.end_edits()}.items():      # the 完 end card (bank 44)
+        writes.append((off, bytes(out[off:off + len(data)]), data, f"gfx {off:06x}"))
+        out[off:off + len(data)] = data
+
+
 def make_english(orig, edits, layout=None):
     """(new rom, writes, encoder) for {addr: English text} through the English engine (tools/font_en.py,
     tools/engine.py); encoder is None with no edits. layout: textbank.load_layout() keeps relocated strings in
@@ -163,17 +182,46 @@ def make_english(orig, edits, layout=None):
         return new, writes, None
     enc = font_en.Encoder(edits.values(), frozen=layout[2] if layout else None)
     new, writes = repack(orig, unpack(orig), raw_edits={a: enc.encode(t) for a, t in edits.items()}, layout=layout,
-                         lz_edits={**name_grid.lz_edits(orig),   # Latin name-entry grid (tools/name_grid.py)
-                                   **prose.lz_edits(orig),       # ending prose cards (tools/prose.py)
-                                   **link_card.lz_edits(orig),   # link-error card (tools/link_card.py)
-                                   **title_logo.lz_edits(orig)})  # English title logo (tools/title_logo.py)
+                         lz_edits=lz_english(orig))
     out = bytearray(new)
     writes += engine.patch(out, enc, name_grid.glyph_overrides(orig))
-    for off, data in {**gfx_labels.labels_edits(orig),   # OBJ label graphics, gfx/bank*.tsv
-                      **prose.end_edits()}.items():      # the 完 end card (bank 44)
-        writes.append((off, bytes(out[off:off + len(data)]), data, f"gfx {off:06x}"))
-        out[off:off + len(data)] = data
+    gfx_english(orig, out, writes)
     return bytes(out), writes, enc
+
+
+def manga_overrides(orig):
+    """Name-grid kana -> upright manga letters with their advance (tools/manga.py name_glyph)."""
+    return {(code & 0xFF, code >> 8): (manga.name_glyph(name_grid.LETTERS[k]), manga.name_adv(name_grid.LETTERS[k]))
+            for k, code in enumerate(name_grid.codes(orig)) if k in name_grid.LETTERS}
+
+
+def make_manga(orig, edits):
+    """(new rom, writes, slice encoder): scroll text (mode 0) as manga bubbles; the results bank (one-column
+    labels, mode 1 and the BG routine 0x08012A2C) in the sideways letter pairs (D19)."""
+    banks = script.load()
+    rotated = {int(e["id"], 16) for b in manga.MANGA_BANKS_SKIP for e in banks.get(b, [])}
+    pairs = {a: t for a, t in edits.items() if a in rotated}
+    bubbles = {a: t for a, t in edits.items() if a not in rotated}
+    penc = font_en.Encoder(pairs.values()) if pairs else None
+    menc = manga.Encoder(bubbles.values())
+    raw = {**{a: penc.encode(t) for a, t in pairs.items()}, **{a: menc.encode(t) for a, t in bubbles.items()}}
+    new, writes = repack(orig, unpack(orig), raw_edits=raw, lz_edits=lz_english(orig))
+    out = bytearray(new)
+    writes += manga_engine.patch(out, penc, menc, manga_overrides(orig))
+    gfx_english(orig, out, writes)
+    return bytes(out), writes, menc
+
+
+def build():
+    """The English build (one edition since D18): manga-bubble scroll text, upright name grid and pages, the
+    narrow graphic labels sideways (D19)."""
+    check_rom.check()
+    orig = textbank.original_rom()
+    edits = script.load_en()
+    new, writes, menc = make_manga(orig, edits)
+    print(f"{len(edits)} English strings, {len(menc.slices)} manga slices")
+    finish(orig, new, writes, BUILD / "sengoku_en.gba")
+    write_strings(orig, new)
 
 
 def english(orig, edits, path, layout=None):
@@ -184,7 +232,7 @@ def english(orig, edits, path, layout=None):
     write_strings(orig, new)
 
 
-def write_strings(orig, new):
+def write_strings(orig, new, path=BUILD / "strings.tsv"):
     """build/strings.tsv for textcover.py: id (= script id) <TAB> the ROM offset the game reads the string's first
     byte from in this build (its first pointer site), for every `text` and `dup` entry."""
     kinds = {e["id"]: e["kind"] for entries in script.load().values() for e in entries}
@@ -193,23 +241,7 @@ def write_strings(orig, new):
         if kinds.get(f"{addr:06x}") in ("text", "dup"):
             ptr = int.from_bytes(new[s.sites[0]:s.sites[0] + 4], "little") - 0x08000000
             rows.append(f"{addr:06x}\t{ptr:x}\n")
-    (BUILD / "strings.tsv").write_text("".join(rows), encoding="utf-8")
-
-
-def build():
-    check_rom.check()
-    orig = textbank.original_rom()
-    # Every script/ entry with an en text (or a dup whose source has one); untranslated entries keep the Japanese.
-    english(orig, script.load_en(), BUILD / "sengoku_en.gba", textbank.load_layout())
-
-
-def freeze_layout():
-    """data/text_layout.tsv from the current script with no layout: run on the build a QA tour ran on."""
-    check_rom.check()
-    orig = textbank.original_rom()
-    _, writes, enc = make_english(orig, script.load_en())
-    textbank.save_layout(writes, enc.pairs)
-    print(f"wrote {textbank.LAYOUT.relative_to(ROOT)}")
+    path.write_text("".join(rows), encoding="utf-8")
 
 
 def marker():
@@ -228,7 +260,7 @@ def marker_texts():
 
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "build"
-    {"build": build, "identity": identity, "marker": marker, "freeze-layout": freeze_layout}[cmd]()
+    {"build": build, "identity": identity, "marker": marker}[cmd]()
 
 
 if __name__ == "__main__":

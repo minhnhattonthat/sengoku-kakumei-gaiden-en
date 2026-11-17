@@ -9,8 +9,8 @@ zero block, defs, tiles, palette (256 colours, raw). Same layout as the ending c
   tiles 32 KB = 512 8bpp tiles
 A card's Japanese is lifted in boxes (`lift`): within LIFT px of a pixel of the text's own colour, every pixel on
 the text's side of the background (lighter for light text, darker for dark text, plus near-black edges) becomes
-the background colour. Then the English goes on (`texts`): font_en letters rotated clockwise (D8), scaled, with
-an optional 1 px edge. All three blocks are rewritten; the build moves the ones that outgrow their slot
+the background colour. Then the English goes on (`texts`), upright (D18): horizontal font_en lines, scaled, or
+letters stacked down a narrow panel (tools/upright.py), with an optional 1 px edge. All three blocks are rewritten; the build moves the ones that outgrow their slot
 (build.RELOCATABLE_LZ).
 
     python -X utf8 tools/link_card.py preview NAME OUT.png    original | English
@@ -23,6 +23,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import font_en  # noqa: E402
 import lz77  # noqa: E402
+import upright  # noqa: E402
 
 W, H = 30, 20
 FLIP = 1 << 25
@@ -30,23 +31,25 @@ LIFT = 3
 DARK = 8          # luminance at or below this counts as near-black
 
 # lift: (x0, x1, y0, y1, text colours, background index, "light" or "dark" text)
-# texts: (text, x of the letter tops (rightmost column), y of the first letter, scale, ink, edge or None,
-#         centre: (y0, y1) to centre along the column, or None)
+# texts (D18, all upright): (kind, text, box (x0, x1, y0, y1), scale, ink, edge or None); kind "lines" = the
+# text's '/'-separated lines horizontal, each centred across the box, the block centred down it (font_en,
+# scaled); "stack" = upright.stack letters in the box (manga caps, columns of words).
 CARDS = {
     "failed": {
         "idx": 0x589198, "defs": 0x589588, "tiles": 0x5897EC, "pal": 0x74F1F0,
         "lift": [(40, 212, 12, 148, {223, 222}, 110, "light")],
-        "texts": [(t, 183 - n * 22, 0, 2, 223, 1, (8, 152)) for n, t in enumerate(
-            ["Link failed.", "Turn off the", "power and", "start again", "from the", "beginning."])],
+        "texts": [("lines", "Link failed./Turn off the/power and/start again/from the/beginning.",
+                   (40, 212, 12, 148), 2, 223, 1)],
     },
     "replay": {
         "idx": 0x5B3604, "defs": 0x5B3A10, "tiles": 0x5B3C88, "pal": 0x74FAEC,
         "lift": [(216, 232, 0, 104, None, None, "rows"),     # 戦国リプレイ header panel (vertical gradient)
                  (8, 72, 8, 32, {1, 2}, 127, "dark"),        # 四P 三P 二P 一P
                  (8, 72, 66, 88, {1, 2}, 127, "dark")],      # 万石 x 4
-        "texts": [("Sengoku Replay", 228, 0, 1, 1, None, (4, 100))] +
-                 [(f"{k}P", 67 - 16 * (k - 1), 10, 1, 2, None, None) for k in range(1, 5)] +
-                 [("0k", 67 - 16 * k, 70, 1, 2, None, None) for k in range(4)],
+        "texts": [("stack", "Sengoku Replay", (217, 231, 4, 100), 1, 1, None)] +
+                 [("lines", f"{k}P", (60 - 16 * (k - 1), 75 - 16 * (k - 1), 10, 30), 1, 2, None)
+                  for k in range(1, 5)] +
+                 [("lines", "0K", (60 - 16 * k, 75 - 16 * k, 68, 86), 1, 2, None) for k in range(4)],
     },
 }
 
@@ -120,19 +123,32 @@ def lift_text(px, pal, boxes):
 
 def draw_texts(px, texts):
     out = [r[:] for r in px]
-    for text, x_top, y_top, s, ink, edge, centre in texts:
-        length = (len(text) * (font_en.W + 1) - 1) * s
-        if centre:
-            y_top = (centre[0] + centre[1] - length) // 2
+    for kind, text, (bx0, bx1, by0, by1), s, ink, edge in texts:
         pts = set()
-        for k, ch in enumerate(font_en.fold(text)):
-            art = font_en.FONT[ch]
-            for r in range(font_en.H):
-                for c in range(font_en.W):
-                    if art[r][c] == "#":
-                        for a in range(s):
-                            for b in range(s):
-                                pts.add((x_top - r * s - b, y_top + (k * (font_en.W + 1) + c) * s + a))
+        if kind == "stack":
+            lay = upright.stack(text, by1 - by0, bx1 - bx0)
+            x0, y0 = bx0 + (bx1 - bx0 - lay.w) // 2, by0 + (by1 - by0 - lay.h) // 2
+            pts = {(x0 + x, y0 + y) for y, x in lay.points}
+        else:
+            lines = font_en.fold(text).split("/")
+            pitch = (7 + 4) * s   # cap height + leading (no line here has a descender below the caps' gap)
+            y = by0 + (by1 - by0 - (len(lines) * pitch - 4 * s)) // 2
+            for line in lines:
+                width = (len(line) * (font_en.W + 1) - 1) * s
+                if width > bx1 - bx0:
+                    raise ValueError(f"link card line {line!r}: {width} px, box {bx1 - bx0}")
+                x = bx0 + (bx1 - bx0 - width) // 2
+                for k, ch in enumerate(line):
+                    art = font_en.FONT[ch]
+                    for r in range(font_en.H):
+                        for c in range(font_en.W):
+                            if art[r][c] == "#":
+                                for a in range(s):
+                                    for b in range(s):
+                                        pts.add((x + (k * (font_en.W + 1) + c) * s + a, y + r * s + b))
+                y += pitch
+            if y - pitch + 9 * s > by1 + 2 * s:
+                raise ValueError(f"link card text {text!r} runs past its box")
         if edge is not None:
             for x, y in pts:
                 for dx in (-1, 0, 1):

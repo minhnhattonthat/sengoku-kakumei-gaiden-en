@@ -43,9 +43,10 @@ class TestProse(unittest.TestCase):
 
     def test_text_fits_the_screen(self):
         for card in prose.CARDS:
-            for v, u, bold, text in prose.layout(card[3], card[4]):
-                self.assertLessEqual(v + 9, prose.SW)
-                self.assertLessEqual(u + len(text) * (prose.BOLD_ADV if bold else prose.ADV), prose.SH)
+            f, lines = prose.fit(card[3], card[4])
+            for y, x, bold, text in lines:
+                self.assertLessEqual(y + 9, prose.SH, text)
+                self.assertLessEqual(x + prose.text_w(text, f, bold), prose.SW - prose.MARGIN, text)
 
     def test_end_card_obj_tiles(self):
         (off, data), = prose.end_edits().items()

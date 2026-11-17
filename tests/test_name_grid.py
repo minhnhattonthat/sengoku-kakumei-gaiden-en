@@ -17,6 +17,18 @@ class TestNameGrid(unittest.TestCase):
     def setUpClass(cls):
         cls.rom = textbank.original_rom()
 
+    @staticmethod
+    def letters_and_shadow(text, x0, y0, w, h):
+        pts = name_grid.header_points(text, x0, y0, w, h)
+        return {(y + dy, x + dx) for y, x in pts for dy in (0, 1) for dx in (0, 1)}
+
+    def test_grid_reads_left_to_right(self):
+        """D18: upright letters, so the top row of each block reads A.. / a.. from the left."""
+        cells = name_grid.cells()
+        top = sorted((x, name_grid.LETTERS[k]) for k, (x, y) in cells.items()
+                     if y == name_grid.ROW_Y0[1] and k in name_grid.LETTERS)
+        self.assertEqual("".join(ch for _, ch in top), "ABCDEFGHI")
+
     def test_table_is_the_kana_grid(self):
         codes = name_grid.codes(self.rom)
         self.assertEqual(bytes([codes[0] & 0xFF, codes[0] >> 8]).decode("euc_jp"), "あ")
@@ -55,16 +67,13 @@ class TestNameGrid(unittest.TestCase):
     def test_header_rows_carry_no_brush_ink(self):
         """Outside the letters (ink 1, shadow 8), no header row keeps a brush pixel: an antialiased edge pixel
         alternated across a row drew dotted lines beside "Your Name" (visual QA, build 4977f45e)."""
-        import gfx_labels
         edits = name_grid.lz_edits(self.rom)
         for blk, path in name_grid.PICTURES.items():
             m, data = name_grid.load_map(path), edits[blk]
             ink = name_grid.HEADER_INK[name_grid.HEADER_FILL[blk]]
             text, (x0, y0, w, h) = name_grid.HEADERS[0]
             h = name_grid.HEADER_H.get(blk) or h
-            length = gfx_labels.text_width(text)
-            pts = gfx_labels.letter_points(text, y0 + (h - length) // 2, x0 + 12)
-            near = {(y + dy, x + dx) for y, x in pts for dy in (0, 1) for dx in (-1, 0)}
+            near = self.letters_and_shadow(text, x0, y0, w, h)
             for y in range(y0, y0 + h):
                 for x in range(x0, x0 + w):
                     i, hi, _ = name_grid.where(m, x, y)
@@ -76,15 +85,12 @@ class TestNameGrid(unittest.TestCase):
         """The "Your Name" background is a dark-to-light ramp: no row lighter than the one below it, and a row mixing
         two shades only as half of a 2-row dither, never alone (lone rows read as dotted lines, visual QA 093e9076;
         group 7's mixed palettes once drew a band out of order)."""
-        import gfx_labels
         edits = name_grid.lz_edits(self.rom)
         for blk, path in name_grid.PICTURES.items():
             m, data = name_grid.load_map(path), edits[blk]
             text, (x0, y0, w, h) = name_grid.HEADERS[0]
             h = name_grid.HEADER_H.get(blk) or h
-            length = gfx_labels.text_width(text)
-            pts = gfx_labels.letter_points(text, y0 + (h - length) // 2, x0 + 12)
-            near = {(y + dy, x + dx) for y, x in pts for dy in (0, 1) for dx in (-1, 0)}
+            near = self.letters_and_shadow(text, x0, y0, w, h)
             means, mixed = [], []
             for y in range(y0, y0 + h):
                 vals = []

@@ -30,10 +30,14 @@ Standing non-bugs, `ok` (the controller adds the game's own below):
 - text still typing out, a box mid-fade or mid-scroll, a cursor caught mid-blink;
 - a map or scene still loading after a warp;
 - anything identical in the original's sheet.
-- **The game is played sideways.** Every Japanese text was vertical columns; the English is drawn rotated in
-  those columns (D8: 2 letters per 12 px cell, columns right to left = lines top to bottom). On the raw sheet
-  English letters lie on their side: crop and pass `--rotate 270` to `sheet.py` (90 shows them upside down) to read them upright. Rotated
-  English is the design, never an issue by itself.
+- **Two orientations, by design (D16-D19).** Upright, read with the screen as it is: the dialogue scroll (short
+  centred lines of condensed capitals, manga-bubble style), the name-entry grid (A-I across the top row, "YOUR
+  NAME" stacked, "OK"), the ending cards and credits, the link cards, the title logo. **Sideways** (rotated 90°
+  clockwise, as v1: 2 letters per 12 px cell, columns right to left = lines top to bottom): the narrow graphic
+  labels: menu bars, item/art names, HUD tags, the stat grid and its digits, the results screen, province plates.
+  On the raw sheet those lie on their side: crop and pass `--rotate 270` to `sheet.py` (90 shows them upside down)
+  to read them. A sideways label is never an issue by itself; a dialogue line, name grid letter or ending line
+  lying on its side is.
 - The title logo reads SENGOKU / KAKUMEI / GAIDEN in English (D15), horizontal (not rotated). Any 戦国革命外伝
   kanji left on the title is an issue.
 - The family crests and banner mottos in the biography portraits (ev092-ev103: 十, 一 with three stars, 六文銭,

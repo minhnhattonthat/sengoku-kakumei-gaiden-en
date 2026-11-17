@@ -8,8 +8,11 @@ Found 2026-11-16 (phase 8 session 5). Tool: `tools/name_grid.py`, test `tests/te
   `data/name_grid_map.tsv` (`name_grid.py capture <newgame_name ppu dump>.vram.bin`). Only the two OBJs at the top
   are sprites (cursor brush). The gender screen shares the block but none of the edited tiles.
 - Grid = 85 slots, a u32 EUC table at **0x733660** in gojuon order (あ..お, か.., や　ゆ　よ with full-width
-  spaces as gaps, わをんー〜, dakuten, handakuten, ぁ..ぉ, ゃゅょっ, then a position table). Block 1 (top) shows
-  the columns あ さ な ま ら が だ ば ゃ right to left, block 2 か た は や わ ざ ぱ ぁ. Cells are 12x12 on a
+  spaces as gaps, わをんー〜, dakuten, handakuten, ぁ..ぉ, ゃゅょっ, then a position table). The cursor enters, by
+  column right to left: block 1 (top) あ さ な ま ら が だ **ぱ (70-74)** ゃ, block 2 か た は や わ ざ **ば (65-69)** ぁ.
+  Logged in game on 140 presses (`tools/lua/namelog.lua`, owner state `work/states/onmyou_name_input.mss`,
+  2026-11-17); until then the tool had ば/ぱ the other way round, so those two columns' pictures showed the other
+  block's letters (B entered b; in v1, 5-9 entered ( ) * / =). Cells are 12x12 on a
   12 px pitch: column 1 at x 165 (going left), block 1 rows from y 19, block 2 from y 83.
 - The name is stored as table indices + 1 (S+4 = 0x02000618, u16 each; IWRAM 0x03001730 while editing) and
   printed through the font, so `%n` and the name box draw the kana's **font glyphs**.

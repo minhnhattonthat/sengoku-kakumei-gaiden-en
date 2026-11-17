@@ -5,10 +5,11 @@ BG2 tilemap at VRAM 0x4000 is built at run time, so the grid area's entries are 
 data/name_grid_map.tsv). The cursor picks an index into the u32 EUC table at 0x733660 (85 kana in gojuon order);
 the name is stored as those indices and printed through the font. So the game keeps its kana codes and this
 module changes only pictures:
-  - glyph_overrides(): the font entries of those kana (engine.font_table) become one Latin letter each, rotated
-    clockwise like the English text, centred in the 12 px cell (a name reads one letter per cell);
+  - glyph_overrides(): the font entries of those kana (engine.font_table, the v1 marker build) become one Latin
+    letter each, upright in the 12 px cell; the release build uses manga.name_glyph instead (build.manga_overrides);
   - lz_edits(rom): each kana cell of the grid picture is cleared (ink 1/15 filled from the nearest background
-    pixel of the same tile) and gets the same letter, white 15 with a black 1 edge.
+    pixel of the same tile) and gets the same letter upright, white 15 with a black 1 edge; the 名前入力 header
+    and 決定 get upright stacked English (tools/upright.py).
 
     python -X utf8 tools/name_grid.py capture VRAM.bin [MAP.tsv]   write data/name_grid_map.tsv (or MAP.tsv) from a
                                                                    newgame_name dump (group 7: name_grid_map7.tsv)
@@ -22,6 +23,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import font_en  # noqa: E402
 import lz77  # noqa: E402
+import upright  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 TABLE = 0x733660   # 85 u32 EUC codes, index 0 = あ
@@ -42,23 +44,35 @@ BAYER = ((0.125, 0.625), (0.875, 0.375))   # 2x2 ordered dither thresholds, [y %
 HEADER_H = {BLOCK: 58, 0x5B14B4: 58}  # both 名前入力 brushes run to row 61 (group 6's antialiased tail too)
 INK, EDGE = 15, 1
 
-# Table index -> letter, laid out so the grid reads in order when the screen is turned (columns = rows).
-# Block 1 (top, 9 columns right to left): あ さ な ま ら が だ ば ゃ; block 2 (8 columns): か た は や わ ざ ぱ ぁ.
-LETTERS = {}
-for start, chars in [(0, "ABCDE"), (10, "FGHIJ"), (20, "KLMNO"), (30, "PQRST"), (40, "UVWXY"), (50, "Z.-'!"),
-                     (60, "01234"), (65, "56789"), (80, "?&,+"),
-                     (5, "abcde"), (15, "fghij"), (25, "klmno"), (45, "stuvw"), (55, "xyz:~"),
-                     (70, "()*/="), (75, "#@;\"$")]:
-    for k, ch in enumerate(chars):
-        LETTERS[start + k] = ch
-LETTERS.update({35: "p", 37: "q", 39: "r"})  # や ゆ よ (36 and 38 are full-width spaces: gaps in the grid)
-
+# Table indices of each grid column, right to left, as the game's cursor enters them (logged with
+# tools/lua/namelog.lua, owner's state work/states/onmyou_name_input.mss): block 1 (top, 9 columns) あ さ な ま ら
+# が だ ぱ(70-74) ゃ; block 2 (8 columns) か た は や わ ざ ば(65-69) ぁ. (Until D19 the ぱ/ば columns were swapped
+# here, so B in the picture entered b: owner bug report.)
 BLOCK1 = [range(0, 5), range(10, 15), range(20, 25), range(30, 35), range(40, 45), range(50, 55), range(60, 65),
-          range(65, 70), range(80, 84)]
-BLOCK2 = [range(5, 10), range(15, 20), range(25, 30), range(35, 40), range(45, 50), range(55, 60), range(70, 75),
+          range(70, 75), range(80, 84)]
+BLOCK2 = [range(5, 10), range(15, 20), range(25, 30), range(35, 40), range(45, 50), range(55, 60), range(65, 70),
           range(75, 80)]
+GAPS = (36, 38)   # full-width spaces in the table: empty grid slots
+
+
+def _rows_left_to_right(block, chars):
+    """{table index: letter}: `chars` in reading order, rows top to bottom, each row left to right (the block's
+    columns run right to left), skipping the gaps."""
+    out, it = {}, iter(chars)
+    for r in range(5):
+        for col in reversed(block):
+            if r < len(col) and col[r] not in GAPS:
+                out[col[r]] = next(it)
+    assert next(it, None) is None
+    return out
+
+
+# Table index -> letter (D18: the letters are drawn upright, so the grid reads A-I across the top row, left to
+# right, as English does; the name is still stored as these indices).
+LETTERS = {**_rows_left_to_right(BLOCK1, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-'!?&,+"),
+           **_rows_left_to_right(BLOCK2, "abcdefghijklmnopqrstuvwxyz:~()*/=#@;\"$")}
 COL_X0, PITCH = 165, 12          # screen x of the rightmost column; columns go left
-LABELS = [("Done", (57, 119, 11, 24))]  # 決定 (confirm) left of block 2: screen x, y, w, h
+LABELS = [("OK", (57, 119, 11, 24))]  # 決定 (confirm) left of block 2: screen x, y, w, h
 LABEL_CLEAR_W = 12  # 決定's outline reaches x 68, one column past the letters' w: cleared too
 # 名前入力 header: a 16 px peach-gradient column (indices 10-15 banded by row) with black brush ink 1-9; each row
 # is refilled from its edge pixel, then black 1 letters with a mid-tone 8 shadow (as gfx/bank22).
@@ -81,13 +95,13 @@ def codes(rom):
 
 
 def letter_points(ch):
-    """{(dy, dx)} in a 12x12 cell: font_en letter rotated clockwise (letter row r -> x X_TOP - r), centred along
-    the column."""
+    """{(dy, dx)} in a 12x12 cell: font_en letter upright (cap rows 0-6, descender 7-8 at cell rows 1-9), centred
+    across the cell."""
     art = font_en.FONT[ch]
     span = [c for c in range(font_en.W) if any(row[c] == "#" for row in art)]
     w = span[-1] - span[0] + 1
-    top = (font_en.CELL - w) // 2 - span[0]
-    return {(top + c, font_en.X_TOP - r) for r in range(font_en.H) for c in range(font_en.W) if art[r][c] == "#"}
+    left = (font_en.CELL - w) // 2 - span[0]
+    return {(1 + r, left + c) for r in range(font_en.H) for c in range(font_en.W) if art[r][c] == "#"}
 
 
 def glyph(ch):
@@ -164,6 +178,14 @@ def header_ramp(samples, y0, h):
     return out
 
 
+def header_points(text, x0, y0, w, h):
+    """{(y, x)} of the header's letters: upright, stacked (tools/upright.py), centred in the column with room for
+    the shadow right and below."""
+    lay = upright.stack(text, h - 1, w - 3)
+    top, left = y0 + (h - lay.h - 1) // 2, x0 + (w - lay.w - 1) // 2
+    return {(top + y, left + x) for y, x in lay.points}
+
+
 def redraw(tiles, rom, map_path=MAP_TSV, header_fill="edges", header_h=None, header_pal=HEADER_PAL[BLOCK]):
     """English grid drawn into a copy of the decompressed tile block."""
     m = load_map(map_path)
@@ -216,9 +238,9 @@ def redraw(tiles, rom, map_path=MAP_TSV, header_fill="edges", header_h=None, hea
             put(x, y, INK)
     for text, (x0, y0, w, h) in LABELS:
         clear(x0, y0, LABEL_CLEAR_W, h)
-        import gfx_labels
-        length = gfx_labels.text_width(text)
-        pts = {(y, x) for y, x in gfx_labels.letter_points(text, y0 + (h - length) // 2, x0 + w - 2)}
+        lay = upright.stack(text, h - 2, w - 2)
+        top, left = y0 + (h - lay.h) // 2, x0 + (w - lay.w) // 2
+        pts = {(top + y, left + x) for y, x in lay.points}
         for y, x in pts:
             for dy in (-1, 0, 1):
                 for dx in (-1, 0, 1):
@@ -227,7 +249,6 @@ def redraw(tiles, rom, map_path=MAP_TSV, header_fill="edges", header_h=None, hea
         for y, x in pts:
             put(x, y, INK)
     for text, (x0, y0, w, h) in HEADERS:
-        import gfx_labels
         h = header_h or h
         ink = HEADER_INK[header_fill] | {0}
 
@@ -265,14 +286,9 @@ def redraw(tiles, rom, map_path=MAP_TSV, header_fill="edges", header_h=None, hea
                 hi = min((b for b in bands if b[0] >= target), default=bands[-1])
                 t = 0 if hi[0] == lo[0] else (target - lo[0]) / (hi[0] - lo[0])
                 put(x, y, hi[1] if t > BAYER[y % 2][x % 2] else lo[1])
-        length = gfx_labels.text_width(text)
-        if length > h:
-            raise ValueError(f"header {text!r}: {length} rows, room {h}")
-        pts = gfx_labels.letter_points(text, y0 + (h - length) // 2, x0 + 12)
-        for y, x in pts:
-            for yy, xx in ((y + 1, x), (y, x - 1), (y + 1, x - 1)):
-                if (yy, xx) not in pts:
-                    put(xx, yy, 8)
+        pts = header_points(text, x0, y0, w, h)
+        for y, x in upright.shadow(pts):
+            put(x, y, 8)
         for y, x in pts:
             put(x, y, 1)
     for t in range(len(data) // 32):

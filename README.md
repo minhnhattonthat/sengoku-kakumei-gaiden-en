@@ -21,9 +21,11 @@ helps most.
 | Title logo | Redrawn in English: SENGOKU KAKUMEI GAIDEN |
 | Family crests and banner mottos in the biography portraits | Left in Japanese (heraldry, not captions) |
 
-The game draws all its text in vertical columns. The English is drawn **rotated 90° clockwise** in those same
-columns, so tilt your head (or your screen) to the right to read it; columns run right to left, i.e. lines top to
-bottom.
+The game was written in vertical Japanese. The dialogue reads **upright**, lettered like a manga's speech bubble:
+short centred lines of capitals down the game's tall scroll. The name entry, ending cards and credits are upright
+too. The narrow vertical labels (menu bars, item names, the stat block, the results screen, map plates) are drawn
+**rotated 90° clockwise** in their columns: tilt your head to the right to read those. (v1.x drew all the English
+rotated; v2.0 is this one edition.)
 
 Known issues: none known; see [Issues](../../issues). Link-cable play was tested only in a single emulator, not with
 two consoles.

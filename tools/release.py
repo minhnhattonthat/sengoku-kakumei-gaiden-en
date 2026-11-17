@@ -1,6 +1,8 @@
 """release.py: build, run every gate, then make and verify the BPS patch and the release zip.
 
-    python -X utf8 tools/release.py [--version 1.0] [--force] [--skip-smoke]
+    python -X utf8 tools/release.py [--version 2.0] [--force] [--skip-smoke]
+
+One edition since D18: upright English (manga-bubble dialogue, upright stacked labels).
 
 Stops at the first failure (references/pipeline.md §Release), in this order:
   1. build.py (build/sengoku_en.gba)            2. tools/check.py (tests + text lint)
@@ -29,9 +31,19 @@ from skill import SKILL as _SKILL  # noqa: E402
 SKILL = Path(_SKILL)
 
 ORIG = ROOT / "rom/Sengoku Kakumei Gaiden (Japan).gba"
-BUILT = ROOT / "build/sengoku_en.gba"
-NAME = "Sengoku_Kakumei_Gaiden_EN"
 PY = [sys.executable, "-X", "utf8"]
+READING = """READING THE TEXT
+The game was written in vertical Japanese. The dialogue reads upright, lettered like a manga's speech bubble: short
+centred lines of capitals down the game's tall scroll. The name entry, the ending and the credits are upright too.
+The narrow vertical labels (menu bars, item names, the stat block, the results screen, map plates) are drawn
+rotated 90 degrees clockwise in their columns: tilt your head to the right to read those."""
+BUILT = "build/sengoku_en.gba"
+NAME = "Sengoku_Kakumei_Gaiden_EN"
+
+
+def manifests():
+    """Every QA manifest under work/qa (visual tour, story pass)."""
+    return sorted((ROOT / "work/qa").rglob("manifest.tsv"))
 
 
 def run(step, cmd):
@@ -70,9 +82,7 @@ Patched ROM
   SHA-1  {p[sha1]}
 The patcher refuses any other dump (a different revision, a header, an already-patched copy).
 
-READING THE TEXT
-The game draws all its text in vertical columns. The English is drawn rotated 90 degrees clockwise in those same
-columns: tilt your head (or your screen) to the right. Columns run right to left, i.e. lines top to bottom.
+{reading}
 
 WHAT IS TRANSLATED
 Dialogue, story events, biographies, tutorial, menus, item and art descriptions, shops, saving, link-cable setup,
@@ -95,10 +105,11 @@ This is an unofficial patch. No ROMs are provided; do not share patched ROMs.
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--version", default="1.0")
+    ap.add_argument("--version", default="2.0")
     ap.add_argument("--force", action="store_true", help="overwrite this version's existing release files")
     ap.add_argument("--skip-smoke", action="store_true", help="only when the emulator cannot run here (not a release)")
     a = ap.parse_args()
+    built_path = ROOT / BUILT
 
     out_dir = ROOT / "release"
     patch = out_dir / f"{NAME}_v{a.version}.bps"
@@ -109,14 +120,16 @@ def main():
     run("build", PY + ["build.py"])
     run("check", PY + ["tools/check.py"])
     if not a.skip_smoke:
-        run("smoke", PY + [SKILL / "scripts/emu.py", BUILT, "--out", ROOT / "work/qa/smoke", "--route",
-                           ROOT / "tools/routes/boot.txt", "--smoke"])
-    run("jp_left", PY + [SKILL / "scripts/jp_left.py", BUILT, "--tbl", "tbl/jp.tbl", "--gba-ptrs",
+        run("smoke", PY + [SKILL / "scripts/emu.py", built_path, "--out", ROOT / "work/qa/smoke",
+                           "--route", ROOT / "tools/routes/boot.txt", "--smoke"])
+    run("jp_left", PY + [SKILL / "scripts/jp_left.py", built_path, "--tbl", "tbl/jp.tbl", "--gba-ptrs",
                          "--known", "data/jp_known.txt"])
-    manifests = sorted((ROOT / "work/qa").rglob("manifest.tsv"))
-    if not any(m.parent.name == "story" for m in manifests):
+    found = manifests()
+    if not any(m.parent.name == "story" for m in found):
         fail("qa_gate", "no story-pass manifest (work/qa/story/manifest.tsv)")
-    for m in manifests:
+    if len(found) < 2:
+        fail("qa_gate", "no visual-tour manifest")
+    for m in found:
         run(f"qa_gate {m.relative_to(ROOT)}", PY + [SKILL / "scripts/qa_gate.py", "check", m, m.parent / "verdicts"])
     run("textcover", PY + [SKILL / "scripts/textcover.py", "work/qa/cover", "build/strings.tsv",
                            "--waive", "docs/text_unshown.tsv", "--mask", "0x7FFFFF"])
@@ -130,7 +143,7 @@ def main():
     if ph:
         fail("readme", f"template placeholder(s) left in README.md: {sorted(set(ph))}")
 
-    orig, built = ORIG.read_bytes(), BUILT.read_bytes()
+    orig, built = ORIG.read_bytes(), built_path.read_bytes()
     # Debug off: the game's leftover debug menu (mode 0) is reached only through the warp tool's Lua; the release
     # build must not change the header or the boot code that picks the first mode.
     if built[:0x200] != orig[:0x200]:
@@ -140,15 +153,15 @@ def main():
             fail("debug-off", f"marker-build text {marker!r} found: rebuild with plain `build.py`")
 
     out_dir.mkdir(exist_ok=True)
-    run("bps make", PY + ["tools/bps.py", "make", ORIG, BUILT, patch])
+    run("bps make", PY + ["tools/bps.py", "make", ORIG, built_path, patch])
     check_out = ROOT / "build/release_check.gba"
     run("bps apply", PY + ["tools/bps.py", "apply", ORIG, patch, check_out])
     if check_out.read_bytes() != built:
-        fail("verify", "re-applied patch differs from build/sengoku_en.gba")
+        fail("verify", f"re-applied patch differs from {BUILT}")
     check_out.unlink()
 
     o, p = hashes(orig), hashes(built)
-    text = README.format(version=a.version, patch=patch.name, o=o, p=p)
+    text = README.format(version=a.version, patch=patch.name, o=o, p=p, reading=READING)
     with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
         z.write(patch, patch.name)
         z.writestr("README.txt", text.replace("\n", "\r\n"))

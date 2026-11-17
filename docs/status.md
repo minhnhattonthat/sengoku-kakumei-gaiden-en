@@ -2,7 +2,66 @@
 
 Updated at the end of every session. Keep it to what the next session needs; history is in git.
 
-- **Phase:** 9. Release DONE 2026-11-17: `release/Sengoku_Kakumei_Gaiden_EN_v1.0.zip` built and verified (BPS 334780 bytes + README.txt). Publishing (`gh release create`) is the owner's call. v1.0 build sha1 d7b093ee…, CRC32 A2C75821. Last build (v1.0 + English title logo + name header fix, not yet released): `build/sengoku_en.gba` sha1 ec92a3fe…, CRC32 48B4F39F (1036 strings, 759 letter pairs, 2116 writes).
+- **Phase:** 8/9 again for **v2.0, the one upright edition (D18)**. v1.0 (rotated English) was released as a zip
+  2026-11-17 and is retired; `build.py` now builds only the upright edition.
+- **D19 (2026-11-17, same session): narrow labels sideways again.** Owner found some upright labels hard to read and
+  chose "all narrow labels sideways": `tools/gfx_labels.py`, `tools/manga.py`, `tools/manga_engine.py`,
+  `data/manga_code.hex` restored from 55a1d79 (v1 rotated labels, stat digits/name letters, plates; results in v1
+  pairs); kept upright: dialogue, name grid (A-I rows, YOUR/NAME, OK), ending pages, link cards. Name report
+  ("upper case enters lower case"): **fixed** from the owner's state `work/states/onmyou_name_input.mss` (B
+  entered b): `name_grid.BLOCK1/BLOCK2` had the ぱ/ば columns swapped; checked by logging 140 presses
+  (`tools/lua/namelog.lua`, routes `work/qa/r_names*.txt`), all match the cell under the cursor; a name's I now
+  has serifs (`manga.NAME_ART`). Build `build/sengoku_en.gba` sha1 7863785d… (1345 writes), check 90 ok. The
+  full tour of the D19 build was killed by low system memory (not a build fault); rerun it with JOBS=2 when
+  memory allows. Seen: name entry, results, equip, map menu, plates, ending, link failed
+  (`work/qa/d19`). **Next:** full tour of this build, then the QA gates and `tools/release.py --version 2.0`
+  (steps below). The D18 entry below is history (its upright labels were reverted).
+- **D18 session (2026-11-17): one edition, everything upright.** Owner: "just have one version which is the manga
+  version. make the other elements readable at original orientation". Done (commit 3abea6f, branch
+  `manga-edition`): `tools/upright.py` (stacked layout: 3x7 caps, 3x5 caps when long, extra columns left to
+  right, word breaks last), every `gfx_labels` renderer upright (plates as syllable lines SA/TSU/MA; HUD weapon,
+  brush words, combo, orbs, lobby, stat grid, small digits/name letters), results titles stacked by a mode-1
+  per-glyph down-advance (entry +5; `%s` reads `[r5-2]`), results stat labels as 3x5 letter pairs (BG routine
+  0x08012A2C steps a fixed 12 px; `docs/re/manga.md`), name grid upright reading A-I across the top row, "OK" for
+  決定, "YOUR/NAME" header, ending prose/credits and link cards as horizontal pages, THE/END upright. `build.py` ->
+  `build/sengoku_en.gba` sha1 260fec83… (1458 writes, 2478 slices); `release.py` single edition, default v2.0;
+  check 91 tests ok; smoke ok. Seen in game (work/qa/up1..3): results, titles, equip, map menu, provinces, name
+  entry, lobby, combo HUD, shop.
+  **Next:** the full tour of 260fec83 (`sh tools/debug/final_tour.sh`, log `work/qa/up_tour.log`, ends
+  `FINAL_EXIT=`) -> `qa_gate.py init work/qa/manifest.tsv <tour dirs> --build build/tour.gba`, visual-QA verdicts,
+  `textcover.py work/qa/cover build/strings.tsv`, story manifest re-check, then `tools/release.py --version 2.0`.
+  Put back the final_tour.sh header comment (SRC/TOUR example: the manga variant line is stale; do not edit the
+  script while a tour runs: bash reads it incrementally).
+- **Manga edition (D16, 2026-11-17; superseded by D18 above: the plan below is done).** Owner asked for a second patch "with text running vertically like
+  the original and manga bubble translation style" and chose manga bubble over stacked letters. Done:
+  `tools/manga.py` (3x7 caps VWF, wrap 38 px + hyphenation, <= 16 px slices, layout limits), `tools/manga_engine.py`
+  + `data/manga_code.hex` (lookup, advance/`|n`/end hooks, run-time line and block centring; `docs/re/manga.md`),
+  `build.py manga` -> `build/sengoku_manga.gba` (sha1 be1b50c7…, 2385 slices, 1344 writes; also
+  `build/strings_manga.tsv`, `writes_manga.log`), `tests/test_manga.py` (11 tests; check 84 ok), smoke ok, v1 build
+  unchanged (ec92a3fe). Seen in game: opening, name confirm (`%b%n%B` colours, 8-letter name inline), map menu, equip,
+  shop, provinces, menu help, encyclopedia, dojo, deploy, link texts, ev010/030/052 (`work/qa/manga1..4`).
+  `tools/release.py --variant manga` (own manifest `work/qa/manga/manifest.tsv` + story pass, cover
+  `work/qa/manga/cover`, zip `..._EN_Manga_v<ver>`); `final_tour.sh` takes `SRC=`/`TOUR=`.
+  A full tour of be1b50c7 was started 2026-11-17 into `work/qa/manga` (log `work/qa/manga_tour.log`, ends with
+  `FINAL_EXIT=`): use it only to scan the **scroll text** for layout/engine bugs (labels will change, so its sheets
+  are not the release tour). Branch `manga-edition` (commit 5ce8e5b), not merged to main.
+  **Next (D17, owner chose upright stacked labels):** add an upright mode for this edition, keeping v1 output
+  byte-identical (test: `build.py` sha1 ec92a3fe unchanged):
+  1. `gfx_labels.py`: a module switch (e.g. `UPRIGHT`/a `style` arg to `labels_edits`) and one stacking helper:
+     manga caps (`manga.FONT`, 3x7) upright, centred across the strip, pitch 9 rows (8 if tight), a space = half
+     pitch; when one column does not fit, words go into 2 columns right to left; shadows/edges move to right/down
+     in screen terms. Route every renderer through it: strips `draw` (box, bank 22), `draw_plain` (36, 35),
+     `draw_outline` (23-31, 37-39), `draw_big` (61), `grid_edits` (32, 8 px columns), `cells_edits` (33, 34, 58),
+     `frames_edits` (26), `plates_edits` (20: 26x10 px plates, tiny font: likely 2 columns of 4), `orb_edits` (47),
+     `HORIZ` (59, already horizontal: check), small digits/kana (`small_digit_edits`, `small_kana_edits`: upright).
+  2. Results labels (mode 1, `results` bank, v1 pairs): encode upright stacked letters for this edition (a
+     second glyph set: one upright letter per 12 px cell, `manga.name_glyph` style) instead of v1 pairs.
+  3. BG pictures drawn rotated in v1: `name_grid.py` (grid letters + "Your Name" header; the grid then reads A-E down
+     the first column, columns right to left, like the kana chart), `prose.py` (ending prose: upright horizontal
+     lines like the bubbles; credits; THE END), `link_card.py` (link failed / replay). Title logo stays.
+  4. `build.make_manga` passes the switch; tests for each renderer's upright output (fits, nothing outside the
+     slot); `gfx_labels.py preview BANK` for both styles; then the real tour + visual QA + textcover, release
+     `--variant manga`.
 - **Phase 9 session 2 (2026-11-17): English title logo (D15).** Owner asked for a translated logo: SENGOKU / KAKUMEI /
   GAIDEN (`tools/title_logo.py`, font `fonts/Shojumaru-Regular.ttf` OFL, `tests/test_title_logo.py`) on both title
   pictures, the usual one and the after-clear one (record 0x7527B4, other mascot; `docs/re/graphics.md`). Build
