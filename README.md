@@ -24,8 +24,7 @@ helps most.
 The game was written in vertical Japanese. The dialogue reads **upright**, lettered like a manga's speech bubble:
 short centred lines of capitals down the game's tall scroll. The name entry, ending cards and credits are upright
 too. The narrow vertical labels (menu bars, item names, the stat block, the results screen, map plates) are drawn
-**rotated 90° clockwise** in their columns: tilt your head to the right to read those. (v1.x drew all the English
-rotated; v2.0 is this one edition.)
+**rotated 90° clockwise** in their columns: tilt your head to the right to read those.
 
 Known issues (see also [Issues](../../issues)):
 - The sideways labels (menu bars, item names, the stat block, the results screen, map plates) are a bit hard to read.

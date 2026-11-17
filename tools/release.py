@@ -1,6 +1,6 @@
 """release.py: build, run every gate, then make and verify the BPS patch and the release zip.
 
-    python -X utf8 tools/release.py [--version 2.0] [--force] [--skip-smoke]
+    python -X utf8 tools/release.py [--version 1.0] [--force] [--skip-smoke]
 
 One edition since D18: upright English (manga-bubble dialogue, upright stacked labels).
 
@@ -108,7 +108,7 @@ This is an unofficial patch. No ROMs are provided; do not share patched ROMs.
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--version", default="2.0")
+    ap.add_argument("--version", default="1.0")
     ap.add_argument("--force", action="store_true", help="overwrite this version's existing release files")
     ap.add_argument("--skip-smoke", action="store_true", help="only when the emulator cannot run here (not a release)")
     a = ap.parse_args()
