@@ -201,7 +201,9 @@ def make_manga(orig, edits):
     banks = script.load()
     rotated = {int(e["id"], 16) for b in manga.MANGA_BANKS_SKIP for e in banks.get(b, [])}
     pairs = {a: t for a, t in edits.items() if a in rotated}
-    bubbles = {a: t for a, t in edits.items() if a not in rotated}
+    lists = {int(e["id"], 16) for es in banks.values() for e in es
+             if manga.keeps_lines(int(e["id"], 16)) or (e.get("same_as") and manga.keeps_lines(int(e["same_as"], 16)))}
+    bubbles = {a: manga.keep_lines(t) if a in lists else t for a, t in edits.items() if a not in rotated}
     penc = font_en.Encoder(pairs.values()) if pairs else None
     menc = manga.Encoder(bubbles.values())
     raw = {**{a: penc.encode(t) for a, t in pairs.items()}, **{a: menc.encode(t) for a, t in bubbles.items()}}

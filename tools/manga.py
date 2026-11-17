@@ -142,6 +142,25 @@ CODE_B0 = (0x01, 0x25)         # slice codes: b0 0x01-0x24, b1 0x01-0xFF
 MAX_SLICES = (CODE_B0[1] - CODE_B0[0]) * 255
 MANGA_BANKS_SKIP = {"results"}  # drawn by mode 1 in one-column label boxes: kept in the v1 rotated pairs
 
+# Lists, not prose: each `|n` line is its own field ("Common Sword, Blue|nRaises speed|nAllows Charge Attack 1",
+# "Dash: R + direction|nChange art: SELECT"), so the soft-break re-wrap would run the fields together. Their
+# `|n` become hard breaks (keep_lines). Equipment and art descriptions (system 0x04E218..0x04FDB4, all 138
+# entries), the control lists in menu help, the map's button help; dups of these follow their twin (build.py).
+KEEP_LINES_RANGE = (0x04E218, 0x04FDB4)
+KEEP_LINES_IDS = {0x04CE7C, 0x04CEC0, 0x05E754}
+
+
+def keeps_lines(addr):
+    return KEEP_LINES_RANGE[0] <= addr <= KEEP_LINES_RANGE[1] or addr in KEEP_LINES_IDS
+
+
+def keep_lines(text):
+    """Each field ends with a full stop unless it has its own punctuation, and starts a new line (`|n|n`, which
+    wrap() keeps as a line break, no blank line). The narrow scroll wraps most fields a word per line anyway, so
+    the stop is what shows where one field ends (visual QA: "COMMON SWORD, BLUE RAISES SPEED ALLOWS...")."""
+    fields = [f.strip() for f in re.split(r"(?:\|n)+", text)]
+    return "|n|n".join(f if not f or re.search(r"[.!?:;,…]$", f) else f + "." for f in fields)
+
 
 COLOURS = {"%b": "\x01", "%B": "\x02", "%r": "\x03"}   # zero-width marks in the layout, codes again in the output
 UNCOLOUR = {v: k for k, v in COLOURS.items()}
@@ -356,6 +375,7 @@ def glyph_bytes(s):
 
 
 NAME_COL_X = 4   # a name letter's ink starts here, so a letter stacks centred in a 12 px column (mode 1)
+NAME_TOP = 2     # and at this glyph row (a slice's caps start at row 0): mode 0 raises a name sprite by this much
 
 
 # Player-name letters that differ from the scroll's caps: the bare 1 px I read as a lower-case l in the name box
@@ -378,7 +398,7 @@ def name_glyph(ch):
     for r, line in enumerate(name_art(ch)):
         for c, px in enumerate(line):
             if px == "#":
-                rows[r + 2] |= 0x8000 >> (NAME_COL_X + c)
+                rows[r + NAME_TOP] |= 0x8000 >> (NAME_COL_X + c)
     return b"".join(struct.pack(">H", v) for v in rows)
 
 

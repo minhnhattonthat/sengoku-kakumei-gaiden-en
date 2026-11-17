@@ -131,6 +131,9 @@ def handlers_src():
         lsls r2, r2, #9
         orrs r2, r3
         strh r2, [r1, #2]
+        ldrb r2, [r1]                   @ and up by NAME_TOP: its ink starts at glyph row NAME_TOP, a slice's at 0
+        subs r2, #{manga.NAME_TOP}
+        strb r2, [r1]
         ldr r0, [sp, #16]               @ saved r5: this letter's u16 (name-grid index + 1)
         ldrh r0, [r0]
         subs r0, #1
@@ -233,9 +236,12 @@ def handlers_src():
         adds r5, r5, r3
         lsls r5, r5, #3
         adds r5, r4, r5
-        ldrb r6, [r5]
-        cmp r6, r2
-        bne cr_next
+        ldrb r6, [r5]                   @ this line: y = line y, or up to NAME_TOP above it (a name letter)
+        subs r6, r2, r6
+        lsls r6, r6, #24
+        lsrs r6, r6, #24
+        cmp r6, #{manga.NAME_TOP}
+        bhi cr_next
         ldrh r6, [r5, #2]
         adds r7, r6, r1
         lsls r7, r7, #23

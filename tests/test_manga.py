@@ -80,6 +80,21 @@ class Code(unittest.TestCase):
 
 
 @unittest.skipIf(ORIG is None, "needs the original ROM")
+class KeepLines(unittest.TestCase):
+    def test_fields_get_a_stop_and_their_own_line(self):
+        t = manga.keep_lines("Common Sword, Blue|nRaises speed|nAllows Charge Attack 1")
+        self.assertEqual(t, "Common Sword, Blue.|n|nRaises speed.|n|nAllows Charge Attack 1.")
+        self.assertEqual(manga.wrap(t)[0].rstrip(), "Common")  # each field starts a line; the stop stays on
+        self.assertTrue(manga.wrap(t)[-1].endswith("1."))
+        self.assertEqual(manga.keep_lines("START: Menu|nA: Choose a province"), "START: Menu.|n|nA: Choose a province.")
+        self.assertEqual(manga.keep_lines("Saved.|nDone!"), "Saved.|n|nDone!")
+
+    def test_scope_is_the_description_block_and_the_lists(self):
+        descs = [e for e in script.load()["system"] if manga.keeps_lines(int(e["id"], 16))]
+        self.assertEqual(len(descs), 138)
+        self.assertTrue(all(e.get("kind") == "text" and "|n" in e["en"] for e in descs))
+
+
 class Build(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
