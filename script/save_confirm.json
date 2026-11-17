@@ -19,7 +19,7 @@
   "room": 48,
   "kind": "text",
   "jp": "%b%n　%Bでいいですか？|n%rＡ…決定　Ｂ…戻る|n",
-  "en": "%b%n%B, OK?|n%rA: Select  B: Back|n",
+  "en": "%b%n%B, OK?|n|n%rA: Select|n|nB: Back|n",
   "notes": "",
   "status": "done"
  },

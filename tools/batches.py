@@ -156,7 +156,7 @@ def width_problems(entry, en):
     """Lines are |n-separated columns; a line's cells = its letter pairs (tools/font_en.py) + NAME_CELLS per %n."""
     import font_en
     cells, lines = budget(entry)
-    rows = en.split("|n")
+    rows = re.sub(r"(?:\|n){2,}", "|n", en).split("|n")  # |n|n: a hard break in the manga layout, not a blank line
     if len(rows) > 1 and rows[-1] == "":
         rows = rows[:-1]
     out = []
