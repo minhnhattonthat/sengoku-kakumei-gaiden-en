@@ -13,10 +13,26 @@ Updated at the end of every session. Keep it to what the next session needs; his
   shop, provinces, menu help, encyclopedia, dojo, deploy, link texts, ev010/030/052 (`work/qa/manga1..4`).
   `tools/release.py --variant manga` (own manifest `work/qa/manga/manifest.tsv` + story pass, cover
   `work/qa/manga/cover`, zip `..._EN_Manga_v<ver>`); `final_tour.sh` takes `SRC=`/`TOUR=`.
-  **Next:** full tour on `build/tour_manga.gba` into `work/qa/manga` (log `work/qa/manga_tour.log`), then
-  `qa_gate.py init work/qa/manga/manifest.tsv <dirs> --build build/tour_manga.gba`, visual-QA chunks, textcover on
-  `work/qa/manga/cover build/strings_manga.tsv`. Open owner question: redraw the sideways graphics labels (menus, item
-  names, results) upright for this edition, or keep v1's.
+  A full tour of be1b50c7 was started 2026-11-17 into `work/qa/manga` (log `work/qa/manga_tour.log`, ends with
+  `FINAL_EXIT=`): use it only to scan the **scroll text** for layout/engine bugs (labels will change, so its sheets
+  are not the release tour). Branch `manga-edition` (commit 5ce8e5b), not merged to main.
+  **Next (D17, owner chose upright stacked labels):** add an upright mode for this edition, keeping v1 output
+  byte-identical (test: `build.py` sha1 ec92a3fe unchanged):
+  1. `gfx_labels.py`: a module switch (e.g. `UPRIGHT`/a `style` arg to `labels_edits`) and one stacking helper:
+     manga caps (`manga.FONT`, 3x7) upright, centred across the strip, pitch 9 rows (8 if tight), a space = half
+     pitch; when one column does not fit, words go into 2 columns right to left; shadows/edges move to right/down
+     in screen terms. Route every renderer through it: strips `draw` (box, bank 22), `draw_plain` (36, 35),
+     `draw_outline` (23-31, 37-39), `draw_big` (61), `grid_edits` (32, 8 px columns), `cells_edits` (33, 34, 58),
+     `frames_edits` (26), `plates_edits` (20: 26x10 px plates, tiny font: likely 2 columns of 4), `orb_edits` (47),
+     `HORIZ` (59, already horizontal: check), small digits/kana (`small_digit_edits`, `small_kana_edits`: upright).
+  2. Results labels (mode 1, `results` bank, v1 pairs): encode upright stacked letters for this edition (a
+     second glyph set: one upright letter per 12 px cell, `manga.name_glyph` style) instead of v1 pairs.
+  3. BG pictures drawn rotated in v1: `name_grid.py` (grid letters + "Your Name" header; the grid then reads A-E down
+     the first column, columns right to left, like the kana chart), `prose.py` (ending prose: upright horizontal
+     lines like the bubbles; credits; THE END), `link_card.py` (link failed / replay). Title logo stays.
+  4. `build.make_manga` passes the switch; tests for each renderer's upright output (fits, nothing outside the
+     slot); `gfx_labels.py preview BANK` for both styles; then the real tour + visual QA + textcover, release
+     `--variant manga`.
 - **Phase 9 session 2 (2026-11-17): English title logo (D15).** Owner asked for a translated logo: SENGOKU / KAKUMEI /
   GAIDEN (`tools/title_logo.py`, font `fonts/Shojumaru-Regular.ttf` OFL, `tests/test_title_logo.py`) on both title
   pictures, the usual one and the after-clear one (record 0x7527B4, other mascot; `docs/re/graphics.md`). Build
