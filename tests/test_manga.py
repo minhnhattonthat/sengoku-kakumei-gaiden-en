@@ -112,6 +112,20 @@ class Build(unittest.TestCase):
         end = 0x7E0100 + (base + len(self.enc.slices)) * 32
         self.assertLessEqual(end, manga_engine.CODE_AT)
 
+    def test_dups_match_their_twins(self):
+        """Every `dup` entry (same_as a translated twin) holds its twin's bytes. tools/waivers.py relies on this
+        for menu_help2 pages 0x29/0x2A (shop lines), which text coverage can't reach but the game draws."""
+        def at(rom, a):
+            return rom[a:rom.index(b"\0", a)]
+        bad = []
+        for es in script.load().values():
+            for e in es:
+                if e.get("kind") == "dup" and e.get("same_as"):
+                    a, t = int(e["id"], 16), int(e["same_as"], 16)
+                    if at(self.new, a) != at(self.new, t) or at(self.new, a) == at(ORIG, a):
+                        bad.append(e["id"])
+        self.assertEqual(bad, [])
+
 
 if __name__ == "__main__":
     unittest.main()

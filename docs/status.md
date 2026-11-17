@@ -10,7 +10,13 @@ Updated at the end of every session. Keep it to what the next session needs; his
   history, known issue (sideways labels a bit hard to read, technical limitation) in README.md and
   `tools/release.py`. The full tour (JOBS=2, log `work/qa/rel_tour.log`) was killed again by low system memory
   during `pages` (another project, vattroller-x-en, was running ~1 GB Mesens beside it); `tour` itself had finished.
-  **Next:** rerun `JOBS=2 sh tools/debug/final_tour.sh` when memory allows, then `qa_gate.py init work/qa/manifest.tsv
+  **2026-11-18:** the owner ran the full tour by hand: 312 ok, 0 FAIL, on 7863785d. Textcover green (961 shown,
+  76 waived) after: mhelp AFTER=4900 -> 3700 (the menu redraws began earlier, so 15 pages were never stepped;
+  re-run with `sh tools/debug/rerun_section.sh mhelp`), and 10 menu_help2 dup waivers (`tools/waivers.py`; the
+  manga build keeps dups at their own address, byte-identical to their twins: `test_dups_match_their_twins`).
+  Manifest re-inited (832 sheets); old verdicts moved to `work/qa/verdicts_pre_v1`; reviewers on
+  `work/qa/chunks_rel/chunk_000..027` -> `work/qa/verdicts/chunk_NNN.tsv` (4 at a time).
+  **Next (was):** rerun `JOBS=2 sh tools/debug/final_tour.sh` when memory allows, then `qa_gate.py init work/qa/manifest.tsv
   <dirs> --build build/tour.gba`, visual-QA verdicts, textcover, `tools/release.py --version 1.0 --force`, push, set public
   (topics fan-translation, gba; description "English fan translation of Sengoku Kakumei Gaiden (GBA)"), release.
 - **D19 (2026-11-17, same session): narrow labels sideways again.** Owner found some upright labels hard to read and

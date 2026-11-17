@@ -34,7 +34,7 @@ grep -E '^[a-z0-9_]+ .*(ev=|dlg=)' tools/debug/scenes.txt > "$Q/pages_scenes.txt
 run pages --jobs $J --scenes-file "$Q/pages_scenes.txt" --var PAGES=2400
 run desc item_desc --script tools/lua/itemdesc.lua --var STEP=1 --shot-every 40
 run prov provinces --script tools/lua/liststep.lua --var LIST=0x08731448 --var N=51 --var STEP=1 --shot-every 90
-run mhelp menu_help --script tools/lua/liststep.lua --var LIST=0x087303B8 --var N=46 --var STEP=1 --var AFTER=4900 --shot-every 60
+run mhelp menu_help --script tools/lua/liststep.lua --var LIST=0x087303B8 --var N=46 --var STEP=1 --var AFTER=3700 --shot-every 60
 run enc encyclopedia_all --shot-every 56
 run restitles results_titles --script tools/lua/results.lua --var STEP=1 --shot-every 100
 for k in 0x17 0x29 0x33; do
