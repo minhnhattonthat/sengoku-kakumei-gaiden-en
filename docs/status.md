@@ -16,6 +16,17 @@ Updated at the end of every session. Keep it to what the next session needs; his
   manga build keeps dups at their own address, byte-identical to their twins: `test_dups_match_their_twins`).
   Manifest re-inited (832 sheets); old verdicts moved to `work/qa/verdicts_pre_v1`; reviewers on
   `work/qa/chunks_rel/chunk_000..027` -> `work/qa/verdicts/chunk_NNN.tsv` (4 at a time).
+  Reviewer finds fixed in 528d9bf (build fcc9f1dc…): player name 2 px low in the scroll (raised hyphen/stop
+  after it); list fields run together (equipment/art descriptions, control lists: now "FIELD." per line).
+  Chunks 000-008 verdicts done on the 7863785d sheets (all ok except the 4 sheets of those two finds).
+  All 28 chunks reviewed. Also fixed: wrap leaving a short word alone before a split word (2c58660), name-confirm
+  key help (d47634f), the dojo's "よし！" never extracted (link bank ended at its address; dafb942). Ruled ok
+  (`verdicts/recheck_1.tsv`, brief): magatama white scroll (original does it), results titles mid-redraw.
+  Release candidate build 925a2b45…. Stale manifest ids with no sheet file (combo/sheet_3, deploy_confirm/sheet_3,
+  ev073_resume/sheet_3, item_desc/sheet_7, provinces/sheet_5, mhelp/menu_help/sheet_6, pages/ev056|ev058/sheet_3):
+  drop them from the manifest after the re-tour.
+  **Then:** the owner re-runs the full tour on the new build, `qa_gate.py init` (unchanged
+  sheets keep verdicts), review only the changed sheets, textcover, release.
   **Next (was):** rerun `JOBS=2 sh tools/debug/final_tour.sh` when memory allows, then `qa_gate.py init work/qa/manifest.tsv
   <dirs> --build build/tour.gba`, visual-QA verdicts, textcover, `tools/release.py --version 1.0 --force`, push, set public
   (topics fan-translation, gba; description "English fan translation of Sengoku Kakumei Gaiden (GBA)"), release.
