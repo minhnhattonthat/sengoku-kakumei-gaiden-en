@@ -111,6 +111,9 @@ def main():
     ap.add_argument("--version", default="1.0")
     ap.add_argument("--force", action="store_true", help="overwrite this version's existing release files")
     ap.add_argument("--skip-smoke", action="store_true", help="only when the emulator cannot run here (not a release)")
+    ap.add_argument("--visual-waived", action="store_true",
+                    help="owner's call only (D21): skip the visual-tour verdicts when `qa_gate.py waive` recorded a "
+                         "reason for this exact build; the story pass and every other gate still run")
     a = ap.parse_args()
     built_path = ROOT / BUILT
 
@@ -133,6 +136,14 @@ def main():
     if len(found) < 2:
         fail("qa_gate", "no visual-tour manifest")
     for m in found:
+        if a.visual_waived and m.parent.name != "story":
+            waiver = Path(str(m) + ".waive")
+            sha = hashlib.sha1(built_path.read_bytes()).hexdigest()
+            line = waiver.read_text(encoding="utf-8").strip() if waiver.exists() else ""
+            if not line.startswith(sha + "\t"):
+                fail("qa_gate", f"--visual-waived needs a qa_gate.py waive for this build ({sha[:8]}) in {waiver.name}")
+            print(f"WAIVED qa_gate {m.relative_to(ROOT)}: {line.split(chr(9), 1)[1]}")
+            continue
         run(f"qa_gate {m.relative_to(ROOT)}", PY + [SKILL / "scripts/qa_gate.py", "check", m, m.parent / "verdicts"])
     run("textcover", PY + [SKILL / "scripts/textcover.py", "work/qa/cover", "build/strings.tsv",
                            "--waive", "docs/text_unshown.tsv", "--mask", "0x7FFFFF"])
