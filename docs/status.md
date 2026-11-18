@@ -4,7 +4,12 @@ Updated at the end of every session. Keep it to what the next session needs; his
 
 - **Phase:** 8/9 again for **v2.0, the one upright edition (D18)**. v1.0 (rotated English) was released as a zip
   2026-11-17 and is retired; `build.py` now builds only the upright edition.
-- **Release v1.0 in progress (D20, 2026-11-17):** owner asked to release and publish (public repo + `gh release
+- **v1.0 released (2026-11-18):** re-tour of 925a2b45 by the owner (312 ok, 0 FAIL), textcover green (962 shown,
+  76 waived), visual verdicts waived by the owner (D21), `tools/release.py --version 1.0 --force --visual-waived`
+  -> `release/Sengoku_Kakumei_Gaiden_EN_v1.0.zip` (patch 393794 bytes; patched CRC32 00C56B55, sha1 925a2b45…).
+  Repo made public and GitHub release v1.0 published (D20). **Next:** player bug reports (GitHub issues); optional:
+  the link END card upright (bank 34 is v1's sideways drawing; owner not asked to rule yet).
+- **Release v1.0 prep (D20, 2026-11-17):** owner asked to release and publish (public repo + `gh release
   create v1.0`). Version is **1.0** (the old rotated v1.0 zip in `release/` was never published: run
   `tools/release.py --version 1.0 --force` to replace it). Done: build re-made (sha1 7863785d…, check ok), story gate ok, polish.md clean, no ROM/save in
   history, known issue (sideways labels a bit hard to read, technical limitation) in README.md and
